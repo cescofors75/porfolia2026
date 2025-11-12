@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 173 80% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 192 91% 36%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 210 40% 92%;
+    --muted-foreground: 215 20% 35%;
+    --border: 214 32% 85%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 15%;
+    --card-foreground: 210 40% 98%;
+    --primary: 160 84% 45%;
+    --primary-foreground: 222 47% 11%;
+    --secondary: 173 80% 46%;
+    --secondary-foreground: 222 47% 11%;
+    --accent: 192 91% 42%;
+    --accent-foreground: 222 47% 11%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 70%;
+    --border: 217 33% 22%;
+  }
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground;
+  font-feature-settings: "rounding-mode" 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-display: swap;
+}
+
+/* Efecto glassmorphism */
+.glass {
+  @apply backdrop-blur-md bg-white/10 border border-white/20;
+  will-change: transform;
+}
+
+.glass-dark {
+  @apply backdrop-blur-md bg-black/10 border border-white/10;
+  will-change: transform;
+}
+
+/* Efecto glow */
+.glow {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+.glow-lg {
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.4);
+}
+
+/* Gradientes */
+.gradient-primary {
+  @apply bg-gradient-to-r from-primary via-secondary to-accent;
+}
+
+.gradient-text {
+  @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent;
+}
+
+/* Smooth scrolling */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-muted rounded-full hover:bg-muted-foreground;
+}
