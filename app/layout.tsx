@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer";
 import { ThemeSelector } from "@/components/theme-selector";
 import { LanguageSelector } from "@/components/language-selector";
 import { LanguageProvider } from "@/lib/language-context";
+import { Analytics } from "@vercel/analytics/next";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -65,6 +66,7 @@ export default function RootLayout({
           <ThemeSelector />
           <LanguageSelector />
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );
