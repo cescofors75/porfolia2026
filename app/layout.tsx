@@ -41,9 +41,6 @@ export const metadata: Metadata = {
     title: "Francesc 'Cesco' Fors | Senior Full Stack Developer",
     description: "Senior Full Stack Developer con más de 25 años de experiencia. Especializado en JavaScript, TypeScript, React, Next.js, C# e IA.",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({
