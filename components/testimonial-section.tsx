@@ -4,29 +4,13 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
-const testimonials = [
-  {
-    author: "VisitToo.com",
-    role: "Empresa de Travel Tech",
-    text: "Excelente trabajo en el desarrollo de APIs REST con Next.js y C#. Implementación impecable de pasarelas de pago y sistemas DevOps en Azure.",
-    rating: 5,
-  },
-  {
-    author: "Euro4x4parts",
-    role: "Departamento de R+D",
-    text: "Soluciones innovadoras en IoT y sistemas OBD2. Gran capacidad técnica para conectar vehículos antiguos con tecnología moderna.",
-    rating: 5,
-  },
-  {
-    author: "Microsoft Startup Founders Hub",
-    role: "Patrocinador de Baco AI",
-    text: "Proyecto innovador con patrones dinámicos de RAG y embeddings. Implementación profesional de IA aplicada al sector gastronómico.",
-    rating: 5,
-  },
-];
-
 export function TestimonialSection() {
   const { t } = useLanguage();
+  
+  const testimonials = t.testimonials.items.map(item => ({
+    ...item,
+    rating: 5,
+  }));
   
   return (
     <section className="py-20 px-4">

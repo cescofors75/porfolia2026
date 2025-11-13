@@ -4,49 +4,37 @@ import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
-const projects = [
+const projectsData = [
   {
     id: 1,
-    title: "Baco AI",
-    description: "Sommelier Virtual con IA. Servicio para crear sommeliers personalizados con RAG y embeddings dinámicos",
     category: "IA & SaaS",
     color: "from-purple-500 to-pink-500",
     link: "https://baco.cat",
   },
   {
     id: 2,
-    title: "ineditrestaurant.com",
-    description: "Web moderna desarrollada con Next.js para restaurante gourmet",
     category: "Web Development",
     color: "from-blue-500 to-cyan-500",
     link: "https://ineditrestaurant.com",
   },
   {
     id: 3,
-    title: "tempspervi.com",
-    description: "Plataforma web especializada en vinos desarrollada con Next.js",
     category: "Web Development",
     color: "from-green-500 to-emerald-500",
     link: "https://tempspervi.com",
   },
   {
     id: 4,
-    title: "VisitToo.com",
-    description: "APIs REST con Next.js y C#. WhiteLabel, integración Stripe/Redsys, PDFs dinámicos y DevOps Azure",
     category: "Full Stack & DevOps",
     color: "from-orange-500 to-red-500",
   },
   {
     id: 5,
-    title: "Euro4x4parts - Sistema OBD2",
-    description: "Sistema IoT para vehículos 4x4 antiguos conectados a internet con diagnóstico OBD2",
     category: "IoT & R+D",
     color: "from-indigo-500 to-purple-500",
   },
   {
     id: 6,
-    title: "Business Intelligence",
-    description: "Sistemas de reporting y análisis de datos con Power BI y Azure",
     category: "Data Analytics",
     color: "from-teal-500 to-blue-500",
   },
@@ -54,6 +42,12 @@ const projects = [
 
 export function PortfolioGrid() {
   const { t } = useLanguage();
+  
+  const projects = projectsData.map((project, index) => ({
+    ...project,
+    title: t.portfolio.projects[index].title,
+    description: t.portfolio.projects[index].description,
+  }));
   
   const containerVariants = {
     hidden: { opacity: 0 },

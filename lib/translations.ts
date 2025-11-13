@@ -34,6 +34,32 @@ export const translations = {
         iot: "IoT & R+D",
         data: "Anàlisi de Dades",
       },
+      projects: [
+        {
+          title: "Baco AI",
+          description: "Sommelier Virtual amb IA. Servei per crear sommeliers personalitzats amb RAG i embeddings dinàmics",
+        },
+        {
+          title: "ineditrestaurant.com",
+          description: "Web moderna desenvolupada amb Next.js per a restaurant gourmet",
+        },
+        {
+          title: "tempspervi.com",
+          description: "Plataforma web especialitzada en vins desenvolupada amb Next.js",
+        },
+        {
+          title: "VisitToo.com",
+          description: "APIs REST amb Next.js i C#. WhiteLabel, integració Stripe/Redsys, PDFs dinàmics i DevOps Azure",
+        },
+        {
+          title: "Euro4x4parts - Sistema OBD2",
+          description: "Sistema IoT per a vehicles 4x4 antics connectats a internet amb diagnòstic OBD2",
+        },
+        {
+          title: "Business Intelligence",
+          description: "Sistemes de reporting i anàlisi de dades amb Power BI i Azure",
+        },
+      ],
     },
     // Skills
     skills: {
@@ -50,6 +76,23 @@ export const translations = {
     testimonials: {
       title: "Referències",
       subtitle: "El que diuen sobre el meu treball en projectes i col·laboracions",
+      items: [
+        {
+          author: "VisitToo.com",
+          role: "Empresa de Travel Tech",
+          text: "Excel·lent treball en el desenvolupament d'APIs REST amb Next.js i C#. Implementació impecable de passarel·les de pagament i sistemes DevOps a Azure.",
+        },
+        {
+          author: "Euro4x4parts",
+          role: "Departament de R+D",
+          text: "Solucions innovadores en IoT i sistemes OBD2. Gran capacitat tècnica per connectar vehicles antics amb tecnologia moderna.",
+        },
+        {
+          author: "Microsoft Startup Founders Hub",
+          role: "Patrocinador de Baco AI",
+          text: "Projecte innovador amb patrons dinàmics de RAG i embeddings. Implementació professional d'IA aplicada al sector gastronòmic.",
+        },
+      ],
     },
     // CTA
     cta: {
@@ -113,6 +156,32 @@ export const translations = {
         iot: "IoT & R+D",
         data: "Análisis de Datos",
       },
+      projects: [
+        {
+          title: "Baco AI",
+          description: "Sommelier Virtual con IA. Servicio para crear sommeliers personalizados con RAG y embeddings dinámicos",
+        },
+        {
+          title: "ineditrestaurant.com",
+          description: "Web moderna desarrollada con Next.js para restaurante gourmet",
+        },
+        {
+          title: "tempspervi.com",
+          description: "Plataforma web especializada en vinos desarrollada con Next.js",
+        },
+        {
+          title: "VisitToo.com",
+          description: "APIs REST con Next.js y C#. WhiteLabel, integración Stripe/Redsys, PDFs dinámicos y DevOps Azure",
+        },
+        {
+          title: "Euro4x4parts - Sistema OBD2",
+          description: "Sistema IoT para vehículos 4x4 antiguos conectados a internet con diagnóstico OBD2",
+        },
+        {
+          title: "Business Intelligence",
+          description: "Sistemas de reporting y análisis de datos con Power BI y Azure",
+        },
+      ],
     },
     // Skills
     skills: {
@@ -129,6 +198,23 @@ export const translations = {
     testimonials: {
       title: "Referencias",
       subtitle: "Lo que dicen sobre mi trabajo en proyectos y colaboraciones",
+      items: [
+        {
+          author: "VisitToo.com",
+          role: "Empresa de Travel Tech",
+          text: "Excelente trabajo en el desarrollo de APIs REST con Next.js y C#. Implementación impecable de pasarelas de pago y sistemas DevOps en Azure.",
+        },
+        {
+          author: "Euro4x4parts",
+          role: "Departamento de R+D",
+          text: "Soluciones innovadoras en IoT y sistemas OBD2. Gran capacidad técnica para conectar vehículos antiguos con tecnología moderna.",
+        },
+        {
+          author: "Microsoft Startup Founders Hub",
+          role: "Patrocinador de Baco AI",
+          text: "Proyecto innovador con patrones dinámicos de RAG y embeddings. Implementación profesional de IA aplicada al sector gastronómico.",
+        },
+      ],
     },
     // CTA
     cta: {
@@ -192,6 +278,32 @@ export const translations = {
         iot: "IoT & R+D",
         data: "Data Analytics",
       },
+      projects: [
+        {
+          title: "Baco AI",
+          description: "Virtual Sommelier with AI. Service to create personalized sommeliers with RAG and dynamic embeddings",
+        },
+        {
+          title: "ineditrestaurant.com",
+          description: "Modern website developed with Next.js for gourmet restaurant",
+        },
+        {
+          title: "tempspervi.com",
+          description: "Specialized wine web platform developed with Next.js",
+        },
+        {
+          title: "VisitToo.com",
+          description: "REST APIs with Next.js and C#. WhiteLabel, Stripe/Redsys integration, dynamic PDFs and Azure DevOps",
+        },
+        {
+          title: "Euro4x4parts - OBD2 System",
+          description: "IoT system for old 4x4 vehicles connected to the internet with OBD2 diagnostics",
+        },
+        {
+          title: "Business Intelligence",
+          description: "Reporting and data analysis systems with Power BI and Azure",
+        },
+      ],
     },
     // Skills
     skills: {
@@ -208,6 +320,23 @@ export const translations = {
     testimonials: {
       title: "References",
       subtitle: "What they say about my work on projects and collaborations",
+      items: [
+        {
+          author: "VisitToo.com",
+          role: "Travel Tech Company",
+          text: "Excellent work developing REST APIs with Next.js and C#. Impeccable implementation of payment gateways and DevOps systems in Azure.",
+        },
+        {
+          author: "Euro4x4parts",
+          role: "R&D Department",
+          text: "Innovative solutions in IoT and OBD2 systems. Great technical capacity to connect old vehicles with modern technology.",
+        },
+        {
+          author: "Microsoft Startup Founders Hub",
+          role: "Baco AI Sponsor",
+          text: "Innovative project with dynamic RAG patterns and embeddings. Professional implementation of AI applied to the gastronomic sector.",
+        },
+      ],
     },
     // CTA
     cta: {
@@ -271,6 +400,32 @@ export const translations = {
         iot: "IoT & R+D",
         data: "Analyse de Données",
       },
+      projects: [
+        {
+          title: "Baco AI",
+          description: "Sommelier Virtuel avec IA. Service pour créer des sommeliers personnalisés avec RAG et embeddings dynamiques",
+        },
+        {
+          title: "ineditrestaurant.com",
+          description: "Site web moderne développé avec Next.js pour restaurant gastronomique",
+        },
+        {
+          title: "tempspervi.com",
+          description: "Plateforme web spécialisée dans les vins développée avec Next.js",
+        },
+        {
+          title: "VisitToo.com",
+          description: "APIs REST avec Next.js et C#. WhiteLabel, intégration Stripe/Redsys, PDFs dynamiques et DevOps Azure",
+        },
+        {
+          title: "Euro4x4parts - Système OBD2",
+          description: "Système IoT pour véhicules 4x4 anciens connectés à Internet avec diagnostic OBD2",
+        },
+        {
+          title: "Business Intelligence",
+          description: "Systèmes de reporting et d'analyse de données avec Power BI et Azure",
+        },
+      ],
     },
     // Skills
     skills: {
@@ -287,6 +442,23 @@ export const translations = {
     testimonials: {
       title: "Références",
       subtitle: "Ce qu'ils disent de mon travail sur les projets et collaborations",
+      items: [
+        {
+          author: "VisitToo.com",
+          role: "Entreprise de Travel Tech",
+          text: "Excellent travail dans le développement d'APIs REST avec Next.js et C#. Implémentation impeccable des passerelles de paiement et systèmes DevOps sur Azure.",
+        },
+        {
+          author: "Euro4x4parts",
+          role: "Département R&D",
+          text: "Solutions innovantes en IoT et systèmes OBD2. Grande capacité technique pour connecter des véhicules anciens avec la technologie moderne.",
+        },
+        {
+          author: "Microsoft Startup Founders Hub",
+          role: "Sponsor de Baco AI",
+          text: "Projet innovant avec des modèles dynamiques de RAG et embeddings. Implémentation professionnelle d'IA appliquée au secteur gastronomique.",
+        },
+      ],
     },
     // CTA
     cta: {
