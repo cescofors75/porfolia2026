@@ -33,6 +33,7 @@ const projectsData = [
     id: 5,
     category: "Full Stack & DevOps",
     color: "from-orange-500 to-red-500",
+    link: "https://visittoo.com",
   },
   {
     id: 6,
