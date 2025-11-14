@@ -36,6 +36,10 @@ export const translations = {
       },
       projects: [
         {
+          title: "ToonJS",
+          description: "Biblioteca TypeScript d'alt rendiment per manipulació de dades tabulars. 60+ mètodes optimitzats, 0 dependències, 100% cobertura de tests. Publicada a NPM",
+        },
+        {
           title: "Baco AI",
           description: "Sommelier Virtual amb IA. Servei per crear sommeliers personalitzats amb RAG i embeddings dinàmics",
         },
@@ -157,6 +161,10 @@ export const translations = {
         data: "Análisis de Datos",
       },
       projects: [
+        {
+          title: "ToonJS",
+          description: "Biblioteca TypeScript de alto rendimiento para manipulación de datos tabulares. 60+ métodos optimizados, 0 dependencias, 100% cobertura de tests. Publicada en NPM",
+        },
         {
           title: "Baco AI",
           description: "Sommelier Virtual con IA. Servicio para crear sommeliers personalizados con RAG y embeddings dinámicos",
@@ -280,6 +288,10 @@ export const translations = {
       },
       projects: [
         {
+          title: "ToonJS",
+          description: "High-performance TypeScript library for tabular data manipulation. 60+ optimized methods, 0 dependencies, 100% test coverage. Published on NPM",
+        },
+        {
           title: "Baco AI",
           description: "Virtual Sommelier with AI. Service to create personalized sommeliers with RAG and dynamic embeddings",
         },
@@ -401,6 +413,10 @@ export const translations = {
         data: "Analyse de Données",
       },
       projects: [
+        {
+          title: "ToonJS",
+          description: "Bibliothèque TypeScript haute performance pour la manipulation de données tabulaires. 60+ méthodes optimisées, 0 dépendances, 100% de couverture de tests. Publiée sur NPM",
+        },
         {
           title: "Baco AI",
           description: "Sommelier Virtuel avec IA. Service pour créer des sommeliers personnalisés avec RAG et embeddings dynamiques",

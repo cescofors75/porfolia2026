@@ -7,34 +7,40 @@ import { useLanguage } from "@/lib/language-context";
 const projectsData = [
   {
     id: 1,
+    category: "Data Analytics",
+    color: "from-cyan-500 to-blue-500",
+    link: "https://www.npmjs.com/package/@cescofors/toonjs",
+  },
+  {
+    id: 2,
     category: "IA & SaaS",
     color: "from-purple-500 to-pink-500",
     link: "https://baco.cat",
   },
   {
-    id: 2,
+    id: 3,
     category: "Web Development",
     color: "from-blue-500 to-cyan-500",
     link: "https://ineditrestaurant.com",
   },
   {
-    id: 3,
+    id: 4,
     category: "Web Development",
     color: "from-green-500 to-emerald-500",
     link: "https://tempspervi.com",
   },
   {
-    id: 4,
+    id: 5,
     category: "Full Stack & DevOps",
     color: "from-orange-500 to-red-500",
   },
   {
-    id: 5,
+    id: 6,
     category: "IoT & R+D",
     color: "from-indigo-500 to-purple-500",
   },
   {
-    id: 6,
+    id: 7,
     category: "Data Analytics",
     color: "from-teal-500 to-blue-500",
   },
