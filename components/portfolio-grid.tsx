@@ -10,6 +10,7 @@ const projectsData = [
     category: "Data Analytics",
     color: "from-cyan-500 to-blue-500",
     link: "https://www.npmjs.com/package/@cescofors/toonjs",
+    docLink: "http://toonjs.dev",
   },
   {
     id: 2,
@@ -129,16 +130,30 @@ export function PortfolioGrid() {
 
                 {/* Hover Button */}
                 {project.link ? (
-                  <motion.a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    {t.portfolio.viewProject}
-                    <ExternalLink size={16} />
-                  </motion.a>
+                  <div className="flex flex-col gap-2">
+                    <motion.a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      {t.portfolio.viewProject}
+                      <ExternalLink size={16} />
+                    </motion.a>
+                    {project.docLink && (
+                      <motion.a
+                        href={project.docLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 text-accent hover:gap-3 transition-all duration-300"
+                        whileHover={{ scale: 1.02 }}
+                      >
+                        {t.portfolio.viewDocs}
+                        <ExternalLink size={16} />
+                      </motion.a>
+                    )}
+                  </div>
                 ) : (
                   <motion.div
                     className="flex items-center gap-2 text-muted-foreground text-sm"

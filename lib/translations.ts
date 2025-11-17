@@ -26,6 +26,7 @@ export const translations = {
       title: "Projectes Destacats",
       subtitle: "Solucions innovadores en desenvolupament web, IA i sistemes empresarials",
       viewProject: "Veure Projecte",
+      viewDocs: "Veure Documentació",
       confidential: "Projecte Confidencial",
       categories: {
         ia: "IA & SaaS",
@@ -152,6 +153,7 @@ export const translations = {
       title: "Proyectos Destacados",
       subtitle: "Soluciones innovadoras en desarrollo web, IA y sistemas empresariales",
       viewProject: "Ver Proyecto",
+      viewDocs: "Ver Documentación",
       confidential: "Proyecto Confidencial",
       categories: {
         ia: "IA & SaaS",
@@ -278,6 +280,7 @@ export const translations = {
       title: "Featured Projects",
       subtitle: "Innovative solutions in web development, AI and enterprise systems",
       viewProject: "View Project",
+      viewDocs: "View Documentation",
       confidential: "Confidential Project",
       categories: {
         ia: "AI & SaaS",
@@ -404,6 +407,7 @@ export const translations = {
       title: "Projets Remarquables",
       subtitle: "Solutions innovantes en développement web, IA et systèmes d'entreprise",
       viewProject: "Voir le Projet",
+      viewDocs: "Voir la Documentation",
       confidential: "Projet Confidentiel",
       categories: {
         ia: "IA & SaaS",
