@@ -12,9 +12,9 @@ export const translations = {
     },
     // Hero
     hero: {
-      badge: "Desenvolupador Senior Full Stack",
+      badge: "Enginyer de Software Senior · Girona, Costa Brava",
       title: "Francesc 'Cesco' Fors",
-      description: "Desenvolupador Full Stack especialitzat en JavaScript, TypeScript, React, Next.js i C#. Experiència en IA, integració d'APIs i metodologies DevOps amb Azure CI/CD.",
+      description: "Desenvolupador Full Stack i Enginyer de Software a Girona, especialitzat en JavaScript, TypeScript, React, Next.js, C# i IA. Consultoria tecnològica i d'IA per a empreses de Girona, Lloret de Mar i Blanes.",
       btnProjects: "Veure Projectes",
       btnContact: "Contactar",
       stat1: "Anys d'Experiència",
@@ -117,7 +117,7 @@ export const translations = {
     // Footer
     footer: {
       brand: "Cesco.dev",
-      description: "Creant experiències digitals innovadores amb tecnologies modernes i IA.",
+      description: "Enginyer de Software i consultor d'IA a Girona. Desenvolupament web i consultoria tecnològica per a Girona, Lloret de Mar i Blanes.",
       quickLinks: "Enllaços Ràpids",
       contact: "Contacte",
       rights: "Tots els drets reservats.",
@@ -147,9 +147,9 @@ export const translations = {
     },
     // Hero
     hero: {
-      badge: "Desarrollador Senior Full Stack",
+      badge: "Ingeniero de Software Senior · Girona, Costa Brava",
       title: "Francesc 'Cesco' Fors",
-      description: "Desarrollador Full Stack especializado en JavaScript, TypeScript, React, Next.js y C#. Experiencia en IA, integración de APIs y metodologías DevOps con Azure CI/CD.",
+      description: "Desarrollador Full Stack e Ingeniero de Software en Girona, especializado en JavaScript, TypeScript, React, Next.js, C# e IA. Consultoría tecnológica y de IA para empresas de Girona, Lloret de Mar y Blanes.",
       btnProjects: "Ver Proyectos",
       btnContact: "Contactar",
       stat1: "Años de Experiencia",
@@ -252,7 +252,7 @@ export const translations = {
     // Footer
     footer: {
       brand: "Cesco.dev",
-      description: "Creando experiencias digitales innovadoras con tecnologías modernas e IA.",
+      description: "Ingeniero de Software y consultor de IA en Girona. Desarrollo web y consultoría tecnológica para Girona, Lloret de Mar y Blanes.",
       quickLinks: "Enlaces Rápidos",
       contact: "Contacto",
       rights: "Todos los derechos reservados.",
@@ -282,9 +282,9 @@ export const translations = {
     },
     // Hero
     hero: {
-      badge: "Senior Full Stack Developer",
+      badge: "Senior Software Engineer · Girona, Spain",
       title: "Francesc 'Cesco' Fors",
-      description: "Full Stack Developer specialized in JavaScript, TypeScript, React, Next.js and C#. Experience in AI, API integration and DevOps methodologies with Azure CI/CD.",
+      description: "Full Stack Developer and Software Engineer based in Girona, Spain, specialized in JavaScript, TypeScript, React, Next.js, C# and AI. Technology and AI consulting for businesses in Girona, Lloret de Mar and Blanes.",
       btnProjects: "View Projects",
       btnContact: "Contact",
       stat1: "Years of Experience",
@@ -387,7 +387,7 @@ export const translations = {
     // Footer
     footer: {
       brand: "Cesco.dev",
-      description: "Creating innovative digital experiences with modern technologies and AI.",
+      description: "Software Engineer and AI consultant based in Girona, Spain. Web development and technology consulting for Girona, Lloret de Mar and Blanes.",
       quickLinks: "Quick Links",
       contact: "Contact",
       rights: "All rights reserved.",
@@ -417,9 +417,9 @@ export const translations = {
     },
     // Hero
     hero: {
-      badge: "Développeur Senior Full Stack",
+      badge: "Ingénieur Logiciel Senior · Gérone, Espagne",
       title: "Francesc 'Cesco' Fors",
-      description: "Développeur Full Stack spécialisé en JavaScript, TypeScript, React, Next.js et C#. Expérience en IA, intégration d'APIs et méthodologies DevOps avec Azure CI/CD.",
+      description: "Développeur Full Stack et Ingénieur Logiciel basé à Gérone (Costa Brava), spécialisé en JavaScript, TypeScript, React, Next.js, C# et IA. Conseil technologique et IA pour les entreprises de Gérone, Lloret de Mar et Blanes.",
       btnProjects: "Voir les Projets",
       btnContact: "Contact",
       stat1: "Années d'Expérience",
@@ -522,7 +522,7 @@ export const translations = {
     // Footer
     footer: {
       brand: "Cesco.dev",
-      description: "Création d'expériences numériques innovantes avec des technologies modernes et l'IA.",
+      description: "Ingénieur Logiciel et consultant IA basé à Gérone, Espagne. Développement web et conseil technologique pour Gérone, Lloret de Mar et Blanes.",
       quickLinks: "Liens Rapides",
       contact: "Contact",
       rights: "Tous droits réservés.",
