@@ -110,7 +110,7 @@ const themes = [
 
 export function ThemeSelector() {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentTheme, setCurrentTheme] = useState('emerald-teal');
+  const [currentTheme, setCurrentTheme] = useState('indigo-blue');
   const { t } = useLanguage();
 
   useEffect(() => {
@@ -120,8 +120,8 @@ export function ThemeSelector() {
       setCurrentTheme(savedTheme);
       applyTheme(savedTheme);
     } else {
-      // Aplicar tema por defecto: Emerald Tech
-      applyTheme('emerald-teal');
+      // Aplicar tema por defecto: Corporate Blue
+      applyTheme('indigo-blue');
     }
   }, []);
 

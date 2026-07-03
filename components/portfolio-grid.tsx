@@ -46,6 +46,18 @@ const projectsData = [
     category: "Data Analytics",
     color: "from-teal-500 to-blue-500",
   },
+  {
+    id: 8,
+    category: "IoT & R+D",
+    color: "from-rose-500 to-orange-500",
+    link: "https://github.com/cescofors75/RedMaster-ESP32S3",
+  },
+  {
+    id: 9,
+    category: "Web Development",
+    color: "from-violet-500 to-fuchsia-500",
+    link: "https://github.com/cescofors75/RayDrone",
+  },
 ];
 
 export function PortfolioGrid() {

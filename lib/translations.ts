@@ -64,6 +64,14 @@ export const translations = {
           title: "Business Intelligence",
           description: "Sistemes de reporting i anàlisi de dades amb Power BI i Azure",
         },
+        {
+          title: "RED808",
+          description: "Caixa de ritmes IoT open source. Firmware ESP32-S3 (mestre/seqüenciador), ESP32-P4 (esclau, LVGL) i Daisy Seed (DSP d'àudio STM32H750), amb UI web per gestionar stems",
+        },
+        {
+          title: "RayDrone",
+          description: "Projecte web experimental sobre drons",
+        },
       ],
     },
     // Skills
@@ -190,6 +198,14 @@ export const translations = {
         {
           title: "Business Intelligence",
           description: "Sistemas de reporting y análisis de datos con Power BI y Azure",
+        },
+        {
+          title: "RED808",
+          description: "Caja de ritmos IoT open source. Firmware ESP32-S3 (maestro/secuenciador), ESP32-P4 (esclavo, LVGL) y Daisy Seed (DSP de audio STM32H750), con UI web para gestionar stems",
+        },
+        {
+          title: "RayDrone",
+          description: "Proyecto web experimental sobre drones",
         },
       ],
     },
@@ -318,6 +334,14 @@ export const translations = {
           title: "Business Intelligence",
           description: "Reporting and data analysis systems with Power BI and Azure",
         },
+        {
+          title: "RED808",
+          description: "Open source IoT drum machine. ESP32-S3 firmware (master/sequencer), ESP32-P4 (slave, LVGL) and Daisy Seed (STM32H750 audio DSP), with a web UI to manage stems",
+        },
+        {
+          title: "RayDrone",
+          description: "Experimental web project about drones",
+        },
       ],
     },
     // Skills
@@ -444,6 +468,14 @@ export const translations = {
         {
           title: "Business Intelligence",
           description: "Systèmes de reporting et d'analyse de données avec Power BI et Azure",
+        },
+        {
+          title: "RED808",
+          description: "Boîte à rythmes IoT open source. Firmware ESP32-S3 (maître/séquenceur), ESP32-P4 (esclave, LVGL) et Daisy Seed (DSP audio STM32H750), avec une UI web pour gérer les stems",
+        },
+        {
+          title: "RayDrone",
+          description: "Projet web expérimental sur les drones",
         },
       ],
     },
