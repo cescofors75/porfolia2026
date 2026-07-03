@@ -9,6 +9,7 @@ export const translations = {
       contratar: "Contractar",
       openMenu: "Obrir menú",
       closeMenu: "Tancar menú",
+      casos: "Casos d'Èxit",
     },
     // Hero
     hero: {
@@ -144,6 +145,7 @@ export const translations = {
       contratar: "Contratar",
       openMenu: "Abrir menú",
       closeMenu: "Cerrar menú",
+      casos: "Casos de Éxito",
     },
     // Hero
     hero: {
@@ -279,6 +281,7 @@ export const translations = {
       contratar: "Hire Me",
       openMenu: "Open menu",
       closeMenu: "Close menu",
+      casos: "Case Studies",
     },
     // Hero
     hero: {
@@ -414,6 +417,7 @@ export const translations = {
       contratar: "Embaucher",
       openMenu: "Ouvrir le menu",
       closeMenu: "Fermer le menu",
+      casos: "Études de Cas",
     },
     // Hero
     hero: {

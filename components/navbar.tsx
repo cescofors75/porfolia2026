@@ -23,6 +23,7 @@ export function Navbar() {
   const menuItems = [
     { label: t.nav.inicio, href: "/" },
     { label: t.nav.proyectos, href: "#portfolio" },
+    { label: t.nav.casos, href: "/casos-de-exito" },
     { label: t.nav.habilidades, href: "#skills" },
     { label: t.nav.contacto, href: "#contact" },
   ];
