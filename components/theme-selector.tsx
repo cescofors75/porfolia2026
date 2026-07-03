@@ -114,18 +114,19 @@ export function ThemeSelector() {
   const { t } = useLanguage();
 
   useEffect(() => {
-    // Cargar tema guardado o aplicar tema por defecto
-    const savedTheme = localStorage.getItem('portfolio-theme');
-    if (savedTheme) {
-      setCurrentTheme(savedTheme);
-      applyTheme(savedTheme);
-    } else {
-      // Aplicar tema por defecto: Corporate Blue
-      applyTheme('indigo-blue');
+    // Cargar tema guardado o aplicar tema por defecto (sin persistirlo)
+    let savedTheme = localStorage.getItem('portfolio-theme');
+    // Migración: el antiguo tema por defecto se auto-guardaba en cada visita,
+    // así que no representa una elección explícita del usuario.
+    if (savedTheme === 'emerald-teal') {
+      localStorage.removeItem('portfolio-theme');
+      savedTheme = null;
     }
+    setStyle(savedTheme || 'indigo-blue');
+    setCurrentTheme(savedTheme || 'indigo-blue');
   }, []);
 
-  const applyTheme = (themeId: string) => {
+  const setStyle = (themeId: string) => {
     const theme = themes.find(t => t.id === themeId);
     if (!theme) return;
 
@@ -133,7 +134,10 @@ export function ThemeSelector() {
     root.style.setProperty('--primary', theme.colors.primary);
     root.style.setProperty('--secondary', theme.colors.secondary);
     root.style.setProperty('--accent', theme.colors.accent);
+  };
 
+  const applyTheme = (themeId: string) => {
+    setStyle(themeId);
     localStorage.setItem('portfolio-theme', themeId);
     setCurrentTheme(themeId);
   };
