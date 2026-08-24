@@ -48,6 +48,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('portfolio-language', lang);
   };
 
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   const value = {
     language,
     setLanguage,
