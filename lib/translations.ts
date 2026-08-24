@@ -464,6 +464,161 @@ export const translations = {
       select: "Select language",
     },
   },
+  de: {
+    // Navbar
+    nav: {
+      inicio: "Startseite",
+      proyectos: "Projekte",
+      habilidades: "Fähigkeiten",
+      contacto: "Kontakt",
+      contratar: "Engagieren",
+      openMenu: "Menü öffnen",
+      closeMenu: "Menü schließen",
+      casos: "Erfolgsgeschichten",
+    },
+    // Hero
+    hero: {
+      badge: "Senior Software Engineer · Girona, Spanien",
+      title: "Francesc 'Cesco' Fors",
+      rotating: ["Full-Stack-Entwickler", "Software Engineer", "KI-Berater", "Gründer von Baco AI"],
+      description: "Full-Stack-Entwickler und Software Engineer aus Girona, spezialisiert auf JavaScript, TypeScript, React, Next.js, C# und KI. Technologische und KI-Beratung für Unternehmen in Girona, Lloret de Mar und Blanes.",
+      btnProjects: "Projekte ansehen",
+      btnContact: "Kontakt",
+      stat1: "Jahre Erfahrung",
+      stat2: "Abgeschlossene Projekte",
+      stat3: "Gründer von Baco AI",
+    },
+    // Portfolio
+    portfolio: {
+      title: "Herausragende Projekte",
+      subtitle: "Innovative Lösungen in Webentwicklung, KI und Unternehmenssystemen",
+      viewProject: "Projekt ansehen",
+      viewDocs: "Dokumentation ansehen",
+      confidential: "Vertrauliches Projekt",
+      categories: {
+        ia: "KI & SaaS",
+        web: "Webentwicklung",
+        fullstack: "Full Stack & DevOps",
+        iot: "IoT & Forschung",
+        data: "Datenanalyse",
+      },
+      projects: [
+        {
+          title: "RED808",
+          description: "Open-Source-IoT-Drumcomputer. Firmware ESP32-S3 (Master/Sequencer), ESP32-P4 (Slave, LVGL) und Daisy Seed (STM32H750 Audio-DSP) mit Web-UI zur Verwaltung von Stems",
+        },
+        {
+          title: "RayDrone",
+          description: "Echtzeit-Audio-Drone-Synthesizer: 90er-Jahre-3D-Rendering-Methode auf den Audiobuffer angewendet. 32-Stimmen-Kornfeld auf Daisy Seed mit Touch-UI auf ESP32-P4",
+        },
+        {
+          title: "openStems",
+          description: "Audio-Stem-Management- und Verarbeitungsplattform mit 100% lokaler KI. Verwendet demucs, das Musikquellen-Trennungsmodell von Meta, um Tracks in Echtzeit ohne Cloud-Abhängigkeiten zu trennen",
+        },
+        {
+          title: "newsChyper",
+          description: "KI-Agenten-Pipeline, die Nachrichten durchsucht, Zusammenfassungen erstellt, Songtexte schreibt, Reime prüft und eine tägliche digitale Zeitung mit Suno-Musik und fotografischer Titelseite im Presse-Stil produziert",
+        },
+        {
+          title: "ToonJS",
+          description: "Hochleistungs-TypeScript-Bibliothek für tabellarische Datenmanipulation. 60+ optimierte Methoden, 0 Abhängigkeiten, 100% Testabdeckung. Auf NPM veröffentlicht",
+        },
+        {
+          title: "Baco AI",
+          description: "Virtueller Sommelier mit KI. Dienst zur Erstellung personalisierter Sommeliers mit RAG und dynamischen Embeddings",
+        },
+        {
+          title: "ineditrestaurant.com",
+          description: "Moderne Website, mit Next.js für ein Gourmet-Restaurant entwickelt",
+        },
+        {
+          title: "tempspervi.com",
+          description: "Spezialisierte Wein-Webplattform, mit Next.js entwickelt",
+        },
+        {
+          title: "VisitToo.com",
+          description: "REST-APIs mit Next.js und C#. WhiteLabel, Stripe/Redsys-Integration, dynamische PDFs und Azure DevOps",
+        },
+        {
+          title: "Euro4x4parts - OBD2-System",
+          description: "IoT-System für alte 4x4-Fahrzeuge mit Internet-Anbindung und OBD2-Diagnostik",
+        },
+        {
+          title: "Business Intelligence",
+          description: "Reporting- und Datenanalysesysteme mit Power BI und Azure",
+        },
+      ],
+    },
+    // Skills
+    skills: {
+      title: "Fähigkeiten & Technologien",
+      subtitle: "Über 25 Jahre Erfahrung in Softwareentwicklung und neuen Technologien",
+      categories: {
+        frontend: "Frontend & Backend",
+        database: "Datenbanken",
+        cloud: "Cloud & DevOps",
+        ai: "KI & APIs",
+      },
+    },
+    // Testimonials
+    testimonials: {
+      title: "Referenzen",
+      subtitle: "Was man über meine Arbeit in Projekten und Kooperationen sagt",
+      items: [
+        {
+          author: "Gustavo Patow",
+          role: "Professor an der UdG · Gründer von GGG, Girona",
+          text: "Ich finde es erstaunlich, einen 30 Jahre alten 3D-Algorithmus wie Raytracing auf den Audiobuffer zu übertragen, um Drones zu erzeugen. RayDrone ist eine brillante Idee.",
+        },
+        {
+          author: "Francesc Ferrer",
+          role: "Mitgründer des ON/OFF Festival, Lloret de Mar",
+          text: "Die RED808-Demo hat mir sehr gefallen: Idee, Klang und Fähigkeiten. Ein IoT-Drumcomputer mit enormem Potenzial.",
+        },
+        {
+          author: "VisitToo.com",
+          role: "Travel-Tech-Unternehmen",
+          text: "Außergewöhnliche Arbeit bei der Entwicklung von REST-APIs mit Next.js und C#. Perfekte Umsetzung von Zahlungs-Gateways und DevOps-Systemen in Azure.",
+        },
+        {
+          author: "Euro4x4parts",
+          role: "F&E-Abteilung",
+          text: "Innovative Lösungen in IoT- und OBD2-Systemen. Hervorragende technische Kompetenz, um alte Fahrzeuge mit moderner Technologie zu verbinden.",
+        },
+        {
+          author: "Microsoft Startup Founders Hub",
+          role: "Sponsor von Baco AI",
+          text: "Innovatives Projekt mit dynamischen RAG-Mustern und Embeddings. Professionelle Umsetzung von KI für den gastronomischen Sektor.",
+        },
+      ],
+    },
+    // CTA
+    cta: {
+      title: "Bereit, etwas Großartiges zu schaffen?",
+      subtitle: "Ich freue mich immer über neue Kooperationen und helfe gerne dabei, innovative Ideen zum Leben zu erwecken. Lass uns zusammenarbeiten.",
+      btnEmail: "E-Mail senden",
+      btnCall: "WhatsApp",
+    },
+    // Footer
+    footer: {
+      brand: "Cesco.dev",
+      description: "Software Engineer und KI-Berater aus Girona, Spanien. Webentwicklung und Technologieberatung für Girona, Lloret de Mar und Blanes.",
+      quickLinks: "Schnellzugriff",
+      contact: "Kontakt",
+      rights: "Alle Rechte vorbehalten.",
+    },
+    // Theme Selector
+    theme: {
+      title: "Thema auswählen",
+      saved: "Das Thema wird automatisch gespeichert",
+      select: "Thema auswählen",
+    },
+    // Language Selector
+    language: {
+      title: "Sprache auswählen",
+      select: "Sprache auswählen",
+    },
+  },
   fr: {
     // Navbar
     nav: {

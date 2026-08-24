@@ -11,14 +11,35 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+function detectBrowserLanguage(): Language | null {
+  if (typeof navigator === 'undefined') return null;
+
+  const browserLang = navigator.language.toLowerCase();
+  const normalized = browserLang.split('-')[0];
+
+  if (normalized === 'ca') return 'ca';
+  if (normalized === 'es') return 'es';
+  if (normalized === 'en') return 'en';
+  if (normalized === 'de') return 'de';
+  if (normalized === 'fr') return 'fr';
+
+  return null;
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>('es');
 
   useEffect(() => {
-    // Cargar idioma guardado
     const savedLanguage = localStorage.getItem('portfolio-language') as Language;
     if (savedLanguage && translations[savedLanguage]) {
       setLanguageState(savedLanguage);
+      return;
+    }
+
+    const detectedLanguage = detectBrowserLanguage();
+    if (detectedLanguage) {
+      setLanguageState(detectedLanguage);
+      localStorage.setItem('portfolio-language', detectedLanguage);
     }
   }, []);
 
