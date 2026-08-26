@@ -16,6 +16,7 @@ const projectsData = [
     featured: true,
     image: "/imgRaydrone/raydrone-wasm.png",
     link: "/proyectos/raydrone",
+    demoUrl: "https://wasm-neon.vercel.app/",
     githubLink: "https://github.com/cescofors75/RayDrone",
   },
   {
@@ -239,7 +240,8 @@ function TiltCard({ children, className = "", glowColor = "#6366f1" }: TiltCardP
 }
 
 export function PortfolioGrid() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const liveDemoLabel = { es: "Demo pública", ca: "Demo pública", en: "Public demo", de: "Öffentliche Demo", fr: "Démo publique" }[language];
 
   const projects = projectsData.map((project, index) => ({
     ...project,
@@ -366,6 +368,11 @@ export function PortfolioGrid() {
                           <Github size={15} />
                           GitHub
                         </a>
+                        {"demoUrl" in project && project.demoUrl && (
+                          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                            <ExternalLink size={15} /> {liveDemoLabel}
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>

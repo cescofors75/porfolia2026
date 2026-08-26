@@ -4,17 +4,17 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { Maximize2, Play, X } from "lucide-react";
-import { processArchive, processVideo, type ProcessPhase } from "@/lib/process-archive";
+import { processArchive, processVideos, type ProcessPhase } from "@/lib/process-archive";
 import { useLanguage } from "@/lib/language-context";
 
 const filters: Array<"Todo" | ProcessPhase> = ["Todo", "Origen", "Prototipo", "Integración", "Interfaz", "Instrumento"];
 
 const galleryCopy = {
-  es: { filters: ["Todo", "Origen", "Prototipo", "Integración", "Interfaz", "Instrumento"], filterLabel: "Filtrar galería", archive: "Archivo", video: "Registro en movimiento", dialog: "Visor de imagen", close: "Cerrar visor" },
-  ca: { filters: ["Tot", "Origen", "Prototip", "Integració", "Interfície", "Instrument"], filterLabel: "Filtrar la galeria", archive: "Arxiu", video: "Registre en moviment", dialog: "Visor d'imatges", close: "Tancar el visor" },
-  en: { filters: ["All", "Origin", "Prototype", "Integration", "Interface", "Instrument"], filterLabel: "Filter gallery", archive: "Archive", video: "Record in motion", dialog: "Image viewer", close: "Close viewer" },
-  de: { filters: ["Alle", "Ursprung", "Prototyp", "Integration", "Oberfläche", "Instrument"], filterLabel: "Galerie filtern", archive: "Archiv", video: "Aufzeichnung in Bewegung", dialog: "Bildbetrachter", close: "Betrachter schließen" },
-  fr: { filters: ["Tout", "Origine", "Prototype", "Intégration", "Interface", "Instrument"], filterLabel: "Filtrer la galerie", archive: "Archive", video: "Trace en mouvement", dialog: "Visionneuse d'images", close: "Fermer la visionneuse" },
+  es: { filters: ["Todo", "Origen", "Prototipo", "Integración", "Interfaz", "Instrumento"], filterLabel: "Filtrar galería", archive: "Archivo", video: "Registro en movimiento", videoLabels: ["RED808 · registro de proceso", "RayDrone · prueba de sonido"], dialog: "Visor de imagen", close: "Cerrar visor" },
+  ca: { filters: ["Tot", "Origen", "Prototip", "Integració", "Interfície", "Instrument"], filterLabel: "Filtrar la galeria", archive: "Arxiu", video: "Registre en moviment", videoLabels: ["RED808 · registre de procés", "RayDrone · prova de so"], dialog: "Visor d'imatges", close: "Tancar el visor" },
+  en: { filters: ["All", "Origin", "Prototype", "Integration", "Interface", "Instrument"], filterLabel: "Filter gallery", archive: "Archive", video: "Record in motion", videoLabels: ["RED808 · process record", "RayDrone · sound test"], dialog: "Image viewer", close: "Close viewer" },
+  de: { filters: ["Alle", "Ursprung", "Prototyp", "Integration", "Oberfläche", "Instrument"], filterLabel: "Galerie filtern", archive: "Archiv", video: "Aufzeichnung in Bewegung", videoLabels: ["RED808 · Prozessaufnahme", "RayDrone · Klangtest"], dialog: "Bildbetrachter", close: "Betrachter schließen" },
+  fr: { filters: ["Tout", "Origine", "Prototype", "Intégration", "Interface", "Instrument"], filterLabel: "Filtrer la galerie", archive: "Archive", video: "Trace en mouvement", videoLabels: ["RED808 · trace du processus", "RayDrone · essai sonore"], dialog: "Visionneuse d'images", close: "Fermer la visionneuse" },
 } as const;
 
 export function ProcessGallery() {
@@ -52,10 +52,12 @@ export function ProcessGallery() {
         ))}
       </motion.div>
 
-      <section className="mt-16 relative overflow-hidden rounded-3xl border border-border/50 bg-black">
-        <video controls playsInline preload="metadata" className="w-full max-h-[78vh] object-contain" aria-label={copy.video}><source src={processVideo} type="video/quicktime" /></video>
-        <div className="pointer-events-none absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-2 rounded-full bg-black/60 text-white text-xs backdrop-blur"><Play size={13} fill="currentColor" /> {copy.video}</div>
-      </section>
+      <div className="mt-16 grid lg:grid-cols-2 gap-5">
+        {processVideos.map((video, index) => <section key={video.src} className="relative overflow-hidden rounded-3xl border border-border/50 bg-black">
+          <video controls playsInline preload="metadata" className="w-full aspect-video object-contain" aria-label={`${copy.video}: ${copy.videoLabels[index]}`}><source src={video.src} type="video/quicktime" /></video>
+          <div className="pointer-events-none absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-2 rounded-full bg-black/60 text-white text-xs backdrop-blur"><Play size={13} fill="currentColor" /> {copy.videoLabels[index]}</div>
+        </section>)}
+      </div>
 
       <AnimatePresence>
         {active !== null && visible[active] && (
