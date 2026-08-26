@@ -11,9 +11,9 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const { t, language } = useLanguage();
   const archiveLabels = {
-    ca: { gallery: "Galeria", journal: "Diari" }, es: { gallery: "Galería", journal: "Diario" },
-    en: { gallery: "Gallery", journal: "Journal" }, de: { gallery: "Galerie", journal: "Tagebuch" },
-    fr: { gallery: "Galerie", journal: "Journal" },
+    ca: { gallery: "Galeria", journal: "Diari", music: "Música & Amics" }, es: { gallery: "Galería", journal: "Diario", music: "Música & Amigos" },
+    en: { gallery: "Gallery", journal: "Journal", music: "Music & Friends" }, de: { gallery: "Galerie", journal: "Tagebuch", music: "Musik & Freunde" },
+    fr: { gallery: "Galerie", journal: "Journal", music: "Musique & Amis" },
   }[language];
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -36,6 +36,7 @@ export function Navbar() {
     { label: t.nav.proyectos, href: "/#portfolio" },
     { label: archiveLabels.gallery, href: "/galeria" },
     { label: archiveLabels.journal, href: "/blog" },
+    { label: archiveLabels.music, href: "/music-friends" },
     { label: t.nav.casos, href: "/casos-de-exito" },
     { label: t.nav.habilidades, href: "/#skills" },
     { label: t.nav.contacto, href: "/#contact" },

@@ -35,6 +35,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: "https://cesco.dev/music-friends",
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: "https://cesco.dev/proyectos/aura",
       lastModified,
       changeFrequency: "monthly",
