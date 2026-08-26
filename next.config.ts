@@ -36,6 +36,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: '/(gallery|daisy|music|newschyper|imgRaydrone)/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
         source: '/:path*',
         headers: [
           {
@@ -65,4 +69,3 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
-

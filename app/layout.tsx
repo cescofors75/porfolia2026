@@ -37,6 +37,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cesco.dev"),
+  applicationName: "Cesco.dev",
+  category: "technology",
   title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
   description: "Desarrollador Full Stack e Ingeniero de Software en Girona. Consultoría tecnológica y de IA para empresas de Girona, Lloret de Mar y Blanes. Especializado en JavaScript, TypeScript, React, Next.js, C# e Inteligencia Artificial.",
   keywords: [
@@ -71,6 +73,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://cesco.dev",
   },
+  formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: "website",
     locale: "es_ES",
@@ -78,11 +81,13 @@ export const metadata: Metadata = {
     siteName: "Cesco.dev",
     title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
     description: "Desarrollador Full Stack e Ingeniero de Software en Girona. Consultoría tecnológica y de IA para empresas de Girona, Lloret de Mar y Blanes.",
+    images: [{ url: "/imgRaydrone/raydrone-wasm.png", width: 1702, height: 920, alt: "RayDrone, instrumento acústico Rust y WebAssembly de Cesco Fors" }],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
     description: "Desarrollador Full Stack e Ingeniero de Software en Girona. Consultoría tecnológica y de IA para Girona, Lloret de Mar y Blanes.",
+    images: ["/imgRaydrone/raydrone-wasm.png"],
   },
 };
 
@@ -127,6 +132,15 @@ const personJsonLd = {
   },
 };
 
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Cesco.dev",
+  url: "https://cesco.dev",
+  inLanguage: ["ca", "es", "en", "de", "fr"],
+  author: { "@type": "Person", name: "Francesc 'Cesco' Fors Ferrer", url: "https://cesco.dev" },
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -143,7 +157,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify([personJsonLd, websiteJsonLd]) }}
         />
       </head>
       <body className="flex flex-col min-h-screen bg-background text-foreground font-sans antialiased">

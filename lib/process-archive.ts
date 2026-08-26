@@ -7,7 +7,7 @@ const files = [
   "F51D7076-249D-4F7A-B53E-EE7F6970CBD9", "F7667D45-43CA-4702-9920-7214F29B0F9D", "IMG_6497", "IMG_6507", "IMG_6640",
   "IMG_6704", "IMG_6713", "IMG_6723", "IMG_6746", "IMG_6747", "IMG_6749", "IMG_6752", "IMG_6805", "IMG_6806", "IMG_6841",
   "IMG_6843", "IMG_6847", "IMG_6877", "IMG_6908", "IMG_6996", "IMG_7105", "IMG_7170", "IMG_7177", "IMG_7202", "IMG_7209",
-  "IMG_7298", "IMG_7304", "IMG_7333", "IMG_7363", "IMG_7392", "IMG_7399", "IMG_7400", "IMG_7429", "IMG_7454", "IMG_7550",
+  "IMG_7298", "IMG_7304", "IMG_7333", "IMG_7363", "IMG_7392", "IMG_7399", "IMG_7400", "IMG_7429", "IMG_7550",
   "IMG_7742", "IMG_7770", "IMG_7891", "IMG_7892", "IMG_7893", "IMG_7894", "IMG_7895", "IMG_7896", "IMG_7916", "IMG_8006",
   "IMG_8083", "IMG_A812A7EB-F854-4D76-B0CC-E50D02643C36", "IMG_ECDFE0E8-D963-4BD1-A81B-BEA30BBC69B6",
 ];
@@ -47,8 +47,3 @@ export const processArchive = files.map((name, index) => {
   { id: "daisy-pod-partner", src: "/daisy/daisyPodParther.jpeg", phase: "Instrumento" as ProcessPhase, caption: "Daisy Pod, cables y material del ecosistema tecnológico.", number: String(files.length + 1).padStart(2, "0") },
   { id: "daisy-crew", src: "/daisy/daisyRopa.jpeg", phase: "Instrumento" as ProcessPhase, caption: "Material de Electrosmith y Daisy para el laboratorio.", number: String(files.length + 2).padStart(2, "0") },
 ]);
-
-export const processVideos = [
-  { src: "/gallery/IMG_6638.MOV" },
-  { src: "/daisy/IMG_7878%20(1).mov" },
-] as const;

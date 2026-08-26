@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Galería de proceso | Del prototipo al instrumento | Cesco.dev",
   description: "Archivo visual del proceso de diseño, electrónica, firmware e interfaces de los instrumentos de Cesco Fors desde finales de 2025.",
   alternates: { canonical: "https://cesco.dev/galeria" },
+  openGraph: { title: "Galería de proceso | Del prototipo al instrumento", description: "Electrónica, firmware, DSP e interfaces documentados desde finales de 2025.", url: "https://cesco.dev/galeria", images: [{ url: "/gallery/IMG_8083.webp", width: 1500, height: 2000, alt: "Instrumento electrónico durante una sesión nocturna" }] },
 };
 
 export default function GaleriaPage() {
