@@ -12,9 +12,9 @@ const labels = {
 
 const tracks = [
   { title: "RayDrone · Live texture", src: "/music/raydrone.mp3" },
-  { title: "NewsChyper · Santa Cristina", src: "/music/2407_2026NewsChyper%20SantaCristina.mp3.mpeg" },
-  { title: "NewsChyper · Día de odio", src: "/music/28072026newsChyperOdio.mp3.mpeg" },
-  { title: "NewsChyper · 08.07.2026", src: "/music/NEWS08072026.mp3.mpeg" },
+  { title: "NewsChyper · Santa Cristina", src: "/music/newschyper-santa-cristina.mp3" },
+  { title: "NewsChyper · Día de odio", src: "/music/newschyper-dia-de-odio.mp3" },
+  { title: "NewsChyper · 08.07.2026", src: "/music/newschyper-08-07-2026.mp3" },
 ] as const;
 
 export function RayDroneSound() {

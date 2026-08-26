@@ -12,10 +12,10 @@ const covers = [
 ] as const;
 
 const editions = [
-  { src: "/newschyper/NEWS08072026.mp3.mpeg", title: "NewsChyper · 08.07.2026" },
-  { src: "/newschyper/200726newschyper%20%21%21%20world%20championship.mp3.mpeg", title: "World Championship · 20.07.2026" },
-  { src: "/newschyper/2407_2026NewsChyper%20SantaCristina.mp3.mpeg", title: "Santa Cristina · 24.07.2026" },
-  { src: "/newschyper/28072026newsChyperOdio.mp3.mpeg", title: "Día de odio · 28.07.2026" },
+  { src: "/music/newschyper-08-07-2026.mp3", title: "NewsChyper · 08.07.2026" },
+  { src: "/music/newschyper-world-championship.mp3", title: "World Championship · 20.07.2026" },
+  { src: "/music/newschyper-santa-cristina.mp3", title: "Santa Cristina · 24.07.2026" },
+  { src: "/music/newschyper-dia-de-odio.mp3", title: "Día de odio · 28.07.2026" },
 ] as const;
 
 const copy = {
