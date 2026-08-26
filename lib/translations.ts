@@ -39,20 +39,28 @@ export const translations = {
       },
       projects: [
         {
-          title: "RED808",
-          description: "Caixa de ritmes IoT open source. Firmware ESP32-S3 (mestre/seqüenciador), ESP32-P4 (esclau, LVGL) i Daisy Seed (DSP d'àudio STM32H750), amb UI web per gestionar stems",
+          title: "RayDrone",
+          description: "Algoritme base de síntesi acústica per traçat de raigs, escrit en Rust i executat en WebAssembly amb AudioWorklet. Inclou implementació, experiment interactiu i paper tècnic",
         },
         {
-          title: "RayDrone",
-          description: "Sintetitzador de drones d'àudio en temps real: la metodologia de render 3D dels anys 90 aplicada al buffer d'àudio. Camp de grans de 32 veus en Daisy Seed amb UI tàctil en ESP32-P4",
+          title: "Aura",
+          description: "Instrument hardware autònom sobre ESP32-P4: RayDrone portat del navegador al dispositiu, amb control tàctil, àudio en temps real i una arquitectura pensada per tocar",
+        },
+        {
+          title: "Celestial Field",
+          description: "Projecte FPGA de paral·lelisme i FX: bancs massius de ressonadors, parcials i cadenes d'efectes evolucionen simultàniament per construir camps harmònics densos",
+        },
+        {
+          title: "RED808",
+          description: "Caixa de ritmes IoT open source amb ESP32-S3, ESP32-P4 i Daisy Seed, més una interfície web per gestionar stems i interpretar patrons en temps real",
         },
         {
           title: "openStems",
-          description: "Plataforma de gestió i processament de stems d'àudio amb IA 100% en local. Utilitza demucs, el model de separació de fonts musicals de Meta, per separar pistes en temps real sense dependències al núvol",
+          description: "Plataforma d'àudio amb IA 100% local per separar, gestionar i processar stems. Demo real amb Demucs, sense enviar el material musical al núvol",
         },
         {
           title: "newsChyper",
-          description: "Pipeline d'agents d'IA que cerca notícies, genera resums, crea lletres de cançons, verifica rimes i produeix un diari digital diari amb música Suno i portada fotogràfica estil premsa",
+          description: "Pipeline d'agents d'IA que transforma actualitat en cinc micros, lletres de rap, música i una portada editorial diària amb identitat de premsa clandestina",
         },
         {
           title: "ToonJS",
@@ -69,14 +77,6 @@ export const translations = {
         {
           title: "tempspervi.com",
           description: "Plataforma web especialitzada en vins desenvolupada amb Next.js",
-        },
-        {
-          title: "VisitToo.com",
-          description: "APIs REST amb Next.js i C#. WhiteLabel, integració Stripe/Redsys, PDFs dinàmics i DevOps Azure",
-        },
-        {
-          title: "Euro4x4parts - Sistema OBD2",
-          description: "Sistema IoT per a vehicles 4x4 antics connectats a internet amb diagnòstic OBD2",
         },
         {
           title: "Business Intelligence",
@@ -109,16 +109,6 @@ export const translations = {
           author: "Francesc Ferrer",
           role: "Co-fundador de l'ON/OFF Festival, Lloret de Mar",
           text: "La demo del RED808 em va encantar: la idea, el so i les capacitats. Una caixa de ritmes IoT amb un potencial enorme.",
-        },
-        {
-          author: "VisitToo.com",
-          role: "Empresa de Travel Tech",
-          text: "Excel·lent treball en el desenvolupament d'APIs REST amb Next.js i C#. Implementació impecable de passarel·les de pagament i sistemes DevOps a Azure.",
-        },
-        {
-          author: "Euro4x4parts",
-          role: "Departament de R+D",
-          text: "Solucions innovadores en IoT i sistemes OBD2. Gran capacitat tècnica per connectar vehicles antics amb tecnologia moderna.",
         },
         {
           author: "Microsoft Startup Founders Hub",
@@ -194,20 +184,28 @@ export const translations = {
       },
       projects: [
         {
-          title: "RED808",
-          description: "Caja de ritmos IoT open source. Firmware ESP32-S3 (maestro/secuenciador), ESP32-P4 (esclavo, LVGL) y Daisy Seed (DSP de audio STM32H750), con UI web para gestionar stems",
+          title: "RayDrone",
+          description: "Algoritmo base de síntesis acústica por trazado de rayos, escrito en Rust y ejecutado en WebAssembly con AudioWorklet. Incluye implementación, experimento interactivo y paper técnico",
         },
         {
-          title: "RayDrone",
-          description: "Sintetizador de drones de audio en tiempo real: la metodología de render 3D de los años 90 aplicada al buffer de audio. Campo de granos de 32 voces en Daisy Seed con UI táctil en ESP32-P4",
+          title: "Aura",
+          description: "Instrumento hardware autónomo sobre ESP32-P4: RayDrone llevado del navegador al dispositivo, con control táctil, audio en tiempo real y una arquitectura pensada para tocar",
+        },
+        {
+          title: "Celestial Field",
+          description: "Proyecto FPGA de paralelismo y FX: bancos masivos de resonadores, parciales y cadenas de efectos evolucionan simultáneamente para construir campos armónicos densos",
+        },
+        {
+          title: "RED808",
+          description: "Caja de ritmos IoT open source con ESP32-S3, ESP32-P4 y Daisy Seed, más una interfaz web para gestionar stems e interpretar patrones en tiempo real",
         },
         {
           title: "openStems",
-          description: "Plataforma de gestión y procesamiento de stems de audio con IA 100% en local. Utiliza demucs, el modelo de separación de fuentes musicales de Meta, para separar pistas en tiempo real sin dependencias en la nube",
+          description: "Plataforma de audio con IA 100% local para separar, gestionar y procesar stems. Demo real con Demucs, sin enviar el material musical a la nube",
         },
         {
           title: "newsChyper",
-          description: "Pipeline de agentes de IA que busca noticias, genera resúmenes, crea letras de canciones, verifica rimas y produce un diario digital diario con música Suno y portada fotográfica estilo prensa",
+          description: "Pipeline de agentes de IA que transforma actualidad en cinco micros, letras de rap, música y una portada editorial diaria con identidad de prensa clandestina",
         },
         {
           title: "ToonJS",
@@ -224,14 +222,6 @@ export const translations = {
         {
           title: "tempspervi.com",
           description: "Plataforma web especializada en vinos desarrollada con Next.js",
-        },
-        {
-          title: "VisitToo.com",
-          description: "APIs REST con Next.js y C#. WhiteLabel, integración Stripe/Redsys, PDFs dinámicos y DevOps Azure",
-        },
-        {
-          title: "Euro4x4parts - Sistema OBD2",
-          description: "Sistema IoT para vehículos 4x4 antiguos conectados a internet con diagnóstico OBD2",
         },
         {
           title: "Business Intelligence",
@@ -264,16 +254,6 @@ export const translations = {
           author: "Francesc Ferrer",
           role: "Co-fundador del ON/OFF Festival, Lloret de Mar",
           text: "La demo de RED808 me encantó: la idea, el sonido y las capacidades. Una caja de ritmos IoT con un potencial enorme.",
-        },
-        {
-          author: "VisitToo.com",
-          role: "Empresa de Travel Tech",
-          text: "Excelente trabajo en el desarrollo de APIs REST con Next.js y C#. Implementación impecable de pasarelas de pago y sistemas DevOps en Azure.",
-        },
-        {
-          author: "Euro4x4parts",
-          role: "Departamento de R+D",
-          text: "Soluciones innovadoras en IoT y sistemas OBD2. Gran capacidad técnica para conectar vehículos antiguos con tecnología moderna.",
         },
         {
           author: "Microsoft Startup Founders Hub",
@@ -349,20 +329,28 @@ export const translations = {
       },
       projects: [
         {
-          title: "RED808",
-          description: "Open source IoT drum machine. ESP32-S3 firmware (master/sequencer), ESP32-P4 (slave, LVGL) and Daisy Seed (STM32H750 audio DSP), with a web UI to manage stems",
+          title: "RayDrone",
+          description: "The core acoustic ray-tracing synthesis algorithm, written in Rust and running in WebAssembly through AudioWorklet. Includes the implementation, an interactive experiment and a technical paper",
         },
         {
-          title: "RayDrone",
-          description: "Real-time audio drone synthesizer: 90s 3D render methodology applied to the audio buffer. 32-voice grain field on Daisy Seed with touch UI on ESP32-P4",
+          title: "Aura",
+          description: "A standalone ESP32-P4 hardware instrument: RayDrone taken from the browser into a playable device with touch control and real-time audio",
+        },
+        {
+          title: "Celestial Field",
+          description: "An FPGA parallelism and FX project: massive banks of resonators, partials and effect chains evolve simultaneously into dense harmonic fields",
+        },
+        {
+          title: "RED808",
+          description: "Open-source IoT drum machine built with ESP32-S3, ESP32-P4 and Daisy Seed, plus a web interface for stems and real-time pattern performance",
         },
         {
           title: "openStems",
-          description: "Audio stems management and processing platform with 100% local AI. Uses demucs, Meta's music source separation model, to split tracks in real time with no cloud dependencies",
+          description: "100% local AI audio platform for separating, managing and processing stems. A real Demucs demo without sending musical material to the cloud",
         },
         {
           title: "newsChyper",
-          description: "AI agent pipeline that searches news, generates summaries, writes song lyrics, verifies rhymes and produces a daily digital newspaper with Suno music and photographic cover art in press style",
+          description: "AI-agent pipeline that turns current events into five short segments, rap lyrics, music and a daily editorial cover with an underground press identity",
         },
         {
           title: "ToonJS",
@@ -379,14 +367,6 @@ export const translations = {
         {
           title: "tempspervi.com",
           description: "Specialized wine web platform developed with Next.js",
-        },
-        {
-          title: "VisitToo.com",
-          description: "REST APIs with Next.js and C#. WhiteLabel, Stripe/Redsys integration, dynamic PDFs and Azure DevOps",
-        },
-        {
-          title: "Euro4x4parts - OBD2 System",
-          description: "IoT system for old 4x4 vehicles connected to the internet with OBD2 diagnostics",
         },
         {
           title: "Business Intelligence",
@@ -419,16 +399,6 @@ export const translations = {
           author: "Francesc Ferrer",
           role: "Co-founder of ON/OFF Festival, Lloret de Mar",
           text: "I loved the RED808 demo: the idea, the sound and the capabilities. An IoT drum machine with enormous potential.",
-        },
-        {
-          author: "VisitToo.com",
-          role: "Travel Tech Company",
-          text: "Excellent work developing REST APIs with Next.js and C#. Impeccable implementation of payment gateways and DevOps systems in Azure.",
-        },
-        {
-          author: "Euro4x4parts",
-          role: "R&D Department",
-          text: "Innovative solutions in IoT and OBD2 systems. Great technical capacity to connect old vehicles with modern technology.",
         },
         {
           author: "Microsoft Startup Founders Hub",
@@ -504,20 +474,28 @@ export const translations = {
       },
       projects: [
         {
-          title: "RED808",
-          description: "Open-Source-IoT-Drumcomputer. Firmware ESP32-S3 (Master/Sequencer), ESP32-P4 (Slave, LVGL) und Daisy Seed (STM32H750 Audio-DSP) mit Web-UI zur Verwaltung von Stems",
+          title: "RayDrone",
+          description: "Der grundlegende akustische Raytracing-Synthesealgorithmus, in Rust geschrieben und über AudioWorklet in WebAssembly ausgeführt. Mit Implementierung, interaktivem Experiment und technischem Paper",
         },
         {
-          title: "RayDrone",
-          description: "Echtzeit-Audio-Drone-Synthesizer: 90er-Jahre-3D-Rendering-Methode auf den Audiobuffer angewendet. 32-Stimmen-Kornfeld auf Daisy Seed mit Touch-UI auf ESP32-P4",
+          title: "Aura",
+          description: "Ein autonomes ESP32-P4-Hardwareinstrument: RayDrone wird vom Browser in ein spielbares Gerät mit Touch-Steuerung und Echtzeit-Audio übertragen",
+        },
+        {
+          title: "Celestial Field",
+          description: "Ein FPGA-Projekt für Parallelismus und FX: Massive Bänke aus Resonatoren, Teiltönen und Effektketten entwickeln sich gleichzeitig zu dichten harmonischen Feldern",
+        },
+        {
+          title: "RED808",
+          description: "Open-Source-IoT-Drumcomputer mit ESP32-S3, ESP32-P4 und Daisy Seed sowie Weboberfläche für Stems und Pattern-Performance in Echtzeit",
         },
         {
           title: "openStems",
-          description: "Audio-Stem-Management- und Verarbeitungsplattform mit 100% lokaler KI. Verwendet demucs, das Musikquellen-Trennungsmodell von Meta, um Tracks in Echtzeit ohne Cloud-Abhängigkeiten zu trennen",
+          description: "100% lokale KI-Audioplattform zum Trennen, Verwalten und Bearbeiten von Stems. Echte Demucs-Demo, ohne Musikmaterial in die Cloud zu senden",
         },
         {
           title: "newsChyper",
-          description: "KI-Agenten-Pipeline, die Nachrichten durchsucht, Zusammenfassungen erstellt, Songtexte schreibt, Reime prüft und eine tägliche digitale Zeitung mit Suno-Musik und fotografischer Titelseite im Presse-Stil produziert",
+          description: "KI-Agenten-Pipeline, die aktuelle Ereignisse in fünf Kurzbeiträge, Raptexte, Musik und ein tägliches Editorial-Cover im Stil der Untergrundpresse verwandelt",
         },
         {
           title: "ToonJS",
@@ -534,14 +512,6 @@ export const translations = {
         {
           title: "tempspervi.com",
           description: "Spezialisierte Wein-Webplattform, mit Next.js entwickelt",
-        },
-        {
-          title: "VisitToo.com",
-          description: "REST-APIs mit Next.js und C#. WhiteLabel, Stripe/Redsys-Integration, dynamische PDFs und Azure DevOps",
-        },
-        {
-          title: "Euro4x4parts - OBD2-System",
-          description: "IoT-System für alte 4x4-Fahrzeuge mit Internet-Anbindung und OBD2-Diagnostik",
         },
         {
           title: "Business Intelligence",
@@ -574,16 +544,6 @@ export const translations = {
           author: "Francesc Ferrer",
           role: "Mitgründer des ON/OFF Festival, Lloret de Mar",
           text: "Die RED808-Demo hat mir sehr gefallen: Idee, Klang und Fähigkeiten. Ein IoT-Drumcomputer mit enormem Potenzial.",
-        },
-        {
-          author: "VisitToo.com",
-          role: "Travel-Tech-Unternehmen",
-          text: "Außergewöhnliche Arbeit bei der Entwicklung von REST-APIs mit Next.js und C#. Perfekte Umsetzung von Zahlungs-Gateways und DevOps-Systemen in Azure.",
-        },
-        {
-          author: "Euro4x4parts",
-          role: "F&E-Abteilung",
-          text: "Innovative Lösungen in IoT- und OBD2-Systemen. Hervorragende technische Kompetenz, um alte Fahrzeuge mit moderner Technologie zu verbinden.",
         },
         {
           author: "Microsoft Startup Founders Hub",
@@ -659,20 +619,28 @@ export const translations = {
       },
       projects: [
         {
-          title: "RED808",
-          description: "Boîte à rythmes IoT open source. Firmware ESP32-S3 (maître/séquenceur), ESP32-P4 (esclave, LVGL) et Daisy Seed (DSP audio STM32H750), avec une UI web pour gérer les stems",
+          title: "RayDrone",
+          description: "Algorithme de base de synthèse acoustique par lancer de rayons, écrit en Rust et exécuté en WebAssembly avec AudioWorklet. Comprend l'implémentation, une expérience interactive et un paper technique",
         },
         {
-          title: "RayDrone",
-          description: "Synthétiseur de drones audio temps réel : la méthodologie de rendu 3D des années 90 appliquée au buffer audio. Champ de grains 32 voix sur Daisy Seed avec UI tactile sur ESP32-P4",
+          title: "Aura",
+          description: "Instrument hardware autonome sur ESP32-P4 : RayDrone porté du navigateur vers un dispositif jouable avec contrôle tactile et audio temps réel",
+        },
+        {
+          title: "Celestial Field",
+          description: "Un projet FPGA de parallélisme et de FX : banques massives de résonateurs, partiels et chaînes d'effets évoluent simultanément en champs harmoniques denses",
+        },
+        {
+          title: "RED808",
+          description: "Boîte à rythmes IoT open source avec ESP32-S3, ESP32-P4 et Daisy Seed, plus une interface web pour les stems et l'interprétation de patterns en temps réel",
         },
         {
           title: "openStems",
-          description: "Plateforme de gestion et traitement de stems audio avec IA 100% locale. Utilise demucs, le modèle de séparation de sources musicales de Meta, pour séparer les pistes en temps réel sans dépendances cloud",
+          description: "Plateforme audio IA 100% locale pour séparer, gérer et traiter les stems. Démo réelle avec Demucs, sans envoyer le contenu musical dans le cloud",
         },
         {
           title: "newsChyper",
-          description: "Pipeline d'agents IA qui recherche des actualités, génère des résumés, crée des paroles de chansons, vérifie les rimes et produit un quotidien numérique journalier avec musique Suno et couverture photo style presse",
+          description: "Pipeline d'agents IA qui transforme l'actualité en cinq chroniques, paroles de rap, musique et couverture éditoriale quotidienne à l'identité de presse clandestine",
         },
         {
           title: "ToonJS",
@@ -689,14 +657,6 @@ export const translations = {
         {
           title: "tempspervi.com",
           description: "Plateforme web spécialisée dans les vins développée avec Next.js",
-        },
-        {
-          title: "VisitToo.com",
-          description: "APIs REST avec Next.js et C#. WhiteLabel, intégration Stripe/Redsys, PDFs dynamiques et DevOps Azure",
-        },
-        {
-          title: "Euro4x4parts - Système OBD2",
-          description: "Système IoT pour véhicules 4x4 anciens connectés à Internet avec diagnostic OBD2",
         },
         {
           title: "Business Intelligence",
@@ -729,16 +689,6 @@ export const translations = {
           author: "Francesc Ferrer",
           role: "Co-fondateur du ON/OFF Festival, Lloret de Mar",
           text: "La démo de RED808 m'a enchanté : l'idée, le son et les capacités. Une boîte à rythmes IoT avec un potentiel énorme.",
-        },
-        {
-          author: "VisitToo.com",
-          role: "Entreprise de Travel Tech",
-          text: "Excellent travail dans le développement d'APIs REST avec Next.js et C#. Implémentation impeccable des passerelles de paiement et systèmes DevOps sur Azure.",
-        },
-        {
-          author: "Euro4x4parts",
-          role: "Département R&D",
-          text: "Solutions innovantes en IoT et systèmes OBD2. Grande capacité technique pour connecter des véhicules anciens avec la technologie moderne.",
         },
         {
           author: "Microsoft Startup Founders Hub",

@@ -42,9 +42,8 @@ export default function CasosDeExitoPage() {
             de IA afincado en Girona, en plena Costa Brava. Trabajo tanto en
             remoto como de forma presencial con empresas de Girona, Lloret de
             Mar y Blanes, y estos son algunos de los proyectos reales en los
-            que he trabajado: desde plataformas de travel tech con pagos
-            integrados hasta consultoría de inteligencia artificial aplicada
-            y sistemas IoT propios.
+            que he trabajado: desde consultoría de inteligencia artificial
+            aplicada hasta sistemas de audio, IoT y hardware propios.
           </p>
         </div>
 

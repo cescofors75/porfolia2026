@@ -16,15 +16,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: "https://cesco.dev/galeria",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: "https://cesco.dev/blog",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: "https://cesco.dev/proyectos/raydrone",
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.7,
     },
     {
+      url: "https://cesco.dev/proyectos/aura",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: "https://cesco.dev/proyectos/red808",
       lastModified: new Date(),
       changeFrequency: "yearly",
+      priority: 0.7,
+    },
+    {
+      url: "https://cesco.dev/proyectos/openstems",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: "https://cesco.dev/proyectos/newschyper",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
       priority: 0.7,
     },
     ...caseStudies.map((cs) => ({

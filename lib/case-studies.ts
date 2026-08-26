@@ -13,21 +13,6 @@ export interface CaseStudy {
 
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "visittoo-apis-travel-tech",
-    title: "APIs REST WhiteLabel para una plataforma de Travel Tech",
-    client: "VisitToo.com",
-    sector: "Travel Tech",
-    excerpt: "Diseño e implementación de APIs REST WhiteLabel con Next.js y C#, integración de pasarelas de pago Stripe y Redsys, generación de PDFs dinámicos y despliegue continuo en Azure DevOps.",
-    stack: ["Next.js", "C#", ".NET", "Stripe", "Redsys", "Azure DevOps"],
-    challenge:
-      "VisitToo necesitaba una arquitectura de APIs capaz de servir a múltiples marcas (WhiteLabel) desde una única base de código, procesando pagos con dos pasarelas distintas (Stripe para mercado internacional, Redsys para el mercado español) y generando documentación de viaje en PDF de forma dinámica para cada reserva.",
-    solution:
-      "Como desarrollador full stack, trabajando desde Girona, diseñé una capa de API REST en C#/.NET desacoplada del frontend en Next.js, con un sistema de configuración por marca que permite añadir nuevos clientes WhiteLabel sin duplicar lógica de negocio. Integré Stripe y Redsys detrás de una interfaz común de pagos, y automaticé la generación de PDFs de itinerarios y facturas. El pipeline de despliegue se gestiona íntegramente con Azure DevOps, con entornos separados de staging y producción.",
-    result:
-      "El resultado es una plataforma que soporta varias marcas de venta de experiencias de viaje con una única infraestructura, pagos fiables en ambas pasarelas y despliegues automatizados que reducen el tiempo de salida a producción de nuevas funcionalidades.",
-    link: "https://visittoo.com",
-  },
-  {
     slug: "baco-ai-sommelier-virtual",
     title: "Baco AI: un sommelier virtual con IA y RAG",
     client: "Baco AI (proyecto propio)",

@@ -9,7 +9,12 @@ import { useLanguage } from "@/lib/language-context";
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const archiveLabels = {
+    ca: { gallery: "Galeria", journal: "Diari" }, es: { gallery: "Galería", journal: "Diario" },
+    en: { gallery: "Gallery", journal: "Journal" }, de: { gallery: "Galerie", journal: "Tagebuch" },
+    fr: { gallery: "Galerie", journal: "Journal" },
+  }[language];
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -28,10 +33,12 @@ export function Navbar() {
 
   const menuItems = [
     { label: t.nav.inicio, href: "/" },
-    { label: t.nav.proyectos, href: "#portfolio" },
+    { label: t.nav.proyectos, href: "/#portfolio" },
+    { label: archiveLabels.gallery, href: "/galeria" },
+    { label: archiveLabels.journal, href: "/blog" },
     { label: t.nav.casos, href: "/casos-de-exito" },
-    { label: t.nav.habilidades, href: "#skills" },
-    { label: t.nav.contacto, href: "#contact" },
+    { label: t.nav.habilidades, href: "/#skills" },
+    { label: t.nav.contacto, href: "/#contact" },
   ];
 
   return (

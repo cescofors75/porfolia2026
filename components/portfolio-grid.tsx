@@ -4,43 +4,63 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
-import { ExternalLink, BookOpen, Lock, Sparkles, ArrowUpRight, Github } from "lucide-react";
+import { ExternalLink, BookOpen, Lock, Sparkles, ArrowUpRight, Github, Braces, ChartNoAxesCombined, ChefHat, CloudSun, Wine } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
 const projectsData = [
   {
     id: 1,
-    category: "IoT & R+D",
-    color: "from-rose-500 to-orange-500",
-    accent: "rose",
-    featured: true,
-    image: "/imgRed808/IMG_7425.jpeg",
-    link: "/proyectos/red808",
-    githubLink: "https://github.com/cescofors75/RedMaster-ESP32S3",
-  },
-  {
-    id: 2,
-    category: "Audio DSP & IoT",
+    category: "Rust · WebAssembly · Audio DSP",
     color: "from-violet-500 to-fuchsia-500",
     accent: "violet",
     featured: true,
-    image: "/imgRaydrone/metafora_de_La_idea_una_camaraReflex_plato.jpeg",
+    image: "/imgRaydrone/raydrone-wasm.png",
     link: "/proyectos/raydrone",
     githubLink: "https://github.com/cescofors75/RayDrone",
   },
   {
-    id: 3,
-    category: "IA & Audio",
-    color: "from-fuchsia-500 to-pink-500",
-    accent: "fuchsia",
-    noLink: true,
+    id: 2,
+    category: "ESP32-P4 · Embedded Audio",
+    color: "from-cyan-500 to-blue-500",
+    accent: "cyan",
+    featured: true,
+    image: "/imgRaydrone/imagen_proyecto_Final_IA.png",
+    link: "/proyectos/aura",
+    githubLink: "https://github.com/cescofors75/RayDrone",
   },
   {
     id: 4,
-    category: "IA Generativa",
+    category: "IoT & R+D",
     color: "from-cyan-500 to-blue-500",
     accent: "cyan",
+    translationIndex: 3,
+    image: "/gallery/024E21CF-B281-45F2-B984-8882B79763D3.webp",
+    link: "/proyectos/red808",
+    githubLink: "https://github.com/cescofors75/RedMaster-ESP32S3",
+  },
+  {
+    id: 3,
+    category: "FPGA · Parallel FX",
+    color: "from-fuchsia-500 to-pink-500",
+    accent: "fuchsia",
+    translationIndex: 2,
     noLink: true,
+  },
+  {
+    id: 12,
+    category: "Local AI · Audio",
+    color: "from-emerald-500 to-cyan-500",
+    accent: "emerald",
+    link: "/proyectos/openstems",
+    videoId: "_5ZUFD1iu-g",
+  },
+  {
+    id: 13,
+    category: "AI Agents · Editorial",
+    color: "from-red-600 to-amber-500",
+    accent: "red",
+    image: "/newschyper/95f87a09-118e-41a0-ad25-1517376d5eea.jpeg",
+    link: "/proyectos/newschyper",
   },
   {
     id: 5,
@@ -72,19 +92,6 @@ const projectsData = [
     link: "https://tempspervi.com",
   },
   {
-    id: 9,
-    category: "Full Stack & DevOps",
-    color: "from-orange-500 to-red-500",
-    accent: "orange",
-    link: "https://visittoo.com",
-  },
-  {
-    id: 10,
-    category: "IoT & R+D",
-    color: "from-indigo-500 to-purple-500",
-    accent: "indigo",
-  },
-  {
     id: 11,
     category: "Data Analytics",
     color: "from-teal-500 to-blue-500",
@@ -112,6 +119,73 @@ interface TiltCardProps {
   children: React.ReactNode;
   className?: string;
   glowColor?: string;
+}
+
+const vectorArtwork = {
+  3: { Icon: Braces, code: "FPGA / PARALLEL FX FIELD" },
+  5: { Icon: Braces, code: "DATA / TOON" },
+  6: { Icon: Wine, code: "AI / TASTE" },
+  7: { Icon: ChefHat, code: "MENU / EXPERIENCE" },
+  8: { Icon: CloudSun, code: "LOCAL / FORECAST" },
+  11: { Icon: ChartNoAxesCombined, code: "SIGNAL / INSIGHT" },
+} as const;
+
+function CelestialFieldMark() {
+  return (
+    <svg viewBox="0 0 180 88" className="w-40 max-w-[72%] overflow-visible" fill="none" role="img" aria-label="Celestial Field parallel FX mark">
+      <defs>
+        <linearGradient id="celestial-flow" x1="8" y1="44" x2="172" y2="44" gradientUnits="userSpaceOnUse">
+          <stop stopColor="currentColor" stopOpacity=".25" />
+          <stop offset=".5" stopColor="currentColor" />
+          <stop offset="1" stopColor="currentColor" stopOpacity=".5" />
+        </linearGradient>
+      </defs>
+      {[16, 30, 44, 58, 72].map((y, index) => (
+        <g key={y}>
+          <path d={`M8 ${y} C30 ${y - 10 + index * 2} 42 ${y + 10 - index * 2} 64 ${y} S98 ${y - 10 + index * 2} 120 ${y} S145 44 164 44`} stroke="url(#celestial-flow)" strokeWidth={index === 2 ? 2.4 : 1.35} />
+          <circle cx="65" cy={y} r="2.5" fill="currentColor" opacity={0.45 + index * 0.1} />
+          <circle cx="119" cy={y} r="2.5" fill="currentColor" opacity={0.8 - index * 0.08} />
+        </g>
+      ))}
+      <circle cx="164" cy="44" r="9" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="164" cy="44" r="3" fill="currentColor" />
+      <path d="M164 26V20M164 68V62M146 44H140M188 44H182M151 31L147 27M177 57L181 61M177 31L181 27M151 57L147 61" stroke="currentColor" strokeWidth="1.2" opacity=".7" />
+    </svg>
+  );
+}
+
+function VectorProjectArtwork({ project }: { project: (typeof projectsData)[number] }) {
+  const artwork = vectorArtwork[project.id as keyof typeof vectorArtwork];
+  if (!artwork) return null;
+  const { Icon, code } = artwork;
+  const accent = accentColors[project.accent] || "#6366f1";
+
+  return (
+    <div
+      className="relative aspect-video rounded-xl overflow-hidden border border-border/50 bg-background/80 mb-5"
+      aria-hidden="true"
+      style={{ color: accent }}
+    >
+      <div className="absolute inset-0 opacity-30" style={{ backgroundImage: `linear-gradient(${accent}22 1px, transparent 1px), linear-gradient(90deg, ${accent}22 1px, transparent 1px)`, backgroundSize: "24px 24px" }} />
+      <div className="absolute -right-12 -top-12 size-40 rounded-full border opacity-25" style={{ borderColor: accent }} />
+      <div className="absolute -right-5 -top-5 size-24 rounded-full border opacity-40" style={{ borderColor: accent }} />
+      <div className="absolute left-5 top-5 font-mono text-[10px] tracking-[.2em] opacity-75">{code}</div>
+      <div className="absolute inset-0 flex items-center justify-center">
+        {project.id === 3 ? (
+          <div className="transition-transform duration-700 group-hover:scale-110"><CelestialFieldMark /></div>
+        ) : (
+          <div className="relative flex size-20 items-center justify-center rounded-2xl border bg-background/75 backdrop-blur-sm transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3" style={{ borderColor: `${accent}66`, boxShadow: `0 0 50px ${accent}25` }}>
+            <Icon size={38} strokeWidth={1.35} />
+            <span className="absolute -left-8 top-1/2 h-px w-8 opacity-60" style={{ background: accent }} />
+            <span className="absolute -right-8 top-1/2 h-px w-8 opacity-60" style={{ background: accent }} />
+          </div>
+        )}
+      </div>
+      <div className="absolute bottom-4 left-5 right-5 flex items-center gap-2">
+        {[0.35, 0.8, 0.5, 1, 0.65].map((opacity, index) => <span key={index} className="h-1 flex-1 rounded-full" style={{ background: accent, opacity }} />)}
+      </div>
+    </div>
+  );
 }
 
 function TiltCard({ children, className = "", glowColor = "#6366f1" }: TiltCardProps) {
@@ -169,8 +243,8 @@ export function PortfolioGrid() {
 
   const projects = projectsData.map((project, index) => ({
     ...project,
-    title: t.portfolio.projects[index].title,
-    description: t.portfolio.projects[index].description,
+    title: t.portfolio.projects[("translationIndex" in project ? project.translationIndex : index) as number].title,
+    description: t.portfolio.projects[("translationIndex" in project ? project.translationIndex : index) as number].description,
   }));
 
   const featuredProjects = projects.filter((p) => p.featured);
@@ -224,7 +298,7 @@ export function PortfolioGrid() {
           </p>
         </motion.div>
 
-        {/* Featured Projects: RED808 & RayDrone */}
+        {/* Featured Projects: RayDrone & Aura */}
         <div className="mb-16">
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-6"
@@ -342,6 +416,35 @@ export function PortfolioGrid() {
                   <h3 className="text-xl md:text-2xl font-display font-bold mb-3 group-hover:text-primary transition-colors duration-300">
                     {project.title}
                   </h3>
+
+                  {"image" in project && project.image && (
+                    <div className="relative aspect-video rounded-xl overflow-hidden border border-border/50 bg-black mb-5">
+                      <Image
+                        src={project.image as string}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-[1.025]"
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                      />
+                    </div>
+                  )}
+
+                  {!("image" in project) && !("videoId" in project) && (
+                    <VectorProjectArtwork project={project} />
+                  )}
+
+                  {"videoId" in project && project.videoId && (
+                    <div className="relative aspect-video rounded-xl overflow-hidden border border-border/50 bg-black mb-5">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src={`https://www.youtube-nocookie.com/embed/${project.videoId}?rel=0&modestbranding=1`}
+                        title={`${project.title} demo`}
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                      />
+                    </div>
+                  )}
 
                   <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-grow">
                     {project.description}
