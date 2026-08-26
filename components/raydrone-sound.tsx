@@ -11,7 +11,7 @@ const labels = {
 } as const;
 
 const tracks = [
-  { title: "RayDrone · Live texture", src: "/music/music.MP4" },
+  { title: "RayDrone · Live texture", src: "/music/raydrone.mp3" },
   { title: "NewsChyper · Santa Cristina", src: "/music/2407_2026NewsChyper%20SantaCristina.mp3.mpeg" },
   { title: "NewsChyper · Día de odio", src: "/music/28072026newsChyperOdio.mp3.mpeg" },
   { title: "NewsChyper · 08.07.2026", src: "/music/NEWS08072026.mp3.mpeg" },
