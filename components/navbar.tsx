@@ -123,7 +123,7 @@ export function Navbar() {
             {isOpen && (
               <motion.div
                 id="mobile-menu"
-                className="md:hidden overflow-hidden"
+                className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl rounded-b-2xl"
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}

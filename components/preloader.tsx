@@ -3,13 +3,32 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+const SESSION_KEY = "cf-preloader-shown";
+
 export function Preloader() {
   const [count, setCount] = useState(0);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    let alreadyShown = false;
+    try {
+      alreadyShown = sessionStorage.getItem(SESSION_KEY) === "1";
+    } catch {
+      alreadyShown = false;
+    }
+    if (alreadyShown) {
+      setCount(100);
+      setDone(true);
+      return;
+    }
+    try {
+      sessionStorage.setItem(SESSION_KEY, "1");
+    } catch {
+      // sessionStorage unavailable (private mode, etc.) — animation still runs once for this load
+    }
+
     const start = performance.now();
-    const duration = 1400;
+    const duration = 700;
     let frame: number;
 
     const tick = (now: number) => {
@@ -19,7 +38,7 @@ export function Preloader() {
       if (progress < 1) {
         frame = requestAnimationFrame(tick);
       } else {
-        setTimeout(() => setDone(true), 250);
+        setTimeout(() => setDone(true), 100);
       }
     };
     frame = requestAnimationFrame(tick);
@@ -32,7 +51,7 @@ export function Preloader() {
         <motion.div
           className="fixed inset-0 z-[10000] bg-background flex flex-col items-center justify-center"
           exit={{ y: "-100%" }}
-          transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}
+          transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
         >
           <motion.div
             className="font-display text-8xl md:text-9xl font-bold gradient-text-animated mb-6"
