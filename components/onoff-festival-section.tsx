@@ -1,8 +1,6 @@
-'use client';
-
 import Image from "next/image";
 import { ArrowUpRight, CalendarDays, MapPin, Mic2, Radio, Waves } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import type { Language } from "@/lib/translations";
 
 const copy = {
   es: {
@@ -42,8 +40,7 @@ const copy = {
   },
 } as const;
 
-export function OnOffFestivalSection() {
-  const { language } = useLanguage();
+export function OnOffFestivalSection({ language }: { language: Language }) {
   const t = copy[language];
   return <section className="py-24 px-4 overflow-hidden"><div className="max-w-7xl mx-auto">
     <div className="rounded-[2rem] border border-pink-400/25 bg-[linear-gradient(135deg,rgba(244,114,182,.08),transparent_50%)] overflow-hidden">

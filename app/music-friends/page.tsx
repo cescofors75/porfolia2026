@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { MusicFriends } from "@/components/music-friends";
+import { getLanguage } from "@/lib/language-server";
 
 export const metadata: Metadata = {
   title: "Music & Friends | Noeron, Limabeatz y Manel Alsina | Cesco.dev",
@@ -8,4 +9,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Music & Friends | Cesco.dev", description: "Escuchar la música de Noeron, Limabeatz, Manel Alsina y más artistas amigos.", url: "https://cesco.dev/music-friends", images: [{ url: "https://image-cdn-fa.spotifycdn.com/image/ab676161000051741e3c2370aee5ddfe451d3e5c", width: 320, height: 320, alt: "Limabeatz" }] },
 };
 
-export default function MusicFriendsPage() { return <MusicFriends />; }
+export default async function MusicFriendsPage() {
+  const language = await getLanguage();
+ return <MusicFriends language={language} />; }

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { OpenStemsProject } from "@/components/openstems-project";
+import { getLanguage } from "@/lib/language-server";
 
 export const metadata: Metadata = {
   title: "openStems | Separación de audio con IA local | Cesco.dev",
@@ -8,4 +9,6 @@ export const metadata: Metadata = {
   openGraph: { title: "openStems | IA local para separación de audio", description: "Separación y gestión de stems con Demucs, ejecutada completamente en local.", url: "https://cesco.dev/proyectos/openstems", images: [{ url: "https://i.ytimg.com/vi/_5ZUFD1iu-g/maxresdefault.jpg", width: 1280, height: 720, alt: "Demo de openStems con separación local de audio" }] },
 };
 
-export default function OpenStemsPage() { return <OpenStemsProject />; }
+export default async function OpenStemsPage() {
+  const language = await getLanguage();
+ return <OpenStemsProject language={language} />; }

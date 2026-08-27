@@ -9,8 +9,10 @@ const nextConfig: NextConfig = {
     turbopackFileSystemCacheForDev: true,
   },
 
-  // Cache Components (movido fuera de experimental)
-  cacheComponents: true,
+  // Cache Components queda desactivado: exige que toda lectura dinámica vaya
+  // dentro de <Suspense>, y el idioma se lee de una cookie en el layout raíz
+  // para poder renderizar el HTML ya traducido. El render pasa a ser dinámico,
+  // con un TTFB de decenas de ms, a cambio de no hidratar la página entera.
 
   // Optimizaciones de imagen
   images: {

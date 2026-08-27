@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BookOpen, Github } from "lucide-react";
 import { RayDroneDemoLink } from "@/components/raydrone-demo-link";
+import { getLanguage } from "@/lib/language-server";
 
 export const metadata: Metadata = {
   title: "RayDrone | Rust, WebAssembly y síntesis acústica | Cesco.dev",
@@ -18,7 +19,9 @@ export const metadata: Metadata = {
 
 const stack = ["Rust", "WebAssembly", "AudioWorklet", "DSP en tiempo real", "QMC Engine", "Web Audio API"];
 
-export default function RayDronePage() {
+export default async function RayDronePage() {
+  const language = await getLanguage();
+
   return (
     <article className="py-24 lg:py-32 px-4 pt-32 relative overflow-hidden">
       <div className="max-w-5xl mx-auto">
@@ -45,7 +48,7 @@ export default function RayDronePage() {
         </section>
         <div className="flex flex-wrap gap-2 mb-12 p-4 rounded-xl border border-border/50 bg-card/30">{stack.map((tech) => <span key={tech} className="px-3 py-1.5 rounded-lg border border-border/60 bg-background/50 text-xs text-foreground">{tech}</span>)}</div>
         <div className="flex flex-col sm:flex-row gap-4">
-          <RayDroneDemoLink />
+          <RayDroneDemoLink language={language} />
           <a href="https://github.com/cescofors75/RayDrone" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-card/50 rounded-full font-semibold hover:bg-card transition-colors"><Github size={18} /> Ver código en GitHub <ArrowUpRight size={16} /></a>
           <Link href="/proyectos/aura" className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-card/50 rounded-full font-semibold hover:bg-card transition-colors">Conocer Aura <ArrowRight size={16} /></Link>
         </div>

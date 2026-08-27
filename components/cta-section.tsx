@@ -1,39 +1,10 @@
-'use client';
-
-import { useCallback } from "react";
 import { Mail, Linkedin, Twitter, ArrowRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
-import { useLanguage } from "@/lib/language-context";
-import { useSmoothPointer } from "@/lib/use-smooth-pointer";
+import { translations, type Language } from "@/lib/translations";
+import { MagneticButton } from "@/components/magnetic-button";
 
-interface MagneticButtonProps {
-  children: React.ReactNode;
-  className?: string;
-  href: string;
-  target?: string;
-  rel?: string;
-}
-
-function MagneticButton({ children, className = "", href, target, rel }: MagneticButtonProps) {
-  // Efecto magnético con variables CSS en vez de useSpring de framer-motion.
-  const toVars = useCallback(
-    (x: number, y: number) => ({
-      "--magnet-x": `${x * 26}px`,
-      "--magnet-y": `${y * 26}px`,
-    }),
-    []
-  );
-  const ref = useSmoothPointer<HTMLAnchorElement>({ ease: 0.2, toVars });
-
-  return (
-    <a ref={ref} href={href} target={target} rel={rel} className={`magnetic ${className}`}>
-      {children}
-    </a>
-  );
-}
-
-export function CTASection() {
-  const { t } = useLanguage();
+export function CTASection({ language }: { language: Language }) {
+  const t = translations[language];
 
   return (
     <section id="contact" className="py-24 lg:py-32 px-4 relative overflow-hidden">

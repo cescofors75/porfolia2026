@@ -1,14 +1,12 @@
-'use client';
-
 import Link from "next/link";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
-import { useLanguage } from "@/lib/language-context";
+import { translations, type Language } from "@/lib/translations";
 
 const currentYear = new Date().getFullYear();
 
-export function Footer() {
-  const { t, language } = useLanguage();
+export function Footer({ language }: { language: Language }) {
+  const t = translations[language];
   const archiveLabels = {
     ca: { gallery: "Galeria", journal: "Diari", music: "Música & Amics" }, es: { gallery: "Galería", journal: "Diario", music: "Música & Amigos" },
     en: { gallery: "Gallery", journal: "Journal", music: "Music & Friends" }, de: { gallery: "Galerie", journal: "Tagebuch", music: "Musik & Freunde" },

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { NewsChyperProject } from "@/components/newschyper-project";
+import { getLanguage } from "@/lib/language-server";
 
 export const metadata: Metadata = {
   title: "newsChyper | Pipeline editorial de agentes IA | Cesco.dev",
@@ -8,4 +9,6 @@ export const metadata: Metadata = {
   openGraph: { title: "newsChyper | Cinco voces, una antena clandestina", description: "Pipeline de agentes IA para síntesis de noticias, escritura, música y diseño editorial.", url: "https://cesco.dev/proyectos/newschyper", images: [{ url: "/newschyper/a328cddf-f98d-4f9e-9338-11d0bce0e9cd.webp", width: 1067, height: 1536, alt: "Portada Hasta septiembre de newsChyper" }] },
 };
 
-export default function NewsChyperPage() { return <NewsChyperProject />; }
+export default async function NewsChyperPage() {
+  const language = await getLanguage();
+ return <NewsChyperProject language={language} />; }

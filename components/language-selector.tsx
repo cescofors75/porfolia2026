@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { Languages, Check } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
-import { Language } from "@/lib/translations";
+import { Language, translations } from "@/lib/translations";
 
 const languages = [
   { code: 'ca' as Language, name: 'Català', flag: '🇪🇸' },
@@ -13,9 +13,20 @@ const languages = [
   { code: 'fr' as Language, name: 'Français', flag: '🇫🇷' },
 ];
 
-export function LanguageSelector() {
+export function LanguageSelector({ language }: { language: Language }) {
   const [isOpen, setIsOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const [, startTransition] = useTransition();
+  const router = useRouter();
+  const t = translations[language];
+
+  // El idioma vive en una cookie para que el servidor pueda renderizar ya en el
+  // idioma correcto. router.refresh() vuelve a pedir el árbol de servidor con la
+  // cookie nueva, en lugar de re-renderizar toda la página en el cliente.
+  const setLanguage = (lang: Language) => {
+    document.cookie = `portfolio-language=${lang}; path=/; max-age=31536000; samesite=lax`;
+    setIsOpen(false);
+    startTransition(() => router.refresh());
+  };
 
   return (
     <div className="fixed bottom-6 right-24 z-50">

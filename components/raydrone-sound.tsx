@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { Pause, Play, SkipForward, Volume2 } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import type { Language } from "@/lib/translations";
 
 const labels = {
   es: { play: "Reproducir música", pause: "Pausar música", next: "Cambiar de tema", now: "Sonando ahora" }, ca: { play: "Reproduir música", pause: "Pausar música", next: "Canviar de tema", now: "Sonant ara" },
@@ -17,8 +17,8 @@ const tracks = [
   { title: "NewsChyper · 08.07.2026", src: "/music/newschyper-08-07-2026.mp3" },
 ] as const;
 
-export function RayDroneSound() {
-  const { language } = useLanguage();
+export function RayDroneSound({ language }: { language: Language }) {
+
   const media = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
   const [track, setTrack] = useState(0);

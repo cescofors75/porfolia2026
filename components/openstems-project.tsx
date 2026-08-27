@@ -1,8 +1,6 @@
-'use client';
-
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, BrainCircuit, CloudOff, Layers3 } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import type { Language } from "@/lib/translations";
 
 const copy = {
   es: { back: "Volver al portfolio", badge: "IA local · Separación de audio · Demucs", intro: "Una plataforma para separar, escuchar y gestionar stems musicales con inteligencia artificial ejecutada completamente en local.", demo: "Demo de openStems", demoText: "La demostración muestra el flujo real del proyecto: cargar material, ejecutar la separación y trabajar con las pistas resultantes desde una única interfaz.", local: "Privacidad por diseño", localText: "El audio no necesita abandonar el equipo. El procesamiento local evita depender de servicios externos y mantiene el material bajo control.", model: "Separación con Demucs", modelText: "El motor utiliza separación de fuentes musicales para obtener voces, batería, bajo y otros componentes editables.", workflow: "Del archivo a los stems", workflowText: "openStems reúne preparación, separación, preescucha y gestión en un flujo pensado para músicos, productores e investigación.", youtube: "Ver directamente en YouTube", next: "Explorar más proyectos" },
@@ -12,8 +10,7 @@ const copy = {
   fr: { back: "Retour au portfolio", badge: "IA locale · Séparation audio · Demucs", intro: "Une plateforme pour séparer, écouter et gérer des stems musicaux grâce à une IA exécutée entièrement en local.", demo: "Démo openStems", demoText: "La démonstration présente le flux réel : charger le contenu, lancer la séparation et travailler avec les pistes obtenues dans une seule interface.", local: "Confidentialité intégrée", localText: "L'audio n'a pas besoin de quitter la machine. Le traitement local évite les services externes et garde le contenu sous contrôle.", model: "Séparation avec Demucs", modelText: "Le moteur extrait voix, batterie, basse et autres composants éditables.", workflow: "Du fichier aux stems", workflowText: "openStems réunit préparation, séparation, préécoute et gestion pour musiciens, producteurs et recherche.", youtube: "Voir directement sur YouTube", next: "Explorer d'autres projets" },
 };
 
-export function OpenStemsProject() {
-  const { language } = useLanguage();
+export function OpenStemsProject({ language }: { language: Language }) {
   const t = copy[language];
   const cards = [{ icon: CloudOff, title: t.local, text: t.localText }, { icon: BrainCircuit, title: t.model, text: t.modelText }, { icon: Layers3, title: t.workflow, text: t.workflowText }];
   return <article className="py-24 lg:py-32 px-4 pt-32 relative overflow-hidden"><div className="max-w-5xl mx-auto">

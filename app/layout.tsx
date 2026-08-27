@@ -7,18 +7,21 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
   display: "swap",
+  preload: false,
 });
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   variable: "--font-jetbrains-mono",
   display: "swap",
+  preload: false,
 });
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
@@ -28,8 +31,8 @@ import { CursorFollower } from "@/components/cursor-follower";
 import { Preloader } from "@/components/preloader";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { AuroraBackground } from "@/components/aurora-background";
-import { LanguageProvider } from "@/lib/language-context";
 import { Analytics } from "@vercel/analytics/next";
+import { getLanguage } from "@/lib/language-server";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -142,14 +145,18 @@ const websiteJsonLd = {
   author: { "@type": "Person", name: "Francesc 'Cesco' Fors Ferrer", url: "https://cesco.dev" },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: ReactNode;
 }) {
+  // El idioma se resuelve en el servidor, así el HTML sale ya traducido y el
+  // atributo lang es correcto desde la primera respuesta.
+  const language = await getLanguage();
+
   return (
     <html
-      lang="es"
+      lang={language}
       suppressHydrationWarning
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} dark`}
     >
@@ -165,16 +172,14 @@ export default function RootLayout({
         <Preloader />
         <ScrollReveal />
         <AuroraBackground />
-        <LanguageProvider>
-          <Navbar />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-          <ThemeSelector />
-          <LanguageSelector />
-          <CursorFollower />
-        </LanguageProvider>
+        <Navbar language={language} />
+        <main className="flex-grow">
+          {children}
+        </main>
+        <Footer language={language} />
+        <ThemeSelector language={language} />
+        <LanguageSelector language={language} />
+        <CursorFollower />
         <Analytics />
       </body>
     </html>

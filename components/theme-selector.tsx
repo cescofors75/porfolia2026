@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Palette, Check } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import { Language, translations } from "@/lib/translations";
 
 const themes = [
   {
@@ -67,10 +67,10 @@ const themes = [
   },
 ];
 
-export function ThemeSelector() {
+export function ThemeSelector({ language }: { language: Language }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentTheme, setCurrentTheme] = useState('indigo-blue');
-  const { t } = useLanguage();
+  const t = translations[language];
 
   useEffect(() => {
     let savedTheme = localStorage.getItem('portfolio-theme');

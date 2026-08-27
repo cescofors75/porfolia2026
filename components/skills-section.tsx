@@ -1,8 +1,5 @@
-'use client';
-
-import { useRef } from "react";
 import { Code2, Database, Cloud, Brain, Sparkles } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import { translations, type Language } from "@/lib/translations";
 
 const skills = [
   {
@@ -27,13 +24,11 @@ const skills = [
   },
 ];
 
-export function SkillsSection() {
-  const { t } = useLanguage();
-  const sectionRef = useRef<HTMLElement>(null);
+export function SkillsSection({ language }: { language: Language }) {
+  const t = translations[language];
 
   return (
     <section
-      ref={sectionRef}
       id="skills"
       className="py-24 lg:py-32 px-4 relative overflow-hidden"
     >

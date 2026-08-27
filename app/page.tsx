@@ -7,19 +7,22 @@ import { CTASection } from "@/components/cta-section";
 import { DaisyPartnerSection } from "@/components/daisy-partner-section";
 import { RayDroneSound } from "@/components/raydrone-sound";
 import { OnOffFestivalSection } from "@/components/onoff-festival-section";
+import { getLanguage } from "@/lib/language-server";
 
-export default function Home() {
+export default async function Home() {
+  const language = await getLanguage();
+
   return (
     <>
-      <HeroSection />
+      <HeroSection language={language} />
       <MarqueeStrip />
-      <PortfolioGrid />
-      <DaisyPartnerSection />
-      <OnOffFestivalSection />
-      <SkillsSection />
-      <TestimonialSection />
-      <CTASection />
-      <RayDroneSound />
+      <PortfolioGrid language={language} />
+      <DaisyPartnerSection language={language} />
+      <OnOffFestivalSection language={language} />
+      <SkillsSection language={language} />
+      <TestimonialSection language={language} />
+      <CTASection language={language} />
+      <RayDroneSound language={language} />
     </>
   );
 }

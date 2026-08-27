@@ -4,12 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import { Language, translations } from "@/lib/translations";
 
-export function Navbar() {
+export function Navbar({ language }: { language: Language }) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const { t, language } = useLanguage();
+  const t = translations[language];
   const archiveLabels = {
     ca: { gallery: "Galeria", journal: "Diari", music: "Música & Amics" }, es: { gallery: "Galería", journal: "Diario", music: "Música & Amigos" },
     en: { gallery: "Gallery", journal: "Journal", music: "Music & Friends" }, de: { gallery: "Galerie", journal: "Tagebuch", music: "Musik & Freunde" },

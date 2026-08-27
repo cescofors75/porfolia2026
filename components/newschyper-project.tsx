@@ -1,9 +1,7 @@
-'use client';
-
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Bot, FileText, Music2, Newspaper, Radio } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import type { Language } from "@/lib/translations";
 
 const covers = [
   { src: "/newschyper/95f87a09-118e-41a0-ad25-1517376d5eea.webp", key: "founding" },
@@ -26,8 +24,7 @@ const copy = {
   fr: { back: "Retour au portfolio", badge: "Agents IA · Musique · Design éditorial", intro: "Un journal musical automatisé : cinq actualités entrent dans un pipeline d'agents et deviennent chroniques, paroles, chansons et couverture quotidienne dotée d'une voix propre.", archive: "Trois couvertures, une identité", archiveText: "La série explore l'esthétique de la presse clandestine, du hip-hop et du collage. Ce sont des artefacts éditoriaux du projet, pas les unes d'un média traditionnel.", founding: "Édition fondatrice · Cinq voix, une vérité", odio: "Édition thématique · Jour de haine", season: "Fin de saison · Jusqu'en septembre", radio: "Archives sonores", radioText: "Quatre éditions complètes permettent d'écouter le résultat final : actualité, écriture, voix, musique et montage réunis en une pièce éditoriale.", pipeline: "Le pipeline", p1: "Sélection et synthèse", p1t: "Les agents recherchent l'actualité, comparent les sources et condensent chaque histoire autour d'une idée centrale.", p2: "Écriture et révision", p2t: "Une autre étape transforme les résumés en paroles, contrôle structure et rimes et maintient la cohérence des cinq pièces.", p3: "Musique et publication", p3t: "Musique, couverture et édition quotidienne réunissent texte, son et image dans une livraison reconnaissable.", disclaimer: "Les couvertures sont des productions créatives du système. Titres et compositions relèvent de l'expérience éditoriale et ne constituent pas une vérification journalistique.", more: "Explorer d'autres projets" },
 };
 
-export function NewsChyperProject() {
-  const { language } = useLanguage();
+export function NewsChyperProject({ language }: { language: Language }) {
   const t = copy[language];
   const editorialArchive = { es: "Archivo editorial", ca: "Arxiu editorial", en: "Editorial archive", de: "Redaktionelles Archiv", fr: "Archives éditoriales" }[language];
   const steps = [{ icon: Bot, title: t.p1, text: t.p1t }, { icon: FileText, title: t.p2, text: t.p2t }, { icon: Music2, title: t.p3, text: t.p3t }];

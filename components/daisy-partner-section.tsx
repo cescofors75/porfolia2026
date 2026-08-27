@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, ArrowUpRight, Cable, Cpu, Waves } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import type { Language } from "@/lib/translations";
 
 const copy = {
   es: { eyebrow: "Partner tecnológico", title: "Daisy.audio en el camino de la señal", body: "Daisy aporta una plataforma especializada para DSP musical en tiempo real. Daisy Seed y Daisy Pod forman parte del laboratorio físico donde RED808, RayDrone y Aura pasan del algoritmo al instrumento.", crew: "Electro-Crew · ordenadores que aprenden a cantar", identity: "No soy DJ. No soy productor. No soy músico. Solo developer / engineer… y enseño a los ordenadores a cantar.", link: "Conocer Daisy" },
@@ -21,8 +21,8 @@ const mediaCopy = {
   fr: { captions: ["Electro-Crew · des ordinateurs qui apprennent à chanter", "Daisy Pod, Seed et câblage pour prototyper l'audio"], previous: "Précédent", next: "Suivant", item: "Contenu" },
 } as const;
 
-export function DaisyPartnerSection() {
-  const { language } = useLanguage();
+export function DaisyPartnerSection({ language }: { language: Language }) {
+
   const t = copy[language];
   const media = mediaCopy[language];
   const [slide, setSlide] = useState(0);

@@ -1,11 +1,8 @@
-'use client';
-
-import { useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSmoothPointer } from "@/lib/use-smooth-pointer";
+import { TiltCard } from "@/components/tilt-card";
 import { ExternalLink, BookOpen, Lock, Sparkles, ArrowUpRight, Github, Braces, ChartNoAxesCombined, ChefHat, CloudSun, Wine } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import { translations, type Language } from "@/lib/translations";
 
 const projectsData = [
   {
@@ -116,12 +113,6 @@ const accentColors: Record<string, string> = {
   pink: "#ec4899",
 };
 
-interface TiltCardProps {
-  children: React.ReactNode;
-  className?: string;
-  glowColor?: string;
-}
-
 const vectorArtwork = {
   3: { Icon: Braces, code: "FPGA / PARALLEL FX FIELD" },
   5: { Icon: Braces, code: "DATA / TOON" },
@@ -189,34 +180,8 @@ function VectorProjectArtwork({ project }: { project: (typeof projectsData)[numb
   );
 }
 
-function TiltCard({ children, className = "", glowColor = "#6366f1" }: TiltCardProps) {
-  // Inclinación y foco de luz resueltos con variables CSS sobre el propio nodo,
-  // en lugar de useSpring/useMotionTemplate de framer-motion: sin la librería y
-  // sin un re-render de React por cada movimiento del ratón.
-  const toVars = useCallback(
-    (x: number, y: number) => ({
-      "--tilt-x": `${-y * 16}deg`,
-      "--tilt-y": `${x * 16}deg`,
-      "--spot-x": `${(x + 0.5) * 100}%`,
-      "--spot-y": `${(y + 0.5) * 100}%`,
-    }),
-    []
-  );
-  const ref = useSmoothPointer<HTMLDivElement>({ toVars });
-
-  return (
-    <div ref={ref} className={`relative tilt-card ${className}`}>
-      <div
-        className="absolute inset-0 rounded-3xl pointer-events-none z-0 tilt-spotlight"
-        style={{ ["--spot-color" as string]: `${glowColor}26` }}
-      />
-      <div className="relative z-10 h-full">{children}</div>
-    </div>
-  );
-}
-
-export function PortfolioGrid() {
-  const { t, language } = useLanguage();
+export function PortfolioGrid({ language }: { language: Language }) {
+  const t = translations[language];
   const liveDemoLabel = { es: "Demo pública", ca: "Demo pública", en: "Public demo", de: "Öffentliche Demo", fr: "Démo publique" }[language];
 
   const projects = projectsData.map((project, index) => ({

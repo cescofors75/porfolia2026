@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Heart, Maximize2, X } from "lucide-react";
 import { processArchive, type ProcessPhase } from "@/lib/process-archive";
-import { useLanguage } from "@/lib/language-context";
+import type { Language } from "@/lib/translations";
 
 const filters: Array<"Todo" | ProcessPhase> = ["Todo", "Origen", "Prototipo", "Integración", "Interfaz", "Instrumento"];
 
@@ -16,8 +16,8 @@ const galleryCopy = {
   fr: { filters: ["Tout", "Origine", "Prototype", "Intégration", "Interface", "Instrument"], filterLabel: "Filtrer la galerie", archive: "Archive", video: "Trace en mouvement", videoLabels: ["RED808 · trace du processus", "RayDrone · essai sonore"], loadVideo: "Charger la vidéo", openVideo: "Ouvrir le fichier original", dialog: "Visionneuse d'images", close: "Fermer la visionneuse", vote: "Voter pour cette image", voted: "Déjà dans votre sélection", selection: "Votre sélection locale", local: "Un vote par image · enregistré sur cet appareil" },
 } as const;
 
-export function ProcessGallery() {
-  const { language } = useLanguage();
+export function ProcessGallery({ language }: { language: Language }) {
+
   const copy = galleryCopy[language];
   const [filter, setFilter] = useState<(typeof filters)[number]>("Todo");
   const [active, setActive] = useState<number | null>(null);

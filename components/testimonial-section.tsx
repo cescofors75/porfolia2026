@@ -1,16 +1,13 @@
-'use client';
-
 import { Star, Quote } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import { translations, type Language } from "@/lib/translations";
 
 const techMarquee = [
   "React", "Next.js", "TypeScript", "Node.js", "C#", "Azure",
   "OpenAI", "Anthropic", "RAG", "PostgreSQL", "Docker", "Power BI"
 ];
 
-export function TestimonialSection() {
-  const { t } = useLanguage();
-
+export function TestimonialSection({ language }: { language: Language }) {
+  const t = translations[language];
   const testimonials = t.testimonials.items.map((item) => ({
     ...item,
     rating: 5,

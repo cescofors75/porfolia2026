@@ -1,7 +1,5 @@
-'use client';
-
 import { ArrowUpRight, Headphones, Music2, Radio, Users } from "lucide-react";
-import { useLanguage } from "@/lib/language-context";
+import type { Language } from "@/lib/translations";
 import Image from "next/image";
 import { EmbedFacade } from "@/components/embed-facade";
 
@@ -21,8 +19,7 @@ const tilloCopy = {
   fr: "Pionnier du turntablism, fondateur de Skratch Comando et l'un des DJs les plus respectés de la scène hip-hop espagnole. Technique, humour et toute une vie de magie sur vinyle.",
 } as const;
 
-export function MusicFriends() {
-  const { language } = useLanguage();
+export function MusicFriends({ language }: { language: Language }) {
   const t = copy[language];
   return <article className="pt-32 pb-24 px-4 overflow-hidden"><div className="max-w-7xl mx-auto">
     <header className="mb-14 md:mb-20"><div className="flex gap-3 text-primary mb-6"><Headphones /><Users /><Music2 /></div><p className="text-xs uppercase tracking-[.22em] text-primary font-semibold mb-4">{t.eyebrow}</p><h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-7">{t.title}</h1><p className="max-w-3xl text-lg md:text-2xl text-muted-foreground leading-relaxed">{t.intro}</p></header>

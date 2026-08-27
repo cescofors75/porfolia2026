@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from "react";
-import { useLanguage } from "@/lib/language-context";
+import type { Language } from "@/lib/translations";
 
 const localized = {
   ca: {
@@ -70,8 +70,8 @@ const localized = {
   },
 } as const;
 
-export function BlogLocaleSync() {
-  const { language } = useLanguage();
+export function BlogLocaleSync({ language }: { language: Language }) {
+
   useEffect(() => {
     const translation = language === "es" ? null : localized[language];
     document.querySelectorAll<HTMLElement>("[data-blog-ui]").forEach((el) => {
