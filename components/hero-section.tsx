@@ -170,13 +170,23 @@ export function HeroSection() {
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
-  const gradientX = useTransform(smoothX, [-0.5, 0.5], ["20%", "80%"]);
-  const gradientY = useTransform(smoothY, [-0.5, 0.5], ["20%", "80%"]);
+  // Translate offsets (px) instead of a background-position string: this lets the
+  // spotlight follow the cursor via a GPU-composited transform, so moving the mouse
+  // never forces a full-viewport repaint the way animating `background` would.
+  const glowX = useTransform(smoothX, [-0.5, 0.5], [-260, 260]);
+  const glowY = useTransform(smoothY, [-0.5, 0.5], [-260, 260]);
 
   useEffect(() => {
+    const rectRef = { current: heroRef.current?.getBoundingClientRect() ?? null };
+    const updateRect = () => {
+      rectRef.current = heroRef.current?.getBoundingClientRect() ?? null;
+    };
+    updateRect();
+    window.addEventListener("resize", updateRect);
+
     const handleMouseMove = (e: MouseEvent) => {
-      if (!heroRef.current) return;
-      const rect = heroRef.current.getBoundingClientRect();
+      const rect = rectRef.current;
+      if (!rect) return;
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
       mouseX.set(x);
@@ -184,7 +194,10 @@ export function HeroSection() {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", updateRect);
+    };
   }, [mouseX, mouseY]);
 
   const containerVariants = {
@@ -214,15 +227,15 @@ export function HeroSection() {
       ref={heroRef}
       className="relative min-h-screen flex items-center overflow-hidden px-4 pt-24 pb-16"
     >
-      {/* Mouse-following gradient */}
+      {/* Mouse-following gradient — fixed-size glow moved via transform (GPU-composited)
+          instead of recomputing the `background` string every frame, which would repaint
+          the full viewport on each mousemove. */}
       <motion.div
-        className="absolute inset-0 pointer-events-none"
+        className="absolute left-1/2 top-1/2 -ml-[300px] -mt-[300px] w-[600px] h-[600px] rounded-full pointer-events-none"
         style={{
-          background: useTransform(
-            [gradientX, gradientY],
-            ([x, y]) =>
-              `radial-gradient(600px circle at ${x} ${y}, hsl(var(--primary) / 0.15), transparent 40%)`
-          ),
+          background: "radial-gradient(circle, hsl(var(--primary) / 0.15), transparent 55%)",
+          x: glowX,
+          y: glowY,
         }}
       />
 
