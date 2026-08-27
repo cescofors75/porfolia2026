@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Palette, Check } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
@@ -102,38 +101,35 @@ export function ThemeSelector() {
   return (
     <div className="fixed bottom-6 right-6 z-50">
       {/* Theme Button */}
-      <motion.button
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-12 h-12 rounded-full border border-border/60 bg-card/80 backdrop-blur-xl text-foreground shadow-lg hover:border-primary/30 hover:bg-card transition-all duration-300 flex items-center justify-center"
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.95 }}
+        className="w-12 h-12 rounded-full border border-border/60 bg-card/80 backdrop-blur-xl text-foreground shadow-lg hover:border-primary/30 hover:bg-card hover:scale-[1.08] active:scale-95 transition-all duration-300 flex items-center justify-center"
         aria-label={t.theme.title}
         aria-expanded={isOpen}
         aria-controls="theme-panel"
       >
         <Palette size={20} />
-      </motion.button>
+      </button>
 
-      {/* Theme Panel */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            id="theme-panel"
-            role="dialog"
-            aria-labelledby="theme-title"
-            initial={{ opacity: 0, y: 16, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 16, scale: 0.95 }}
-            transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute bottom-16 right-0 w-72 p-4 rounded-2xl border border-border/60 bg-card/95 backdrop-blur-xl shadow-2xl elevation-3"
-          >
+      {/* Panel de tema: se mantiene montado y se alterna con una clase, igual que
+          el menú móvil. Una transición sobre un elemento ya montado es más fiable
+          que una animación de keyframes al insertarlo. */}
+        <div
+          id="theme-panel"
+          role="dialog"
+          aria-labelledby="theme-title"
+          aria-hidden={!isOpen}
+          className={`absolute bottom-16 right-0 w-72 p-4 rounded-2xl border border-border/60 bg-card/95 backdrop-blur-xl shadow-2xl elevation-3 floating-panel${
+            isOpen ? " is-open" : ""
+          }`}
+        >
             <h3 id="theme-title" className="text-sm font-semibold uppercase tracking-wider mb-4">
               {t.theme.title}
             </h3>
             
             <div className="grid grid-cols-1 gap-2 max-h-80 overflow-y-auto">
               {themes.map((theme) => (
-                <motion.button
+                <button
                   key={theme.id}
                   onClick={() => {
                     applyTheme(theme.id);
@@ -144,8 +140,6 @@ export function ThemeSelector() {
                       ? 'border-primary bg-primary/10'
                       : 'border-border/50 hover:border-primary/30 hover:bg-card/60'
                   }`}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
                   aria-label={`${t.theme.select} ${theme.name}`}
                   aria-current={currentTheme === theme.id}
                 >
@@ -162,7 +156,7 @@ export function ThemeSelector() {
                   {currentTheme === theme.id && (
                     <Check size={16} className="text-primary shrink-0" />
                   )}
-                </motion.button>
+                </button>
               ))}
             </div>
 
@@ -171,9 +165,7 @@ export function ThemeSelector() {
                 {t.theme.saved}
               </p>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
     </div>
   );
 }

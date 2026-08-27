@@ -1,21 +1,20 @@
 'use client';
 
-import { useRef, useEffect, useState } from "react";
-import { motion, useMotionValue, useTransform, useSpring, useInView, AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
+import { useSmoothPointer } from "@/lib/use-smooth-pointer";
 
 /* ── Rotating words ─────────────────────────────────────────── */
 function RotatingWords({ words }: { words: string[] }) {
   const [index, setIndex] = useState(0);
-  // La primera palabra se pinta ya en su estado final (initial={false}) para que
-  // salga visible en el HTML del servidor; a partir del primer montaje las
-  // rotaciones sí animan con normalidad.
-  const [mounted, setMounted] = useState(false);
+  // La primera palabra se pinta ya en su sitio para que salga visible en el HTML
+  // del servidor; a partir del primer cambio cada palabra entra animada por CSS.
+  const [rotated, setRotated] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const interval = setInterval(() => {
+      setRotated(true);
       setIndex((prev) => (prev + 1) % words.length);
     }, 2500);
     return () => clearInterval(interval);
@@ -23,18 +22,12 @@ function RotatingWords({ words }: { words: string[] }) {
 
   return (
     <span className="relative inline-block overflow-hidden align-bottom">
-      <AnimatePresence mode="wait" presenceAffectsLayout={false}>
-        <motion.span
-          key={words[index]}
-          className="inline-block gradient-text"
-          initial={mounted ? { y: "100%", opacity: 0 } : false}
-          animate={{ y: "0%", opacity: 1 }}
-          exit={{ y: "-100%", opacity: 0 }}
-          transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {words[index]}
-        </motion.span>
-      </AnimatePresence>
+      <span
+        key={index}
+        className={`inline-block gradient-text${rotated ? " animate-word-in" : ""}`}
+      >
+        {words[index]}
+      </span>
     </span>
   );
 }
@@ -42,24 +35,45 @@ function RotatingWords({ words }: { words: string[] }) {
 /* ── Animated counter ───────────────────────────────────────── */
 function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
   const [display, setDisplay] = useState(0);
 
   useEffect(() => {
-    if (!inView) return;
-    const duration = 1500;
-    const start = performance.now();
-    let frame: number;
+    const el = ref.current;
+    if (!el) return;
 
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setDisplay(Math.round(eased * value));
-      if (progress < 1) frame = requestAnimationFrame(tick);
+    let frame = 0;
+    const run = () => {
+      const duration = 1500;
+      const start = performance.now();
+      const tick = (now: number) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setDisplay(Math.round(eased * value));
+        if (progress < 1) frame = requestAnimationFrame(tick);
+      };
+      frame = requestAnimationFrame(tick);
     };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [inView, value]);
+
+    if (!("IntersectionObserver" in window)) {
+      setDisplay(value);
+      return;
+    }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          observer.disconnect();
+          run();
+        }
+      },
+      { rootMargin: "-50px" }
+    );
+    observer.observe(el);
+
+    return () => {
+      observer.disconnect();
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [value]);
 
   return (
     <span ref={ref}>
@@ -159,44 +173,18 @@ function Terminal() {
 /* ── Hero ───────────────────────────────────────────────────── */
 export function HeroSection() {
   const { t } = useLanguage();
-  const heroRef = useRef<HTMLElement>(null);
 
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const springConfig = { damping: 30, stiffness: 200, mass: 0.5 };
-  const smoothX = useSpring(mouseX, springConfig);
-  const smoothY = useSpring(mouseY, springConfig);
-
-  // Translate offsets (px) instead of a background-position string: this lets the
-  // spotlight follow the cursor via a GPU-composited transform, so moving the mouse
-  // never forces a full-viewport repaint the way animating `background` would.
-  const glowX = useTransform(smoothX, [-0.5, 0.5], [-260, 260]);
-  const glowY = useTransform(smoothY, [-0.5, 0.5], [-260, 260]);
-
-  useEffect(() => {
-    const rectRef = { current: heroRef.current?.getBoundingClientRect() ?? null };
-    const updateRect = () => {
-      rectRef.current = heroRef.current?.getBoundingClientRect() ?? null;
-    };
-    updateRect();
-    window.addEventListener("resize", updateRect);
-
-    const handleMouseMove = (e: MouseEvent) => {
-      const rect = rectRef.current;
-      if (!rect) return;
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      mouseX.set(x);
-      mouseY.set(y);
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("resize", updateRect);
-    };
-  }, [mouseX, mouseY]);
+  // El glow que sigue al ratón se resuelve escribiendo variables CSS sobre la
+  // propia sección y moviendo un div de tamaño fijo con transform: lo compone
+  // la GPU, no re-renderiza React y no arrastra framer-motion al bundle.
+  const toVars = useCallback(
+    (x: number, y: number) => ({
+      "--glow-x": `${x * 520}px`,
+      "--glow-y": `${y * 520}px`,
+    }),
+    []
+  );
+  const heroRef = useSmoothPointer<HTMLElement>({ toVars, global: true });
 
   const rotatingWords: string[] = [...t.hero.rotating];
 
@@ -208,13 +196,9 @@ export function HeroSection() {
       {/* Mouse-following gradient — fixed-size glow moved via transform (GPU-composited)
           instead of recomputing the `background` string every frame, which would repaint
           the full viewport on each mousemove. */}
-      <motion.div
-        className="absolute left-1/2 top-1/2 -ml-[300px] -mt-[300px] w-[600px] h-[600px] rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, hsl(var(--primary) / 0.15), transparent 55%)",
-          x: glowX,
-          y: glowY,
-        }}
+      <div
+        className="absolute left-1/2 top-1/2 -ml-[300px] -mt-[300px] w-[600px] h-[600px] rounded-full pointer-events-none hero-glow"
+        style={{ background: "radial-gradient(circle, hsl(var(--primary) / 0.15), transparent 55%)" }}
       />
 
       {/* Background layers */}

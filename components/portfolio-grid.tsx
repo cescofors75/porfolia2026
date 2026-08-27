@@ -1,9 +1,9 @@
 'use client';
 
-import { useRef } from "react";
+import { useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useMotionValue, useSpring, useTransform, useMotionTemplate } from "framer-motion";
+import { useSmoothPointer } from "@/lib/use-smooth-pointer";
 import { ExternalLink, BookOpen, Lock, Sparkles, ArrowUpRight, Github, Braces, ChartNoAxesCombined, ChefHat, CloudSun, Wine } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
@@ -190,52 +190,28 @@ function VectorProjectArtwork({ project }: { project: (typeof projectsData)[numb
 }
 
 function TiltCard({ children, className = "", glowColor = "#6366f1" }: TiltCardProps) {
-  const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springConfig = { damping: 20, stiffness: 200, mass: 0.5 };
-  const rotateX = useSpring(useTransform(y, [-0.5, 0.5], [8, -8]), springConfig);
-  const rotateY = useSpring(useTransform(x, [-0.5, 0.5], [-8, 8]), springConfig);
-
-  const spotX = useTransform(x, [-0.5, 0.5], [0, 100]);
-  const spotY = useTransform(y, [-0.5, 0.5], [0, 100]);
-  const spotlight = useMotionTemplate`radial-gradient(500px circle at ${spotX}% ${spotY}%, ${glowColor}26, transparent 60%)`;
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set((e.clientX - centerX) / rect.width);
-    y.set((e.clientY - centerY) / rect.height);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
+  // Inclinación y foco de luz resueltos con variables CSS sobre el propio nodo,
+  // en lugar de useSpring/useMotionTemplate de framer-motion: sin la librería y
+  // sin un re-render de React por cada movimiento del ratón.
+  const toVars = useCallback(
+    (x: number, y: number) => ({
+      "--tilt-x": `${-y * 16}deg`,
+      "--tilt-y": `${x * 16}deg`,
+      "--spot-x": `${(x + 0.5) * 100}%`,
+      "--spot-y": `${(y + 0.5) * 100}%`,
+    }),
+    []
+  );
+  const ref = useSmoothPointer<HTMLDivElement>({ toVars });
 
   return (
-    <motion.div
-      ref={ref}
-      className={`relative ${className}`}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3 }}
-    >
-      <motion.div
-        className="absolute inset-0 rounded-3xl pointer-events-none z-0"
-        style={{ background: spotlight }}
+    <div ref={ref} className={`relative tilt-card ${className}`}>
+      <div
+        className="absolute inset-0 rounded-3xl pointer-events-none z-0 tilt-spotlight"
+        style={{ ["--spot-color" as string]: `${glowColor}26` }}
       />
       <div className="relative z-10 h-full">{children}</div>
-    </motion.div>
+    </div>
   );
 }
 

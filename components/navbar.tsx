@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import { useLanguage } from "@/lib/language-context";
 
 export function Navbar() {
@@ -16,20 +15,35 @@ export function Navbar() {
     en: { gallery: "Gallery", journal: "Journal", music: "Music & Friends" }, de: { gallery: "Galerie", journal: "Tagebuch", music: "Musik & Freunde" },
     fr: { gallery: "Galerie", journal: "Journal", music: "Musique & Amis" },
   }[language];
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
+  // Un solo listener de scroll, limitado a un frame, que hace las dos cosas:
+  // marcar el estado "scrolled" y escribir el progreso en una variable CSS.
+  // Sustituye a useScroll + useSpring de framer-motion sin re-renderizar por frame.
+  const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const progress = max > 0 ? Math.min(doc.scrollTop / max, 1) : 0;
+      progressRef.current?.style.setProperty("--scroll-progress", String(progress));
+      setIsScrolled(doc.scrollTop > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   const menuItems = [
@@ -45,20 +59,17 @@ export function Navbar() {
 
   return (
     <>
-      <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out-expo ${
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out-expo navbar-in ${
           isScrolled
             ? "bg-background/70 backdrop-blur-xl border-b border-border/50"
             : "bg-transparent"
         }`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         {/* Scroll progress bar */}
-        <motion.div
-          className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-accent origin-left z-10"
-          style={{ scaleX }}
+        <div
+          ref={progressRef}
+          className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-accent origin-left z-10 navbar-progress"
         />
 
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -96,14 +107,12 @@ export function Navbar() {
 
             {/* CTA Button */}
             <div className="hidden md:block">
-              <motion.a
+              <a
                 href="mailto:cescofors75@gmail.com"
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/10 border border-primary/30 text-primary rounded-full text-sm font-semibold hover:bg-primary/20 hover:border-primary/50 transition-all duration-300"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/10 border border-primary/30 text-primary rounded-full text-sm font-semibold hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 {t.nav.contratar}
-              </motion.a>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -119,17 +128,17 @@ export function Navbar() {
           </div>
 
           {/* Mobile Menu */}
-          <AnimatePresence>
-            {isOpen && (
-              <motion.div
-                id="mobile-menu"
-                className="md:hidden overflow-hidden bg-background/95 backdrop-blur-xl rounded-b-2xl"
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="py-4 space-y-1 border-t border-border/50">
+          {/* El desplegable anima con grid-template-rows en CSS, que permite ir de
+              0 a "alto automático" sin medir nada en JS ni usar AnimatePresence. */}
+          <div
+            id="mobile-menu"
+            className={`md:hidden mobile-menu bg-background/95 backdrop-blur-xl rounded-b-2xl${
+              isOpen ? " is-open" : ""
+            }`}
+            aria-hidden={!isOpen}
+          >
+            <div className="mobile-menu-inner">
+              <div className="py-4 space-y-1 border-t border-border/50">
                   {menuItems.map((item) => (
                     <Link
                       key={item.href}
@@ -147,13 +156,12 @@ export function Navbar() {
                     >
                       {t.nav.contratar}
                     </a>
-                  </div>
                 </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+              </div>
+            </div>
+          </div>
         </nav>
-      </motion.header>
+      </header>
     </>
   );
 }

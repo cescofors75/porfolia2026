@@ -1,7 +1,6 @@
 'use client';
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Code2, Database, Cloud, Brain, Sparkles } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
@@ -32,14 +31,6 @@ export function SkillsSection() {
   const { t } = useLanguage();
   const sectionRef = useRef<HTMLElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y1 = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  const y2 = useTransform(scrollYProgress, [0, 1], [0, 50]);
-
   return (
     <section
       ref={sectionRef}
@@ -47,20 +38,18 @@ export function SkillsSection() {
       className="py-24 lg:py-32 px-4 relative overflow-hidden"
     >
       {/* Parallax background elements */}
-      <motion.div
-        className="absolute top-20 left-10 w-[300px] h-[300px] rounded-full pointer-events-none"
+      <div
+        className="absolute top-20 left-10 w-[300px] h-[300px] rounded-full pointer-events-none animate-hero-blob-1"
         style={{
           background: "radial-gradient(circle, hsl(var(--primary) / 0.08) 0%, transparent 70%)",
           filter: "blur(60px)",
-          y: y1,
         }}
       />
-      <motion.div
-        className="absolute bottom-20 right-10 w-[400px] h-[400px] rounded-full pointer-events-none"
+      <div
+        className="absolute bottom-20 right-10 w-[400px] h-[400px] rounded-full pointer-events-none animate-hero-blob-2"
         style={{
           background: "radial-gradient(circle, hsl(var(--secondary) / 0.08) 0%, transparent 70%)",
           filter: "blur(80px)",
-          y: y2,
         }}
       />
 

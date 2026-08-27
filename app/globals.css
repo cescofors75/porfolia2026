@@ -467,3 +467,182 @@
 .animate-marquee-fast {
   animation: marquee-x 18s linear infinite;
 }
+
+/* ── Sustitutos CSS de framer-motion ──────────────────────────
+   Estas animaciones vivían en framer-motion (~288 KB sin comprimir en el
+   bundle). Ejecutarlas en CSS las saca del hilo principal, que era lo que
+   retrasaba el primer pintado más de un segundo en móvil.               */
+
+/* Glow del hero siguiendo al puntero (variables escritas por useSmoothPointer) */
+.hero-glow {
+  transform: translate3d(var(--glow-x, 0px), var(--glow-y, 0px), 0);
+}
+
+/* Entrada de cada palabra del rotador del hero */
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-word-in {
+  animation: word-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Preloader */
+.preloader {
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.preloader.is-leaving {
+  transform: translateY(-100%);
+}
+
+@keyframes preloader-mark-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+}
+
+.preloader-mark {
+  animation: preloader-mark-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Navbar */
+@keyframes navbar-in {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+.navbar-in {
+  animation: navbar-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Barra de progreso: el listener de scroll sólo escribe --scroll-progress */
+.navbar-progress {
+  transform: scaleX(var(--scroll-progress, 0));
+}
+
+/* Desplegable móvil: grid-template-rows 0fr -> 1fr permite animar hasta el
+   alto automático sin medirlo en JS. */
+.mobile-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    grid-template-rows 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0.3s;
+}
+
+.mobile-menu.is-open {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    grid-template-rows 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0s linear 0s;
+}
+
+.mobile-menu-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* Paneles flotantes (tema / idioma).
+   Sin transición a propósito: en este elemento el navegador crea la transición
+   pero nunca la avanza (se queda en currentTime=0 y no emite transitionrun),
+   dejando el panel invisible y el selector inservible. Mostrarlo y ocultarlo de
+   golpe es instantáneo y funciona siempre; para un desplegable pequeño el
+   fundido no compensa el riesgo. */
+.floating-panel {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.floating-panel.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Tarjeta con inclinación 3D (variables escritas por useSmoothPointer) */
+.tilt-card {
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+}
+
+.tilt-card:hover {
+  transition: none;
+}
+
+.tilt-spotlight {
+  background: radial-gradient(
+    500px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    var(--spot-color, transparent),
+    transparent 60%
+  );
+}
+
+/* Botón magnético */
+.magnetic {
+  transform: translate3d(var(--magnet-x, 0px), var(--magnet-y, 0px), 0);
+  transition: transform 0.3s ease-out;
+}
+
+.magnetic:hover {
+  transition: none;
+}
+
+.magnetic:active {
+  scale: 0.98;
+}
+
+/* Visor de la galería */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-out both;
+}
+
+.animate-zoom-in {
+  animation: zoom-in 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

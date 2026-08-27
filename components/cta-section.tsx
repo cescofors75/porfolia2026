@@ -1,10 +1,10 @@
 'use client';
 
-import { useRef } from "react";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useCallback } from "react";
 import { Mail, Linkedin, Twitter, ArrowRight } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/lib/language-context";
+import { useSmoothPointer } from "@/lib/use-smooth-pointer";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -15,43 +15,20 @@ interface MagneticButtonProps {
 }
 
 function MagneticButton({ children, className = "", href, target, rel }: MagneticButtonProps) {
-  const ref = useRef<HTMLAnchorElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const springConfig = { damping: 15, stiffness: 150, mass: 0.1 };
-  const springX = useSpring(x, springConfig);
-  const springY = useSpring(y, springConfig);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    x.set((e.clientX - centerX) * 0.15);
-    y.set((e.clientY - centerY) * 0.15);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
+  // Efecto magnético con variables CSS en vez de useSpring de framer-motion.
+  const toVars = useCallback(
+    (x: number, y: number) => ({
+      "--magnet-x": `${x * 26}px`,
+      "--magnet-y": `${y * 26}px`,
+    }),
+    []
+  );
+  const ref = useSmoothPointer<HTMLAnchorElement>({ ease: 0.2, toVars });
 
   return (
-    <motion.a
-      ref={ref}
-      href={href}
-      target={target}
-      rel={rel}
-      className={className}
-      style={{ x: springX, y: springY }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-    >
+    <a ref={ref} href={href} target={target} rel={rel} className={`magnetic ${className}`}>
       {children}
-    </motion.a>
+    </a>
   );
 }
 
