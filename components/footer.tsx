@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/lib/language-context";
@@ -56,8 +57,14 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg border border-primary/30 bg-primary/10 flex items-center justify-center text-primary font-bold text-sm font-display">
-                CF
+              <div className="relative w-10 h-8 shrink-0">
+                <Image
+                  src="/cesco-logo-mark.png"
+                  alt=""
+                  fill
+                  sizes="40px"
+                  className="object-contain"
+                />
               </div>
               <span className="text-lg font-display font-bold tracking-tight">
                 Cesco<span className="text-primary">.</span>dev

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
@@ -64,8 +65,15 @@ export function Navbar() {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl border border-primary/30 bg-primary/10 flex items-center justify-center text-primary font-bold font-display text-lg group-hover:bg-primary/20 group-hover:border-primary/50 transition-all duration-300">
-                CF
+              <div className="relative w-12 h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
+                <Image
+                  src="/cesco-logo-mark.png"
+                  alt=""
+                  fill
+                  priority
+                  sizes="48px"
+                  className="object-contain"
+                />
               </div>
               <span className="text-xl font-display font-bold tracking-tight">
                 Cesco<span className="text-primary">.</span>dev
