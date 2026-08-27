@@ -6,9 +6,9 @@ import { ArrowRight, Bot, FileText, Music2, Newspaper, Radio } from "lucide-reac
 import { useLanguage } from "@/lib/language-context";
 
 const covers = [
-  { src: "/newschyper/95f87a09-118e-41a0-ad25-1517376d5eea.jpeg", key: "founding" },
-  { src: "/newschyper/92f98ae4-a150-43ab-a449-c0029cd7d914.jpeg", key: "odio" },
-  { src: "/newschyper/a328cddf-f98d-4f9e-9338-11d0bce0e9cd.jpeg", key: "season" },
+  { src: "/newschyper/95f87a09-118e-41a0-ad25-1517376d5eea.webp", key: "founding" },
+  { src: "/newschyper/92f98ae4-a150-43ab-a449-c0029cd7d914.webp", key: "odio" },
+  { src: "/newschyper/a328cddf-f98d-4f9e-9338-11d0bce0e9cd.webp", key: "season" },
 ] as const;
 
 const editions = [

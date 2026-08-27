@@ -81,13 +81,13 @@ export const metadata: Metadata = {
     siteName: "Cesco.dev",
     title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
     description: "Desarrollador Full Stack e Ingeniero de Software en Girona. Consultoría tecnológica y de IA para empresas de Girona, Lloret de Mar y Blanes.",
-    images: [{ url: "/imgRaydrone/raydrone-wasm.png", width: 1702, height: 920, alt: "RayDrone, instrumento acústico Rust y WebAssembly de Cesco Fors" }],
+    images: [{ url: "/imgRaydrone/raydrone-wasm.webp", width: 1702, height: 920, alt: "RayDrone, instrumento acústico Rust y WebAssembly de Cesco Fors" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
     description: "Desarrollador Full Stack e Ingeniero de Software en Girona. Consultoría tecnológica y de IA para Girona, Lloret de Mar y Blanes.",
-    images: ["/imgRaydrone/raydrone-wasm.png"],
+    images: ["/imgRaydrone/raydrone-wasm.webp"],
   },
 };
 

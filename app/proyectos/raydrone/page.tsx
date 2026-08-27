@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "RayDrone | Acoustic Ray Instrument",
     description: "Algoritmo, implementación Rust/WASM y paper técnico sobre síntesis acústica por trazado de rayos.",
     url: "https://cesco.dev/proyectos/raydrone",
-    images: [{ url: "/imgRaydrone/raydrone-wasm.png", width: 1702, height: 920, alt: "RayDrone ejecutándose localmente en WebAssembly" }],
+    images: [{ url: "/imgRaydrone/raydrone-wasm.webp", width: 1702, height: 920, alt: "RayDrone ejecutándose localmente en WebAssembly" }],
   },
 };
 
@@ -29,7 +29,7 @@ export default function RayDronePage() {
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">El <strong className="text-foreground">algoritmo base</strong>: una investigación de síntesis acústica que traslada la lógica del ray tracing al dominio del audio. Está escrito en Rust, compilado a WebAssembly y funciona en el navegador, enteramente en local, mediante AudioWorklet.</p>
         </header>
         <figure className="mb-20">
-          <div className="relative aspect-[1.85/1] rounded-3xl overflow-hidden border border-border/50 elevation-3 bg-black"><Image src="/imgRaydrone/raydrone-wasm.png" alt="Interfaz del experimento RayDrone WASM con campo de rayos, osciloscopio y controles de material" fill priority className="object-contain" sizes="(max-width: 1024px) 100vw, 1024px" /></div>
+          <div className="relative aspect-[1.85/1] rounded-3xl overflow-hidden border border-border/50 elevation-3 bg-black"><Image src="/imgRaydrone/raydrone-wasm.webp" alt="Interfaz del experimento RayDrone WASM con campo de rayos, osciloscopio y controles de material" fill priority className="object-contain" sizes="(max-width: 1024px) 100vw, 1024px" /></div>
           <figcaption className="mt-4 text-sm text-muted-foreground text-center">Implementación Rust + WebAssembly: DSP en vivo, local y sin servidor.</figcaption>
         </figure>
         <section className="mb-20">

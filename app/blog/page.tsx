@@ -214,7 +214,7 @@ const chapters: Chapter[] = [
     ],
     images: [
       { src: "/gallery/IMG_7550.webp", alt: "Libro clásico Ray Tracing Creations que inspira la investigación de RayDrone" },
-      { src: "/imgRaydrone/raydrone-wasm.png", alt: "RayDrone ejecutándose en Rust y WebAssembly dentro del navegador" },
+      { src: "/imgRaydrone/raydrone-wasm.webp", alt: "RayDrone ejecutándose en Rust y WebAssembly dentro del navegador" },
     ],
     note: "El algoritmo debe poder existir sin la máquina. Esa independencia permite estudiarlo, publicarlo y volver a encarnarlo.",
     tags: ["Rust", "WebAssembly", "AudioWorklet", "QMC"],
@@ -233,7 +233,7 @@ const chapters: Chapter[] = [
     ],
     images: [
       { src: "/gallery/IMG_8006.webp", alt: "Dashboard de telemetría con memoria P4, latencia Daisy, bus y errores" },
-      { src: "/imgRaydrone/imagen_proyecto_Final_IA.png", alt: "Concepto del instrumento hardware Aura basado en RayDrone y ESP32-P4" },
+      { src: "/imgRaydrone/imagen_proyecto_Final_IA.webp", alt: "Concepto del instrumento hardware Aura basado en RayDrone y ESP32-P4" },
     ],
     note: "RayDrone es el comportamiento. Aura es el objeto, la superficie y la interpretación.",
     tags: ["ESP32-P4", "telemetría", "Aura", "embedded audio"],

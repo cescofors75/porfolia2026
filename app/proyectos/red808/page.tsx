@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     url: "https://cesco.dev/proyectos/red808",
     images: [
       {
-        url: "/imgRed808/IMG_7425.jpeg",
+        url: "/imgRed808/IMG_7425.webp",
         width: 4032,
         height: 3024,
         alt: "RED808: unidad con mixer de 16 canales, piano y app web móvil",
@@ -71,7 +71,7 @@ export default function Red808Page() {
         <figure className="mb-20">
           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-border/50 elevation-3">
             <Image
-              src="/imgRed808/IMG_7425.jpeg"
+              src="/imgRed808/IMG_7425.webp"
               alt="RED808 en funcionamiento: mixer de 16 canales, piano en pantalla y app web móvil con live pads"
               fill
               priority
@@ -122,7 +122,7 @@ export default function Red808Page() {
             <figure>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border/50 elevation-2">
                 <Image
-                  src="/imgRed808/IMG_7893.jpeg"
+                  src="/imgRed808/IMG_7893.webp"
                   alt="RED808: grid de 16 pads con instrumentos 808, 909, 505 y samples"
                   fill
                   className="object-cover"
@@ -137,7 +137,7 @@ export default function Red808Page() {
             <figure>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border/50 elevation-2">
                 <Image
-                  src="/imgRed808/IMG_7892.jpeg"
+                  src="/imgRed808/IMG_7892.webp"
                   alt="RED808: secuenciador por pasos de 16 pasos con un patrón techno"
                   fill
                   className="object-cover"
@@ -152,7 +152,7 @@ export default function Red808Page() {
             <figure>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border/50 elevation-2">
                 <Image
-                  src="/imgRed808/IMG_7894.jpeg"
+                  src="/imgRed808/IMG_7894.webp"
                   alt="RED808: mixer de 16 canales con faders y control de BPM"
                   fill
                   className="object-cover"
@@ -177,7 +177,7 @@ export default function Red808Page() {
             <figure className="md:col-span-2">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border/50 elevation-2">
                 <Image
-                  src="/imgRed808/IMG_7889.jpeg"
+                  src="/imgRed808/IMG_7889.webp"
                   alt="RED808: pantalla de conexión con código QR para conectar el móvil por WiFi"
                   fill
                   className="object-cover"
@@ -208,7 +208,7 @@ export default function Red808Page() {
           <figure className="mt-8 max-w-sm mx-auto">
             <div className="relative aspect-[9/19] max-h-[560px] rounded-2xl overflow-hidden border border-border/50 elevation-2">
               <Image
-                src="/imgRed808/IMG_7891.png"
+                src="/imgRed808/IMG_7891.webp"
                 alt="App web móvil de RED808: live pads 808, 909, 505 con FX y sintetizador, en catalán"
                 fill
                 className="object-cover"
@@ -232,7 +232,7 @@ export default function Red808Page() {
             <figure>
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden border border-border/50 elevation-2">
                 <Image
-                  src="/imgRed808/home.png"
+                  src="/imgRed808/home.webp"
                   alt="RED808 DIY Power Lab: ESP32-S3 y Daisy Seed sobre breadboard en caja boutique"
                   fill
                   className="object-cover"
@@ -247,7 +247,7 @@ export default function Red808Page() {
             <figure>
               <div className="relative aspect-[4/3] md:aspect-[3/4] rounded-2xl overflow-hidden border border-border/50 elevation-2">
                 <Image
-                  src="/imgRed808/IMG_7920.jpeg"
+                  src="/imgRed808/IMG_7920.webp"
                   alt="RED808: placa Daisy Pod, pantalla con pads y encoders con anillos LED"
                   fill
                   className="object-cover"
