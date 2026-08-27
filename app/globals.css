@@ -169,7 +169,167 @@
   }
 }
 
-/* ── Fondo aurora animado (site-wide) ─────────────────────── */
+/* ── Revelados de entrada en CSS puro ─────────────────────────
+   Las animaciones de entrada se hacen aquí y no con framer-motion a
+   propósito: una animación CSS arranca en el primer pintado, mientras
+   que una animación JS deja el contenido en opacity:0 dentro del HTML
+   del servidor hasta que el bundle descarga, parsea e hidrata. El
+   contenido debe verse aunque el JS tarde o no llegue nunca.          */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Above the fold: anima en cuanto el navegador pinta. */
+.reveal-load {
+  animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--reveal-delay, 0s);
+}
+
+/* Below the fold: el contenido es visible por defecto. El revelado sólo
+   se "arma" cuando ScrollReveal confirma que hay JS (clase js-reveal en
+   <html>), así que si el bundle tarda o falla nunca queda nada oculto.
+   Se hace con IntersectionObserver y no con animation-timeline: view()
+   porque esa propiedad no existe en Safari/Firefox y, además, el
+   minificador la pliega dentro del shorthand `animation`, forma que
+   Chrome rechaza — el efecto se perdía en silencio.                   */
+.reveal-scroll {
+  opacity: 1;
+}
+
+.js-reveal .reveal-scroll:not(.is-revealed) {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.js-reveal .reveal-scroll.is-revealed {
+  animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Si el usuario pide menos movimiento, nunca ocultamos nada. */
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal-scroll:not(.is-revealed) {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Halos decorativos de la sección de contacto.
+   El halo va centrado con translate(-50%,-50%), así que el centrado
+   forma parte del keyframe: si se dejara como clase de Tailwind, la
+   animación lo sobrescribiría y el halo se descolocaría. */
+@keyframes cta-halo {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+@keyframes cta-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(50px, -30px);
+  }
+}
+
+.animate-cta-halo {
+  animation: cta-halo 8s ease-in-out infinite;
+}
+
+.animate-cta-drift {
+  animation: cta-drift 10s ease-in-out infinite;
+}
+
+/* Blobs decorativos del hero */
+@keyframes hero-blob-1 {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-40px) scale(1.08);
+  }
+}
+
+@keyframes hero-blob-2 {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(30px) scale(1.05);
+  }
+}
+
+.animate-hero-blob-1 {
+  animation: hero-blob-1 10s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-hero-blob-2 {
+  animation: hero-blob-2 12s ease-in-out infinite 1s;
+  will-change: transform;
+}
+
+/* Cursor parpadeante del terminal */
+@keyframes caret-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-caret {
+  animation: caret-blink 1.2s steps(1, end) infinite;
+}
+
+/* Indicador de scroll del hero */
+@keyframes scroll-hint {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes scroll-dot {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+.animate-scroll-hint {
+  animation: scroll-hint 2s ease-in-out infinite;
+}
+
+.animate-scroll-dot {
+  animation: scroll-dot 2s ease-in-out infinite;
+}
+
+/* Fondo aurora animado (site-wide) */
 .aurora {
   position: fixed;
   inset: 0;

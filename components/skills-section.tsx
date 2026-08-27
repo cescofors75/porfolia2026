@@ -65,13 +65,7 @@ export function SkillsSection() {
       />
 
       <div className="max-w-7xl mx-auto relative">
-        <motion.div
-          className="mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-16 md:mb-20 reveal-scroll">
           <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-4">
             <Sparkles size={14} />
             Expertise
@@ -82,20 +76,16 @@ export function SkillsSection() {
           <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
             {t.skills.subtitle}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {skills.map((skill, index) => {
             const Icon = skill.icon;
             const isEven = index % 2 === 0;
             return (
-              <motion.div
+              <div
                 key={skill.category}
-                initial={{ opacity: 0, y: 40, rotateX: -10 }}
-                whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-                viewport={{ once: true, margin: "-50px" }}
-                className={`group relative p-8 rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-700 hover:border-primary/30 hover:bg-card/60 hover:-translate-y-2 elevation-1 hover:elevation-2 ${
+                className={`group relative p-8 rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-700 hover:border-primary/30 hover:bg-card/60 hover:-translate-y-2 elevation-1 hover:elevation-2 reveal-scroll ${
                   isEven ? "lg:translate-y-0" : "lg:translate-y-8"
                 }`}
               >
@@ -103,13 +93,9 @@ export function SkillsSection() {
 
                 <div className="relative">
                   <div className="flex items-start gap-5 mb-8">
-                    <motion.div
-                      className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 group-hover:border-primary/40 transition-all duration-500"
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
+                    <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 group-hover:bg-primary/20 group-hover:border-primary/40 group-hover:rotate-[360deg] transition-all duration-700">
                       <Icon className="w-6 h-6 text-primary" />
-                    </motion.div>
+                    </div>
                     <div>
                       <h3 className="text-xl md:text-2xl font-display font-bold mb-2">
                         {skill.category}
@@ -124,26 +110,17 @@ export function SkillsSection() {
                   </div>
 
                   <div className="flex flex-wrap gap-2.5">
-                    {skill.items.map((item, itemIndex) => (
-                      <motion.span
+                    {skill.items.map((item) => (
+                      <span
                         key={item}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{
-                          duration: 0.4,
-                          delay: 0.3 + index * 0.1 + itemIndex * 0.03,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
-                        viewport={{ once: true }}
                         className="px-4 py-2 rounded-xl border border-border/60 bg-background/50 text-sm text-foreground hover:border-primary/30 hover:bg-primary/5 hover:scale-105 transition-all duration-300 cursor-default"
-                        whileHover={{ scale: 1.05 }}
                       >
                         {item}
-                      </motion.span>
+                      </span>
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

@@ -61,29 +61,19 @@ export function CTASection() {
   return (
     <section id="contact" className="py-24 lg:py-32 px-4 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[800px] rounded-full opacity-50"
+        <div
+          className="absolute top-1/2 left-1/2 w-[1200px] h-[800px] rounded-full animate-cta-halo"
           style={{
             background: "radial-gradient(ellipse, hsl(var(--primary) / 0.15) 0%, hsl(var(--secondary) / 0.1) 35%, transparent 70%)",
             filter: "blur(100px)",
           }}
-          animate={{
-            scale: [1, 1.05, 1],
-            opacity: [0.3, 0.5, 0.3],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div
-          className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full"
+        <div
+          className="absolute top-1/3 left-1/4 w-[400px] h-[400px] rounded-full animate-cta-drift"
           style={{
             background: "radial-gradient(circle, hsl(var(--accent) / 0.1) 0%, transparent 70%)",
             filter: "blur(60px)",
           }}
-          animate={{
-            x: [0, 50, 0],
-            y: [0, -30, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -95,13 +85,7 @@ export function CTASection() {
       </div>
 
       <div className="max-w-5xl mx-auto relative">
-        <motion.div
-          className="text-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center reveal-scroll">
           <span className="inline-block text-xs font-semibold text-primary uppercase tracking-widest mb-6">
             Contact
           </span>
@@ -112,13 +96,7 @@ export function CTASection() {
             {t.cta.subtitle}
           </p>
 
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true }}
-          >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <MagneticButton
               href="mailto:cescofors75@gmail.com"
               className="group relative inline-flex items-center justify-center gap-2 px-10 py-5 bg-primary text-primary-foreground rounded-full font-semibold overflow-hidden transition-all duration-300 elevation-2 hover:elevation-3"
@@ -139,15 +117,9 @@ export function CTASection() {
               <FaWhatsapp size={20} />
               {t.cta.btnCall}
             </MagneticButton>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="flex justify-center gap-3"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            viewport={{ once: true }}
-          >
+          <div className="flex justify-center gap-3">
             {[
               { icon: Mail, label: "Email", href: "mailto:cescofors75@gmail.com" },
               { icon: Linkedin, label: "LinkedIn", href: "http://www.linkedin.com/in/cescofors/" },
@@ -155,22 +127,20 @@ export function CTASection() {
             ].map((social) => {
               const Icon = social.icon;
               return (
-                <motion.a
+                <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full border border-border/60 bg-card/30 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-card/60 transition-all duration-300"
-                  whileHover={{ scale: 1.1, y: -3, rotate: 5 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="w-12 h-12 rounded-full border border-border/60 bg-card/30 flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-primary/30 hover:bg-card/60 hover:-translate-y-[3px] hover:scale-110 hover:rotate-[5deg] active:scale-95 transition-all duration-300"
                   title={social.label}
                 >
                   <Icon size={20} />
-                </motion.a>
+                </a>
               );
             })}
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

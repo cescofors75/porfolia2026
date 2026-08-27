@@ -8,8 +8,13 @@ import { useLanguage } from "@/lib/language-context";
 /* ── Rotating words ─────────────────────────────────────────── */
 function RotatingWords({ words }: { words: string[] }) {
   const [index, setIndex] = useState(0);
+  // La primera palabra se pinta ya en su estado final (initial={false}) para que
+  // salga visible en el HTML del servidor; a partir del primer montaje las
+  // rotaciones sí animan con normalidad.
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % words.length);
     }, 2500);
@@ -22,7 +27,7 @@ function RotatingWords({ words }: { words: string[] }) {
         <motion.span
           key={words[index]}
           className="inline-block gradient-text"
-          initial={{ y: "100%", opacity: 0 }}
+          initial={mounted ? { y: "100%", opacity: 0 } : false}
           animate={{ y: "0%", opacity: 1 }}
           exit={{ y: "-100%", opacity: 0 }}
           transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
@@ -110,12 +115,9 @@ function Terminal() {
   }, [lineIndex]);
 
   return (
-    <motion.div
-      className="relative rounded-2xl border border-border/60 bg-[#0d0d14]/90 backdrop-blur-xl overflow-hidden elevation-3 w-full max-w-lg"
-      initial={{ opacity: 0, x: 60, rotateY: -10 }}
-      animate={{ opacity: 1, x: 0, rotateY: 0 }}
-      transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      style={{ transformStyle: "preserve-3d" }}
+    <div
+      className="relative rounded-2xl border border-border/60 bg-[#0d0d14]/90 backdrop-blur-xl overflow-hidden elevation-3 w-full max-w-lg reveal-load"
+      style={{ "--reveal-delay": "0.3s" } as React.CSSProperties}
     >
       {/* Glow */}
       <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 rounded-2xl blur-xl -z-10 opacity-60" />
@@ -145,16 +147,12 @@ function Terminal() {
             </span>
             <span className={terminalLines[lineIndex].color}>
               {currentText}
-              <motion.span
-                className="inline-block w-2 h-4 bg-primary ml-0.5 align-middle"
-                animate={{ opacity: [1, 0] }}
-                transition={{ duration: 0.6, repeat: Infinity }}
-              />
+              <span className="inline-block w-2 h-4 bg-primary ml-0.5 align-middle animate-caret" />
             </span>
           </div>
         )}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -200,26 +198,6 @@ export function HeroSection() {
     };
   }, [mouseX, mouseY]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
   const rotatingWords: string[] = [...t.hero.rotating];
 
   return (
@@ -243,29 +221,21 @@ export function HeroSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1400px] h-[900px] bg-gradient-radial opacity-60" />
 
-        <motion.div
-          className="absolute top-[15%] left-[5%] w-[600px] h-[600px] rounded-full"
+        {/* Blobs decorativos: animados en CSS para que los componga la GPU en
+            lugar de mantener un rAF de framer-motion vivo indefinidamente. */}
+        <div
+          className="absolute top-[15%] left-[5%] w-[600px] h-[600px] rounded-full animate-hero-blob-1"
           style={{
             background: "radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 65%)",
             filter: "blur(80px)",
           }}
-          animate={{
-            y: [0, -40, 0],
-            scale: [1, 1.08, 1],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         />
-        <motion.div
-          className="absolute bottom-[20%] right-[0%] w-[700px] h-[700px] rounded-full"
+        <div
+          className="absolute bottom-[20%] right-[0%] w-[700px] h-[700px] rounded-full animate-hero-blob-2"
           style={{
             background: "radial-gradient(circle, hsl(var(--secondary) / 0.1) 0%, transparent 65%)",
             filter: "blur(100px)",
           }}
-          animate={{
-            y: [0, 30, 0],
-            scale: [1, 1.05, 1],
-          }}
-          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         />
 
         <div
@@ -286,13 +256,11 @@ export function HeroSection() {
 
       <div className="max-w-7xl mx-auto w-full relative">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left: text */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <motion.div variants={itemVariants} className="mb-8">
+          {/* Left: text — revelado con CSS (.reveal-load) y no con framer-motion,
+              para que salga visible en el HTML del servidor en lugar de esperar
+              a que hidrate el bundle. */}
+          <div>
+            <div className="mb-8 reveal-load">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-primary text-xs font-semibold tracking-wide uppercase backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -300,60 +268,56 @@ export function HeroSection() {
                 </span>
                 {t.hero.badge}
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              variants={itemVariants}
-              className="font-display text-6xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-6 gradient-text-animated"
+            <h1
+              className="font-display text-6xl sm:text-7xl md:text-8xl font-bold tracking-tighter leading-[0.9] mb-6 gradient-text-animated reveal-load"
+              style={{ "--reveal-delay": "0.08s" } as React.CSSProperties}
             >
               {t.hero.title}
-            </motion.h1>
+            </h1>
 
             {/* Rotating words */}
-            <motion.div
-              variants={itemVariants}
-              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-8 h-[1.3em] text-foreground/90"
+            <div
+              className="font-display text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-8 h-[1.3em] text-foreground/90 reveal-load"
+              style={{ "--reveal-delay": "0.16s" } as React.CSSProperties}
             >
               <RotatingWords words={rotatingWords} />
-            </motion.div>
+            </div>
 
-            <motion.p
-              variants={itemVariants}
-              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed"
+            <p
+              className="text-lg md:text-xl text-muted-foreground mb-10 max-w-xl leading-relaxed reveal-load"
+              style={{ "--reveal-delay": "0.24s" } as React.CSSProperties}
             >
               {t.hero.description}
-            </motion.p>
+            </p>
 
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4 mb-12"
+            <div
+              className="flex flex-col sm:flex-row gap-4 mb-12 reveal-load"
+              style={{ "--reveal-delay": "0.32s" } as React.CSSProperties}
             >
-              <motion.a
+              <a
                 href="#portfolio"
-                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold overflow-hidden transition-all duration-300 elevation-2 hover:elevation-3"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full font-semibold overflow-hidden transition-all duration-300 elevation-2 hover:elevation-3 hover:scale-[1.02] active:scale-[0.98]"
               >
                 <span className="absolute inset-0 bg-gradient-to-r from-primary via-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <span className="relative flex items-center gap-2">
                   {t.hero.btnProjects}
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </span>
-              </motion.a>
-              <motion.a
+              </a>
+              <a
                 href="mailto:cescofors75@gmail.com"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-card/50 text-foreground rounded-full font-semibold hover:bg-card hover:border-primary/30 transition-all duration-300 backdrop-blur-sm"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-card/50 text-foreground rounded-full font-semibold hover:bg-card hover:border-primary/30 transition-all duration-300 backdrop-blur-sm hover:scale-[1.02] active:scale-[0.98]"
               >
                 {t.hero.btnContact}
-              </motion.a>
-            </motion.div>
+              </a>
+            </div>
 
             {/* Animated counters */}
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap gap-8 md:gap-12"
+            <div
+              className="flex flex-wrap gap-8 md:gap-12 reveal-load"
+              style={{ "--reveal-delay": "0.4s" } as React.CSSProperties}
             >
               <div>
                 <div className="text-4xl md:text-5xl font-display font-bold gradient-text">
@@ -373,8 +337,8 @@ export function HeroSection() {
                 </div>
                 <div className="text-sm text-muted-foreground mt-1">{t.hero.stat3}</div>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
           {/* Right: terminal */}
           <div className="hidden lg:flex justify-center">
@@ -384,25 +348,15 @@ export function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.6 }}
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 reveal-load"
+        style={{ "--reveal-delay": "0.5s" } as React.CSSProperties}
       >
         <span className="text-xs text-muted-foreground uppercase tracking-widest">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          className="w-6 h-10 rounded-full border border-border flex items-start justify-center p-2"
-        >
-          <motion.div
-            className="w-1 h-2 bg-primary rounded-full"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
-      </motion.div>
+        <div className="w-6 h-10 rounded-full border border-border flex items-start justify-center p-2 animate-scroll-hint">
+          <div className="w-1 h-2 bg-primary rounded-full animate-scroll-dot" />
+        </div>
+      </div>
     </section>
   );
 }

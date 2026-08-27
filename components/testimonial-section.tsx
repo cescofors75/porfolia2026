@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 
@@ -26,13 +25,7 @@ export function TestimonialSection() {
   return (
     <section className="py-24 lg:py-32 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <motion.div
-          className="mb-16 md:mb-20 text-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-16 md:mb-20 text-center reveal-scroll">
           <span className="inline-block text-xs font-semibold text-primary uppercase tracking-widest mb-4">
             Testimonials
           </span>
@@ -42,17 +35,13 @@ export function TestimonialSection() {
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             {t.testimonials.subtitle}
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
-          {testimonials.map((testimonial, index) => (
-            <motion.div
+          {testimonials.map((testimonial) => (
+            <div
               key={testimonial.author}
-              initial={{ opacity: 0, y: 40, rotateX: -10 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-              transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
-              viewport={{ once: true, margin: "-50px" }}
-              className="group relative p-8 rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-700 hover:border-primary/30 hover:bg-card/60 hover:-translate-y-2 elevation-1 hover:elevation-2"
+              className="group relative p-8 rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-700 hover:border-primary/30 hover:bg-card/60 hover:-translate-y-2 elevation-1 hover:elevation-2 reveal-scroll"
             >
               <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Quote size={56} className="text-primary" />
@@ -73,49 +62,36 @@ export function TestimonialSection() {
               </p>
 
               <div className="flex items-center gap-4 pt-6 border-t border-border/30">
-                <motion.div
-                  className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/20 flex items-center justify-center text-sm font-bold text-primary font-display"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                >
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/20 flex items-center justify-center text-sm font-bold text-primary font-display transition-transform duration-300 group-hover:scale-110 group-hover:rotate-[5deg]">
                   {testimonial.initials}
-                </motion.div>
+                </div>
                 <div>
                   <p className="font-semibold">{testimonial.author}</p>
                   <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Tech Marquee */}
-        <motion.div
-          className="relative"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
+        <div className="relative reveal-scroll">
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
           
           <div className="overflow-hidden py-6 border-y border-border/50">
-            <motion.div
-              className="flex gap-12 whitespace-nowrap"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            >
+            <div className="flex gap-12 whitespace-nowrap animate-marquee">
               {[...techMarquee, ...techMarquee].map((tech, index) => (
                 <span
                   key={index}
-                  className="text-2xl font-display font-bold text-muted-foreground/30 hover:text-foreground transition-colors cursor-default"
+                  className="text-2xl font-display font-bold text-muted-foreground/30 hover:text-foreground transition-colors cursor-default shrink-0"
                 >
                   {tech}
                 </span>
               ))}
-            </motion.div>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

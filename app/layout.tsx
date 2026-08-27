@@ -26,6 +26,7 @@ import { ThemeSelector } from "@/components/theme-selector";
 import { LanguageSelector } from "@/components/language-selector";
 import { CursorFollower } from "@/components/cursor-follower";
 import { Preloader } from "@/components/preloader";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { AuroraBackground } from "@/components/aurora-background";
 import { LanguageProvider } from "@/lib/language-context";
 import { Analytics } from "@vercel/analytics/next";
@@ -162,6 +163,7 @@ export default function RootLayout({
       </head>
       <body className="flex flex-col min-h-screen bg-background text-foreground font-sans antialiased">
         <Preloader />
+        <ScrollReveal />
         <AuroraBackground />
         <LanguageProvider>
           <Navbar />

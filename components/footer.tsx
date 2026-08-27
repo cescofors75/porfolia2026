@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/lib/language-context";
 
@@ -47,13 +46,7 @@ export function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-16 relative">
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 reveal-scroll">
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2 mb-4">
@@ -131,7 +124,7 @@ export function Footer() {
               <li>IoT & Embedded Systems</li>
             </ul>
           </div>
-        </motion.div>
+        </div>
 
         {/* Divider */}
         <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8" />

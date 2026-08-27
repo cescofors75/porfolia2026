@@ -252,25 +252,6 @@ export function PortfolioGrid() {
   const featuredProjects = projects.filter((p) => p.featured);
   const gridProjects = projects.filter((p) => !p.featured);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
   return (
     <section id="portfolio" className="py-24 lg:py-32 px-4 relative overflow-hidden">
       <div
@@ -281,13 +262,7 @@ export function PortfolioGrid() {
       />
 
       <div className="max-w-7xl mx-auto relative">
-        <motion.div
-          className="mb-16 md:mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          viewport={{ once: true }}
-        >
+        <div className="mb-16 md:mb-20 reveal-scroll">
           <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-4">
             <Sparkles size={14} />
             Portfolio
@@ -298,19 +273,13 @@ export function PortfolioGrid() {
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
             {t.portfolio.subtitle}
           </p>
-        </motion.div>
+        </div>
 
         {/* Featured Projects: RayDrone & Aura */}
         <div className="mb-16">
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {featuredProjects.map((project, index) => (
-              <motion.div key={project.id} variants={itemVariants}>
+              <div key={project.id} className="reveal-scroll">
                 <TiltCard glowColor={accentColors[project.accent]}>
                   <div className="group relative h-full rounded-3xl border border-border/50 bg-card/30 backdrop-blur-sm overflow-hidden transition-colors duration-500 hover:border-border/80 elevation-2">
                     {/* Gradient orb */}
@@ -377,26 +346,19 @@ export function PortfolioGrid() {
                     </div>
                   </div>
                 </TiltCard>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
 
         <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-16" />
 
         {/* Other Projects Grid */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {gridProjects.map((project, index) => (
-            <motion.div
+            <div
               key={project.id}
-              variants={itemVariants}
-              className={`group relative ${
+              className={`group relative reveal-scroll ${
                 index === 0 ? "lg:col-span-2" : ""
               }`}
             >
@@ -506,9 +468,9 @@ export function PortfolioGrid() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
