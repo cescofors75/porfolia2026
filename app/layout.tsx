@@ -44,8 +44,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://cesco.dev"),
   applicationName: "Cesco.dev",
   category: "technology",
-  title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
-  description: "Desarrollador Full Stack e Ingeniero de Software en Girona. Consultoría tecnológica y de IA para empresas de Girona, Lloret de Mar y Blanes. Especializado en JavaScript, TypeScript, React, Next.js, C# e Inteligencia Artificial.",
+  title: "Francesc 'Cesco' Fors | Software Engineer · Creative Technology",
+  description: "Software, AI, embedded systems & experimental audio. Ingeniero de software y creative technologist en Girona — consultoría tecnológica y de IA para Girona, Lloret de Mar y Blanes.",
   keywords: [
     "desarrollador Girona",
     "programador Girona",
@@ -84,14 +84,14 @@ export const metadata: Metadata = {
     locale: "es_ES",
     url: "https://cesco.dev",
     siteName: "Cesco.dev",
-    title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
-    description: "Desarrollador Full Stack e Ingeniero de Software en Girona. Consultoría tecnológica y de IA para empresas de Girona, Lloret de Mar y Blanes.",
+    title: "Francesc 'Cesco' Fors | Software Engineer · Creative Technology",
+    description: "Software, AI, embedded systems & experimental audio. Ingeniero de software y creative technologist en Girona — consultoría tecnológica y de IA para Girona, Lloret de Mar y Blanes.",
     images: [{ url: "/imgRaydrone/raydrone-wasm.webp", width: 1702, height: 920, alt: "RayDrone, instrumento acústico Rust y WebAssembly de Cesco Fors" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
-    description: "Desarrollador Full Stack e Ingeniero de Software en Girona. Consultoría tecnológica y de IA para Girona, Lloret de Mar y Blanes.",
+    title: "Francesc 'Cesco' Fors | Software Engineer · Creative Technology",
+    description: "Software, AI, embedded systems & experimental audio. Ingeniero de software y creative technologist en Girona — consultoría tecnológica y de IA para Girona, Lloret de Mar y Blanes.",
     images: ["/imgRaydrone/raydrone-wasm.webp"],
   },
 };
@@ -103,7 +103,7 @@ const personJsonLd = {
   alternateName: "Cesco Fors",
   url: "https://cesco.dev",
   jobTitle: "Ingeniero de Software & Consultor de IA",
-  description: "Desarrollador Full Stack e Ingeniero de Software en Girona, especializado en JavaScript, TypeScript, React, Next.js, C# e Inteligencia Artificial.",
+  description: "Software, AI, embedded systems & experimental audio. Ingeniero de software y creative technologist en Girona.",
   email: "mailto:cescofors75@gmail.com",
   address: {
     "@type": "PostalAddress",
