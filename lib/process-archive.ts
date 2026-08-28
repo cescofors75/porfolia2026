@@ -44,6 +44,6 @@ export const processArchive = files.map((name, index) => {
     number: String(index + 1).padStart(2, "0"),
   };
 }).concat([
-  { id: "daisy-pod-partner", src: "/daisy/daisyPodParther.jpeg", phase: "Instrumento" as ProcessPhase, caption: "Daisy Pod, cables y material del ecosistema tecnológico.", number: String(files.length + 1).padStart(2, "0") },
-  { id: "daisy-crew", src: "/daisy/daisyRopa.jpeg", phase: "Instrumento" as ProcessPhase, caption: "Material de Electrosmith y Daisy para el laboratorio.", number: String(files.length + 2).padStart(2, "0") },
+  { id: "daisy-pod-partner", src: "/daisy/daisyPodParther.webp", phase: "Instrumento" as ProcessPhase, caption: "Daisy Pod, cables y material del ecosistema tecnológico.", number: String(files.length + 1).padStart(2, "0") },
+  { id: "daisy-crew", src: "/daisy/daisyRopa.webp", phase: "Instrumento" as ProcessPhase, caption: "Material de Electrosmith y Daisy para el laboratorio.", number: String(files.length + 2).padStart(2, "0") },
 ]);

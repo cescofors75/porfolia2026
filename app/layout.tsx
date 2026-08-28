@@ -28,6 +28,7 @@ import { Footer } from "@/components/footer";
 import { ThemeSelector } from "@/components/theme-selector";
 import { LanguageSelector } from "@/components/language-selector";
 import { CursorFollower } from "@/components/cursor-follower";
+import { RayDroneSound } from "@/components/raydrone-sound";
 import { Preloader } from "@/components/preloader";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { AuroraBackground } from "@/components/aurora-background";
@@ -179,6 +180,7 @@ export default async function RootLayout({
         <Footer language={language} />
         <ThemeSelector language={language} />
         <LanguageSelector language={language} />
+        <RayDroneSound language={language} />
         <CursorFollower />
         <Analytics />
       </body>
