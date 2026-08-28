@@ -43,12 +43,36 @@ const maeCitricoCopy = {
   fr: "Duo indissociable de la scène électronique de Gérone à la fin des années 2000 et partie intégrante de la mémoire des nuits du Zoom Club. En 2009, ils apparaissent dans la Main Room aux côtés de Marko Nastic, au sein du même circuit reliant Lloret et Gérone. Leurs sets naviguaient entre tech-house, minimal et électronique d'avant-garde.",
 } as const;
 
+const sceneMemoryCopy = {
+  es: "Escena, experimentación y memoria de club",
+  ca: "Escena, experimentació i memòria de club",
+  en: "Scene, experimentation and club memory",
+  de: "Szene, Experiment und Clubkultur-Erinnerung",
+  fr: "Scène, expérimentation et mémoire des clubs",
+} as const;
+
 const oriolCopy = {
   es: "Gran amigo y artista con un conocimiento profundo de la guitarra española, el flamenco y sus múltiples variantes. Actualmente explora también el taichí, uniendo música, respiración, movimiento y presencia.",
   ca: "Gran amic i artista amb un coneixement profund de la guitarra espanyola, el flamenc i les seves múltiples variants. Actualment explora també el taitxí, unint música, respiració, moviment i presència.",
   en: "A great friend and artist with deep knowledge of Spanish guitar, flamenco and its many variations. He is currently closely connected to tai chi, bringing music, breath, movement and presence together.",
   de: "Ein guter Freund und Künstler mit tiefem Wissen über die spanische Gitarre, den Flamenco und seine vielen Spielarten. Heute widmet er sich intensiv dem Tai-Chi und verbindet Musik, Atem, Bewegung und Präsenz.",
   fr: "Un grand ami et artiste doté d'une connaissance profonde de la guitare espagnole, du flamenco et de ses nombreuses variantes. Aujourd'hui très lié au tai-chi, il réunit musique, respiration, mouvement et présence.",
+} as const;
+
+const nicoCopy = {
+  es: "Figura clave de la electrónica catalana y de la escena de clubes del norte del país. Fundador de Oráculo Records y cofundador de Ombra Festival, convirtió una trayectoria nacida en las cabinas en una plataforma internacional para la música oscura, analógica y alternativa. Tras cerrar etapas como Synths Versus Me y Almax und Forte, firma ahora como Estado de Bienestar: darkwave, EBM, breakbeat, industrial dub y jazz atravesados por una actitud punk.",
+  ca: "Figura clau de l'electrònica catalana i de l'escena de clubs del nord del país. Fundador d'Oráculo Records i cofundador d'Ombra Festival, va convertir una trajectòria nascuda a les cabines en una plataforma internacional per a la música fosca, analògica i alternativa. Després de tancar etapes com Synths Versus Me i Almax und Forte, signa ara com a Estado de Bienestar: darkwave, EBM, breakbeat, industrial dub i jazz travessats per una actitud punk.",
+  en: "A key figure in Catalan electronic music and the club scene in the north of the country. Founder of Oráculo Records and co-founder of Ombra Festival, he turned a path that began in DJ booths into an international platform for dark, analogue and alternative music. After closing chapters including Synths Versus Me and Almax und Forte, he now works as Estado de Bienestar: darkwave, EBM, breakbeat, industrial dub and jazz driven by a punk attitude.",
+  de: "Eine Schlüsselfigur der katalanischen Elektronik- und Clubszene im Norden des Landes. Als Gründer von Oráculo Records und Mitgründer des Ombra Festival machte er aus einer Laufbahn hinter den Decks eine internationale Plattform für dunkle, analoge und alternative Musik. Nach Synths Versus Me und Almax und Forte arbeitet er heute als Estado de Bienestar: Darkwave, EBM, Breakbeat, Industrial Dub und Jazz mit Punk-Haltung.",
+  fr: "Figure majeure de l'électronique catalane et de la scène club du nord du pays. Fondateur d'Oráculo Records et cofondateur d'Ombra Festival, il a transformé un parcours né derrière les platines en plateforme internationale pour les musiques sombres, analogiques et alternatives. Après Synths Versus Me et Almax und Forte, il crée aujourd'hui sous le nom Estado de Bienestar : darkwave, EBM, breakbeat, dub industriel et jazz traversés par une attitude punk.",
+} as const;
+
+const victorCopy = {
+  es: "Músico, multiinstrumentista, compositor y productor artístico formado en guitarra clásica y armonía en el Conservatori del Liceu, y en música moderna y jazz en L'Aula de Barcelona. Fundador del proyecto electro-orgánico neXus, guitarrista, bajista, percusionista e intérprete de Chapman Stick, conecta música, vídeo, loops, teatro y danza. Vinculado a Clon Festival y Eyes Wide Open en Lloret, desde finales de 2004 desarrolla su trabajo entre Macao, Taiwán y Hong Kong como creador, director audiovisual y productor de espectáculos.",
+  ca: "Músic, multiinstrumentista, compositor i productor artístic format en guitarra clàssica i harmonia al Conservatori del Liceu, i en música moderna i jazz a L'Aula de Barcelona. Fundador del projecte electro-orgànic neXus, guitarrista, baixista, percussionista i intèrpret de Chapman Stick, connecta música, vídeo, loops, teatre i dansa. Vinculat al Clon Festival i Eyes Wide Open de Lloret, des de finals del 2004 desenvolupa la seva feina entre Macau, Taiwan i Hong Kong com a creador, director audiovisual i productor d'espectacles.",
+  en: "A musician, multi-instrumentalist, composer and artistic producer trained in classical guitar and harmony at Barcelona's Conservatori del Liceu, and in modern music and jazz at L'Aula. Founder of the electro-organic project neXus, he works across guitar, bass, percussion and Chapman Stick, connecting music, video, loops, theatre and dance. Linked to Clon Festival and Eyes Wide Open in Lloret, since late 2004 he has developed projects across Macao, Taiwan and Hong Kong as a creator, audiovisual director and performance producer.",
+  de: "Musiker, Multiinstrumentalist, Komponist und künstlerischer Produzent, ausgebildet in klassischer Gitarre und Harmonielehre am Conservatori del Liceu sowie in moderner Musik und Jazz an der L'Aula in Barcelona. Als Gründer des elektro-organischen Projekts neXus verbindet der Gitarrist, Bassist, Perkussionist und Chapman-Stick-Spieler Musik, Video, Loops, Theater und Tanz. Nach seiner Arbeit mit dem Clon Festival und Eyes Wide Open in Lloret entwickelt er seit Ende 2004 Projekte zwischen Macau, Taiwan und Hongkong.",
+  fr: "Musicien, multi-instrumentiste, compositeur et producteur artistique formé à la guitare classique et à l'harmonie au Conservatori del Liceu, puis aux musiques modernes et au jazz à L'Aula de Barcelone. Fondateur du projet électro-organique neXus, guitariste, bassiste, percussionniste et joueur de Chapman Stick, il relie musique, vidéo, boucles, théâtre et danse. Associé au Clon Festival et à Eyes Wide Open à Lloret, il développe depuis fin 2004 des projets entre Macao, Taïwan et Hong Kong.",
 } as const;
 
 const replicanteCopy = {
@@ -123,6 +147,8 @@ export function MusicFriends({ language }: { language: Language }) {
 
     <section className="rounded-3xl border border-orange-500/20 bg-gradient-to-br from-orange-500/[.08] to-card/30 overflow-hidden mb-8"><div className="grid lg:grid-cols-2 items-stretch"><div className="relative min-h-80"><Image src="/music-friends/oriol-vilella.svg" alt="Silueta de Oriol Vilella tocando guitarra española" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" /></div><div className="p-7 md:p-12 flex flex-col justify-center"><p className="text-xs uppercase tracking-[.2em] text-orange-400 mb-3">Guitarra española · Flamenco · Taichí</p><h2 className="font-display text-4xl md:text-5xl font-bold">Oriol Vilella</h2><p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">{oriolCopy[language]}</p></div></div></section>
 
+    <section className="rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/[.09] via-card/40 to-red-500/[.05] overflow-hidden mb-8"><div className="grid lg:grid-cols-[.86fr_1.14fr] items-stretch"><div className="relative min-h-96 bg-[#0794bb]"><Image src="/music-friends/nico-cabanas.webp" alt="Estado de Bienestar, proyecto de Nico Cabañas" fill sizes="(max-width:1024px) 100vw, 45vw" className="object-cover" /><span className="absolute bottom-3 left-3 rounded-full bg-black/70 px-3 py-1 text-[10px] uppercase tracking-widest text-white/70">Estado de Bienestar · Oráculo Records</span></div><div className="p-7 md:p-12 flex flex-col justify-center"><p className="text-xs uppercase tracking-[.2em] text-cyan-400 mb-3">Oráculo Records · Ombra Festival</p><h2 className="font-display text-4xl md:text-6xl font-bold">Nico Cabañas</h2><p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">{nicoCopy[language]}</p><div className="mt-8 flex flex-wrap gap-5"><a href="https://www.keyimagazine.com/2025/05/24/estado-de-bienestar-oraculo-records/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400">Estado de Bienestar <ArrowUpRight size={15} /></a><a href="https://oraculorecords.bandcamp.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400">Oráculo Records <ArrowUpRight size={15} /></a><a href="https://ombrafestival.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400">Ombra Festival <ArrowUpRight size={15} /></a></div></div></div></section>
+
     <div className="grid lg:grid-cols-2 gap-6 mb-8">
       <section className="rounded-3xl border border-fuchsia-500/20 bg-card/30 overflow-hidden flex flex-col"><div className="relative aspect-[16/9] overflow-hidden"><Image src="/music-friends/djnone.webp" alt="None actuant en directe" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover object-left" /></div><div className="p-7 md:p-9"><p className="text-xs uppercase tracking-widest text-fuchsia-400 mb-3">ElectroniKa · Lloret de Mar</p><h2 className="font-display text-4xl font-bold">None</h2><div className="mt-4 flex flex-wrap gap-2"><span className="rounded-full border border-fuchsia-500/25 bg-fuchsia-500/[.06] px-3 py-1 text-xs font-semibold tracking-wide text-fuchsia-300">ANDROPUNK RECORDS</span></div><p className="text-muted-foreground mt-6 leading-relaxed">{t.none}</p><EmbedFacade title="IVTGLTCH (closed cicles) by None" className="mt-6 rounded-xl border-0" height={340} label={t.tap} accentClass="border-fuchsia-500/30 text-fuchsia-400" src="https://bandcamp.com/EmbeddedPlayer/album=4205372340/size=large/bgcol=111111/linkcol=f0abfc/artwork=small/transparent=true/" /><div className="pt-7 flex flex-wrap gap-5"><a href="https://andropunkrecords.bandcamp.com/album/ivtgltch-closed-cicles" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-400">{t.listen} IVTGLTCH · Bandcamp <ArrowUpRight size={15} /></a><a href="https://modulardaybarcelona.org/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-fuchsia-400">{t.discover} Pauk + None <ArrowUpRight size={15} /></a></div></div></section>
       <section className="rounded-3xl border border-violet-500/20 bg-gradient-to-b from-violet-500/[.07] to-card/30 overflow-hidden flex flex-col"><div className="relative aspect-[16/9]"><Image src="/music-friends/replicante-norman.webp" alt="Replicante Norman" fill sizes="(max-width:1024px) 100vw, 50vw" className="object-cover" /></div><div className="p-7 md:p-9"><p className="text-xs uppercase tracking-widest text-violet-400 mb-2">Electro · Ambient · Breakbeat</p><h2 className="font-display text-4xl font-bold">Replicante Norman</h2><p className="text-muted-foreground mt-5 leading-relaxed">{replicanteCopy[language]}</p><div className="mt-5 flex flex-wrap gap-2"><span className="rounded-full border border-violet-500/25 px-3 py-1 text-xs text-violet-300">Electronic Hearts Studio</span><span className="rounded-full border border-violet-500/25 px-3 py-1 text-xs text-violet-300">Mars Frequency Records</span><span className="rounded-full border border-violet-500/25 px-3 py-1 text-xs text-violet-300">2004—</span></div></div><EmbedFacade title="Replicante Norman on SoundCloud" height={260} label={t.tap} accentClass="border-violet-500/30 text-violet-400" src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Freplicantenorman&color=%238b5cf6&auto_play=false&show_artwork=true&show_user=true" /><div className="m-7 md:m-9 mt-5 flex flex-wrap gap-5"><a href="https://soundcloud.com/replicantenorman" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-violet-400">{t.listen} SoundCloud <ArrowUpRight size={15} /></a><a href="https://replicantenorman.bandcamp.com/album/assaig-h-c-334" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-violet-400">Assaig H.C.334 · Bandcamp <ArrowUpRight size={15} /></a></div></section>
@@ -145,44 +171,58 @@ export function MusicFriends({ language }: { language: Language }) {
       </div>
     </section>
 
-    <section className="relative rounded-3xl border border-cyan-500/20 bg-gradient-to-br from-cyan-500/[.1] via-card/40 to-blue-500/[.06] overflow-hidden mb-8">
-      <div className="absolute right-[-4rem] top-[-5rem] select-none font-display text-[12rem] font-black leading-none tracking-tighter text-white/[.025] md:text-[18rem]" aria-hidden="true">AK</div>
-      <div className="relative grid lg:grid-cols-[.72fr_1.28fr]">
-        <div className="flex min-h-72 flex-col justify-between border-b border-white/10 p-7 md:p-10 lg:border-b-0 lg:border-r">
-          <p className="text-xs uppercase tracking-[.22em] text-cyan-400">Zoom Club · BeCool</p>
-          <div>
-            <p className="font-mono text-sm tracking-[.3em] text-white/35">2007—2009</p>
-            <h2 className="mt-4 font-display text-5xl font-bold tracking-tight md:text-7xl">Alex<br />Klar</h2>
+    <section className="mb-8 overflow-hidden rounded-3xl border border-white/10 bg-card/30">
+      <header className="border-b border-white/10 px-7 py-8 md:px-10">
+        <p className="text-xs uppercase tracking-[.24em] text-white/45">Barcelona · Lloret · Girona · Macao</p>
+        <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">{sceneMemoryCopy[language]}</h2>
+      </header>
+      <div className="grid lg:grid-cols-3">
+        <article className="flex flex-col border-b border-white/10 lg:border-b-0 lg:border-r">
+          <div className="flex h-52 items-center justify-center bg-black/70 p-6">
+            <div className="relative aspect-[4/3] h-full max-w-full overflow-hidden rounded-xl border border-white/10 bg-black shadow-xl">
+              <Image src="/music-friends/victor-garnier.webp" alt="Víctor Garnier" fill sizes="(max-width:1024px) 70vw, 240px" className="object-cover [image-rendering:auto]" />
+              <span className="absolute bottom-2 left-2 rounded-full border border-white/20 bg-black/70 px-2.5 py-1 text-[9px] uppercase tracking-widest text-white/70">Telenoika archive</span>
+            </div>
           </div>
-        </div>
-        <div className="flex flex-col justify-center p-7 md:p-12">
-          <p className="text-xs uppercase tracking-widest text-cyan-400 mb-4">House · Minimal · Techno</p>
-          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">{alexKlarCopy[language]}</p>
-          <div className="mt-8 flex flex-wrap gap-5">
-            <a href="https://ra.co/events/66362" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400">Zoom Club · Resident Advisor <ArrowUpRight size={15} /></a>
-            <a href="https://www.vilaweb.cat/www/elpunt/noticia?p_idcmp=3536846" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400">Alex Klar + Javi Lara · 2009 <ArrowUpRight size={15} /></a>
+          <div className="flex flex-1 flex-col p-7">
+            <p className="text-xs uppercase tracking-widest text-emerald-400">Chapman Stick · neXus</p>
+            <h3 className="mt-3 font-display text-4xl font-bold">Víctor Garnier</h3>
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{victorCopy[language]}</p>
+            <a href="https://telenoika.net/membre/victor-garnier/" target="_blank" rel="noopener noreferrer" className="mt-auto pt-7 inline-flex items-center gap-2 text-sm font-semibold text-emerald-400">Perfil en Telenoika <ArrowUpRight size={15} /></a>
           </div>
-        </div>
-      </div>
-    </section>
+        </article>
 
-    <section className="relative rounded-3xl border border-pink-500/20 bg-card/30 overflow-hidden mb-8">
-      <div className="grid lg:grid-cols-[1.18fr_.82fr]">
-        <div className="p-7 md:p-12">
-          <p className="text-xs uppercase tracking-[.22em] text-pink-400 mb-4">Zoom Club orbit · Girona · 2009</p>
-          <h2 className="font-display text-4xl font-bold tracking-tight md:text-6xl">Mae <span className="text-pink-400">&</span> Cítrico</h2>
-          <p className="mt-6 max-w-3xl text-base leading-relaxed text-muted-foreground md:text-lg">{maeCitricoCopy[language]}</p>
-          <div className="mt-8 flex flex-wrap gap-5">
-            <a href="https://www.vilaweb.cat/www/elpunt/noticia?p_idcmp=3536846" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-pink-400">Main Room · 14.02.2009 <ArrowUpRight size={15} /></a>
-            <a href="https://lloretonline.blogspot.com/2009/02/diumenge-15-de-febrer-del-2009-les.html" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-pink-400">Arxiu Lloret Online <ArrowUpRight size={15} /></a>
+        <article className="relative flex flex-col overflow-hidden border-b border-white/10 bg-cyan-500/[.035] lg:border-b-0 lg:border-r">
+          <div className="relative flex h-52 flex-col justify-between overflow-hidden p-7">
+            <div className="absolute -right-5 -top-10 font-display text-[10rem] font-black leading-none text-white/[.035]" aria-hidden="true">AK</div>
+            <p className="relative text-xs uppercase tracking-[.22em] text-cyan-400">Zoom Club · BeCool</p>
+            <div className="relative"><p className="font-mono text-xs tracking-[.3em] text-white/35">2007—2009</p><h3 className="mt-2 font-display text-5xl font-bold tracking-tight">Alex Klar</h3></div>
           </div>
-        </div>
-        <div className="relative flex min-h-64 items-center justify-center overflow-hidden border-t border-white/10 bg-pink-500/[.045] p-8 lg:border-l lg:border-t-0" aria-hidden="true">
-          <div className="absolute h-56 w-56 rounded-full border border-pink-400/15" />
-          <div className="absolute h-40 w-40 rounded-full border border-pink-400/25" />
-          <div className="absolute h-24 w-24 rounded-full border border-pink-400/40" />
-          <div className="relative font-display text-7xl font-black tracking-tighter text-white/90">M<span className="text-pink-400">&</span>C</div>
-        </div>
+          <div className="flex flex-1 flex-col border-t border-white/10 p-7">
+            <p className="text-xs uppercase tracking-widest text-cyan-400">House · Minimal · Techno</p>
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{alexKlarCopy[language]}</p>
+            <div className="mt-auto flex flex-col items-start gap-3 pt-7">
+              <a href="https://ra.co/events/66362" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400">Zoom Club · RA <ArrowUpRight size={15} /></a>
+              <a href="https://www.vilaweb.cat/www/elpunt/noticia?p_idcmp=3536846" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400">Alex Klar + Javi Lara · 2009 <ArrowUpRight size={15} /></a>
+            </div>
+          </div>
+        </article>
+
+        <article className="flex flex-col bg-pink-500/[.025]">
+          <div className="relative flex h-52 items-center justify-center overflow-hidden bg-pink-500/[.035]" aria-hidden="true">
+            <div className="absolute h-40 w-40 rounded-full border border-pink-400/15" /><div className="absolute h-28 w-28 rounded-full border border-pink-400/25" /><div className="absolute h-16 w-16 rounded-full border border-pink-400/40" />
+            <div className="relative font-display text-6xl font-black tracking-tighter text-white/90">M<span className="text-pink-400">&</span>C</div>
+          </div>
+          <div className="flex flex-1 flex-col border-t border-white/10 p-7">
+            <p className="text-xs uppercase tracking-widest text-pink-400">Zoom Club orbit · Girona · 2009</p>
+            <h3 className="mt-3 font-display text-4xl font-bold">Mae <span className="text-pink-400">&</span> Cítrico</h3>
+            <p className="mt-5 text-sm leading-relaxed text-muted-foreground">{maeCitricoCopy[language]}</p>
+            <div className="mt-auto flex flex-col items-start gap-3 pt-7">
+              <a href="https://www.vilaweb.cat/www/elpunt/noticia?p_idcmp=3536846" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-pink-400">Main Room · 14.02.2009 <ArrowUpRight size={15} /></a>
+              <a href="https://lloretonline.blogspot.com/2009/02/diumenge-15-de-febrer-del-2009-les.html" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-pink-400">Arxiu Lloret Online <ArrowUpRight size={15} /></a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
