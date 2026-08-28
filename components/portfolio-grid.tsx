@@ -468,7 +468,6 @@ export function PortfolioGrid({ language }: { language: Language }) {
               viewProjectLabel={t.portfolio.viewProject}
               viewDocsLabel={t.portfolio.viewDocs}
               confidentialLabel={t.portfolio.confidential}
-              spanTwo={index === 0}
             />
           ))}
         </div>
