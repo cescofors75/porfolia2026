@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Guitarrista flamenco en blanco y negro</title>
+  <desc id="desc">Silueta de perfil de un guitarrista sentado en postura flamenca, con la guitarra elevada y el mástil ascendente.</desc>
+  <rect width="1200" height="800" fill="#050505"/>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M72 676h1056" stroke-opacity=".16" stroke-width="2"/>
+    <path d="M124 675c196-43 373-52 525-29 155 24 300 27 430-1" stroke-opacity=".09" stroke-width="2"/>
+  </g>
+  <path fill="#fff" d="M405 118c-53 7-93 50-91 104 1 35 18 66 44 86l-15 61 119 31 23-84c28-20 45-53 43-89-3-66-57-118-123-109zm88 78c18 8 29 23 32 42-17-3-31-12-41-28z"/>
+  <path d="M334 170c24-34 73-50 115-31" fill="none" stroke="#050505" stroke-width="13" stroke-linecap="round"/>
+  <path fill="#fff" d="M350 340c51-34 126-30 174 12 43 38 67 102 75 182l-192 36c-31-49-55-107-72-173-7-28-2-44 15-57z"/>
+  <path fill="#050505" d="M432 374c38 7 77 36 105 75-47-25-91-33-133-23z" opacity=".34"/>
+  <path fill="#fff" d="M420 538c65-10 117 3 160 39l-33 65-191 31c-24 4-42-18-32-40 20-45 52-77 96-95z"/>
+  <path fill="#fff" d="M542 567c82-34 174-27 270 15l-21 54-228 9z"/>
+  <path d="M781 627h146" stroke="#fff" stroke-width="38" stroke-linecap="round"/>
+  <path fill="#fff" d="M318 654h184v35H300c-15 0-23-18-13-29 7-7 17-9 31-6z"/>
+  <g transform="rotate(-13 633 449)">
+    <path fill="#050505" stroke="#fff" stroke-width="9" d="M566 353c-38-11-82 8-102 45-19 36-10 73 20 96-39 29-52 82-28 124 29 49 94 62 141 31 20-13 34-32 41-53 16 14 38 21 61 19 52-4 91-50 87-102-3-39-29-72-64-84 17-33 9-74-21-98-41-33-101-22-135 22z"/>
+    <circle cx="625" cy="487" r="42" fill="#fff"/><circle cx="625" cy="487" r="31" fill="#050505"/>
+    <path fill="#fff" d="M724 448h329v55H724z"/><path fill="#fff" d="M1035 429l105-30v124l-105-28z"/>
+    <path d="M498 456h642M497 469h643M496 482h644M496 495h644M497 508h643M498 521h642" stroke="#050505" stroke-width="3"/>
+    <path d="M771 449v54m45-54v54m46-54v54m47-54v54m48-54v54" stroke="#050505" stroke-opacity=".65" stroke-width="3"/>
+  </g>
+  <path d="M408 370c72 17 131 53 178 107 18 20 41 29 69 27" fill="none" stroke="#fff" stroke-width="34" stroke-linecap="round"/>
+  <path d="M484 367c55-20 120-11 194 27 62 31 129 44 200 38" fill="none" stroke="#fff" stroke-width="31" stroke-linecap="round"/>
+  <path d="M865 426l42-21m-37 29 45-10m-42 20 43 2M638 490l-13 43m25-39-8 45m21-43-1 42" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M356 542h210M382 555l-19 127m180-135 35 135" fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="9"/>
+  <text x="72" y="94" fill="#fff" fill-opacity=".58" font-family="monospace" font-size="20" letter-spacing="7">GUITARRA · FLAMENCO · PRESENCIA</text>
+</svg>
