@@ -124,8 +124,22 @@ export function Terminal() {
   const [visibleLines, setVisibleLines] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [lineIndex, setLineIndex] = useState(0);
+  // El terminal está oculto por CSS por debajo de lg, pero sigue en el DOM.
+  // Sin esta comprobación su animación de escritura mantenía un setInterval de
+  // 25 ms — 40 re-renders por segundo — corriendo en el móvil para algo que
+  // no se ve.
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
+    const query = window.matchMedia("(min-width: 1024px)");
+    setEnabled(query.matches);
+    const onChange = (e: MediaQueryListEvent) => setEnabled(e.matches);
+    query.addEventListener("change", onChange);
+    return () => query.removeEventListener("change", onChange);
+  }, []);
+
+  useEffect(() => {
+    if (!enabled) return;
     if (lineIndex >= terminalLines.length) {
       // Restart after pause
       const restart = setTimeout(() => {
@@ -152,7 +166,7 @@ export function Terminal() {
     }, 25);
 
     return () => clearInterval(typing);
-  }, [lineIndex]);
+  }, [lineIndex, enabled]);
 
   return (
     <div

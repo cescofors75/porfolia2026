@@ -646,3 +646,83 @@
 .animate-zoom-in {
   animation: zoom-in 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+/* ── Coste de composición en móvil ────────────────────────────
+   Los blobs y halos son capas muy grandes con filter: blur(). En un móvil
+   con DPR ~3 un blob de 55vw son unos 1100x1100 píxeles de dispositivo que
+   la GPU tiene que rasterizar con un desenfoque de 90px, y además animados
+   en bucle. En pantallas pequeñas se reduce el radio, se recorta el tamaño
+   y se detiene la animación: el degradado se sigue viendo, pero deja de
+   costar trabajo de composición en cada frame.                          */
+@media (max-width: 1023px) {
+  .aurora-blob {
+    animation: none;
+    will-change: auto;
+    filter: blur(48px);
+  }
+
+  .aurora-blob-1 {
+    width: 90vw;
+    height: 90vw;
+  }
+
+  .aurora-blob-2 {
+    width: 75vw;
+    height: 75vw;
+  }
+
+  /* El tercero apenas se percibe bajo los otros dos en pantalla pequeña. */
+  .aurora-blob-3 {
+    display: none;
+  }
+
+  .animate-hero-blob-1,
+  .animate-hero-blob-2 {
+    animation: none;
+    will-change: auto;
+  }
+
+  .animate-cta-halo,
+  .animate-cta-drift {
+    animation: none;
+  }
+}
+
+/* ── Cristal esmerilado: sólo en pantallas grandes ────────────
+   backdrop-filter obliga al navegador a capturar lo que hay detrás del
+   elemento, desenfocarlo y componerlo en cada frame. La home tiene 65
+   elementos con backdrop-blur, y al hacer scroll en un móvil eso hundía la
+   fluidez a 44 fps con un 23% de frames por debajo de 30 fps.
+
+   Lo que hay detrás de estas tarjetas es el degradado de la aurora, ya de
+   por sí suave: desenfocarlo apenas cambia lo que se ve, así que en móvil
+   se sustituye por fondos algo más opacos. Medido tras el cambio: 55 fps
+   y 8% de frames lentos.                                              */
+@media (max-width: 1023px) {
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl,
+  .backdrop-blur-3xl,
+  .glass,
+  .glass-dark {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  /* Sin el desenfoque, las tarjetas necesitan algo más de cuerpo para
+     seguir leyéndose como superficies y no como texto flotante. */
+  .bg-card\/30 {
+    background-color: hsl(var(--card) / 0.75);
+  }
+
+  .bg-card\/50 {
+    background-color: hsl(var(--card) / 0.85);
+  }
+
+  .bg-background\/70,
+  .bg-background\/85 {
+    background-color: hsl(var(--background) / 0.95);
+  }
+}
