@@ -15,8 +15,8 @@ export const translations = {
     hero: {
       badge: "Enginyer de Software Senior · Girona, Costa Brava",
       title: "Francesc 'Cesco' Fors",
-      rotating: ["Desenvolupador Full Stack", "Enginyer de Software", "Consultor IA", "Fundador de Baco AI"],
-      description: "Desenvolupador Full Stack i Enginyer de Software a Girona, especialitzat en JavaScript, TypeScript, React, Next.js, C# i IA. Consultoria tecnològica i d'IA per a empreses de Girona, Lloret de Mar i Blanes.",
+      rotating: ["Enginyer de Software", "Creative Technologist", "Sistemes encastats, DSP i IA", "Fundador de Baco AI"],
+      description: "Enginyer de software i creative technologist a Girona, especialitzat en sistemes encastats, DSP i IA en temps real — del navegador al maquinari. Full stack quan cal, enginyeria de sistemes quan importa. Consultoria tecnològica i d'IA per a empreses de Girona, Lloret de Mar i Blanes.",
       btnProjects: "Veure Projectes",
       btnContact: "Contactar",
       stat1: "Anys d'Experiència",
@@ -37,10 +37,20 @@ export const translations = {
         iot: "IoT & R+D",
         data: "Anàlisi de Dades",
       },
+      labelFeatured: "Projectes principals",
+      labelDevelopment: "En desenvolupament",
+      labelPortfolio: "Portfolio professional",
+      labTitle: "Quadern de laboratori",
+      labSubtitle: "El procés tècnic complet darrere de RayDrone, RED808, Aura i Celestial Field: hardware, DSP i firmware, capítol a capítol.",
+      labLink: "Llegir el procés",
       projects: [
         {
           title: "RayDrone",
           description: "Algoritme base de síntesi acústica per traçat de raigs, escrit en Rust i executat en WebAssembly amb AudioWorklet. Inclou implementació, experiment interactiu i paper tècnic",
+        },
+        {
+          title: "RED808",
+          description: "Caixa de ritmes IoT open source amb ESP32-S3, ESP32-P4 i Daisy Seed, més una interfície web per gestionar stems i interpretar patrons en temps real",
         },
         {
           title: "Aura",
@@ -49,10 +59,6 @@ export const translations = {
         {
           title: "Celestial Field",
           description: "Projecte FPGA de paral·lelisme i FX: bancs massius de ressonadors, parcials i cadenes d'efectes evolucionen simultàniament per construir camps harmònics densos",
-        },
-        {
-          title: "RED808",
-          description: "Caixa de ritmes IoT open source amb ESP32-S3, ESP32-P4 i Daisy Seed, més una interfície web per gestionar stems i interpretar patrons en temps real",
         },
         {
           title: "openStems",
@@ -160,8 +166,8 @@ export const translations = {
     hero: {
       badge: "Ingeniero de Software Senior · Girona, Costa Brava",
       title: "Francesc 'Cesco' Fors",
-      rotating: ["Desarrollador Full Stack", "Ingeniero de Software", "Consultor IA", "Fundador de Baco AI"],
-      description: "Desarrollador Full Stack e Ingeniero de Software en Girona, especializado en JavaScript, TypeScript, React, Next.js, C# e IA. Consultoría tecnológica y de IA para empresas de Girona, Lloret de Mar y Blanes.",
+      rotating: ["Ingeniero de Software", "Creative Technologist", "Sistemas Embebidos, DSP & IA", "Fundador de Baco AI"],
+      description: "Ingeniero de software y creative technologist en Girona, especializado en sistemas embebidos, DSP e IA en tiempo real — del navegador al hardware. Full stack cuando hace falta, ingeniería de sistemas cuando importa. Consultoría tecnológica y de IA para empresas de Girona, Lloret de Mar y Blanes.",
       btnProjects: "Ver Proyectos",
       btnContact: "Contactar",
       stat1: "Años de Experiencia",
@@ -182,10 +188,20 @@ export const translations = {
         iot: "IoT & R+D",
         data: "Análisis de Datos",
       },
+      labelFeatured: "Proyectos principales",
+      labelDevelopment: "En desarrollo",
+      labelPortfolio: "Portfolio profesional",
+      labTitle: "Cuaderno de laboratorio",
+      labSubtitle: "El proceso técnico completo detrás de RayDrone, RED808, Aura y Celestial Field: hardware, DSP y firmware, capítulo a capítulo.",
+      labLink: "Leer el proceso",
       projects: [
         {
           title: "RayDrone",
           description: "Algoritmo base de síntesis acústica por trazado de rayos, escrito en Rust y ejecutado en WebAssembly con AudioWorklet. Incluye implementación, experimento interactivo y paper técnico",
+        },
+        {
+          title: "RED808",
+          description: "Caja de ritmos IoT open source con ESP32-S3, ESP32-P4 y Daisy Seed, más una interfaz web para gestionar stems e interpretar patrones en tiempo real",
         },
         {
           title: "Aura",
@@ -194,10 +210,6 @@ export const translations = {
         {
           title: "Celestial Field",
           description: "Proyecto FPGA de paralelismo y FX: bancos masivos de resonadores, parciales y cadenas de efectos evolucionan simultáneamente para construir campos armónicos densos",
-        },
-        {
-          title: "RED808",
-          description: "Caja de ritmos IoT open source con ESP32-S3, ESP32-P4 y Daisy Seed, más una interfaz web para gestionar stems e interpretar patrones en tiempo real",
         },
         {
           title: "openStems",
@@ -305,8 +317,8 @@ export const translations = {
     hero: {
       badge: "Senior Software Engineer · Girona, Spain",
       title: "Francesc 'Cesco' Fors",
-      rotating: ["Full Stack Developer", "Software Engineer", "AI Consultant", "Baco AI Founder"],
-      description: "Full Stack Developer and Software Engineer based in Girona, Spain, specialized in JavaScript, TypeScript, React, Next.js, C# and AI. Technology and AI consulting for businesses in Girona, Lloret de Mar and Blanes.",
+      rotating: ["Software Engineer", "Creative Technologist", "Embedded Systems, DSP & AI", "Baco AI Founder"],
+      description: "Software engineer and creative technologist based in Girona, Spain, specialized in embedded systems, DSP and real-time AI — from the browser to the hardware. Full stack when it's needed, systems engineering when it matters. Technology and AI consulting for businesses in Girona, Lloret de Mar and Blanes.",
       btnProjects: "View Projects",
       btnContact: "Contact",
       stat1: "Years of Experience",
@@ -327,10 +339,20 @@ export const translations = {
         iot: "IoT & R+D",
         data: "Data Analytics",
       },
+      labelFeatured: "Main projects",
+      labelDevelopment: "In progress",
+      labelPortfolio: "Professional portfolio",
+      labTitle: "Lab notebook",
+      labSubtitle: "The full technical process behind RayDrone, RED808, Aura and Celestial Field: hardware, DSP and firmware, chapter by chapter.",
+      labLink: "Read the process",
       projects: [
         {
           title: "RayDrone",
           description: "The core acoustic ray-tracing synthesis algorithm, written in Rust and running in WebAssembly through AudioWorklet. Includes the implementation, an interactive experiment and a technical paper",
+        },
+        {
+          title: "RED808",
+          description: "Open-source IoT drum machine built with ESP32-S3, ESP32-P4 and Daisy Seed, plus a web interface for stems and real-time pattern performance",
         },
         {
           title: "Aura",
@@ -339,10 +361,6 @@ export const translations = {
         {
           title: "Celestial Field",
           description: "An FPGA parallelism and FX project: massive banks of resonators, partials and effect chains evolve simultaneously into dense harmonic fields",
-        },
-        {
-          title: "RED808",
-          description: "Open-source IoT drum machine built with ESP32-S3, ESP32-P4 and Daisy Seed, plus a web interface for stems and real-time pattern performance",
         },
         {
           title: "openStems",
@@ -450,8 +468,8 @@ export const translations = {
     hero: {
       badge: "Senior Software Engineer · Girona, Spanien",
       title: "Francesc 'Cesco' Fors",
-      rotating: ["Full-Stack-Entwickler", "Software Engineer", "KI-Berater", "Gründer von Baco AI"],
-      description: "Full-Stack-Entwickler und Software Engineer aus Girona, spezialisiert auf JavaScript, TypeScript, React, Next.js, C# und KI. Technologische und KI-Beratung für Unternehmen in Girona, Lloret de Mar und Blanes.",
+      rotating: ["Software Engineer", "Creative Technologist", "Embedded Systems, DSP & KI", "Gründer von Baco AI"],
+      description: "Software Engineer und Creative Technologist aus Girona, spezialisiert auf Embedded Systems, DSP und Echtzeit-KI — vom Browser bis zur Hardware. Full Stack, wenn nötig, Systemtechnik, wenn es zählt. Technologische und KI-Beratung für Unternehmen in Girona, Lloret de Mar und Blanes.",
       btnProjects: "Projekte ansehen",
       btnContact: "Kontakt",
       stat1: "Jahre Erfahrung",
@@ -472,10 +490,20 @@ export const translations = {
         iot: "IoT & Forschung",
         data: "Datenanalyse",
       },
+      labelFeatured: "Hauptprojekte",
+      labelDevelopment: "In Entwicklung",
+      labelPortfolio: "Professionelles Portfolio",
+      labTitle: "Laborbuch",
+      labSubtitle: "Der vollständige technische Prozess hinter RayDrone, RED808, Aura und Celestial Field: Hardware, DSP und Firmware, Kapitel für Kapitel.",
+      labLink: "Prozess lesen",
       projects: [
         {
           title: "RayDrone",
           description: "Der grundlegende akustische Raytracing-Synthesealgorithmus, in Rust geschrieben und über AudioWorklet in WebAssembly ausgeführt. Mit Implementierung, interaktivem Experiment und technischem Paper",
+        },
+        {
+          title: "RED808",
+          description: "Open-Source-IoT-Drumcomputer mit ESP32-S3, ESP32-P4 und Daisy Seed sowie Weboberfläche für Stems und Pattern-Performance in Echtzeit",
         },
         {
           title: "Aura",
@@ -484,10 +512,6 @@ export const translations = {
         {
           title: "Celestial Field",
           description: "Ein FPGA-Projekt für Parallelismus und FX: Massive Bänke aus Resonatoren, Teiltönen und Effektketten entwickeln sich gleichzeitig zu dichten harmonischen Feldern",
-        },
-        {
-          title: "RED808",
-          description: "Open-Source-IoT-Drumcomputer mit ESP32-S3, ESP32-P4 und Daisy Seed sowie Weboberfläche für Stems und Pattern-Performance in Echtzeit",
         },
         {
           title: "openStems",
@@ -595,8 +619,8 @@ export const translations = {
     hero: {
       badge: "Ingénieur Logiciel Senior · Gérone, Espagne",
       title: "Francesc 'Cesco' Fors",
-      rotating: ["Développeur Full Stack", "Ingénieur Logiciel", "Consultant IA", "Fondateur de Baco AI"],
-      description: "Développeur Full Stack et Ingénieur Logiciel basé à Gérone (Costa Brava), spécialisé en JavaScript, TypeScript, React, Next.js, C# et IA. Conseil technologique et IA pour les entreprises de Gérone, Lloret de Mar et Blanes.",
+      rotating: ["Ingénieur Logiciel", "Creative Technologist", "Systèmes Embarqués, DSP & IA", "Fondateur de Baco AI"],
+      description: "Ingénieur logiciel et creative technologist basé à Gérone, spécialisé en systèmes embarqués, DSP et IA temps réel — du navigateur au matériel. Full stack quand il le faut, ingénierie système quand ça compte. Conseil technologique et IA pour les entreprises de Gérone, Lloret de Mar et Blanes.",
       btnProjects: "Voir les Projets",
       btnContact: "Contact",
       stat1: "Années d'Expérience",
@@ -617,10 +641,20 @@ export const translations = {
         iot: "IoT & R+D",
         data: "Analyse de Données",
       },
+      labelFeatured: "Projets principaux",
+      labelDevelopment: "En développement",
+      labelPortfolio: "Portfolio professionnel",
+      labTitle: "Cahier de laboratoire",
+      labSubtitle: "Le processus technique complet derrière RayDrone, RED808, Aura et Celestial Field : hardware, DSP et firmware, chapitre après chapitre.",
+      labLink: "Lire le processus",
       projects: [
         {
           title: "RayDrone",
           description: "Algorithme de base de synthèse acoustique par lancer de rayons, écrit en Rust et exécuté en WebAssembly avec AudioWorklet. Comprend l'implémentation, une expérience interactive et un paper technique",
+        },
+        {
+          title: "RED808",
+          description: "Boîte à rythmes IoT open source avec ESP32-S3, ESP32-P4 et Daisy Seed, plus une interface web pour les stems et l'interprétation de patterns en temps réel",
         },
         {
           title: "Aura",
@@ -629,10 +663,6 @@ export const translations = {
         {
           title: "Celestial Field",
           description: "Un projet FPGA de parallélisme et de FX : banques massives de résonateurs, partiels et chaînes d'effets évoluent simultanément en champs harmoniques denses",
-        },
-        {
-          title: "RED808",
-          description: "Boîte à rythmes IoT open source avec ESP32-S3, ESP32-P4 et Daisy Seed, plus une interface web pour les stems et l'interprétation de patterns en temps réel",
         },
         {
           title: "openStems",
