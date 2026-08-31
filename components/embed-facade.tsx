@@ -35,12 +35,16 @@ export function EmbedFacade({ title, src, height, label, accentClass, className 
       type="button"
       onClick={() => setActive(true)}
       style={{ height }}
-      className={`w-full flex items-center justify-center gap-3 rounded-xl border border-dashed bg-black/10 text-sm font-semibold transition-colors hover:bg-black/20 ${accentClass} ${className ?? ""}`}
+      aria-label={`${label}: ${title}`}
+      className={`w-full flex items-center justify-center gap-4 rounded-xl border border-dashed bg-black/10 px-5 text-left transition-colors hover:bg-black/20 ${accentClass} ${className ?? ""}`}
     >
-      <span className="grid size-9 place-items-center rounded-full bg-current/10">
+      <span className="grid size-11 shrink-0 place-items-center rounded-full bg-current/10">
         <Play size={16} className="translate-x-[1px]" fill="currentColor" />
       </span>
-      {label}
+      <span className="flex min-w-0 flex-col">
+        <span className="text-xs font-semibold uppercase tracking-widest opacity-70">{label}</span>
+        <span className="mt-1 text-sm font-bold leading-snug">{title}</span>
+      </span>
     </button>
   );
 }
