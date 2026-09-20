@@ -17,7 +17,7 @@ export type MusicRelation = {
 export const musicArtists: MusicArtist[] = [
   { id: "noeron", name: "Noeron", subtitle: "Psicodelia · Techno", tags: ["Lloret", "Techno", "Psicodelia", "Producción"], color: "#fb923c", position: [-4.8, 2.7, 0.5] },
   { id: "limabeatz", name: "Limabeatz", subtitle: "Javi Lara · Producción", tags: ["Lloret", "Zoom Club", "Hip-hop", "Producción"], color: "#34d399", position: [-2.8, 4.3, -1.2] },
-  { id: "francesc", name: "Francesc Ferrer", subtitle: "Inkiet · ON·OFF", tags: ["Lloret", "ON·OFF", "Comunidad", "DJ"], color: "#fb7185", position: [1.2, 4.8, 0.6] },
+  { id: "francesc", name: "Frenetik", subtitle: "Inkiet · ON·OFF", tags: ["Lloret", "ON·OFF", "Comunidad", "DJ"], color: "#fb7185", position: [1.2, 4.8, 0.6] },
   { id: "nuria", name: "Núria Ghia", subtitle: "BlueCube Records", tags: ["Barcelona", "ON·OFF", "Techno", "Producción", "Sello"], color: "#f472b6", position: [3.8, 3.6, -0.8] },
   { id: "manel", name: "Manel Alsina", subtitle: "Productor · Selector", tags: ["Catalunya", "Electrónica", "Producción", "Experimental"], color: "#38bdf8", position: [5.3, 1.1, 1.4] },
   { id: "oriol", name: "Oriol Vilella", subtitle: "Guitarra · Flamenco", tags: ["Lloret", "Instrumentos", "Flamenco", "Experimental"], color: "#f59e0b", position: [5.1, -2.2, -0.2] },

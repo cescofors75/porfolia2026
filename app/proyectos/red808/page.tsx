@@ -277,7 +277,7 @@ export default async function Red808Page() {
               capacidades. Una caja de ritmos IoT con un potencial enorme.»
             </p>
             <p className="text-sm text-muted-foreground relative">
-              <span className="text-foreground font-semibold">Francesc Ferrer</span>
+              <span className="text-foreground font-semibold">Frenetik</span>
               {" · "}Co-fundador del ON/OFF Festival, Lloret de Mar
             </p>
           </div>

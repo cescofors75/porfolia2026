@@ -402,7 +402,7 @@ export function MusicFriends({ language }: { language: Language }) {
               <div className="relative aspect-[16/9] overflow-hidden">
                 <Image
                   src="/music-friends/francesc-ferrer-inkiet.webp"
-                  alt="Francesc Ferrer punxant en directe"
+                  alt="Frenetik punxant en directe"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover object-center"
@@ -413,7 +413,7 @@ export function MusicFriends({ language }: { language: Language }) {
                   Inkiet Lloret · ON·OFF
                 </p>
                 <h3 className="flex items-center gap-3 font-display text-3xl font-bold">
-                  <Users className="shrink-0 text-rose-400" size={26} /> Francesc Ferrer
+                  <Users className="shrink-0 text-rose-400" size={26} /> Frenetik
                 </h3>
                 <ArtistTags id="francesc" />
                 <p className="mt-4 text-muted-foreground leading-relaxed">

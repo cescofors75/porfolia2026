@@ -106,7 +106,7 @@ export const translations = {
           text: "Em sembla increïble traslladar un algoritme de fa 30 anys del 3D, com el raytracing, al buffer d'àudio per aconseguir drones. RayDrone és una idea brillant.",
         },
         {
-          author: "Francesc Ferrer",
+          author: "Frenetik",
           role: "Co-fundador de l'ON/OFF Festival, Lloret de Mar",
           text: "La demo del RED808 em va encantar: la idea, el so i les capacitats. Una caixa de ritmes IoT amb un potencial enorme.",
         },
@@ -251,7 +251,7 @@ export const translations = {
           text: "Me parece increíble trasladar un algoritmo de hace 30 años del 3D, como el raytracing, al buffer de audio para conseguir drones. RayDrone es una idea brillante.",
         },
         {
-          author: "Francesc Ferrer",
+          author: "Frenetik",
           role: "Co-fundador del ON/OFF Festival, Lloret de Mar",
           text: "La demo de RED808 me encantó: la idea, el sonido y las capacidades. Una caja de ritmos IoT con un potencial enorme.",
         },
@@ -396,7 +396,7 @@ export const translations = {
           text: "I find it incredible to transfer a 30-year-old 3D algorithm like raytracing to the audio buffer to achieve drones. RayDrone is a brilliant idea.",
         },
         {
-          author: "Francesc Ferrer",
+          author: "Frenetik",
           role: "Co-founder of ON/OFF Festival, Lloret de Mar",
           text: "I loved the RED808 demo: the idea, the sound and the capabilities. An IoT drum machine with enormous potential.",
         },
@@ -541,7 +541,7 @@ export const translations = {
           text: "Ich finde es erstaunlich, einen 30 Jahre alten 3D-Algorithmus wie Raytracing auf den Audiobuffer zu übertragen, um Drones zu erzeugen. RayDrone ist eine brillante Idee.",
         },
         {
-          author: "Francesc Ferrer",
+          author: "Frenetik",
           role: "Mitgründer des ON/OFF Festival, Lloret de Mar",
           text: "Die RED808-Demo hat mir sehr gefallen: Idee, Klang und Fähigkeiten. Ein IoT-Drumcomputer mit enormem Potenzial.",
         },
@@ -686,7 +686,7 @@ export const translations = {
           text: "Je trouve incroyable de transférer un algorithme 3D vieux de 30 ans comme le raytracing au buffer audio pour obtenir des drones. RayDrone est une idée brillante.",
         },
         {
-          author: "Francesc Ferrer",
+          author: "Frenetik",
           role: "Co-fondateur du ON/OFF Festival, Lloret de Mar",
           text: "La démo de RED808 m'a enchanté : l'idée, le son et les capacités. Une boîte à rythmes IoT avec un potentiel énorme.",
         },
