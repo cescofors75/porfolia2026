@@ -34,3 +34,5 @@ The route check validates all six projects and six articles in es/ca/en/de/fr, b
 The existing historical blog translation system is retained. New content is rendered in the selected language on the server rather than translated by client-side DOM mutations.
 
 Validation outcome: production build and all 60 route variants passed locally. Browser switching from Spanish to English passed on the production server. A development-only hydration stall was observed; the production build was tested separately and did not reproduce it.
+
+The owner supplied a CAD Assistant screenshot of the CELESTE V1 front panel on 21 September. `public/updates/2026-09/celeste-v1-frontal-cad.png` preserves this screenshot in the project and blog alongside the monitor photograph and editor capture. Five-language captions identify it as CAD design; no manufacturing or material claims are inferred.
