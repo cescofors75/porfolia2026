@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TiltCard } from "@/components/tilt-card";
 import { ExternalLink, BookOpen, Lock, Sparkles, ArrowUpRight, Github, Braces, ChartNoAxesCombined, ChefHat, CloudSun, Wine } from "lucide-react";
 import { translations, type Language } from "@/lib/translations";
+import { findUpdate } from "@/lib/project-updates";
 
 const projectsData = [
   {
@@ -42,7 +43,7 @@ const projectsData = [
     color: "from-fuchsia-500 to-pink-500",
     accent: "fuchsia",
     translationIndex: 2,
-    noLink: true,
+    link: "/proyectos/celeste-parallel",
   },
   {
     id: 12,
@@ -65,8 +66,8 @@ const projectsData = [
     category: "Data Analytics",
     color: "from-cyan-500 to-blue-500",
     accent: "cyan",
-    link: "https://www.npmjs.com/package/@cescofors/toonjs",
-    docLink: "http://toonjs.dev",
+    link: "/proyectos/toonjs",
+    docLink: "https://toonjs.dev",
   },
   {
     id: 6,
@@ -186,8 +187,8 @@ export function PortfolioGrid({ language }: { language: Language }) {
 
   const projects = projectsData.map((project, index) => ({
     ...project,
-    title: t.portfolio.projects[("translationIndex" in project ? project.translationIndex : index) as number].title,
-    description: t.portfolio.projects[("translationIndex" in project ? project.translationIndex : index) as number].description,
+    title: project.id === 3 ? "CELESTE · Parallel Fabric" : t.portfolio.projects[("translationIndex" in project ? project.translationIndex : index) as number].title,
+    description: project.id === 3 ? findUpdate("celeste-parallel")!.copy[language].summary : project.id === 5 ? findUpdate("toonjs")!.copy[language].summary : project.id === 1 ? findUpdate("raydrone")!.copy[language].summary : t.portfolio.projects[("translationIndex" in project ? project.translationIndex : index) as number].description,
   }));
 
   const featuredProjects = projects.filter((p) => p.featured);

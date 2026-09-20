@@ -7,6 +7,7 @@ import { CTASection } from "@/components/cta-section";
 import { DaisyPartnerSection } from "@/components/daisy-partner-section";
 import { OnOffFestivalSection } from "@/components/onoff-festival-section";
 import { getLanguage } from "@/lib/language-server";
+import { ProjectUpdates } from "@/components/project-updates";
 
 export default async function Home() {
   const language = await getLanguage();
@@ -15,6 +16,7 @@ export default async function Home() {
     <>
       <HeroSection language={language} />
       <MarqueeStrip />
+      <div className="max-w-7xl mx-auto px-4"><ProjectUpdates language={language} /></div>
       <PortfolioGrid language={language} />
       <DaisyPartnerSection language={language} />
       <OnOffFestivalSection language={language} />

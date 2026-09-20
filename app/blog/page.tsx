@@ -4,10 +4,12 @@ import Link from "next/link";
 import { ArrowRight, CalendarDays, CircuitBoard, Cpu, Radio, Waves } from "lucide-react";
 import { BlogLocaleSync } from "@/components/blog-locale-sync";
 import { getLanguage } from "@/lib/language-server";
+import { ProjectUpdates } from "@/components/project-updates";
+import { findUpdate, updateUI } from "@/lib/project-updates";
 
 export const metadata: Metadata = {
   title: "Cuaderno de laboratorio | Hardware, DSP e instrumentos | Cesco.dev",
-  description: "El proceso completo de investigación y construcción que conecta RED808, RayDrone, Aura y Celestial Field desde finales de 2025.",
+  description: "Novedades de septiembre de 2026: CELESTE, RED808 V2, RayDrone, ToonJS y el visor ESP32. Proyectos, pruebas y archivo de laboratorio.",
   alternates: { canonical: "https://cesco.dev/blog" },
   openGraph: {
     title: "Cuaderno de laboratorio — del cable al campo acústico",
@@ -243,11 +245,13 @@ const chapters: Chapter[] = [
 
 export default async function BlogPage() {
   const language = await getLanguage();
+  const celeste = findUpdate("celeste-parallel")!.copy[language];
 
   return (
     <article className="pt-32 pb-24 px-4 overflow-hidden">
       <BlogLocaleSync language={language} />
       <div className="max-w-7xl mx-auto">
+        <ProjectUpdates language={language} blog />
         <header className="mb-20 md:mb-28">
           <span data-blog-ui="eyebrow" className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-[.24em] mb-5"><CalendarDays size={15} /> Cuaderno de laboratorio · 2025—2026</span>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-8 max-w-5xl"><span data-blog-ui="title1">Del cable al</span><br /><span data-blog-ui="title2" className="gradient-text-animated">campo acústico.</span></h1>
@@ -286,7 +290,7 @@ export default async function BlogPage() {
 
             <section id="celestial-field" className="scroll-mt-28 relative p-8 md:p-14 lg:p-16 rounded-[2rem] border border-primary/20 bg-card/40 overflow-hidden">
               <div className="absolute -right-20 -top-24 w-96 h-96 rounded-full bg-primary/15 blur-3xl" />
-              <div className="relative"><div className="flex gap-3 mb-7 text-primary"><CircuitBoard /><Cpu /><Radio /><Waves /></div><p data-blog-ui="coming" className="text-xs uppercase tracking-[.22em] text-primary font-semibold mb-4">12 · Próximamente</p><h2 className="font-display text-4xl md:text-6xl font-bold mb-7">Celestial Field</h2><p data-blog-ui="celestialLead" className="text-xl md:text-2xl leading-relaxed max-w-3xl mb-8">La siguiente investigación no es una versión de Aura. Es un instrumento FPGA independiente basado en un banco masivo de resonadores y parciales.</p><div className="grid md:grid-cols-2 gap-8 text-muted-foreground leading-relaxed mb-10"><p data-blog-ui="celestialBody1">La FPGA cambia la relación con el paralelismo. En lugar de repartir voces en el tiempo sobre un único procesador, permite imaginar muchos resonadores evolucionando simultáneamente como estructura física digital.</p><p data-blog-ui="celestialBody2">Celestial Field recogerá una lección de todo el recorrido: separar con claridad algoritmo, arquitectura e interfaz. El objetivo no es aumentar el número de parámetros, sino hacer audible un campo armónico que no sería práctico con la misma aproximación secuencial.</p></div><Link href="/galeria" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold"><span data-blog-ui="galleryCta">Explorar los 58 registros</span> <ArrowRight size={17} /></Link></div>
+              <div className="relative"><div className="flex gap-3 mb-7 text-primary"><CircuitBoard /><Cpu /><Radio /><Waves /></div><p className="text-xs uppercase tracking-[.22em] text-primary font-semibold mb-4">{updateUI[language].latest}</p><h2 className="font-display text-4xl md:text-6xl font-bold mb-7">CELESTE · Parallel Fabric</h2><p className="text-xl leading-relaxed max-w-3xl mb-8">{celeste.summary}</p><Link href="/proyectos/celeste-parallel" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold">{updateUI[language].project}<ArrowRight size={17} /></Link></div>
             </section>
           </div>
         </div>

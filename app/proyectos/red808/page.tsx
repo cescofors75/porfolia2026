@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, ArrowUpRight, Github, Quote } from "lucide-react";
+import { getLanguage } from "@/lib/language-server";
+import { updateUI } from "@/lib/project-updates";
 
 export const metadata: Metadata = {
   title: "RED808 | Caja de ritmos IoT open source | Cesco.dev",
@@ -37,10 +39,12 @@ const stack = [
   "Open Source",
 ];
 
-export default function Red808Page() {
+export default async function Red808Page() {
+  const language = await getLanguage();
   return (
     <article className="py-24 lg:py-32 px-4 pt-32 relative overflow-hidden">
       <div className="max-w-5xl mx-auto">
+        <Link href="/proyectos/red808-v2" className="block mb-8 p-5 rounded-xl border border-primary/30 bg-primary/10 text-primary">{updateUI[language].archive} →</Link>
         <Link
           href="/#portfolio"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
