@@ -14,10 +14,13 @@ export function ProjectUpdates({ language, blog = false }: { language: Language;
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projectUpdates.map((project, index) => {
         const copy = project.copy[language];
+        const useSecondaryImage = !blog && project.homeImage === "secondary";
+        const cardImage = useSecondaryImage ? project.secondaryImage : project.image;
+        const cardCaption = useSecondaryImage ? copy.secondaryCaption : copy.caption;
         return <article key={project.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card/40 hover:border-primary/50 transition-colors">
           <Link href={`/${blog ? "blog" : "proyectos"}/${project.slug}`} className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
             <div className="relative aspect-[16/10] overflow-hidden bg-background">
-              {project.image ? <Image src={project.image} alt={copy.caption ?? project.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" className="object-contain transition-transform duration-500 group-hover:scale-[1.03]" /> : <div aria-hidden="true" className="h-full p-8 flex flex-col justify-between bg-gradient-to-br from-primary/15 via-background to-secondary/10"><CircuitBoard size={40} className="text-primary" /><span className="font-display font-bold text-2xl tracking-tight">{project.name}</span><span className="text-xs font-mono text-muted-foreground">{project.stack.slice(0, 2).join(" / ")}</span></div>}
+              {cardImage ? <Image src={cardImage} alt={cardCaption ?? project.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" className="object-contain transition-transform duration-500 group-hover:scale-[1.03]" /> : <div aria-hidden="true" className="h-full p-8 flex flex-col justify-between bg-gradient-to-br from-primary/15 via-background to-secondary/10"><CircuitBoard size={40} className="text-primary" /><span className="font-display font-bold text-2xl tracking-tight">{project.name}</span><span className="text-xs font-mono text-muted-foreground">{project.stack.slice(0, 2).join(" / ")}</span></div>}
             </div>
             <div className="px-6 pt-6"><p className="text-xs text-primary font-mono mb-3">{String(index + 1).padStart(2, "0")} / {project.name}</p><h3 className="text-xl font-semibold leading-snug mb-3">{copy.title}</h3></div>
           </Link>
