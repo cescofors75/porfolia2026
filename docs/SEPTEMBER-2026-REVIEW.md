@@ -22,6 +22,7 @@ Scope: nine projects registered in Codex, recent project tasks and local reposit
 - `public/updates/2026-09/raydrone.png`: browser screenshot of the local Basic interface on 20 September.
 - `public/updates/2026-09/celeste-pocket-simulation.png`: existing generated dashboard reference copied from the FPGA project, visually inspected; not a physical monitor photograph.
 - Projects without a verified current capture use a typographic card, not invented hardware imagery.
+- RED808 V2: the owner subsequently supplied a real photograph of the matte red aluminium top panel. `public/updates/2026-09/red808-aluminio-rojo-mate.jpg` preserves the original photograph; Next.js serves optimized variants. Project and blog show the full portrait, with captions in all five languages.
 
 ## Validation
 

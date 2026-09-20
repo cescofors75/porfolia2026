@@ -45,7 +45,7 @@ export function ProjectUpdateArticle({ project, language, blog = false }: { proj
         <p className="text-lg md:text-2xl leading-relaxed text-muted-foreground max-w-4xl">{copy.summary}</p>
         <time dateTime={reviewDate} className="block text-xs text-muted-foreground mt-6">{ui.period}</time>
       </header>
-      {project.image && <figure className="mb-12"><div className="relative aspect-[1.44/1] rounded-2xl overflow-hidden border border-border/60 bg-black"><Image src={project.image} alt={copy.caption ?? project.name} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-contain" /></div><figcaption className="text-sm text-muted-foreground mt-4">{copy.caption}</figcaption></figure>}
+      {project.image && <figure className="mb-12"><div className={`relative ${project.portrait ? "aspect-[3/4] max-w-3xl mx-auto" : "aspect-[1.44/1]"} rounded-2xl overflow-hidden border border-border/60 bg-black`}><Image src={project.image} alt={copy.caption ?? project.name} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-contain" /></div><figcaption className="text-sm text-muted-foreground mt-4">{copy.caption}</figcaption></figure>}
       <div className="grid lg:grid-cols-[1fr_280px] gap-10">
         <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">{copy.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
         <aside className="p-6 rounded-2xl bg-primary/5 border border-primary/20 self-start"><h2 className="font-semibold mb-4 text-foreground">{ui.status}</h2><p className="text-sm leading-relaxed text-muted-foreground">{copy.status}</p></aside>
