@@ -30,7 +30,6 @@ import { LanguageSelector } from "@/components/language-selector";
 import { CursorFollower } from "@/components/cursor-follower";
 import { RayDroneSound } from "@/components/raydrone-sound";
 import { Preloader } from "@/components/preloader";
-import { ScrollReveal } from "@/components/scroll-reveal";
 import { AuroraBackground } from "@/components/aurora-background";
 import { Analytics } from "@vercel/analytics/next";
 import { getLanguage } from "@/lib/language-server";
@@ -171,7 +170,6 @@ export default async function RootLayout({
       </head>
       <body className="flex flex-col min-h-screen bg-background text-foreground font-sans antialiased">
         <Preloader />
-        <ScrollReveal />
         <AuroraBackground />
         <Navbar language={language} />
         <main className="flex-grow">

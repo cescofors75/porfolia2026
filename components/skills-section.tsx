@@ -30,7 +30,7 @@ export function SkillsSection({ language }: { language: Language }) {
   return (
     <section
       id="skills"
-      className="py-24 lg:py-32 px-4 relative overflow-hidden"
+      className="py-12 lg:py-16 px-4 relative overflow-hidden"
     >
       {/* Parallax background elements */}
       <div
@@ -49,7 +49,7 @@ export function SkillsSection({ language }: { language: Language }) {
       />
 
       <div className="max-w-7xl mx-auto relative">
-        <div className="mb-16 md:mb-20 reveal-scroll">
+        <div className="mb-10 md:mb-12 reveal-scroll">
           <span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-widest mb-4">
             <Sparkles size={14} />
             Expertise

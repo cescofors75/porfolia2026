@@ -7,11 +7,11 @@ import { RayDroneDemoLink } from "@/components/raydrone-demo-link";
 
 export function ProjectUpdates({ language, blog = false }: { language: Language; blog?: boolean }) {
   const ui = updateUI[language];
-  return <section id="septiembre-2026" className="py-20 scroll-mt-24" aria-labelledby="updates-title">
+  return <section id="septiembre-2026" className="py-12 lg:py-16 scroll-mt-24" aria-labelledby="updates-title">
     <div className="flex items-center gap-3 text-xs uppercase tracking-[.2em] text-primary mb-5"><span className="h-2 w-2 rounded-full bg-primary" />{ui.latest}</div>
     <h2 id="updates-title" className="font-display text-4xl md:text-6xl font-bold tracking-tight mb-5">{ui.title}</h2>
     <p className="text-muted-foreground text-lg mb-10">{ui.intro}</p>
-    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projectUpdates.map((project, index) => {
         const copy = project.copy[language];
         return <article key={project.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card/40 hover:border-primary/50 transition-colors">

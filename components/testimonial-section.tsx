@@ -20,9 +20,9 @@ export function TestimonialSection({ language }: { language: Language }) {
   }));
 
   return (
-    <section className="py-24 lg:py-32 px-4 relative overflow-hidden">
+    <section className="py-12 lg:py-16 px-4 relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16 md:mb-20 text-center reveal-scroll">
+        <div className="mb-10 md:mb-12 text-center reveal-scroll">
           <span className="inline-block text-xs font-semibold text-primary uppercase tracking-widest mb-4">
             Testimonials
           </span>

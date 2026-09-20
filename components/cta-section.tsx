@@ -7,7 +7,7 @@ export function CTASection({ language }: { language: Language }) {
   const t = translations[language];
 
   return (
-    <section id="contact" className="py-24 lg:py-32 px-4 relative overflow-hidden">
+    <section id="contact" className="py-12 lg:py-16 px-4 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute top-1/2 left-1/2 w-[1200px] h-[800px] rounded-full animate-cta-halo"

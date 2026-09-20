@@ -42,7 +42,7 @@ const copy = {
 
 export function OnOffFestivalSection({ language }: { language: Language }) {
   const t = copy[language];
-  return <section className="py-24 px-4 overflow-hidden"><div className="max-w-7xl mx-auto">
+  return <section className="py-12 lg:py-16 px-4 overflow-hidden"><div className="max-w-7xl mx-auto">
     <div className="rounded-[2rem] border border-pink-400/25 bg-[linear-gradient(135deg,rgba(244,114,182,.08),transparent_50%)] overflow-hidden">
       <div className="grid lg:grid-cols-2">
         <div className="p-7 md:p-12 lg:p-14 flex flex-col justify-center">

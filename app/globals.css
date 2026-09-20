@@ -192,27 +192,10 @@
   animation-delay: var(--reveal-delay, 0s);
 }
 
-/* Visible por defecto. Sólo se ocultan nodos que ScrollReveal controla
-   en la ruta actual; el contenido nuevo o servido sin JS queda visible. */
+/* El contenido permanece visible, también antes de hidratar y al navegar. */
 .reveal-scroll {
   opacity: 1;
-}
-
-.reveal-scroll.is-pending {
-  opacity: 0;
-  transform: translateY(28px);
-}
-
-.reveal-scroll.is-revealed {
-  animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-/* Si el usuario pide menos movimiento, nunca ocultamos nada. */
-@media (prefers-reduced-motion: reduce) {
-  .reveal-scroll.is-pending {
-    opacity: 1;
-    transform: none;
-  }
+  transform: none;
 }
 
 /* Halos decorativos de la sección de contacto.

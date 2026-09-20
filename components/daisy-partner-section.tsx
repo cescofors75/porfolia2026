@@ -36,7 +36,7 @@ export function DaisyPartnerSection({ language }: { language: Language }) {
   const previous = () => setSlide((slide - 1 + total) % total);
   const next = () => setSlide((slide + 1) % total);
 
-  return <section className="py-24 px-4 overflow-hidden"><div className="max-w-7xl mx-auto rounded-[2rem] border border-border/50 bg-card/30 p-6 md:p-10 lg:p-14">
+  return <section className="py-12 lg:py-16 px-4 overflow-hidden"><div className="max-w-7xl mx-auto rounded-[2rem] border border-border/50 bg-card/30 p-6 md:p-10 lg:p-14">
     <div className="grid lg:grid-cols-[.9fr_1.1fr] gap-10 lg:gap-16 items-center">
       <div><a href="https://daisy.audio" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-4 mb-7 group" aria-label="Daisy.audio"><img src="https://daisy.audio/cdn/shop/files/new_daisy_3c312508-8723-41aa-8245-bb451e82feca.svg?crop=center&height=160&v=1759329338&width=160" alt="Daisy.audio" width="72" height="72" className="size-[72px] rounded-full transition-transform duration-500 group-hover:rotate-12" /><span className="font-display text-2xl font-bold">Daisy.audio</span></a><div className="flex gap-3 text-primary mb-6"><Cpu /><Waves /><Cable /></div><p className="text-xs font-semibold uppercase tracking-[.22em] text-primary mb-4">{t.eyebrow}</p><h2 className="font-display text-4xl md:text-5xl font-bold tracking-tight mb-6">{t.title}</h2><p className="text-muted-foreground leading-relaxed mb-7">{t.body}</p><a href="https://daisy.audio" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-semibold text-primary">{t.link}<ArrowUpRight size={16} /></a></div>
       <figure>

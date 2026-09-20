@@ -20,6 +20,10 @@
     el.getBoundingClientRect().top < innerHeight * 0.92 && getComputedStyle(el).opacity === '0'
   ), 'Blocks remain invisible after scroll settled');
   await waitFor(() => !document.querySelector('.preloader'), 'Preloader did not finish');
+  if (!document.querySelector('#portfolio')) throw new Error('Home did not render');
+  if ([...document.querySelectorAll('.reveal-scroll')].some((el) => getComputedStyle(el).opacity === '0')) {
+    throw new Error('Home content is hidden before scrolling');
+  }
   window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' });
   await pause(900);
   await checkVisible();
