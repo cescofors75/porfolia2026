@@ -1,4 +1,4 @@
-import { Code2, Database, Cloud, Brain, Sparkles } from "lucide-react";
+import { Code2, Database, Cloud, Brain, Sparkles, Cpu } from "lucide-react";
 import { translations, type Language } from "@/lib/translations";
 
 const skills = [
@@ -107,6 +107,28 @@ export function SkillsSection({ language }: { language: Language }) {
               </div>
             );
           })}
+          <article className="lg:col-span-2 lg:mt-8 p-6 sm:p-8 rounded-3xl border border-primary/25 bg-card/30" aria-labelledby="hardware-skills-title">
+            <div className="flex items-start gap-5 mb-6">
+              <div className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+                <Cpu className="w-6 h-6 text-primary" aria-hidden="true" />
+              </div>
+              <div>
+                <h3 id="hardware-skills-title" className="text-xl md:text-2xl font-display font-bold mb-2">{t.skills.hardware.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl">{t.skills.hardware.description}</p>
+              </div>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {[
+                { title: t.skills.hardware.platforms, items: ["STM32", "ESP32", "FPGA"] },
+                { title: t.skills.hardware.connections, items: ["I²C", "I²S", "SPI"] },
+              ].map((group) => <div key={group.title}>
+                <h4 className="text-sm font-semibold mb-3">{group.title}</h4>
+                <ul className="flex flex-wrap gap-2.5">
+                  {group.items.map((item) => <li key={item} className="px-4 py-2 rounded-xl border border-border/60 bg-background/50 text-sm text-foreground">{item}</li>)}
+                </ul>
+              </div>)}
+            </div>
+          </article>
         </div>
       </div>
     </section>
