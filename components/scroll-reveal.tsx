@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 /**
  * Activa los revelados por scroll de los elementos `.reveal-scroll`.
  *
  * El contenido se sirve visible: esto sólo "arma" el efecto una vez confirmado
- * que hay JS, añadiendo `js-reveal` al <html>. Si el bundle tarda o nunca
+ * que hay JS, añadiendo `is-pending` sólo a los elementos observados. Si el bundle tarda o nunca
  * llega, no se oculta nada — lo contrario de dejar el contenido en opacity:0
  * dentro del HTML esperando a que hidrate React.
  *
@@ -20,9 +21,11 @@ const SWEEP_MS = 500;
 const SWEEP_WINDOW_MS = 20000;
 
 export function ScrollReveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
-    const root = document.documentElement;
-    let pending = Array.from(document.querySelectorAll<HTMLElement>(".reveal-scroll"));
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(".reveal-scroll"));
+    let pending = elements.filter((el) => !el.classList.contains("is-revealed"));
     if (pending.length === 0) return;
 
     let frame = 0;
@@ -34,7 +37,9 @@ export function ScrollReveal() {
       const limit = window.innerHeight * 0.92;
       const still: HTMLElement[] = [];
       for (const el of pending) {
+        if (!el.isConnected) continue;
         if (el.getBoundingClientRect().top < limit) {
+          el.classList.remove("is-pending");
           el.classList.add("is-revealed");
         } else {
           still.push(el);
@@ -60,10 +65,11 @@ export function ScrollReveal() {
       stopTicker = 0;
     }
 
-    // Revela lo que ya está en pantalla antes de armar nada, para que no
-    // parpadee al aplicarse la clase js-reveal.
+    // El layout persiste entre rutas: sólo ocultamos nodos de esta visita.
+    // Los nodos que lleguen después por streaming se mantienen visibles.
     sweep();
-    root.classList.add("js-reveal");
+    if (pending.length === 0) return;
+    pending.forEach((el) => el.classList.add("is-pending"));
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
@@ -76,9 +82,9 @@ export function ScrollReveal() {
 
     return () => {
       cleanup();
-      root.classList.remove("js-reveal");
+      elements.forEach((el) => el.classList.remove("is-pending"));
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

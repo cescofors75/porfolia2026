@@ -192,29 +192,24 @@
   animation-delay: var(--reveal-delay, 0s);
 }
 
-/* Below the fold: el contenido es visible por defecto. El revelado sólo
-   se "arma" cuando ScrollReveal confirma que hay JS (clase js-reveal en
-   <html>), así que si el bundle tarda o falla nunca queda nada oculto.
-   Se hace con IntersectionObserver y no con animation-timeline: view()
-   porque esa propiedad no existe en Safari/Firefox y, además, el
-   minificador la pliega dentro del shorthand `animation`, forma que
-   Chrome rechaza — el efecto se perdía en silencio.                   */
+/* Visible por defecto. Sólo se ocultan nodos que ScrollReveal controla
+   en la ruta actual; el contenido nuevo o servido sin JS queda visible. */
 .reveal-scroll {
   opacity: 1;
 }
 
-.js-reveal .reveal-scroll:not(.is-revealed) {
+.reveal-scroll.is-pending {
   opacity: 0;
   transform: translateY(28px);
 }
 
-.js-reveal .reveal-scroll.is-revealed {
+.reveal-scroll.is-revealed {
   animation: reveal-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 /* Si el usuario pide menos movimiento, nunca ocultamos nada. */
 @media (prefers-reduced-motion: reduce) {
-  .js-reveal .reveal-scroll:not(.is-revealed) {
+  .reveal-scroll.is-pending {
     opacity: 1;
     transform: none;
   }
