@@ -26,6 +26,8 @@ Scope: nine projects registered in Codex, recent project tasks and local reposit
 
 ## Validation
 
+On 21 September the owner also supplied a real photograph of the CELESTE Parallel DSP monitor. `public/updates/2026-09/celeste-hdmi-real.jpg` is the primary project image; the web editor screenshot is retained as a secondary image. Captions distinguish the physical display (showing bypass) from the disconnected editor and make no new analog measurement claims.
+
 `npm run type-check`, `npm run build`, and `node scripts/verify-project-updates.mjs [base-url]`.
 The route check validates all six projects and six articles in es/ca/en/de/fr, body/status translation, canonical URLs, document language, images, sitemap and 404 behavior. Browser inspection covers desktop, mobile, real language switching and project/article navigation. QA captures are kept in `.tmp/` outside published assets.
 

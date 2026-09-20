@@ -50,6 +50,7 @@ export function ProjectUpdateArticle({ project, language, blog = false }: { proj
         <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">{copy.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
         <aside className="p-6 rounded-2xl bg-primary/5 border border-primary/20 self-start"><h2 className="font-semibold mb-4 text-foreground">{ui.status}</h2><p className="text-sm leading-relaxed text-muted-foreground">{copy.status}</p></aside>
       </div>
+      {project.secondaryImage && <figure className="mt-10"><div className="relative aspect-[1.44/1] rounded-2xl overflow-hidden border border-border/60 bg-black"><Image src={project.secondaryImage} alt={copy.secondaryCaption ?? project.name} fill sizes="(max-width: 1024px) 100vw, 1024px" className="object-contain" /></div><figcaption className="text-sm text-muted-foreground mt-4">{copy.secondaryCaption}</figcaption></figure>}
       <ul className="flex flex-wrap gap-2 mt-10 mb-10" aria-label="Stack">{project.stack.map((tech) => <li key={tech} className="px-3 py-2 rounded-full border border-border text-xs font-mono">{tech}</li>)}</ul>
       <nav className="flex flex-wrap gap-4 border-t border-border pt-8">
         {project.slug === "raydrone" && <RayDroneDemoLink language={language} />}
