@@ -48,6 +48,13 @@ export function ProjectUpdateArticle({ project, language, blog = false }: { proj
         <p className="text-lg md:text-2xl leading-relaxed text-muted-foreground max-w-4xl">{copy.summary}</p>
         <time dateTime={reviewDate} className="block text-xs text-muted-foreground mt-6">{ui.period}</time>
       </header>
+      {project.video && <figure className="mb-10">
+        <video controls playsInline preload="none" poster={project.videoPoster} width={1920} height={1080} aria-label={copy.videoCaption ?? project.name} className="w-full aspect-video rounded-2xl border border-border/60 bg-black">
+          <source src={project.video} type="video/mp4" />
+          <a href={project.video}>{copy.videoCaption ?? project.name}</a>
+        </video>
+        <figcaption className="text-sm text-muted-foreground mt-4">{copy.videoCaption}</figcaption>
+      </figure>}
       {project.image && <figure className="mb-12"><div className={`relative ${project.portrait ? "aspect-[3/4] max-w-3xl mx-auto" : "aspect-[1.44/1]"} rounded-2xl overflow-hidden border border-border/60 bg-black`}><Image src={project.image} alt={copy.caption ?? project.name} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-contain" /></div><figcaption className="text-sm text-muted-foreground mt-4">{copy.caption}</figcaption></figure>}
       <div className="grid lg:grid-cols-[1fr_280px] gap-10">
         <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">{copy.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
