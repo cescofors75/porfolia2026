@@ -1,3 +1,4 @@
+import { PluginCard } from "@/components/plugins";
 import { HeroSection } from "@/components/hero-section";
 import { MarqueeStrip } from "@/components/marquee-strip";
 import { PortfolioGrid } from "@/components/portfolio-grid";
@@ -17,6 +18,7 @@ export default async function Home() {
       <HeroSection language={language} />
       <MarqueeStrip />
       <div className="max-w-7xl mx-auto px-4"><ProjectUpdates language={language} /></div>
+      <div className="max-w-7xl mx-auto px-4"><PluginCard language={language} /></div>
       <PortfolioGrid language={language} />
       <DaisyPartnerSection language={language} />
       <OnOffFestivalSection language={language} />

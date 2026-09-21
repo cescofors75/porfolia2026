@@ -1,3 +1,4 @@
+import { PluginCard } from "@/components/plugins";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -251,6 +252,7 @@ export default async function BlogPage() {
     <article className="pt-32 pb-24 px-4 overflow-hidden">
       <BlogLocaleSync language={language} />
       <div className="max-w-7xl mx-auto">
+        <PluginCard language={language} blog />
         <ProjectUpdates language={language} blog />
         <header className="mb-20 md:mb-28">
           <span data-blog-ui="eyebrow" className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-[.24em] mb-5"><CalendarDays size={15} /> Cuaderno de laboratorio · 2025—2026</span>

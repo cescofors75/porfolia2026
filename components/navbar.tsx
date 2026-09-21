@@ -49,6 +49,7 @@ export function Navbar({ language }: { language: Language }) {
   const menuItems = [
     { label: t.nav.inicio, href: "/" },
     { label: t.nav.proyectos, href: "/#portfolio" },
+    { label: "Plugins", href: "/plugins" },
     { label: archiveLabels.gallery, href: "/galeria" },
     { label: archiveLabels.journal, href: "/blog" },
     { label: archiveLabels.music, href: "/music-friends" },
@@ -92,12 +93,12 @@ export function Navbar({ language }: { language: Language }) {
             </Link>
 
             {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-1">
+            <div className="hidden xl:flex items-center gap-1">
               {menuItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="relative px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group"
+                  className="relative px-2 2xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group"
                 >
                   {item.label}
                   <span className="absolute bottom-1 left-4 right-4 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
@@ -106,7 +107,7 @@ export function Navbar({ language }: { language: Language }) {
             </div>
 
             {/* CTA Button */}
-            <div className="hidden md:block">
+            <div className="hidden xl:block">
               <a
                 href="mailto:cescofors75@gmail.com"
                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary/10 border border-primary/30 text-primary rounded-full text-sm font-semibold hover:bg-primary/20 hover:border-primary/50 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
@@ -117,7 +118,7 @@ export function Navbar({ language }: { language: Language }) {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 rounded-lg border border-border/50 hover:bg-muted transition-colors"
+              className="xl:hidden p-2 rounded-lg border border-border/50 hover:bg-muted transition-colors"
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? t.nav.closeMenu : t.nav.openMenu}
               aria-expanded={isOpen}
@@ -132,7 +133,7 @@ export function Navbar({ language }: { language: Language }) {
               0 a "alto automático" sin medir nada en JS ni usar AnimatePresence. */}
           <div
             id="mobile-menu"
-            className={`md:hidden mobile-menu bg-background/95 backdrop-blur-xl rounded-b-2xl${
+            className={`xl:hidden mobile-menu bg-background/95 backdrop-blur-xl rounded-b-2xl${
               isOpen ? " is-open" : ""
             }`}
             aria-hidden={!isOpen}
