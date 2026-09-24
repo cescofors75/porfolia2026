@@ -36,3 +36,15 @@ The existing historical blog translation system is retained. New content is rend
 Validation outcome: production build and all 60 route variants passed locally. Browser switching from Spanish to English passed on the production server. A development-only hydration stall was observed; the production build was tested separately and did not reproduce it.
 
 The owner supplied a CAD Assistant screenshot of the CELESTE V1 front panel on 21 September. `public/updates/2026-09/celeste-v1-frontal-cad.png` preserves this screenshot in the project and blog alongside the monitor photograph and editor capture. Five-language captions identify it as CAD design; no manufacturing or material claims are inferred.
+
+
+## Update — 24 September 2026
+
+- Published CELESTE FPGA + web at https://github.com/cescofors75/celeste-fpga with checksum-pinned stable firmware, source checkpoint and validation records. GitHub CI passes web/Rust checks.
+- Merged Tang Control into https://github.com/cescofors75/celeste-VST3 and updated its guide with final Windows/Universal macOS validation evidence.
+- Portfolio CELESTE hardware and plugin articles updated in ES/CA/EN/FR/DE; Windows VST3 and macOS Universal VST3/AU downloads with SHA-256, installation paths, source links and explicit control/audio distinction.
+- Historical screenshots/video retain their provenance. The video is original ambient music, not a recording of FPGA output. Other project records retain their earlier evidence dates.
+- Checks: production Next build, TypeScript, 60 localized project/article routes, 15 localized plugin routes, both binary download hashes, documentation links, desktop/mobile review, no browser console errors.
+- Open limits: intermittent ADC clock losses, analog quality unmeasured, physical macOS serial and commercial DAW UI not tested. Mac binaries are ad-hoc signed, not notarized.
+
+Commands: `npm run build`, `npm run type-check`, `node scripts/verify-project-updates.mjs <base-url>`, `node scripts/verify-plugin-release.mjs <base-url>`.
