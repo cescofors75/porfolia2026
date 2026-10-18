@@ -1,71 +1,71 @@
 import type { Language } from "@/lib/translations";
 
 export const reviewDate = "2026-09-24";
-export type UpdateCopy = { title: string; summary: string; body: string[]; status: string; caption?: string; secondaryCaption?: string; videoCaption?: string; designCaption?: string };
-export type ProjectUpdate = { slug: string; name: string; stack: string[]; image?: string; homeImage?: "secondary"; secondaryImage?: string; video?: string; videoPoster?: string; designImage?: string; portrait?: boolean; href?: string; copy: Record<Language, UpdateCopy> };
+export type UpdateCopy = { title: string; summary: string; body: string[]; status: string; period?: string; caption?: string; secondaryCaption?: string; videoCaption?: string; designCaption?: string };
+export type ProjectUpdate = { slug: string; publishedAt?: string; updatedAt?: string; name: string; stack: string[]; image?: string; homeImage?: "secondary"; secondaryImage?: string; video?: string; videoPoster?: string; designImage?: string; portrait?: boolean; href?: string; copy: Record<Language, UpdateCopy> };
 
 export const updateUI = {
   "es": {
-    "title": "Septiembre en el laboratorio",
-    "intro": "CELESTE: Line-In, efectos paralelos y control desde el DAW. Más proyectos y avances documentados.",
+    "title": "Octubre en el laboratorio",
+    "intro": "Revisión del 12–18 de octubre: Eurorack Parts y monitor solar, junto a avances anteriores de CELESTE y RED808 incorporados ahora.",
     "project": "Explorar proyecto",
     "article": "Leer la historia",
     "back": "Volver al portfolio",
     "blog": "Volver al blog",
     "status": "Estado y próximos pasos",
-    "latest": "Novedades de septiembre",
+    "latest": "Revisión semanal · 18 octubre 2026",
     "archive": "Archivo de la primera generación. Descubre RED808 V2: P4 + Daisy por USB.",
     "source": "Código y documentación",
     "period": "Revisión actualizada el 24 de septiembre de 2026"
   },
   "ca": {
-    "title": "Setembre al laboratori",
-    "intro": "CELESTE: Line-In, efectes paral·lels i control des del DAW. Més projectes i avenços documentats.",
+    "title": "Octubre al laboratori",
+    "intro": "Revisió del 12–18 d’octubre: Eurorack Parts i monitor solar, amb avenços anteriors de CELESTE i RED808 incorporats ara.",
     "project": "Explorar el projecte",
     "article": "Llegir la història",
     "back": "Tornar al portafolis",
     "blog": "Tornar al blog",
     "status": "Estat i pròxims passos",
-    "latest": "Novetats de setembre",
+    "latest": "Revisió setmanal · 18 octubre 2026",
     "archive": "Arxiu de la primera generació. Descobreix RED808 V2: P4 + Daisy per USB.",
     "source": "Codi i documentació",
     "period": "Revisió actualitzada el 24 de setembre de 2026"
   },
   "en": {
-    "title": "September in the lab",
-    "intro": "CELESTE: Line-In, parallel effects and DAW control. More projects and documented progress.",
+    "title": "October in the lab",
+    "intro": "12–18 October review: Eurorack Parts and solar monitoring, plus earlier CELESTE and RED808 developments added to the site.",
     "project": "Explore project",
     "article": "Read the story",
     "back": "Back to portfolio",
     "blog": "Back to blog",
     "status": "Status and next steps",
-    "latest": "September updates",
+    "latest": "Weekly review · 18 October 2026",
     "archive": "First-generation archive. Discover RED808 V2: P4 + Daisy over USB.",
     "source": "Code and documentation",
     "period": "Review updated on 24 September 2026"
   },
   "fr": {
-    "title": "Septembre au laboratoire",
-    "intro": "CELESTE : Line-In, effets parallèles et contrôle depuis le DAW. Projets et avancées documentées.",
+    "title": "Octobre au laboratoire",
+    "intro": "Revue du 12–18 octobre : Eurorack Parts et suivi solaire, avec les avancées antérieures de CELESTE et RED808 ajoutées au site.",
     "project": "Explorer le projet",
     "article": "Lire le récit",
     "back": "Retour au portfolio",
     "blog": "Retour au blog",
     "status": "État et prochaines étapes",
-    "latest": "Nouveautés de septembre",
+    "latest": "Revue hebdomadaire · 18 octobre 2026",
     "archive": "Archives de la première génération. Découvrez RED808 V2 : P4 + Daisy par USB.",
     "source": "Code et documentation",
     "period": "Revue actualisée le 24 septembre 2026"
   },
   "de": {
-    "title": "September im Labor",
-    "intro": "CELESTE: Line-In, parallele Effekte und DAW-Steuerung. Projekte und dokumentierte Fortschritte.",
+    "title": "Oktober im Labor",
+    "intro": "Rückblick 12.–18. Oktober: Eurorack Parts und Solarüberwachung sowie frühere CELESTE- und RED808-Fortschritte, die jetzt auf der Website erscheinen.",
     "project": "Projekt entdecken",
     "article": "Beitrag lesen",
     "back": "Zurück zum Portfolio",
     "blog": "Zurück zum Blog",
     "status": "Stand und nächste Schritte",
-    "latest": "Neuigkeiten im September",
+    "latest": "Wochenrückblick · 18. Oktober 2026",
     "archive": "Archiv der ersten Generation. RED808 V2 entdecken: P4 + Daisy über USB.",
     "source": "Code und Dokumentation",
     "period": "Aktualisiert am 24. September 2026"
@@ -73,6 +73,227 @@ export const updateUI = {
 } satisfies Record<Language, Record<string,string>>;
 
 export const projectUpdates: ProjectUpdate[] = [
+  {
+    "slug": "eurorack-parts",
+    "name": "Eurorack Parts · CESCO3D",
+    "stack": [
+      "CAD",
+      "STL / STEP",
+      "3MF",
+      "M2.5 / M3",
+      "Impresión 3D"
+    ],
+    "image": "/updates/2026-10/eurorack-print.jpeg",
+    "updatedAt": "2026-10-18",
+    "copy": {
+      "es": {
+        "title": "Del diseño modular a la primera impresión",
+        "summary": "Una biblioteca de piezas para explorar estructuras Eurorack, con modelos CAD, probetas y un catálogo digital en preparación.",
+        "body": [
+          "La revisión de esta semana reúne diseño mecánico y fabricación: raíles, uniones y accesorios organizados en una biblioteca V1.0-RC1. El archivo local contiene 53 modelos de catálogo, con variantes M2.5 y M3, exportaciones STL y STEP y documentación de montaje.",
+          "El informe del paquete registra 53 mallas cerradas y geometrías BREP válidas. Los ensamblajes de referencia superan las comprobaciones de interferencias. La fotografía muestra una impresión en curso; la imagen CAD corresponde a una placa de piezas del bastidor de demostración. El catálogo web se encuentra en preparación."
+        ],
+        "status": "Las comprobaciones geométricas no certifican tolerancias de impresión, resistencia ni compatibilidad universal con módulos Eurorack. La validación física del conjunto y la publicación del catálogo independiente siguen pendientes.",
+        "caption": "Fotografía del proceso de impresión 3D compartida durante el desarrollo de Eurorack Parts.",
+        "period": "Revisión del 18 de octubre de 2026",
+        "secondaryCaption": "Vista CAD de las piezas del bastidor de demostración M2.5 · biblioteca V1.0-RC1."
+      },
+      "ca": {
+        "title": "Del disseny modular a la primera impressió",
+        "summary": "Una biblioteca de peces per explorar estructures Eurorack, amb models CAD, provetes i un catàleg digital en preparació.",
+        "body": [
+          "La revisió d’aquesta setmana reuneix disseny mecànic i fabricació: rails, unions i accessoris en una biblioteca V1.0-RC1. El paquet local conté 53 models, variants M2.5 i M3, exportacions STL i STEP i documentació de muntatge.",
+          "L’informe registra 53 malles tancades i geometries BREP vàlides. Els muntatges de referència superen les comprovacions d’interferències. La fotografia mostra una impressió en curs; la imatge CAD correspon a una placa de peces del bastidor de demostració. El catàleg web està en preparació."
+        ],
+        "status": "La comprovació geomètrica no certifica toleràncies, resistència ni compatibilitat universal amb mòduls Eurorack. La validació física del conjunt i la publicació del catàleg independent continuen pendents.",
+        "caption": "Fotografia del procés d’impressió 3D compartida durant el desenvolupament d’Eurorack Parts.",
+        "period": "Revisió del 18 d’octubre de 2026",
+        "secondaryCaption": "Vista CAD de les peces del bastidor M2.5 · biblioteca V1.0-RC1."
+      },
+      "en": {
+        "title": "From modular design to the first print",
+        "summary": "A parts library exploring Eurorack structures, with CAD models, fit coupons and a digital catalogue in preparation.",
+        "body": [
+          "This week’s review connects mechanical design and fabrication: rails, joints and accessories in the V1.0-RC1 library. The local package contains 53 catalogue models, M2.5 and M3 variants, STL and STEP exports and assembly documentation.",
+          "The supplied report records 53 watertight meshes and valid BREP geometries. Reference assemblies pass interference checks. The photograph shows a print in progress; the CAD image shows a parts plate for the demonstration frame. The web catalogue is in preparation."
+        ],
+        "status": "Geometry checks do not certify print tolerances, strength or universal Eurorack compatibility. Physical validation of the assembly and publication of the standalone catalogue remain pending.",
+        "caption": "Photograph of 3D printing in progress, shared during Eurorack Parts development.",
+        "period": "Reviewed on 18 October 2026",
+        "secondaryCaption": "CAD view of M2.5 demonstration frame parts · V1.0-RC1 library."
+      },
+      "fr": {
+        "title": "Du modèle modulaire à la première impression",
+        "summary": "Une bibliothèque de pièces pour explorer les structures Eurorack, avec modèles CAO, éprouvettes et catalogue numérique en préparation.",
+        "body": [
+          "La revue de cette semaine réunit conception mécanique et fabrication : rails, raccords et accessoires dans la bibliothèque V1.0-RC1. Le paquet local contient 53 modèles, des variantes M2.5 et M3, des exports STL et STEP et une documentation de montage.",
+          "Le rapport fourni recense 53 maillages fermés et des géométries BREP valides. Les assemblages de référence passent les contrôles d’interférence. La photo montre une impression en cours ; l’image CAO présente une plaque de pièces du cadre de démonstration. Le catalogue web est en préparation."
+        ],
+        "status": "Ces contrôles ne certifient ni tolérances d’impression, ni résistance, ni compatibilité universelle Eurorack. La validation physique et la publication du catalogue indépendant restent à réaliser.",
+        "caption": "Photographie d’une impression 3D en cours, partagée pendant le développement d’Eurorack Parts.",
+        "period": "Revue du 18 octobre 2026",
+        "secondaryCaption": "Vue CAO des pièces du cadre M2.5 · bibliothèque V1.0-RC1."
+      },
+      "de": {
+        "title": "Vom modularen Entwurf zum ersten Druck",
+        "summary": "Eine Teilebibliothek für Eurorack-Strukturen mit CAD-Modellen, Passproben und einem digitalen Katalog in Vorbereitung.",
+        "body": [
+          "Die Wochenübersicht verbindet Konstruktion und Fertigung: Schienen, Verbinder und Zubehör in der Bibliothek V1.0-RC1. Das lokale Paket enthält 53 Katalogmodelle, M2.5- und M3-Varianten, STL- und STEP-Dateien sowie Montageunterlagen.",
+          "Der Bericht dokumentiert 53 geschlossene Netze und gültige BREP-Geometrien. Referenzbaugruppen bestehen die Kollisionsprüfung. Das Foto zeigt einen laufenden Druck; die CAD-Abbildung zeigt eine Teileplatte für den Demonstrationsrahmen. Der Webkatalog wird vorbereitet."
+        ],
+        "status": "Geometrieprüfungen bestätigen keine Drucktoleranzen, Belastbarkeit oder universelle Eurorack-Kompatibilität. Physische Baugruppenprüfung und Veröffentlichung des eigenständigen Katalogs stehen noch aus.",
+        "caption": "Foto eines laufenden 3D-Drucks aus der Entwicklung von Eurorack Parts.",
+        "period": "Stand vom 18. Oktober 2026",
+        "secondaryCaption": "CAD-Ansicht der M2.5-Demonstrationsrahmenteile · Bibliothek V1.0-RC1."
+      }
+    },
+    "portrait": true,
+    "secondaryImage": "/updates/2026-10/eurorack-cad.png",
+    "publishedAt": "2026-10-18"
+  },
+  {
+    "slug": "monitor-solar-esp32",
+    "name": "Monitor solar · ESP32-S3",
+    "stack": [
+      "ESP32-S3",
+      "INA226 / INA228",
+      "I²C",
+      "Wi-Fi",
+      "PlatformIO"
+    ],
+    "image": "/updates/2026-10/solar-bench.jpeg",
+    "updatedAt": "2026-10-18",
+    "copy": {
+      "es": {
+        "title": "Del regulador solar a un panel de datos",
+        "summary": "Nueva línea de trabajo: reunir las medidas de batería y consumo en una pantalla táctil y una interfaz web local.",
+        "body": [
+          "El montaje de partida ya tiene regulador, baterías y una carga de iluminación. La fotografía documenta ese banco de trabajo. La siguiente etapa propone separar la medida de batería de la medida de consumo con sensores INA228 e INA226 conectados por I²C.",
+          "El 18 de octubre se inicia la preparación del firmware para una Waveshare ESP32-S3 Touch LCD 7B de 1024 × 600, con dashboard táctil y servidor web Wi-Fi. El objetivo es consultar tensión, corriente y potencia sin confundir una lectura del regulador con una medida ya calibrada por los nuevos sensores."
+        ],
+        "status": "Proyecto en preparación. La integración de sensores, calibración, firmware y funcionamiento del dashboard aún no se dan por validados. La imagen es del montaje existente, no de una pantalla ESP32 funcionando.",
+        "caption": "Fotografía del montaje solar existente: regulador y banco de baterías.",
+        "period": "Revisión del 18 de octubre de 2026"
+      },
+      "ca": {
+        "title": "Del regulador solar a un panell de dades",
+        "summary": "Nova línia de treball: reunir les mesures de bateria i consum en una pantalla tàctil i una interfície web local.",
+        "body": [
+          "El muntatge inicial ja té regulador, bateries i il·luminació. La fotografia documenta aquest banc de treball. La fase següent proposa separar la mesura de bateria i consum amb sensors INA228 i INA226 connectats per I²C.",
+          "El 18 d’octubre s’inicia la preparació del firmware per a una Waveshare ESP32-S3 Touch LCD 7B de 1024 × 600, amb dashboard tàctil i servidor web Wi-Fi. L’objectiu és consultar tensió, corrent i potència diferenciant les lectures del regulador de les mesures calibrades dels nous sensors."
+        ],
+        "status": "Projecte en preparació. Sensors, calibratge, firmware i dashboard encara no es donen per validats. La imatge mostra el muntatge existent, no una pantalla ESP32 en funcionament.",
+        "caption": "Fotografia del muntatge solar existent: regulador i banc de bateries.",
+        "period": "Revisió del 18 d’octubre de 2026"
+      },
+      "en": {
+        "title": "From a solar controller to a data dashboard",
+        "summary": "A new workstream to bring battery and load measurements to a touchscreen and a local web interface.",
+        "body": [
+          "The starting setup already has a controller, batteries and a lighting load. The photograph documents this workbench. The next stage proposes separate battery and load measurement using INA228 and INA226 sensors over I²C.",
+          "Firmware preparation began on 18 October for a Waveshare ESP32-S3 Touch LCD 7B at 1024 × 600, with a touch dashboard and Wi-Fi web server. The aim is to inspect voltage, current and power while distinguishing existing controller readings from calibrated measurements by the new sensors."
+        ],
+        "status": "In preparation. Sensor integration, calibration, firmware and dashboard operation are not yet validated. The photograph shows the existing setup, not a working ESP32 dashboard.",
+        "caption": "Photograph of the existing solar setup: controller and battery bank.",
+        "period": "Reviewed on 18 October 2026"
+      },
+      "fr": {
+        "title": "Du régulateur solaire au tableau de données",
+        "summary": "Un nouveau chantier pour réunir les mesures de batterie et de consommation sur écran tactile et interface web locale.",
+        "body": [
+          "Le montage initial comporte un régulateur, des batteries et une charge d’éclairage. La photo documente ce banc de travail. La suite prévoit de séparer les mesures de batterie et de consommation avec des capteurs INA228 et INA226 sur I²C.",
+          "La préparation du firmware commence le 18 octobre pour une Waveshare ESP32-S3 Touch LCD 7B de 1024 × 600, avec tableau tactile et serveur web Wi-Fi. L’objectif est de suivre tension, courant et puissance en distinguant les lectures du régulateur des mesures calibrées des nouveaux capteurs."
+        ],
+        "status": "En préparation. Intégration des capteurs, étalonnage, firmware et tableau de bord ne sont pas encore validés. La photo montre le montage existant, pas un écran ESP32 fonctionnel.",
+        "caption": "Photographie du montage solaire existant : régulateur et batteries.",
+        "period": "Revue du 18 octobre 2026"
+      },
+      "de": {
+        "title": "Vom Solarregler zur Datenanzeige",
+        "summary": "Ein neues Projekt für Batterie- und Verbrauchsmessungen auf einem Touchscreen und in einer lokalen Weboberfläche.",
+        "body": [
+          "Der bestehende Aufbau enthält Regler, Batterien und Beleuchtung als Last. Das Foto dokumentiert diesen Arbeitsplatz. Als nächster Schritt sind getrennte Batterie- und Verbrauchsmessungen mit INA228 und INA226 über I²C vorgesehen.",
+          "Am 18. Oktober beginnt die Firmwarevorbereitung für ein Waveshare ESP32-S3 Touch LCD 7B mit 1024 × 600 Pixeln, Touch-Dashboard und WLAN-Webserver. Spannung, Strom und Leistung sollen sichtbar werden; Regleranzeigen werden dabei von kalibrierten Sensormessungen unterschieden."
+        ],
+        "status": "In Vorbereitung. Sensorintegration, Kalibrierung, Firmware und Dashboard sind noch nicht validiert. Das Foto zeigt den vorhandenen Aufbau, kein funktionierendes ESP32-Dashboard.",
+        "caption": "Foto des vorhandenen Solaraufbaus mit Regler und Batteriebank.",
+        "period": "Stand vom 18. Oktober 2026"
+      }
+    },
+    "portrait": true,
+    "publishedAt": "2026-10-18"
+  },
+  {
+    "slug": "celeste-perform",
+    "name": "CELESTE · Perform",
+    "stack": [
+      "Web Audio",
+      "TypeScript",
+      "Web Worker",
+      "Rust / WASM",
+      "Dirección musical"
+    ],
+    "image": "/updates/2026-10/celeste-perform.png",
+    "updatedAt": "2026-10-18",
+    "copy": {
+      "es": {
+        "title": "Ocho bancos, seis pistas y dirección musical",
+        "summary": "La revisión de octubre de Perform lleva CELESTE hacia la composición por capas, con mapa de compases y cambios musicales reversibles.",
+        "body": [
+          "La documentación del 10 de octubre describe ocho bancos originales, seis pistas estéreo y dieciséis compases por banco. La síntesis se prepara en un worker y la reproducción empieza solo al pulsar Play. El mapa muestra ventanas de 32 compases, actividad y la frase seleccionada.",
+          "Más ambient, Más groove, Break o Drop expresan una dirección. El servidor local consulta la API con intención y metadatos de sesión; una respuesta válida se aplica al siguiente compás. Volver a mi mezcla deshace el gesto. La consulta no envía audio ni nombres de archivo, y no implica que el modelo escuche la mezcla."
+        ],
+        "status": "Avance documentado el 10 de octubre, incorporado a esta revisión semanal. El director requiere servidor local y configuración de API; no se presenta como demo pública disponible. Las pruebas documentadas de comportamiento no sustituyen la escucha musical.",
+        "caption": "Captura real de CELESTE Perform Studio · 10 de octubre de 2026.",
+        "period": "Revisión del 18 de octubre de 2026"
+      },
+      "ca": {
+        "title": "Vuit bancs, sis pistes i direcció musical",
+        "summary": "La revisió d’octubre de Perform porta CELESTE cap a la composició per capes, amb mapa de compassos i canvis reversibles.",
+        "body": [
+          "La documentació del 10 d’octubre descriu vuit bancs originals, sis pistes estèreo i setze compassos per banc. La síntesi es prepara en un worker i el so només comença en prémer Play. El mapa mostra finestres de 32 compassos, activitat i frase seleccionada.",
+          "Més ambient, Més groove, Break o Drop expressen una direcció. El servidor local consulta l’API amb intenció i metadades; una resposta vàlida s’aplica al compàs següent. Tornar a la meva mescla desfà el gest. No s’envia àudio ni noms de fitxer, i el model no escolta la mescla."
+        ],
+        "status": "Avanç documentat el 10 d’octubre, incorporat a la revisió setmanal. El director requereix servidor local i configuració d’API; no es presenta com a demo pública. Les proves de comportament no substitueixen l’escolta musical.",
+        "caption": "Captura real de CELESTE Perform Studio · 10 d’octubre de 2026.",
+        "period": "Revisió del 18 d’octubre de 2026"
+      },
+      "en": {
+        "title": "Eight banks, six tracks and musical direction",
+        "summary": "The October Perform revision brings layered composition to CELESTE, with a bar map and reversible musical changes.",
+        "body": [
+          "Documentation dated 10 October describes eight original banks, six stereo tracks and sixteen bars per bank. Synthesis is prepared in a worker; playback starts only after pressing Play. The map shows 32-bar windows, activity and the selected phrase.",
+          "More ambient, More groove, Break and Drop express a direction. A local server queries the API with intent and session metadata; a valid response takes effect at the next bar. Return to my mix undoes the gesture. No audio or filenames are sent, and the model does not listen to the mix."
+        ],
+        "status": "Progress documented on 10 October, included in this weekly review. The director needs a local server and API configuration; this is not an available public demo. Documented behavior tests do not replace musical listening.",
+        "caption": "Actual CELESTE Perform Studio screenshot · 10 October 2026.",
+        "period": "Reviewed on 18 October 2026"
+      },
+      "fr": {
+        "title": "Huit banques, six pistes et direction musicale",
+        "summary": "La révision d’octobre de Perform développe la composition par couches, avec carte des mesures et changements réversibles.",
+        "body": [
+          "La documentation du 10 octobre décrit huit banques originales, six pistes stéréo et seize mesures par banque. La synthèse se prépare dans un worker ; la lecture démarre avec Play. La carte affiche des fenêtres de 32 mesures, l’activité et la phrase choisie.",
+          "Plus ambient, Plus groove, Break et Drop expriment une direction. Un serveur local consulte l’API avec intention et métadonnées ; une réponse valide s’applique à la mesure suivante. Revenir à mon mixage annule le geste. Aucun audio ni nom de fichier n’est envoyé ; le modèle n’écoute pas le mixage."
+        ],
+        "status": "Avancée documentée le 10 octobre et intégrée à cette revue. Le directeur nécessite un serveur local et une configuration API ; il ne s’agit pas d’une demo publique disponible. Les tests de comportement ne remplacent pas l’écoute musicale.",
+        "caption": "Capture réelle de CELESTE Perform Studio · 10 octobre 2026.",
+        "period": "Revue du 18 octobre 2026"
+      },
+      "de": {
+        "title": "Acht Bänke, sechs Spuren und musikalische Steuerung",
+        "summary": "Die Oktober-Version von Perform erweitert CELESTE um mehrschichtige Komposition, Taktübersicht und rückgängig machbare Änderungen.",
+        "body": [
+          "Die Dokumentation vom 10. Oktober beschreibt acht eigene Bänke mit sechs Stereospuren und je sechzehn Takten. Ein Worker bereitet die Synthese vor; erst Play startet die Wiedergabe. Die Übersicht zeigt 32 Takte, Aktivität und ausgewählte Phrase.",
+          "Mehr Ambient, mehr Groove, Break und Drop geben eine Richtung vor. Ein lokaler Server sendet Absicht und Sitzungsmetadaten an die API; gültige Antworten greifen zum nächsten Takt. Zurück zu meinem Mix macht den Eingriff rückgängig. Audio und Dateinamen werden nicht übertragen; das Modell hört den Mix nicht."
+        ],
+        "status": "Am 10. Oktober dokumentierter Fortschritt in dieser Wochenübersicht. Die Steuerung benötigt lokalen Server und API-Konfiguration; keine verfügbare öffentliche Demo. Verhaltenstests ersetzen keine musikalische Hörprüfung.",
+        "caption": "Originalaufnahme von CELESTE Perform Studio · 10. Oktober 2026.",
+        "period": "Stand vom 18. Oktober 2026"
+      }
+    },
+    "publishedAt": "2026-10-18"
+  },
   {
     "slug": "celeste-parallel",
     "name": "CELESTE · Parallel Fabric",
@@ -244,9 +465,11 @@ export const projectUpdates: ProjectUpdate[] = [
         "summary": "La nueva arquitectura concentra interfaz y secuenciador en el P4 y reserva Daisy para el audio, unidos por USB-C.",
         "body": [
           "V2 abandona el ESP32-S3 y la interfaz Wi-Fi de la primera generación. P4 gestiona pantalla, patrones, MIDI y USB host; DaisyPod3 reúne sampler, síntesis y efectos. BANK4 incorpora cuatro rotaries contextuales y selección de banco con fader, conservando el acceso táctil.",
-          "El protocolo 2.4 verifica patrones completos con checksum y los activa al comenzar un bloque de audio. Una carga incompleta conserva el patrón anterior. La revisión corrige ratchet, swing por pista y el doble disparo de pads, y mueve el guardado fuera del callback de LVGL."
+          "El protocolo 2.4 verifica patrones completos con checksum y los activa al comenzar un bloque de audio. Una carga incompleta conserva el patrón anterior. La revisión corrige ratchet, swing por pista y el doble disparo de pads, y mueve el guardado fuera del callback de LVGL.",
+          "Actualización documentada el 25 de septiembre: la revisión de FX separa el procesamiento estéreo de chorus, phaser y autowah, corrige la reducción de bits y emplea un acumulador fraccional para SRATE. Cutoff se muestra en Hz y resonancia en Q. Las compilaciones están registradas; la carga CPU real sigue pendiente de medida en placa."
         ],
-        "status": "Ambos firmwares deben actualizarse juntos. Los builds y las regresiones están documentados; la carga DSP y la respuesta musical final requieren comprobación en placa. Los 2,667 ms por bloque son presupuesto de cálculo, no latencia total medida."
+        "status": "Ambos firmwares deben actualizarse juntos. Los builds y las regresiones están documentados; la carga DSP y la respuesta musical final requieren comprobación en placa. Los 2,667 ms por bloque son presupuesto de cálculo, no latencia total medida.",
+        "period": "Revisión del 18 de octubre de 2026"
       },
       "ca": {
         "caption": "RED808 V2 amb tapa d’alumini vermell mat. Fotografia real de l’instrument, setembre de 2026.",
@@ -254,9 +477,11 @@ export const projectUpdates: ProjectUpdate[] = [
         "summary": "La nova arquitectura concentra interfície i seqüenciador al P4 i reserva Daisy per a l'àudio, units per USB-C.",
         "body": [
           "V2 deixa enrere l'ESP32-S3 i la interfície Wi-Fi de la primera generació. P4 gestiona pantalla, patrons, MIDI i USB host; DaisyPod3 reuneix sampler, síntesi i efectes. BANK4 incorpora quatre rotaries contextuals i selecció de banc amb fader, mantenint l'accés tàctil.",
-          "El protocol 2.4 verifica patrons complets amb checksum i els activa a l'inici d'un bloc d'àudio. Una càrrega incompleta conserva el patró anterior. La revisió corregeix ratchet, swing per pista i el doble dispar dels pads, i treu el desament del callback de LVGL."
+          "El protocol 2.4 verifica patrons complets amb checksum i els activa a l'inici d'un bloc d'àudio. Una càrrega incompleta conserva el patró anterior. La revisió corregeix ratchet, swing per pista i el doble dispar dels pads, i treu el desament del callback de LVGL.",
+          "Actualització documentada el 25 de setembre: processament estèreo separat per a chorus, phaser i autowah, reducció de bits corregida i acumulador fraccional per a SRATE. Cutoff es mostra en Hz i ressonància en Q. Compilacions registrades; falta mesurar la CPU a la placa."
         ],
-        "status": "Cal actualitzar tots dos firmwares alhora. Els builds i les regressions estan documentats; la càrrega DSP i la resposta musical final necessiten comprovació en placa. Els 2,667 ms per bloc són pressupost de càlcul, no latència total mesurada."
+        "status": "Cal actualitzar tots dos firmwares alhora. Els builds i les regressions estan documentats; la càrrega DSP i la resposta musical final necessiten comprovació en placa. Els 2,667 ms per bloc són pressupost de càlcul, no latència total mesurada.",
+        "period": "Revisió del 18 d’octubre de 2026"
       },
       "en": {
         "caption": "RED808 V2 with a matte red aluminium top panel. Real photograph of the instrument, September 2026.",
@@ -264,9 +489,11 @@ export const projectUpdates: ProjectUpdate[] = [
         "summary": "The new architecture puts the interface and sequencer on P4 and dedicates Daisy to audio, linked by USB-C.",
         "body": [
           "V2 moves beyond the first generation's ESP32-S3 and Wi-Fi interface. P4 handles the display, patterns, MIDI and USB host; DaisyPod3 combines sampling, synthesis and effects. BANK4 adds four contextual rotary controls and fader-based bank selection while retaining touch access.",
-          "Protocol 2.4 verifies complete patterns with a checksum and activates them at an audio-block boundary. Incomplete transfers preserve the previous pattern. The review fixes ratchets, per-track swing and duplicate pad triggers, and moves saving outside the LVGL callback."
+          "Protocol 2.4 verifies complete patterns with a checksum and activates them at an audio-block boundary. Incomplete transfers preserve the previous pattern. The review fixes ratchets, per-track swing and duplicate pad triggers, and moves saving outside the LVGL callback.",
+          "Update documented on 25 September: separate stereo processing for chorus, phaser and autowah, corrected bit reduction and a fractional accumulator for SRATE. Cutoff is displayed in Hz and resonance in Q. Builds are recorded; actual CPU load still needs measurement on the board."
         ],
-        "status": "Both firmwares must be updated together. Builds and regression checks are documented; DSP load and final musical response need on-board validation. The 2.667 ms block duration is a processing budget, not measured end-to-end latency."
+        "status": "Both firmwares must be updated together. Builds and regression checks are documented; DSP load and final musical response need on-board validation. The 2.667 ms block duration is a processing budget, not measured end-to-end latency.",
+        "period": "Reviewed on 18 October 2026"
       },
       "fr": {
         "caption": "RED808 V2 avec façade en aluminium rouge mat. Photographie réelle de l’instrument, septembre 2026.",
@@ -274,9 +501,11 @@ export const projectUpdates: ProjectUpdate[] = [
         "summary": "La nouvelle architecture confie l'interface et le séquenceur au P4, et l'audio à Daisy, reliés par USB-C.",
         "body": [
           "V2 abandonne l'ESP32-S3 et l'interface Wi-Fi de la première génération. P4 gère écran, patterns, MIDI et USB host ; DaisyPod3 réunit sampler, synthèse et effets. BANK4 ajoute quatre commandes rotatives contextuelles et la sélection de banque par fader, en conservant le tactile.",
-          "Le protocole 2.4 vérifie les patterns complets par checksum et les active au début d'un bloc audio. Un transfert incomplet conserve le pattern précédent. La revue corrige les ratchets, le swing par piste et les doubles déclenchements des pads ; la sauvegarde sort du callback LVGL."
+          "Le protocole 2.4 vérifie les patterns complets par checksum et les active au début d'un bloc audio. Un transfert incomplet conserve le pattern précédent. La revue corrige les ratchets, le swing par piste et les doubles déclenchements des pads ; la sauvegarde sort du callback LVGL.",
+          "Mise à jour documentée le 25 septembre : traitement stéréo séparé pour chorus, phaser et autowah, réduction de bits corrigée et accumulateur fractionnaire pour SRATE. Cutoff est affiché en Hz et résonance en Q. Compilations enregistrées ; charge CPU à mesurer sur carte."
         ],
-        "status": "Les deux firmwares doivent être mis à jour ensemble. Builds et régressions sont documentés ; charge DSP et réponse musicale finale restent à vérifier sur carte. Les 2,667 ms par bloc sont un budget de calcul, pas une latence totale mesurée."
+        "status": "Les deux firmwares doivent être mis à jour ensemble. Builds et régressions sont documentés ; charge DSP et réponse musicale finale restent à vérifier sur carte. Les 2,667 ms par bloc sont un budget de calcul, pas une latence totale mesurée.",
+        "period": "Revue du 18 octobre 2026"
       },
       "de": {
         "caption": "RED808 V2 mit mattroter Aluminium-Deckplatte. Echtes Foto des Instruments, September 2026.",
@@ -284,11 +513,14 @@ export const projectUpdates: ProjectUpdate[] = [
         "summary": "Die neue Architektur bündelt Oberfläche und Sequencer auf dem P4 und überlässt Daisy das Audio, verbunden über USB-C.",
         "body": [
           "V2 löst den ESP32-S3 und die WLAN-Oberfläche der ersten Generation ab. P4 übernimmt Anzeige, Patterns, MIDI und USB-Host; DaisyPod3 vereint Sampling, Synthese und Effekte. BANK4 ergänzt vier kontextabhängige Drehregler und Bankwahl per Fader, zusätzlich zur Touch-Bedienung.",
-          "Protokoll 2.4 prüft vollständige Patterns per Prüfsumme und aktiviert sie an einer Audioblockgrenze. Unvollständige Übertragungen erhalten das vorherige Pattern. Die Überarbeitung korrigiert Ratchets, Swing pro Spur und doppelte Pad-Trigger; Speichern erfolgt außerhalb des LVGL-Callbacks."
+          "Protokoll 2.4 prüft vollständige Patterns per Prüfsumme und aktiviert sie an einer Audioblockgrenze. Unvollständige Übertragungen erhalten das vorherige Pattern. Die Überarbeitung korrigiert Ratchets, Swing pro Spur und doppelte Pad-Trigger; Speichern erfolgt außerhalb des LVGL-Callbacks.",
+          "Am 25. September dokumentiert: getrennte Stereoverarbeitung für Chorus, Phaser und Autowah, korrigierte Bitreduktion und fraktionaler Akkumulator für SRATE. Cutoff wird in Hz und Resonanz als Q angezeigt. Builds dokumentiert; CPU-Last noch auf der Platine zu messen."
         ],
-        "status": "Beide Firmwares müssen gemeinsam aktualisiert werden. Builds und Regressionen sind dokumentiert; DSP-Last und musikalisches Verhalten müssen auf der Platine geprüft werden. 2,667 ms pro Block sind ein Rechenbudget, keine gemessene Gesamtlatenz."
+        "status": "Beide Firmwares müssen gemeinsam aktualisiert werden. Builds und Regressionen sind dokumentiert; DSP-Last und musikalisches Verhalten müssen auf der Platine geprüft werden. 2,667 ms pro Block sind ein Rechenbudget, keine gemessene Gesamtlatenz.",
+        "period": "Stand vom 18. Oktober 2026"
       }
-    }
+    },
+    "updatedAt": "2026-10-18"
   },
   {
     "slug": "toonjs",
@@ -429,7 +661,8 @@ export const projectUpdates: ProjectUpdate[] = [
           "El PC captura la cámara con FFmpeg, codifica JPEG y envía los frames por UART. El ESP32-S3 decodifica a RGB565 y dibuja con LVGL en la Waveshare de 1024 × 600. El flujo incorpora créditos de recepción y CRC para evitar desbordamientos y rechazar tramas dañadas.",
           "El firmware 0.2.0 implementa congelación, zoom, giro, espejo, brillo y fotos BMP en microSD. La prueba registrada del 20 de septiembre recibió y decodificó 71 imágenes, entregó 70 al renderizador y no registró errores de vídeo. Se observaron aproximadamente 3 FPS a 320 × 240."
         ],
-        "status": "El PC debe permanecer encendido: esta versión no conecta la cámara directamente al USB del S3. La inspección visual, los controles con vídeo y las fotos en microSD siguen pendientes de prueba física. No hay captura de la pantalla física verificada para publicar."
+        "status": "Estado revisado el 18 de octubre: el diagnóstico del 17 de octubre registra pantalla negra y bloqueo al iniciar la comunicación con el display, incluso con firmware anterior. La recuperación de la pantalla no está confirmada; los resultados de septiembre son históricos.",
+        "period": "Revisión del 18 de octubre de 2026"
       },
       "ca": {
         "title": "Una càmera USB a la pantalla ESP32 de set polzades",
@@ -438,7 +671,8 @@ export const projectUpdates: ProjectUpdate[] = [
           "El PC captura la càmera amb FFmpeg, codifica JPEG i envia frames per UART. L'ESP32-S3 descodifica a RGB565 i dibuixa amb LVGL a la Waveshare de 1024 × 600. El flux incorpora crèdits de recepció i CRC per evitar desbordaments i rebutjar trames malmeses.",
           "El firmware 0.2.0 implementa congelació, zoom, gir, mirall, brillantor i fotos BMP a microSD. La prova registrada del 20 de setembre va rebre i descodificar 71 imatges, en va lliurar 70 al renderitzador i no va registrar errors de vídeo. Es van observar aproximadament 3 FPS a 320 × 240."
         ],
-        "status": "El PC ha de romandre encès: aquesta versió no connecta la càmera directament a l'USB de l'S3. La inspecció visual, els controls amb vídeo i les fotos a microSD estan pendents de prova física. No hi ha cap captura verificada de la pantalla física per publicar."
+        "status": "Estat revisat el 18 d’octubre: el diagnòstic del dia 17 registra pantalla negra i bloqueig en iniciar la comunicació amb el display, també amb firmware anterior. Recuperació no confirmada; les proves de setembre són històriques.",
+        "period": "Revisió del 18 d’octubre de 2026"
       },
       "en": {
         "title": "A USB camera on a seven-inch ESP32 screen",
@@ -447,7 +681,8 @@ export const projectUpdates: ProjectUpdate[] = [
           "The PC captures the camera with FFmpeg, encodes JPEG and sends frames over UART. ESP32-S3 decodes to RGB565 and renders with LVGL on the 1024 × 600 Waveshare panel. Receive credits and CRC protect against overflow and corrupted frames.",
           "Firmware 0.2.0 implements freeze, zoom, rotation, mirror, brightness and BMP photos on microSD. The recorded 20 September test received and decoded 71 images, handed 70 to the renderer and reported no video errors. Approximately 3 FPS at 320 × 240 were observed."
         ],
-        "status": "The PC must stay on: this version does not connect the camera directly to the S3's USB port. Visual inspection, controls during video and microSD photos still need physical testing. No verified photograph of the physical screen is available for publication."
+        "status": "Status reviewed on 18 October: the 17 October diagnosis records a black screen and a stall when display communication starts, including with earlier firmware. Screen recovery is unconfirmed; September results are historical.",
+        "period": "Reviewed on 18 October 2026"
       },
       "fr": {
         "title": "Une caméra USB sur un écran ESP32 de sept pouces",
@@ -456,7 +691,8 @@ export const projectUpdates: ProjectUpdate[] = [
           "Le PC capture la caméra avec FFmpeg, encode en JPEG et transmet les images par UART. L'ESP32-S3 décode en RGB565 et affiche avec LVGL sur la Waveshare de 1024 × 600. Des crédits de réception et un CRC protègent contre les débordements et les trames corrompues.",
           "Le firmware 0.2.0 propose arrêt sur image, zoom, rotation, miroir, luminosité et photos BMP sur microSD. Le test enregistré du 20 septembre a reçu et décodé 71 images, en a transmis 70 au moteur de rendu et n'a signalé aucune erreur vidéo. Environ 3 FPS à 320 × 240 ont été observés."
         ],
-        "status": "Le PC doit rester allumé : cette version ne relie pas la caméra directement à l'USB du S3. L'inspection visuelle, les commandes pendant la vidéo et les photos microSD attendent des essais physiques. Aucune capture vérifiée de l'écran physique n'est disponible pour publication."
+        "status": "État revu le 18 octobre : le diagnostic du 17 signale un écran noir et un blocage au démarrage de la communication, y compris avec un ancien firmware. Récupération non confirmée ; les résultats de septembre sont historiques.",
+        "period": "Revue du 18 octobre 2026"
       },
       "de": {
         "title": "Eine USB-Kamera auf einem sieben Zoll großen ESP32-Display",
@@ -465,9 +701,11 @@ export const projectUpdates: ProjectUpdate[] = [
           "Der PC erfasst die Kamera mit FFmpeg, kodiert JPEG und sendet Frames per UART. Der ESP32-S3 dekodiert RGB565 und zeichnet mit LVGL auf dem Waveshare-Display mit 1024 × 600 Pixeln. Empfangsguthaben und CRC schützen vor Überläufen und beschädigten Frames.",
           "Firmware 0.2.0 implementiert Standbild, Zoom, Rotation, Spiegelung, Helligkeit und BMP-Fotos auf microSD. Der dokumentierte Test vom 20. September empfing und dekodierte 71 Bilder, übergab 70 an den Renderer und meldete keine Videofehler. Beobachtet wurden etwa 3 FPS bei 320 × 240."
         ],
-        "status": "Der PC muss eingeschaltet bleiben: Diese Version verbindet die Kamera nicht direkt mit dem USB-Anschluss des S3. Sichtprüfung, Regler während der Wiedergabe und microSD-Fotos müssen noch physisch getestet werden. Eine verifizierte Aufnahme des echten Displays liegt nicht zur Veröffentlichung vor."
+        "status": "Stand vom 18. Oktober: Die Diagnose vom 17. Oktober meldet einen schwarzen Bildschirm und einen Stillstand beim Start der Displaykommunikation, auch mit früherer Firmware. Wiederherstellung unbestätigt; September-Ergebnisse sind historisch.",
+        "period": "Stand vom 18. Oktober 2026"
       }
-    }
+    },
+    "updatedAt": "2026-10-18"
   }
 ];
 

@@ -46,7 +46,7 @@ export function ProjectUpdateArticle({ project, language, blog = false }: { proj
         <h1 className="font-display text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight leading-[1.08] mb-7">{blog ? copy.title : project.name}</h1>
         {!blog && <h2 className="text-xl md:text-2xl mb-5 text-foreground/90">{copy.title}</h2>}
         <p className="text-lg md:text-2xl leading-relaxed text-muted-foreground max-w-4xl">{copy.summary}</p>
-        <time dateTime={reviewDate} className="block text-xs text-muted-foreground mt-6">{ui.period}</time>
+        <time dateTime={project.updatedAt ?? reviewDate} className="block text-xs text-muted-foreground mt-6">{copy.period ?? ui.period}</time>
       </header>
       {project.video && <figure className="mb-10">
         <video controls playsInline preload="none" poster={project.videoPoster} width={1920} height={1080} aria-label={copy.videoCaption ?? project.name} className="w-full aspect-video rounded-2xl border border-border/60 bg-black">

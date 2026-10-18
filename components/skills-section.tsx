@@ -119,8 +119,10 @@ export function SkillsSection({ language }: { language: Language }) {
             </div>
             <div className="grid sm:grid-cols-2 gap-6">
               {[
-                { title: t.skills.hardware.platforms, items: ["STM32", "ESP32", "FPGA"] },
-                { title: t.skills.hardware.connections, items: ["I²C", "I²S", "SPI"] },
+                { title: t.skills.hardware.platforms, items: ["STM32", "ESP32-S3", "ESP32-P4", "Tang Nano 20K / FPGA"] },
+                { title: t.skills.hardware.firmware, items: ["PlatformIO", "ESP-IDF", "LVGL", "C / C++"] },
+                { title: t.skills.hardware.fabrication, items: ["CAD", "STL / STEP", "3MF", "FDM"] },
+                { title: t.skills.hardware.connections, items: ["I²C", "I²S", "SPI", "UART", "USB / MIDI"] },
               ].map((group) => <div key={group.title}>
                 <h4 className="text-sm font-semibold mb-3">{group.title}</h4>
                 <ul className="flex flex-wrap gap-2.5">

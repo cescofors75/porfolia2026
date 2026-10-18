@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(reviewDate);
   return [
     ...["/plugins", "/plugins/celeste-parallel", "/blog/celeste-parallel-vst3"].map(path => ({ url: `https://cesco.dev${path}`, lastModified: new Date(reviewDate), changeFrequency: "monthly" as const, priority: 0.8 })),
-    ...projectUpdates.flatMap((project) => ["proyectos", "blog"].filter((section) => section !== "proyectos" || project.slug !== "raydrone").map((section) => ({ url: `https://cesco.dev/${section}/${project.slug}`, lastModified, changeFrequency: "monthly" as const, priority: 0.8 }))),
+    ...projectUpdates.flatMap((project) => ["proyectos", "blog"].filter((section) => section !== "proyectos" || project.slug !== "raydrone").map((section) => ({ url: `https://cesco.dev/${section}/${project.slug}`, lastModified: new Date(project.updatedAt ?? reviewDate), changeFrequency: "monthly" as const, priority: 0.8 }))),
     {
       url: "https://cesco.dev",
       lastModified,

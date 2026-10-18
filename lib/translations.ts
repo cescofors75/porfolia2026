@@ -86,7 +86,7 @@ export const translations = {
     },
     // Skills
     skills: {
-      hardware: { title: "Hardware i sistemes encastats", description: "Prototipatge amb microcontroladors i FPGA, integració de perifèrics i connexions d’àudio digital.", platforms: "Plataformes", connections: "Busos i connexions" },
+      hardware: { firmware: "Firmware i interfícies", fabrication: "Disseny i fabricació 3D", title: "Hardware i sistemes encastats", description: "Prototipatge amb microcontroladors i FPGA, integració de perifèrics i connexions d’àudio digital.", platforms: "Plataformes", connections: "Busos i connexions" },
       title: "Habilitats & Tecnologies",
       subtitle: "Més de 25 anys d'experiència en desenvolupament de programari i tecnologies emergents",
       categories: {
@@ -232,7 +232,7 @@ export const translations = {
     },
     // Skills
     skills: {
-      hardware: { title: "Hardware y sistemas embebidos", description: "Prototipado con microcontroladores y FPGA, integración de periféricos y conexiones de audio digital.", platforms: "Plataformas", connections: "Buses y conexiones" },
+      hardware: { firmware: "Firmware e interfaces", fabrication: "Diseño y fabricación 3D", title: "Hardware y sistemas embebidos", description: "Prototipado con microcontroladores y FPGA, integración de periféricos y conexiones de audio digital.", platforms: "Plataformas", connections: "Buses y conexiones" },
       title: "Habilidades & Tecnologías",
       subtitle: "Más de 25 años de experiencia en desarrollo de software y tecnologías emergentes",
       categories: {
@@ -378,7 +378,7 @@ export const translations = {
     },
     // Skills
     skills: {
-      hardware: { title: "Hardware & embedded systems", description: "Prototyping with microcontrollers and FPGAs, peripheral integration and digital audio connections.", platforms: "Platforms", connections: "Buses & connections" },
+      hardware: { firmware: "Firmware & interfaces", fabrication: "3D design & fabrication", title: "Hardware & embedded systems", description: "Prototyping with microcontrollers and FPGAs, peripheral integration and digital audio connections.", platforms: "Platforms", connections: "Buses & connections" },
       title: "Skills & Technologies",
       subtitle: "Over 25 years of experience in software development and emerging technologies",
       categories: {
@@ -524,7 +524,7 @@ export const translations = {
     },
     // Skills
     skills: {
-      hardware: { title: "Hardware & eingebettete Systeme", description: "Prototypen mit Mikrocontrollern und FPGAs, Peripherieintegration und digitale Audioverbindungen.", platforms: "Plattformen", connections: "Busse & Verbindungen" },
+      hardware: { firmware: "Firmware & Oberflächen", fabrication: "3D-Konstruktion & Fertigung", title: "Hardware & eingebettete Systeme", description: "Prototypen mit Mikrocontrollern und FPGAs, Peripherieintegration und digitale Audioverbindungen.", platforms: "Plattformen", connections: "Busse & Verbindungen" },
       title: "Fähigkeiten & Technologien",
       subtitle: "Über 25 Jahre Erfahrung in Softwareentwicklung und neuen Technologien",
       categories: {
@@ -670,7 +670,7 @@ export const translations = {
     },
     // Skills
     skills: {
-      hardware: { title: "Matériel et systèmes embarqués", description: "Prototypage avec microcontrôleurs et FPGA, intégration de périphériques et connexions audio numériques.", platforms: "Plateformes", connections: "Bus et connexions" },
+      hardware: { firmware: "Firmware et interfaces", fabrication: "Conception et fabrication 3D", title: "Matériel et systèmes embarqués", description: "Prototypage avec microcontrôleurs et FPGA, intégration de périphériques et connexions audio numériques.", platforms: "Plateformes", connections: "Bus et connexions" },
       title: "Compétences & Technologies",
       subtitle: "Plus de 25 ans d'expérience en développement logiciel et technologies émergentes",
       categories: {

@@ -25,7 +25,7 @@ for (const language of Object.keys(updateUI)) {
       checked++;
     }
   }
-  console.log(`${language}: 12 project/article routes passed`);
+  console.log(`${language}: ${projectUpdates.length * 2} project/article routes passed`);
 }
 for (const project of projectUpdates.filter(p => p.image)) {
   const response = await fetch(base + project.image);
