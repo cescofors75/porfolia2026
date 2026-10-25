@@ -41,6 +41,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.cesco.dev"),
+  verification: {
+    google: "CQ_yOHixNbQzUzRELOAfvLeZQeM-I-AgUgzIQm2RbWM",
+  },
   applicationName: "Cesco.dev",
   category: "technology",
   title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
