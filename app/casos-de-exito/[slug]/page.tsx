@@ -18,7 +18,7 @@ export async function generateMetadata({
   if (!cs) return {};
 
   const title = `${cs.title} | Caso de Éxito | Cesco.dev`;
-  const url = `https://cesco.dev/casos-de-exito/${cs.slug}`;
+  const url = `https://www.cesco.dev/casos-de-exito/${cs.slug}`;
 
   return {
     title,
@@ -50,7 +50,7 @@ export default async function CasoDeExitoPage({
     author: {
       "@type": "Person",
       name: "Francesc 'Cesco' Fors Ferrer",
-      url: "https://cesco.dev",
+      url: "https://www.cesco.dev",
     },
     about: cs.client,
     keywords: cs.stack.join(", "),

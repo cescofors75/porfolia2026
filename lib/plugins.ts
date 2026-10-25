@@ -1,3 +1,4 @@
+import { languageUrl, languageAlternates, ogLocale } from "@/lib/seo";
 import type { Language } from '@/lib/translations';
 import type { Metadata } from 'next';
 export const pluginDownload = '/downloads/CELESTE-Tang-Control-Windows.zip';
@@ -226,5 +227,5 @@ export const pluginCopy = {
 export function pluginMetadata(language: Language, path = "/plugins/celeste-parallel"): Metadata {
   const copy = pluginCopy[language];
   const title = path === "/plugins" ? "Plugins | Cesco.dev" : "CELESTE Parallel · VST3 / AU · Tang Control | Cesco.dev";
-  return { title, description: copy.summary, alternates: { canonical: `https://cesco.dev${path}` }, openGraph: { title, description: copy.summary, url: `https://cesco.dev${path}`, images: [{ url: pluginImage, alt: copy.imageAlt }] }, twitter: { card: "summary_large_image", title, description: copy.summary, images: [pluginImage] } };
+  return { title, description: copy.summary, alternates: languageAlternates(path, language), openGraph: { title, description: copy.summary, url: languageUrl(path, language), locale: ogLocale[language], images: [{ url: pluginImage, alt: copy.imageAlt }] }, twitter: { card: "summary_large_image", title, description: copy.summary, images: [pluginImage] } };
 }

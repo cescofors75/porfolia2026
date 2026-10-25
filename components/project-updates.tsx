@@ -4,6 +4,7 @@ import { ArrowUpRight, ArrowLeft, CircuitBoard } from "lucide-react";
 import { projectUpdates, updateUI, reviewDate, type ProjectUpdate } from "@/lib/project-updates";
 import type { Language } from "@/lib/translations";
 import { RayDroneDemoLink } from "@/components/raydrone-demo-link";
+import { languageUrl, SITE_URL } from "@/lib/seo";
 
 export function ProjectUpdates({ language, blog = false }: { language: Language; blog?: boolean }) {
   const ui = updateUI[language];
@@ -38,7 +39,30 @@ export function ProjectUpdates({ language, blog = false }: { language: Language;
 export function ProjectUpdateArticle({ project, language, blog = false }: { project: ProjectUpdate; language: Language; blog?: boolean }) {
   const copy = project.copy[language];
   const ui = updateUI[language];
+  const url = languageUrl(`/${blog ? "blog" : "proyectos"}/${project.slug}`, language);
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": blog ? "BlogPosting" : "Article",
+      "@id": `${url}#article`, url, mainEntityOfPage: url,
+      headline: copy.title, description: copy.summary, inLanguage: language,
+      datePublished: project.publishedAt ?? reviewDate,
+      dateModified: project.updatedAt ?? reviewDate,
+      author: { "@type": "Person", "@id": `${SITE_URL}/#person`, name: "Cesco Fors", url: SITE_URL },
+      ...(project.image ? { image: `${SITE_URL}${project.image}` } : {}),
+      keywords: project.stack.join(", "),
+    },
+    {
+      "@context": "https://schema.org", "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Cesco.dev", item: languageUrl("/", language) },
+        ...(blog ? [{ "@type": "ListItem", position: 2, name: "Blog", item: languageUrl("/blog", language) }] : []),
+        { "@type": "ListItem", position: blog ? 3 : 2, name: project.name, item: url },
+      ],
+    },
+  ];
   return <article className="pt-32 pb-24 px-4">
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
     <div className="max-w-5xl mx-auto">
       <Link href={blog ? "/blog#septiembre-2026" : "/#septiembre-2026"} className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary text-sm mb-10"><ArrowLeft size={16} />{blog ? ui.blog : ui.back}</Link>
       <header className="mb-10">

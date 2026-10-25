@@ -8,13 +8,13 @@ export const metadata: Metadata = {
   description:
     "Casos de éxito de desarrollo de software, IA y sistemas IoT de Francesc 'Cesco' Fors, Ingeniero de Software y consultor de IA en Girona, Costa Brava. Proyectos reales para clientes de Girona, Lloret de Mar y Blanes.",
   alternates: {
-    canonical: "https://cesco.dev/casos-de-exito",
+    canonical: "https://www.cesco.dev/casos-de-exito",
   },
   openGraph: {
     title: "Casos de Éxito | Desarrollador y Consultor IA en Girona",
     description:
       "Proyectos reales de desarrollo full stack, IA y sistemas IoT realizados desde Girona para clientes de Girona, Lloret de Mar y Blanes.",
-    url: "https://cesco.dev/casos-de-exito",
+    url: "https://www.cesco.dev/casos-de-exito",
   },
 };
 

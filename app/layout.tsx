@@ -40,7 +40,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cesco.dev"),
+  metadataBase: new URL("https://www.cesco.dev"),
   applicationName: "Cesco.dev",
   category: "technology",
   title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
@@ -75,13 +75,13 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://cesco.dev",
+    canonical: "https://www.cesco.dev",
   },
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: "https://cesco.dev",
+    url: "https://www.cesco.dev",
     siteName: "Cesco.dev",
     title: "Francesc 'Cesco' Fors | Ingeniero de Software & Consultor IA en Girona",
     description: "Desarrollador Full Stack e Ingeniero de Software en Girona. Consultoría tecnológica y de IA para empresas de Girona, Lloret de Mar y Blanes.",
@@ -98,9 +98,10 @@ export const metadata: Metadata = {
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://www.cesco.dev/#person",
   name: "Francesc 'Cesco' Fors Ferrer",
   alternateName: "Cesco Fors",
-  url: "https://cesco.dev",
+  url: "https://www.cesco.dev",
   jobTitle: "Ingeniero de Software & Consultor de IA",
   description: "Desarrollador Full Stack e Ingeniero de Software en Girona, especializado en JavaScript, TypeScript, React, Next.js, C# e Inteligencia Artificial.",
   email: "mailto:cescofors75@gmail.com",
@@ -140,9 +141,9 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Cesco.dev",
-  url: "https://cesco.dev",
+  url: "https://www.cesco.dev",
   inLanguage: ["ca", "es", "en", "de", "fr"],
-  author: { "@type": "Person", name: "Francesc 'Cesco' Fors Ferrer", url: "https://cesco.dev" },
+  author: { "@type": "Person", name: "Francesc 'Cesco' Fors Ferrer", url: "https://www.cesco.dev" },
 };
 
 export default async function RootLayout({

@@ -1,3 +1,4 @@
+import { languageAlternates, languageUrl, ogLocale } from "@/lib/seo";
 import { PluginCard } from "@/components/plugins";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -8,17 +9,15 @@ import { getLanguage } from "@/lib/language-server";
 import { ProjectUpdates } from "@/components/project-updates";
 import { findUpdate, updateUI } from "@/lib/project-updates";
 
-export const metadata: Metadata = {
-  title: "Cuaderno de laboratorio | Hardware, DSP e instrumentos | Cesco.dev",
-  description: "Semana del 19–25 de octubre de 2026: buggy K8, Kayak Frame, firmware solar ESP32-S3 y concepto MATRIX. Datos, imágenes y documentación del laboratorio.",
-  alternates: { canonical: "https://cesco.dev/blog" },
-  openGraph: {
-    title: "Cuaderno de laboratorio — del cable al campo acústico",
-    description: "Hardware, firmware, interfaces, DSP y síntesis: el proceso completo desde finales de 2025.",
-    url: "https://cesco.dev/blog",
-    images: [{ url: "/gallery/IMG_8083.webp", width: 1500, height: 2000, alt: "Instrumento en funcionamiento durante una sesión nocturna" }],
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const language = await getLanguage();
+  const title = `${updateUI[language].title} | Blog · Cesco.dev`;
+  const description = updateUI[language].intro;
+  const images = [{ url: "/updates/2026-10/k8-workbench.jpeg", alt: "K8 · CESCO3D" }];
+  return { title, description, alternates: languageAlternates("/blog", language),
+    openGraph: { title, description, url: languageUrl("/blog", language), locale: ogLocale[language], images },
+    twitter: { card: "summary_large_image", title, description, images } };
+}
 
 type Chapter = {
   id: string;

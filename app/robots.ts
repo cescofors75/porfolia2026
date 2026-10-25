@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://cesco.dev/sitemap.xml",
-    host: "https://cesco.dev",
+    sitemap: "https://www.cesco.dev/sitemap.xml",
+    host: "https://www.cesco.dev",
   };
 }

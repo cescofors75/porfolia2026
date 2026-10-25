@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Languages, Check } from "lucide-react";
 import { Language, translations } from "@/lib/translations";
 
@@ -15,17 +15,14 @@ const languages = [
 
 export function LanguageSelector({ language }: { language: Language }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [, startTransition] = useTransition();
-  const router = useRouter();
+  const pathname = usePathname();
   const t = translations[language];
 
-  // El idioma vive en una cookie para que el servidor pueda renderizar ya en el
-  // idioma correcto. router.refresh() vuelve a pedir el árbol de servidor con la
-  // cookie nueva, en lugar de re-renderizar toda la página en el cliente.
+  // Real links make language variants discoverable without cookies.
   const setLanguage = (lang: Language) => {
     document.cookie = `portfolio-language=${lang}; path=/; max-age=31536000; samesite=lax`;
     setIsOpen(false);
-    startTransition(() => router.refresh());
+
   };
 
   return (
@@ -57,7 +54,10 @@ export function LanguageSelector({ language }: { language: Language }) {
             
             <div className="space-y-2">
               {languages.map((lang) => (
-                <button
+                <a
+                  href={`${pathname}?lang=${lang.code}`}
+                  hrefLang={lang.code}
+                  lang={lang.code}
                   key={lang.code}
                   onClick={() => {
                     setLanguage(lang.code);
@@ -78,7 +78,7 @@ export function LanguageSelector({ language }: { language: Language }) {
                   {language === lang.code && (
                     <Check size={18} className="text-secondary shrink-0" />
                   )}
-                </button>
+                </a>
               ))}
             </div>
         </div>

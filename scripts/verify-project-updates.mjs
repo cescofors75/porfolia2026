@@ -20,7 +20,7 @@ for (const language of Object.keys(updateUI)) {
       assert.ok(html.includes(project.copy[language].summary), `Missing translated summary: ${language} ${path}`);
       assert.ok(html.includes(project.copy[language].status), `Missing translated status: ${language} ${path}`);
       for (const paragraph of project.copy[language].body) assert.ok(html.includes(paragraph), `Missing translated body: ${language} ${path}`);
-      assert.ok(html.includes(`https://cesco.dev${path}`), `Missing canonical: ${path}`);
+      assert.ok(html.includes(`https://www.cesco.dev${path}`), `Missing canonical: ${path}`);
       assert.ok(html.includes(`lang="${language}"`), `Wrong document language: ${language} ${path}`);
       checked++;
     }
@@ -33,6 +33,6 @@ for (const project of projectUpdates.filter(p => p.image)) {
   assert.match(response.headers.get('content-type'), /^image\//);
 }
 const sitemap = await (await fetch(base + '/sitemap.xml')).text();
-for (const project of projectUpdates) for (const section of ['proyectos', 'blog']) assert.ok(sitemap.includes(`https://cesco.dev/${section}/${project.slug}`));
+for (const project of projectUpdates) for (const section of ['proyectos', 'blog']) assert.ok(sitemap.includes(`https://www.cesco.dev/${section}/${project.slug}`));
 for (const section of ['proyectos', 'blog']) assert.equal((await fetch(`${base}/${section}/missing-update-404`)).status, 404);
 console.log(`PASS: ${checked} localized routes, images, sitemap and unknown-route 404s`);

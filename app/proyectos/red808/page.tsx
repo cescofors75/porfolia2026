@@ -10,13 +10,13 @@ export const metadata: Metadata = {
   description:
     "RED808: caja de ritmos IoT open source distribuida en tres placas — ESP32-S3 como secuenciador maestro, ESP32-P4 con interfaz LVGL y Daisy Seed (STM32H750) para el DSP de audio — con app web móvil para tocar desde el navegador.",
   alternates: {
-    canonical: "https://cesco.dev/proyectos/red808",
+    canonical: "https://www.cesco.dev/proyectos/red808",
   },
   openGraph: {
     title: "RED808 | Caja de ritmos IoT open source",
     description:
       "Secuenciador por pasos, 16 pads, mixer de 16 canales y app web móvil vía WiFi. Firmware ESP32-S3 + ESP32-P4 + Daisy Seed.",
-    url: "https://cesco.dev/proyectos/red808",
+    url: "https://www.cesco.dev/proyectos/red808",
     images: [
       {
         url: "/imgRed808/IMG_7425.webp",

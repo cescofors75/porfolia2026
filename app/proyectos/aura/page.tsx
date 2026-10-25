@@ -6,7 +6,7 @@ import { ArrowRight, ArrowUpRight, Cpu, Github } from "lucide-react";
 export const metadata: Metadata = {
   title: "Aura | Instrumento hardware ESP32-P4 con RayDrone | Cesco.dev",
   description: "Aura es el instrumento hardware ESP32-P4 que lleva el algoritmo RayDrone a una unidad autónoma, táctil y orientada a la interpretación.",
-  alternates: { canonical: "https://cesco.dev/proyectos/aura" },
+  alternates: { canonical: "https://www.cesco.dev/proyectos/aura" },
 };
 
 export default function AuraPage() {

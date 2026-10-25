@@ -31,9 +31,10 @@ function pickLanguage(header: string | null): string {
 
 export function proxy(request: NextRequest) {
   const existing = request.cookies.get(LANGUAGE_COOKIE)?.value;
-  if (existing && SUPPORTED.includes(existing)) return NextResponse.next();
+  const explicit = request.nextUrl.searchParams.get("lang");
+  if (!SUPPORTED.includes(explicit ?? "") && existing && SUPPORTED.includes(existing)) return NextResponse.next();
 
-  const language = pickLanguage(request.headers.get("accept-language"));
+  const language = explicit && SUPPORTED.includes(explicit) ? explicit : existing && SUPPORTED.includes(existing) ? existing : pickLanguage(request.headers.get("accept-language"));
 
   // La cookie se refleja también en la petición actual para que este mismo
   // render ya use el idioma detectado, no sólo el siguiente.
