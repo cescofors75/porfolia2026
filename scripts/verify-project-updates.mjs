@@ -19,7 +19,13 @@ for (const language of Object.keys(updateUI)) {
       const html = decode(await response.text());
       assert.ok(html.includes(project.copy[language].summary), `Missing translated summary: ${language} ${path}`);
       assert.ok(html.includes(project.copy[language].status), `Missing translated status: ${language} ${path}`);
-      for (const paragraph of project.copy[language].body) assert.ok(html.includes(paragraph), `Missing translated body: ${language} ${path}`);
+      if (section === 'blog') {
+        for (const paragraph of project.copy[language].body) assert.ok(html.includes(paragraph), `Missing translated story: ${language} ${path}`);
+      } else {
+        assert.ok(html.includes('id="specs-title"'), `Missing specifications: ${path}`);
+        assert.ok(!html.includes(project.copy[language].body[0]), `Duplicated blog body: ${path}`);
+      }
+      assert.ok(html.includes('id="related-title"'), `Missing related projects: ${path}`);
       assert.ok(html.includes(`https://www.cesco.dev${path}`), `Missing canonical: ${path}`);
       assert.ok(html.includes(`lang="${language}"`), `Wrong document language: ${language} ${path}`);
       checked++;

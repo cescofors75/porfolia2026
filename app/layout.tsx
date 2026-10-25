@@ -7,14 +7,14 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-  preload: false,
+  preload: true,
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
   display: "swap",
-  preload: false,
+  preload: true,
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -29,7 +29,6 @@ import { ThemeSelector } from "@/components/theme-selector";
 import { LanguageSelector } from "@/components/language-selector";
 import { CursorFollower } from "@/components/cursor-follower";
 import { RayDroneSound } from "@/components/raydrone-sound";
-import { Preloader } from "@/components/preloader";
 import { AuroraBackground } from "@/components/aurora-background";
 import { Analytics } from "@vercel/analytics/next";
 import { getLanguage } from "@/lib/language-server";
@@ -173,7 +172,6 @@ export default async function RootLayout({
         />
       </head>
       <body className="flex flex-col min-h-screen bg-background text-foreground font-sans antialiased">
-        <Preloader />
         <AuroraBackground />
         <Navbar language={language} />
         <main className="flex-grow">

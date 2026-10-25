@@ -1,3 +1,5 @@
+import { DeferredVideo } from "@/components/deferred-video";
+import { detailUI } from "@/lib/project-specs";
 import Image from "next/image";
 import Link from "next/link";
 import { TiltCard } from "@/components/tilt-card";
@@ -346,14 +348,7 @@ export function PortfolioGrid({ language }: { language: Language }) {
 
                   {"videoId" in project && project.videoId && (
                     <div className="relative aspect-video rounded-xl overflow-hidden border border-border/50 bg-black mb-5">
-                      <iframe
-                        className="absolute inset-0 w-full h-full"
-                        src={`https://www.youtube-nocookie.com/embed/${project.videoId}?rel=0&modestbranding=1`}
-                        title={`${project.title} demo`}
-                        loading="lazy"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowFullScreen
-                      />
+                      <DeferredVideo id={project.videoId} title={`${project.title} demo`} label={detailUI[language].video} />
                     </div>
                   )}
 

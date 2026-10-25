@@ -1,3 +1,4 @@
+import { detailUI, specsFor, projectQuestions, relatedProjects } from "@/lib/project-specs";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, ArrowLeft, CircuitBoard } from "lucide-react";
@@ -21,7 +22,7 @@ export function ProjectUpdates({ language, blog = false }: { language: Language;
         return <article key={project.slug} className="group flex flex-col overflow-hidden rounded-2xl border border-border/60 bg-card/40 hover:border-primary/50 transition-colors">
           <Link href={`/${blog ? "blog" : "proyectos"}/${project.slug}`} className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">
             <div className="relative aspect-[16/10] overflow-hidden bg-background">
-              {cardImage ? <Image src={cardImage} alt={cardCaption ?? project.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" className="object-contain transition-transform duration-500 group-hover:scale-[1.03]" /> : <div aria-hidden="true" className="h-full p-8 flex flex-col justify-between bg-gradient-to-br from-primary/15 via-background to-secondary/10"><CircuitBoard size={40} className="text-primary" /><span className="font-display font-bold text-2xl tracking-tight">{project.name}</span><span className="text-xs font-mono text-muted-foreground">{project.stack.slice(0, 2).join(" / ")}</span></div>}
+              {cardImage ? <Image src={cardImage} alt={cardCaption ?? project.name} fill sizes={project.portrait ? "(max-width: 768px) 48vw, (max-width: 1280px) 24vw, 16vw" : "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"} className="object-contain transition-transform duration-500 group-hover:scale-[1.03]" /> : <div aria-hidden="true" className="h-full p-8 flex flex-col justify-between bg-gradient-to-br from-primary/15 via-background to-secondary/10"><CircuitBoard size={40} className="text-primary" /><span className="font-display font-bold text-2xl tracking-tight">{project.name}</span><span className="text-xs font-mono text-muted-foreground">{project.stack.slice(0, 2).join(" / ")}</span></div>}
             </div>
             <div className="px-6 pt-6"><p className="text-xs text-primary font-mono mb-3">{String(index + 1).padStart(2, "0")} / {project.name}</p><h3 className="text-xl font-semibold leading-snug mb-3">{copy.title}</h3></div>
           </Link>
@@ -39,6 +40,10 @@ export function ProjectUpdates({ language, blog = false }: { language: Language;
 export function ProjectUpdateArticle({ project, language, blog = false }: { project: ProjectUpdate; language: Language; blog?: boolean }) {
   const copy = project.copy[language];
   const ui = updateUI[language];
+  const detail = detailUI[language];
+  const specs = specsFor(project.slug, language);
+  const questions = projectQuestions[project.slug]?.[language] ?? [];
+  const related = projectUpdates.filter(item => relatedProjects[project.slug]?.includes(item.slug));
   const url = languageUrl(`/${blog ? "blog" : "proyectos"}/${project.slug}`, language);
   const structuredData = [
     {
@@ -72,7 +77,8 @@ export function ProjectUpdateArticle({ project, language, blog = false }: { proj
         <p className="text-lg md:text-2xl leading-relaxed text-muted-foreground max-w-4xl">{copy.summary}</p>
         <time dateTime={project.updatedAt ?? reviewDate} className="block text-xs text-muted-foreground mt-6">{copy.period ?? ui.period}</time>
       </header>
-      {project.video && <figure className="mb-10">
+      {!blog && project.slug === "celeste-parallel" && <div className="mb-8"><Link href={languageUrl("/plugins/celeste-parallel", language)} className="inline-flex rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold">{detail.demo}</Link></div>}
+      {!blog && project.video && <figure className="mb-10">
         <video controls playsInline preload="none" poster={project.videoPoster} width={1920} height={1080} aria-label={copy.videoCaption ?? project.name} className="w-full aspect-video rounded-2xl border border-border/60 bg-black">
           <source src={project.video} type="video/mp4" />
           <a href={project.video}>{copy.videoCaption ?? project.name}</a>
@@ -81,12 +87,14 @@ export function ProjectUpdateArticle({ project, language, blog = false }: { proj
       </figure>}
       {project.image && <figure className="mb-12"><div className={`relative ${project.portrait ? "aspect-[3/4] max-w-3xl mx-auto" : "aspect-[1.44/1]"} rounded-2xl overflow-hidden border border-border/60 bg-black`}><Image src={project.image} alt={copy.caption ?? project.name} fill priority sizes="(max-width: 1024px) 100vw, 1024px" className="object-contain" /></div><figcaption className="text-sm text-muted-foreground mt-4">{copy.caption}</figcaption></figure>}
       <div className="grid lg:grid-cols-[1fr_280px] gap-10">
-        <div className="space-y-6 text-lg leading-relaxed text-muted-foreground">{copy.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+        <div>{blog ? <section className="space-y-6 text-lg leading-relaxed text-muted-foreground"><h2 className="text-2xl text-foreground font-bold">{detail.story}</h2>{copy.body.map(paragraph => <p key={paragraph}>{paragraph}</p>)}</section> : <section aria-labelledby="specs-title"><h2 id="specs-title" className="text-2xl font-bold mb-6">{detail.specs}</h2><dl className="grid sm:grid-cols-2 gap-4">{specs.map(spec => <div key={spec.label} className="rounded-xl border border-border p-5 min-w-0"><dt className="text-sm text-muted-foreground mb-3">{spec.label}</dt><dd className="font-mono text-sm break-words">{spec.value}</dd></div>)}</dl></section>}</div>
         <aside className="p-6 rounded-2xl bg-primary/5 border border-primary/20 self-start"><h2 className="font-semibold mb-4 text-foreground">{ui.status}</h2><p className="text-sm leading-relaxed text-muted-foreground">{copy.status}</p></aside>
       </div>
-      {project.secondaryImage && <figure className="mt-10"><div className="relative aspect-[1.44/1] rounded-2xl overflow-hidden border border-border/60 bg-black"><Image src={project.secondaryImage} alt={copy.secondaryCaption ?? project.name} fill sizes="(max-width: 1024px) 100vw, 1024px" className="object-contain" /></div><figcaption className="text-sm text-muted-foreground mt-4">{copy.secondaryCaption}</figcaption></figure>}
-      {project.designImage && <figure className="mt-10"><Image src={project.designImage} alt={copy.designCaption ?? project.name} width={1870} height={1025} sizes="(max-width: 1024px) 100vw, 1024px" className="w-full h-auto rounded-2xl border border-border/60" /><figcaption className="text-sm text-muted-foreground mt-4">{copy.designCaption}</figcaption></figure>}
+      {!blog && questions.length > 0 && <section className="mt-12" aria-labelledby="questions-title"><h2 id="questions-title" className="text-3xl font-bold mb-6">{detail.questions}</h2><div className="space-y-6">{questions.map(([question, answer]) => <div key={question}><h3 className="text-xl font-semibold mb-2">{question}</h3><p className="text-muted-foreground leading-relaxed">{answer}</p></div>)}</div></section>}
+      {!blog && project.secondaryImage && <figure className="mt-10"><div className="relative aspect-[1.44/1] rounded-2xl overflow-hidden border border-border/60 bg-black"><Image src={project.secondaryImage} alt={copy.secondaryCaption ?? project.name} fill sizes="(max-width: 1024px) 100vw, 1024px" className="object-contain" /></div><figcaption className="text-sm text-muted-foreground mt-4">{copy.secondaryCaption}</figcaption></figure>}
+      {!blog && project.designImage && <figure className="mt-10"><Image src={project.designImage} alt={copy.designCaption ?? project.name} width={1870} height={1025} sizes="(max-width: 1024px) 100vw, 1024px" className="w-full h-auto rounded-2xl border border-border/60" /><figcaption className="text-sm text-muted-foreground mt-4">{copy.designCaption}</figcaption></figure>}
       <ul className="flex flex-wrap gap-2 mt-10 mb-10" aria-label="Stack">{project.stack.map((tech) => <li key={tech} className="px-3 py-2 rounded-full border border-border text-xs font-mono">{tech}</li>)}</ul>
+      <section className="mb-10" aria-labelledby="related-title"><h2 id="related-title" className="text-xl font-bold mb-4">{detail.related}</h2><ul className="flex flex-wrap gap-4">{related.map(item => <li key={item.slug}><Link className="text-primary hover:underline" href={languageUrl(`/proyectos/${item.slug}`, language)}>{item.name}</Link></li>)}</ul></section>
       <nav className="flex flex-wrap gap-4 border-t border-border pt-8">
         {project.slug === "raydrone" && <RayDroneDemoLink language={language} />}
         <Link href={`/${blog ? "proyectos" : "blog"}/${project.slug}`} className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold">{blog ? ui.project : ui.article}<ArrowUpRight size={16} /></Link>

@@ -30,6 +30,8 @@ function pickLanguage(header: string | null): string {
 }
 
 export function proxy(request: NextRequest) {
+  // Static discovery files and media do not require language negotiation.
+  if (/\.(xml|txt|mp4|zip|json|md)$/i.test(request.nextUrl.pathname)) return NextResponse.next();
   const existing = request.cookies.get(LANGUAGE_COOKIE)?.value;
   const explicit = request.nextUrl.searchParams.get("lang");
   if (!SUPPORTED.includes(explicit ?? "") && existing && SUPPORTED.includes(existing)) return NextResponse.next();

@@ -1,3 +1,5 @@
+import { DeferredVideo } from "@/components/deferred-video";
+import { detailUI } from "@/lib/project-specs";
 import Image from "next/image";
 import { ArrowUpRight, CalendarDays, MapPin, Mic2, Radio, Waves } from "lucide-react";
 import type { Language } from "@/lib/translations";
@@ -55,7 +57,7 @@ export function OnOffFestivalSection({ language }: { language: Language }) {
           <div className="flex flex-col sm:flex-row gap-3"><a href="https://www.youtube.com/watch?v=Et51ZgcMuR8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-pink-400 px-6 py-3.5 font-semibold text-black hover:bg-pink-300 transition-colors"><Mic2 size={17} />{t.interview}<ArrowUpRight size={15} /></a><a href="https://onoffmusicfestival.com/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card/50 px-6 py-3.5 font-semibold hover:bg-card transition-colors">{t.festival}<ArrowUpRight size={15} /></a></div>
         </div>
         <div className="relative self-center m-4 lg:ml-0 lg:mr-8 rounded-2xl overflow-hidden border border-pink-400/20 bg-black shadow-[0_30px_80px_rgba(0,0,0,.35)]">
-          <iframe className="block w-full aspect-video" src="https://www.youtube-nocookie.com/embed/Et51ZgcMuR8?rel=0&modestbranding=1" title={t.video} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+          <DeferredVideo id="Et51ZgcMuR8" title={t.video} label={detailUI[language].video} />
           <div className="pointer-events-none absolute top-5 left-5 inline-flex items-center gap-2 rounded-full bg-black/70 px-3 py-2 text-xs text-white backdrop-blur"><Radio size={13} /><Waves size={13} /> FITEL TELEVISIÓ</div>
         </div>
       </div>

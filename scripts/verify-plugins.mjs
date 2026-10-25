@@ -12,8 +12,12 @@ const {pluginCopy,pluginDownload,pluginSha256}=await import(`data:text/javascrip
 for(const [lang,copy] of Object.entries(pluginCopy)) {
  for(const path of ['/plugins','/plugins/celeste-parallel','/blog/celeste-parallel-vst3']) {
   const r=await fetch(base+path,{headers:{Cookie:`portfolio-language=${lang}`}}); assert.equal(r.status,200);
-  const h=await r.text(); assert.ok(h.includes(copy.download)); assert.ok(h.includes(pluginDownload)); assert.ok(h.includes(`lang="${lang}"`)); assert.ok(h.includes(`https://www.cesco.dev${path}`));
-  if(path!='/plugins') {assert.ok(h.includes(copy.install)); assert.ok(h.includes(copy.controls)); assert.ok(h.includes(copy.storyTitle)); assert.ok(h.includes('<audio'));}
+  const h=await r.text(); if (!path.startsWith("/blog/")) { assert.ok(h.includes(copy.download)); assert.ok(h.includes(pluginDownload)); } assert.ok(h.includes(`lang="${lang}"`)); assert.ok(h.includes(`https://www.cesco.dev${path}`));
+  if(path!='/plugins') {
+    assert.ok(h.includes(copy.storyTitle)); assert.ok(h.includes('<audio'));
+    if (path.startsWith('/blog/')) { assert.ok(h.includes('/plugins/celeste-parallel')); assert.ok(!h.includes('id="installation"')); }
+    else { assert.ok(h.includes(copy.install)); assert.ok(h.includes(copy.controls)); assert.ok(!h.includes(copy.story[0])); }
+  }
  }
  console.log(`${lang}: plugin index, documentation and blog passed`);
 }
