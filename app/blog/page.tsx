@@ -10,7 +10,7 @@ import { findUpdate, updateUI } from "@/lib/project-updates";
 
 export const metadata: Metadata = {
   title: "Cuaderno de laboratorio | Hardware, DSP e instrumentos | Cesco.dev",
-  description: "Revisión de octubre de 2026: Eurorack Parts, monitor solar ESP32-S3, CELESTE Perform y mejoras de RED808. Proyectos, pruebas e imágenes del laboratorio.",
+  description: "Semana del 19–25 de octubre de 2026: buggy K8, Kayak Frame, firmware solar ESP32-S3 y concepto MATRIX. Datos, imágenes y documentación del laboratorio.",
   alternates: { canonical: "https://cesco.dev/blog" },
   openGraph: {
     title: "Cuaderno de laboratorio — del cable al campo acústico",

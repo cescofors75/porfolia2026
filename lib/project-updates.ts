@@ -7,65 +7,65 @@ export type ProjectUpdate = { slug: string; publishedAt?: string; updatedAt?: st
 export const updateUI = {
   "es": {
     "title": "Octubre en el laboratorio",
-    "intro": "Revisión del 12–18 de octubre: Eurorack Parts y monitor solar, junto a avances anteriores de CELESTE y RED808 incorporados ahora.",
+    "intro": "Semana del 19–25 de octubre: buggy K8, Kayak Frame, firmware solar y el concepto MATRIX. Diseño, piezas reales y próximos ensayos.",
     "project": "Explorar proyecto",
     "article": "Leer la historia",
     "back": "Volver al portfolio",
     "blog": "Volver al blog",
     "status": "Estado y próximos pasos",
-    "latest": "Revisión semanal · 18 octubre 2026",
+    "latest": "Revisión semanal · 25 octubre 2026",
     "archive": "Archivo de la primera generación. Descubre RED808 V2: P4 + Daisy por USB.",
     "source": "Código y documentación",
     "period": "Revisión actualizada el 24 de septiembre de 2026"
   },
   "ca": {
     "title": "Octubre al laboratori",
-    "intro": "Revisió del 12–18 d’octubre: Eurorack Parts i monitor solar, amb avenços anteriors de CELESTE i RED808 incorporats ara.",
+    "intro": "Setmana del 19–25 d’octubre: buggy K8, Kayak Frame, firmware solar i el concepte MATRIX. Disseny, peces reals i pròxims assajos.",
     "project": "Explorar el projecte",
     "article": "Llegir la història",
     "back": "Tornar al portafolis",
     "blog": "Tornar al blog",
     "status": "Estat i pròxims passos",
-    "latest": "Revisió setmanal · 18 octubre 2026",
+    "latest": "Revisió setmanal · 25 octubre 2026",
     "archive": "Arxiu de la primera generació. Descobreix RED808 V2: P4 + Daisy per USB.",
     "source": "Codi i documentació",
     "period": "Revisió actualitzada el 24 de setembre de 2026"
   },
   "en": {
     "title": "October in the lab",
-    "intro": "12–18 October review: Eurorack Parts and solar monitoring, plus earlier CELESTE and RED808 developments added to the site.",
+    "intro": "19–25 October: K8 buggy, Kayak Frame, solar firmware and the MATRIX concept. Designs, real parts and the next trials.",
     "project": "Explore project",
     "article": "Read the story",
     "back": "Back to portfolio",
     "blog": "Back to blog",
     "status": "Status and next steps",
-    "latest": "Weekly review · 18 October 2026",
+    "latest": "Weekly review · 25 October 2026",
     "archive": "First-generation archive. Discover RED808 V2: P4 + Daisy over USB.",
     "source": "Code and documentation",
     "period": "Review updated on 24 September 2026"
   },
   "fr": {
     "title": "Octobre au laboratoire",
-    "intro": "Revue du 12–18 octobre : Eurorack Parts et suivi solaire, avec les avancées antérieures de CELESTE et RED808 ajoutées au site.",
+    "intro": "Semaine du 19–25 octobre : buggy K8, Kayak Frame, firmware solaire et concept MATRIX. Conception, pièces réelles et prochains essais.",
     "project": "Explorer le projet",
     "article": "Lire le récit",
     "back": "Retour au portfolio",
     "blog": "Retour au blog",
     "status": "État et prochaines étapes",
-    "latest": "Revue hebdomadaire · 18 octobre 2026",
+    "latest": "Revue hebdomadaire · 25 octobre 2026",
     "archive": "Archives de la première génération. Découvrez RED808 V2 : P4 + Daisy par USB.",
     "source": "Code et documentation",
     "period": "Revue actualisée le 24 septembre 2026"
   },
   "de": {
     "title": "Oktober im Labor",
-    "intro": "Rückblick 12.–18. Oktober: Eurorack Parts und Solarüberwachung sowie frühere CELESTE- und RED808-Fortschritte, die jetzt auf der Website erscheinen.",
+    "intro": "19.–25. Oktober: K8-Buggy, Kayak Frame, Solar-Firmware und das MATRIX-Konzept. Entwürfe, echte Bauteile und nächste Versuche.",
     "project": "Projekt entdecken",
     "article": "Beitrag lesen",
     "back": "Zurück zum Portfolio",
     "blog": "Zurück zum Blog",
     "status": "Stand und nächste Schritte",
-    "latest": "Wochenrückblick · 18. Oktober 2026",
+    "latest": "Wochenrückblick · 25. Oktober 2026",
     "archive": "Archiv der ersten Generation. RED808 V2 entdecken: P4 + Daisy über USB.",
     "source": "Code und Dokumentation",
     "period": "Aktualisiert am 24. September 2026"
@@ -73,6 +73,227 @@ export const updateUI = {
 } satisfies Record<Language, Record<string,string>>;
 
 export const projectUpdates: ProjectUpdate[] = [
+  {
+    "slug": "k8-buggy",
+    "name": "K8 · CESCO3D",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "stack": [
+      "CadQuery",
+      "STL / STEP",
+      "3MF",
+      "M3",
+      "FDM"
+    ],
+    "image": "/updates/2026-10/k8-workbench.jpeg",
+    "secondaryImage": "/updates/2026-10/k8-cad.png",
+    "copy": {
+      "es": {
+        "title": "K8: del chasis CAD al banco de montaje",
+        "summary": "Un buggy en evolución: chasis tubular, piezas impresas y adaptadores para integrar la mecánica y la electrónica existentes.",
+        "body": [
+          "Entre el 21 y el 24 de octubre, K8 pasa del archivo de diseño al banco de trabajo. El paquete R1 documenta un chasis de 200 × 80 × 65 mm, una alternativa monobloque y un kit de diez piezas con techo desmontable y bandeja de electrónica. Incluye STL, STEP, placas 3MF y probetas de insertos M3.",
+          "La semana continúa con adaptadores para motores TT, trapecios, soportes de eje y torretas delanteras. La fotografía muestra el montaje real en curso; el despiece CAD corresponde al kit R1. El trabajo consiste en ajustar cada pieza a los componentes disponibles y comprobar encajes antes de cerrar el conjunto."
+        ],
+        "status": "Prototipo en montaje. Las comprobaciones geométricas del paquete no equivalen a pruebas de conducción, resistencia o suspensión. Las nuevas piezas requieren ensayo físico.",
+        "caption": "Fotografía real del banco de montaje del buggy K8, compartida el 24 de octubre.",
+        "period": "Revisión del 25 de octubre de 2026",
+        "secondaryCaption": "Despiece CAD del kit R1 de diez piezas; no es una fotografía del montaje."
+      },
+      "ca": {
+        "title": "K8: del xassís CAD al banc de muntatge",
+        "summary": "Un buggy en evolució: xassís tubular, peces impreses i adaptadors per integrar la mecànica i l’electrònica existents.",
+        "body": [
+          "Entre el 21 i el 24 d’octubre, K8 passa del disseny al banc de treball. El paquet R1 documenta un xassís de 200 × 80 × 65 mm, una alternativa monobloc i un kit de deu peces amb sostre desmuntable i safata d’electrònica. Inclou STL, STEP, plaques 3MF i provetes d’inserts M3.",
+          "La setmana continua amb adaptadors per a motors TT, trapezis, suports d’eix i torretes davanteres. La fotografia mostra el muntatge real en curs; l’especejament CAD correspon al kit R1. Cada peça s’ajusta als components disponibles abans de tancar el conjunt."
+        ],
+        "status": "Prototip en muntatge. Les comprovacions geomètriques no equivalen a proves de conducció, resistència o suspensió. Les peces noves requereixen assaig físic.",
+        "caption": "Fotografia real del banc de muntatge del buggy K8, compartida el 24 d’octubre.",
+        "period": "Revisió del 25 d’octubre de 2026",
+        "secondaryCaption": "Especejament CAD del kit R1 de deu peces; no és una fotografia del muntatge."
+      },
+      "en": {
+        "title": "K8: from CAD chassis to the assembly bench",
+        "summary": "A buggy taking shape through a tubular chassis, printed parts and adapters for the existing mechanical and electronic components.",
+        "body": [
+          "From 21 to 24 October, K8 moves from design files to the workbench. The R1 package documents a 200 × 80 × 65 mm chassis, a monoblock option and a ten-part kit with a removable roof and electronics tray. It includes STL, STEP, 3MF plates and M3 insert coupons.",
+          "The week adds TT motor adapters, suspension arms, axle supports and front shock towers. The photograph shows the actual assembly in progress; the CAD exploded view belongs to the R1 kit. Each part is being matched to the available components and checked for fit before final assembly."
+        ],
+        "status": "Prototype under assembly. Package geometry checks are not driving, strength or suspension tests. New parts still require physical trials.",
+        "caption": "Actual K8 assembly workbench, photographed and shared on 24 October.",
+        "period": "Reviewed on 25 October 2026",
+        "secondaryCaption": "CAD exploded view of the ten-part R1 kit, not an assembly photograph."
+      },
+      "fr": {
+        "title": "K8 : du châssis CAO à l’établi",
+        "summary": "Un buggy en évolution : châssis tubulaire, pièces imprimées et adaptateurs pour la mécanique et l’électronique existantes.",
+        "body": [
+          "Du 21 au 24 octobre, K8 passe des fichiers à l’établi. Le paquet R1 documente un châssis de 200 × 80 × 65 mm, une variante monobloc et un kit de dix pièces avec toit amovible et plateau électronique. Il comprend STL, STEP, plaques 3MF et éprouvettes pour inserts M3.",
+          "La semaine apporte des adaptateurs pour moteurs TT, triangles, supports d’essieu et tours d’amortisseurs avant. La photo montre le montage réel en cours ; la vue éclatée CAO appartient au kit R1. Chaque pièce est adaptée aux composants disponibles avant l’assemblage final."
+        ],
+        "status": "Prototype en cours de montage. Les contrôles géométriques ne constituent pas des essais de conduite, de résistance ou de suspension. Les nouvelles pièces restent à tester physiquement.",
+        "caption": "Photographie réelle du montage du buggy K8, partagée le 24 octobre.",
+        "period": "Revue du 25 octobre 2026",
+        "secondaryCaption": "Vue éclatée CAO du kit R1 de dix pièces, et non une photographie."
+      },
+      "de": {
+        "title": "K8: vom CAD-Chassis zur Werkbank",
+        "summary": "Ein Buggy entsteht: Rohrrahmen, gedruckte Teile und Adapter für die vorhandene Mechanik und Elektronik.",
+        "body": [
+          "Vom 21. bis 24. Oktober wandert K8 aus den Entwurfsdateien auf die Werkbank. Das R1-Paket dokumentiert ein Chassis mit 200 × 80 × 65 mm, eine Monoblock-Variante und einen zehnteiligen Bausatz mit abnehmbarem Dach und Elektronikträger. STL, STEP, 3MF-Platten und M3-Einsatzproben sind enthalten.",
+          "Hinzu kommen Adapter für TT-Motoren, Querlenker, Achshalter und vordere Dämpferbrücken. Das Foto zeigt den tatsächlichen Aufbau; die CAD-Explosionszeichnung gehört zum R1-Bausatz. Die Teile werden an vorhandene Komponenten angepasst und vor dem Zusammenbau auf Passung geprüft."
+        ],
+        "status": "Prototyp im Aufbau. Geometrieprüfungen sind keine Fahr-, Festigkeits- oder Federungstests. Neue Teile müssen praktisch erprobt werden.",
+        "caption": "Originalfoto der K8-Montage auf der Werkbank, geteilt am 24. Oktober.",
+        "period": "Stand vom 25. Oktober 2026",
+        "secondaryCaption": "CAD-Explosionszeichnung des zehnteiligen R1-Bausatzes, kein Montagefoto."
+      }
+    }
+  },
+  {
+    "slug": "kayak-frame",
+    "name": "Kayak Frame · CESCO3D",
+    "publishedAt": "2026-10-25",
+    "updatedAt": "2026-10-25",
+    "stack": [
+      "CAD",
+      "STL",
+      "FDM",
+      "A1 mini",
+      "M2"
+    ],
+    "image": "/updates/2026-10/kayak-cad.png",
+    "copy": {
+      "es": {
+        "title": "Kayak Frame: una estructura que enseña su construcción",
+        "summary": "Un modelo de kayak a escala para estudiar costillas, largueros y encajes mediante impresión 3D.",
+        "body": [
+          "El 19 de octubre, la línea Kayak Frame llega al paquete 320 V5 ELEGANCE RC1. Contiene 23 STL individuales y tres placas para la cama de 180 × 180 mm de la A1 mini. La vista isométrica procede del propio CAD del paquete.",
+          "La investigación recorre variantes de 160 y 320 mm y una versión monobloque de 170 mm. El objetivo es convertir una estructura compleja en piezas imprimibles y fáciles de montar. El 20 de octubre, la revisión del laminador todavía detecta necesidad de soportes en una variante."
+        ],
+        "status": "Prototipo a escala pendiente de validación física. Los nombres de archivo «sin soportes» no garantizan la impresión: encajes, orientación y soportes deben comprobarse en cada variante.",
+        "caption": "Vista CAD de Kayak Frame 320 V5 ELEGANCE RC1. Modelo a escala, no fotografía de una embarcación construida.",
+        "period": "Revisión del 25 de octubre de 2026"
+      },
+      "ca": {
+        "title": "Kayak Frame: una estructura que mostra com es construeix",
+        "summary": "Un model de caiac a escala per estudiar costelles, llarguers i encaixos amb impressió 3D.",
+        "body": [
+          "El 19 d’octubre, Kayak Frame arriba al paquet 320 V5 ELEGANCE RC1. Conté 23 STL individuals i tres plaques per al llit de 180 × 180 mm de l’A1 mini. La vista isomètrica prové del CAD del paquet.",
+          "La recerca recorre variants de 160 i 320 mm i una versió monobloc de 170 mm. L’objectiu és dividir una estructura complexa en peces imprimibles i fàcils de muntar. El 20 d’octubre, la revisió del laminador encara detecta necessitat de suports en una variant."
+        ],
+        "status": "Prototip a escala pendent de validació física. Els noms «sense suports» no garanteixen la impressió: cal comprovar encaixos, orientació i suports en cada variant.",
+        "caption": "Vista CAD de Kayak Frame 320 V5 ELEGANCE RC1. Model a escala, no fotografia d’una embarcació construïda.",
+        "period": "Revisió del 25 d’octubre de 2026"
+      },
+      "en": {
+        "title": "Kayak Frame: a structure that reveals its construction",
+        "summary": "A scale kayak model for exploring ribs, stringers and joints through 3D printing.",
+        "body": [
+          "On 19 October, Kayak Frame reaches the 320 V5 ELEGANCE RC1 package. It contains 23 individual STL files and three plates for the A1 mini’s 180 × 180 mm bed. The isometric view comes from the package’s own CAD.",
+          "The exploration spans 160 and 320 mm variants and a 170 mm monoblock version. The aim is to divide a complex structure into printable, accessible assemblies. A slicer review on 20 October still identifies a need for supports in one variant."
+        ],
+        "status": "Scale prototype awaiting physical validation. “No supports” filenames do not guarantee printability: fit, orientation and supports must be checked for each variant.",
+        "caption": "CAD view of Kayak Frame 320 V5 ELEGANCE RC1. A scale model, not a photograph of a completed boat.",
+        "period": "Reviewed on 25 October 2026"
+      },
+      "fr": {
+        "title": "Kayak Frame : une structure qui révèle sa construction",
+        "summary": "Une maquette de kayak pour explorer couples, longerons et assemblages par impression 3D.",
+        "body": [
+          "Le 19 octobre, Kayak Frame atteint le paquet 320 V5 ELEGANCE RC1. Il contient 23 STL individuels et trois plaques pour le plateau de 180 × 180 mm de l’A1 mini. La vue isométrique provient de la CAO du paquet.",
+          "La recherche parcourt des variantes de 160 et 320 mm et une version monobloc de 170 mm. Le but est de diviser une structure complexe en pièces imprimables et faciles à assembler. Le 20 octobre, le contrôle dans le logiciel de découpe indique encore des supports nécessaires pour une variante."
+        ],
+        "status": "Maquette en attente de validation physique. Les noms « sans supports » ne garantissent pas l’impression : ajustements, orientation et supports restent à vérifier pour chaque variante.",
+        "caption": "Vue CAO de Kayak Frame 320 V5 ELEGANCE RC1. Maquette, et non photographie d’un bateau construit.",
+        "period": "Revue du 25 octobre 2026"
+      },
+      "de": {
+        "title": "Kayak Frame: Konstruktion sichtbar machen",
+        "summary": "Ein Kajakmodell zur Untersuchung von Spanten, Längsträgern und Verbindungen durch 3D-Druck.",
+        "body": [
+          "Am 19. Oktober erreicht Kayak Frame das Paket 320 V5 ELEGANCE RC1. Es enthält 23 einzelne STL-Dateien und drei Platten für das 180 × 180 mm große Druckbett des A1 mini. Die isometrische Ansicht stammt aus dem CAD des Pakets.",
+          "Untersucht werden Varianten mit 160 und 320 mm sowie eine 170-mm-Monoblock-Version. Ziel sind druckbare und leicht montierbare Teile einer komplexen Struktur. Bei einer Slicer-Prüfung am 20. Oktober benötigt eine Variante weiterhin Stützstrukturen."
+        ],
+        "status": "Maßstabsmodell ohne abgeschlossene physische Validierung. Dateinamen mit „ohne Stützen“ garantieren keine Druckbarkeit: Passung, Orientierung und Stützen sind je Variante zu prüfen.",
+        "caption": "CAD-Ansicht von Kayak Frame 320 V5 ELEGANCE RC1. Ein Maßstabsmodell, kein Foto eines gebauten Bootes.",
+        "period": "Stand vom 25. Oktober 2026"
+      }
+    }
+  },
+  {
+    "slug": "monitor-solar-esp32",
+    "name": "Monitor solar · ESP32-S3",
+    "stack": [
+      "ESP32-S3",
+      "C++",
+      "PlatformIO",
+      "I²C",
+      "Wi-Fi / HTTP",
+      "GT911"
+    ],
+    "image": "/updates/2026-10/solar-bench.jpeg",
+    "updatedAt": "2026-10-25",
+    "copy": {
+      "es": {
+        "title": "Primer firmware de diagnóstico solar",
+        "summary": "Pantalla táctil de 1024 × 600, acceso Wi-Fi local y API de estado: una base de software para integrar las medidas solares.",
+        "body": [
+          "El repositorio solar-monitor incorpora su primera versión el 20 de octubre y una reorganización de pantalla el día 22. El firmware está preparado para Waveshare ESP32-S3 Touch LCD 7B y reutiliza sus controladores de pantalla, táctil GT911 y expansor.",
+          "El código incluye un punto de acceso Wi-Fi, una interfaz web local y /api/status. La pantalla alterna información de red y diagnóstico I²C. Las medidas se mantienen sin valor: -- en la web y null en la API. La identificación de los sensores INA226/INA228 y su calibración siguen pendientes."
+        ],
+        "status": "Firmware y servidor web pendientes de validación en el dispositivo. No hay medidas calibradas ni control de cargas. La fotografía conserva el banco solar de partida.",
+        "caption": "Fotografía del montaje solar existente: regulador y banco de baterías.",
+        "period": "Revisión del 25 de octubre de 2026"
+      },
+      "ca": {
+        "title": "Primer firmware de diagnòstic solar",
+        "summary": "Pantalla tàctil de 1024 × 600, accés Wi-Fi local i API d’estat: una base de programari per integrar les mesures solars.",
+        "body": [
+          "El repositori solar-monitor incorpora la primera versió el 20 d’octubre i una reorganització de pantalla el dia 22. El firmware es prepara per a Waveshare ESP32-S3 Touch LCD 7B amb els seus controladors de pantalla, tàctil GT911 i expansor.",
+          "El codi inclou un punt d’accés Wi-Fi, una interfície web local i /api/status. La pantalla alterna informació de xarxa i diagnòstic I²C. Les mesures continuen sense valor: -- al web i null a l’API. Identificació i calibratge dels INA226/INA228 pendents."
+        ],
+        "status": "Firmware i servidor web pendents de validació al dispositiu. No hi ha mesures calibrades ni control de càrregues. La fotografia correspon al banc solar inicial.",
+        "caption": "Fotografia del muntatge solar existent: regulador i banc de bateries.",
+        "period": "Revisió del 25 d’octubre de 2026"
+      },
+      "en": {
+        "title": "First solar diagnostic firmware",
+        "summary": "A 1024 × 600 touchscreen, local Wi-Fi access and a status API provide the software foundation for solar measurements.",
+        "body": [
+          "The solar-monitor repository adds its first version on 20 October and refactors the display on 22 October. Firmware targets the Waveshare ESP32-S3 Touch LCD 7B using its display, GT911 touch and expander drivers.",
+          "The code includes a Wi-Fi access point, a local web interface and /api/status. The screen switches between network information and I²C diagnostics. Measurements remain unavailable: -- on the web and null in the API. INA226/INA228 identification and calibration are pending."
+        ],
+        "status": "Firmware and web server await on-device validation. No calibrated measurements or load control are available. The photograph shows the original solar workbench.",
+        "caption": "Photograph of the existing solar setup: controller and battery bank.",
+        "period": "Reviewed on 25 October 2026"
+      },
+      "fr": {
+        "title": "Premier firmware de diagnostic solaire",
+        "summary": "Écran tactile de 1024 × 600, accès Wi-Fi local et API d’état : une base logicielle pour les mesures solaires.",
+        "body": [
+          "Le dépôt solar-monitor reçoit sa première version le 20 octobre, puis une réorganisation de l’affichage le 22. Le firmware cible la Waveshare ESP32-S3 Touch LCD 7B avec ses pilotes d’écran, de tactile GT911 et d’expandeur.",
+          "Le code comprend un point d’accès Wi-Fi, une interface web locale et /api/status. L’écran alterne informations réseau et diagnostic I²C. Les mesures restent indisponibles : -- sur le web et null dans l’API. Identification et étalonnage des INA226/INA228 restent à faire."
+        ],
+        "status": "Firmware et serveur web à valider sur le dispositif. Aucune mesure étalonnée ni commande de charge. La photo montre le banc solaire initial.",
+        "caption": "Photographie du montage solaire existant : régulateur et batteries.",
+        "period": "Revue du 25 octobre 2026"
+      },
+      "de": {
+        "title": "Erste Diagnose-Firmware für den Solarmonitor",
+        "summary": "1024 × 600 Touchscreen, lokales WLAN und Status-API bilden die Softwarebasis für Solarmessungen.",
+        "body": [
+          "Das Repository solar-monitor erhält am 20. Oktober seine erste Version und am 22. Oktober eine Überarbeitung der Anzeige. Die Firmware zielt auf das Waveshare ESP32-S3 Touch LCD 7B mit dessen Display-, GT911-Touch- und Expander-Treibern.",
+          "Der Code umfasst einen WLAN-Zugangspunkt, eine lokale Weboberfläche und /api/status. Der Bildschirm wechselt zwischen Netzwerkinformationen und I²C-Diagnose. Messwerte bleiben leer: -- im Web und null in der API. Identifikation und Kalibrierung der INA226/INA228 stehen noch aus."
+        ],
+        "status": "Firmware und Webserver müssen am Gerät validiert werden. Keine kalibrierten Messwerte oder Laststeuerung. Das Foto zeigt den ursprünglichen Solaraufbau.",
+        "caption": "Foto des vorhandenen Solaraufbaus mit Regler und Batteriebank.",
+        "period": "Stand vom 25. Oktober 2026"
+      }
+    },
+    "portrait": true,
+    "publishedAt": "2026-10-18"
+  },
   {
     "slug": "eurorack-parts",
     "name": "Eurorack Parts · CESCO3D",
@@ -84,143 +305,76 @@ export const projectUpdates: ProjectUpdate[] = [
       "Impresión 3D"
     ],
     "image": "/updates/2026-10/eurorack-print.jpeg",
-    "updatedAt": "2026-10-18",
+    "updatedAt": "2026-10-25",
     "copy": {
       "es": {
         "title": "Del diseño modular a la primera impresión",
         "summary": "Una biblioteca de piezas para explorar estructuras Eurorack, con modelos CAD, probetas y un catálogo digital en preparación.",
         "body": [
-          "La revisión de esta semana reúne diseño mecánico y fabricación: raíles, uniones y accesorios organizados en una biblioteca V1.0-RC1. El archivo local contiene 53 modelos de catálogo, con variantes M2.5 y M3, exportaciones STL y STEP y documentación de montaje.",
-          "El informe del paquete registra 53 mallas cerradas y geometrías BREP válidas. Los ensamblajes de referencia superan las comprobaciones de interferencias. La fotografía muestra una impresión en curso; la imagen CAD corresponde a una placa de piezas del bastidor de demostración. El catálogo web se encuentra en preparación."
+          "La revisión del 18 de octubre reúne diseño mecánico y fabricación: raíles, uniones y accesorios organizados en una biblioteca V1.0-RC1. El archivo local contiene 53 modelos de catálogo, con variantes M2.5 y M3, exportaciones STL y STEP y documentación de montaje.",
+          "El informe del paquete registra 53 mallas cerradas y geometrías BREP válidas. Los ensamblajes de referencia superan las comprobaciones de interferencias. La fotografía muestra una impresión en curso; la imagen CAD corresponde a una placa de piezas del bastidor de demostración. El catálogo web se encuentra en preparación.",
+          "El 24 de octubre aparece una nueva dirección: MATRIX, una base modular con tapas intercambiables en impresión 3D, aluminio o madera. La propuesta explora varios formatos y crecimiento por módulos 3U; por ahora es un concepto de diseño, sin fabricación ni compatibilidad confirmadas."
         ],
         "status": "Las comprobaciones geométricas no certifican tolerancias de impresión, resistencia ni compatibilidad universal con módulos Eurorack. La validación física del conjunto y la publicación del catálogo independiente siguen pendientes.",
         "caption": "Fotografía del proceso de impresión 3D compartida durante el desarrollo de Eurorack Parts.",
-        "period": "Revisión del 18 de octubre de 2026",
+        "period": "Revisión del 25 de octubre de 2026",
         "secondaryCaption": "Vista CAD de las piezas del bastidor de demostración M2.5 · biblioteca V1.0-RC1."
       },
       "ca": {
         "title": "Del disseny modular a la primera impressió",
         "summary": "Una biblioteca de peces per explorar estructures Eurorack, amb models CAD, provetes i un catàleg digital en preparació.",
         "body": [
-          "La revisió d’aquesta setmana reuneix disseny mecànic i fabricació: rails, unions i accessoris en una biblioteca V1.0-RC1. El paquet local conté 53 models, variants M2.5 i M3, exportacions STL i STEP i documentació de muntatge.",
-          "L’informe registra 53 malles tancades i geometries BREP vàlides. Els muntatges de referència superen les comprovacions d’interferències. La fotografia mostra una impressió en curs; la imatge CAD correspon a una placa de peces del bastidor de demostració. El catàleg web està en preparació."
+          "La revisió del 18 d’octubre reuneix disseny mecànic i fabricació: rails, unions i accessoris en una biblioteca V1.0-RC1. El paquet local conté 53 models, variants M2.5 i M3, exportacions STL i STEP i documentació de muntatge.",
+          "L’informe registra 53 malles tancades i geometries BREP vàlides. Els muntatges de referència superen les comprovacions d’interferències. La fotografia mostra una impressió en curs; la imatge CAD correspon a una placa de peces del bastidor de demostració. El catàleg web està en preparació.",
+          "El 24 d’octubre apareix una nova direcció: MATRIX, una base modular amb tapes intercanviables impreses en 3D, d’alumini o de fusta. La proposta explora formats i creixement per mòduls 3U; és un concepte de disseny, sense fabricació ni compatibilitat confirmades."
         ],
         "status": "La comprovació geomètrica no certifica toleràncies, resistència ni compatibilitat universal amb mòduls Eurorack. La validació física del conjunt i la publicació del catàleg independent continuen pendents.",
         "caption": "Fotografia del procés d’impressió 3D compartida durant el desenvolupament d’Eurorack Parts.",
-        "period": "Revisió del 18 d’octubre de 2026",
+        "period": "Revisió del 25 d’octubre de 2026",
         "secondaryCaption": "Vista CAD de les peces del bastidor M2.5 · biblioteca V1.0-RC1."
       },
       "en": {
         "title": "From modular design to the first print",
         "summary": "A parts library exploring Eurorack structures, with CAD models, fit coupons and a digital catalogue in preparation.",
         "body": [
-          "This week’s review connects mechanical design and fabrication: rails, joints and accessories in the V1.0-RC1 library. The local package contains 53 catalogue models, M2.5 and M3 variants, STL and STEP exports and assembly documentation.",
-          "The supplied report records 53 watertight meshes and valid BREP geometries. Reference assemblies pass interference checks. The photograph shows a print in progress; the CAD image shows a parts plate for the demonstration frame. The web catalogue is in preparation."
+          "The 18 October review connects mechanical design and fabrication: rails, joints and accessories in the V1.0-RC1 library. The local package contains 53 catalogue models, M2.5 and M3 variants, STL and STEP exports and assembly documentation.",
+          "The supplied report records 53 watertight meshes and valid BREP geometries. Reference assemblies pass interference checks. The photograph shows a print in progress; the CAD image shows a parts plate for the demonstration frame. The web catalogue is in preparation.",
+          "On 24 October, a new direction emerges: MATRIX, a modular base with interchangeable 3D-printed, aluminium or wood covers. The proposal explores different formats and expansion through 3U modules. It remains a design concept, without confirmed fabrication or compatibility."
         ],
         "status": "Geometry checks do not certify print tolerances, strength or universal Eurorack compatibility. Physical validation of the assembly and publication of the standalone catalogue remain pending.",
         "caption": "Photograph of 3D printing in progress, shared during Eurorack Parts development.",
-        "period": "Reviewed on 18 October 2026",
+        "period": "Reviewed on 25 October 2026",
         "secondaryCaption": "CAD view of M2.5 demonstration frame parts · V1.0-RC1 library."
       },
       "fr": {
         "title": "Du modèle modulaire à la première impression",
         "summary": "Une bibliothèque de pièces pour explorer les structures Eurorack, avec modèles CAO, éprouvettes et catalogue numérique en préparation.",
         "body": [
-          "La revue de cette semaine réunit conception mécanique et fabrication : rails, raccords et accessoires dans la bibliothèque V1.0-RC1. Le paquet local contient 53 modèles, des variantes M2.5 et M3, des exports STL et STEP et une documentation de montage.",
-          "Le rapport fourni recense 53 maillages fermés et des géométries BREP valides. Les assemblages de référence passent les contrôles d’interférence. La photo montre une impression en cours ; l’image CAO présente une plaque de pièces du cadre de démonstration. Le catalogue web est en préparation."
+          "La revue du 18 octobre réunit conception mécanique et fabrication : rails, raccords et accessoires dans la bibliothèque V1.0-RC1. Le paquet local contient 53 modèles, des variantes M2.5 et M3, des exports STL et STEP et une documentation de montage.",
+          "Le rapport fourni recense 53 maillages fermés et des géométries BREP valides. Les assemblages de référence passent les contrôles d’interférence. La photo montre une impression en cours ; l’image CAO présente une plaque de pièces du cadre de démonstration. Le catalogue web est en préparation.",
+          "Le 24 octobre apparaît une nouvelle piste : MATRIX, une base modulaire avec panneaux interchangeables imprimés en 3D, en aluminium ou en bois. La proposition explore plusieurs formats et une extension par modules 3U. Il s’agit encore d’un concept, sans fabrication ni compatibilité confirmées."
         ],
         "status": "Ces contrôles ne certifient ni tolérances d’impression, ni résistance, ni compatibilité universelle Eurorack. La validation physique et la publication du catalogue indépendant restent à réaliser.",
         "caption": "Photographie d’une impression 3D en cours, partagée pendant le développement d’Eurorack Parts.",
-        "period": "Revue du 18 octobre 2026",
+        "period": "Revue du 25 octobre 2026",
         "secondaryCaption": "Vue CAO des pièces du cadre M2.5 · bibliothèque V1.0-RC1."
       },
       "de": {
         "title": "Vom modularen Entwurf zum ersten Druck",
         "summary": "Eine Teilebibliothek für Eurorack-Strukturen mit CAD-Modellen, Passproben und einem digitalen Katalog in Vorbereitung.",
         "body": [
-          "Die Wochenübersicht verbindet Konstruktion und Fertigung: Schienen, Verbinder und Zubehör in der Bibliothek V1.0-RC1. Das lokale Paket enthält 53 Katalogmodelle, M2.5- und M3-Varianten, STL- und STEP-Dateien sowie Montageunterlagen.",
-          "Der Bericht dokumentiert 53 geschlossene Netze und gültige BREP-Geometrien. Referenzbaugruppen bestehen die Kollisionsprüfung. Das Foto zeigt einen laufenden Druck; die CAD-Abbildung zeigt eine Teileplatte für den Demonstrationsrahmen. Der Webkatalog wird vorbereitet."
+          "Der Rückblick vom 18. Oktober verbindet Konstruktion und Fertigung: Schienen, Verbinder und Zubehör in der Bibliothek V1.0-RC1. Das lokale Paket enthält 53 Katalogmodelle, M2.5- und M3-Varianten, STL- und STEP-Dateien sowie Montageunterlagen.",
+          "Der Bericht dokumentiert 53 geschlossene Netze und gültige BREP-Geometrien. Referenzbaugruppen bestehen die Kollisionsprüfung. Das Foto zeigt einen laufenden Druck; die CAD-Abbildung zeigt eine Teileplatte für den Demonstrationsrahmen. Der Webkatalog wird vorbereitet.",
+          "Am 24. Oktober entsteht eine neue Richtung: MATRIX, eine modulare Basis mit austauschbaren Abdeckungen aus 3D-Druck, Aluminium oder Holz. Der Entwurf untersucht mehrere Formate und Erweiterungen durch 3U-Module. Fertigung und Kompatibilität sind noch nicht bestätigt."
         ],
         "status": "Geometrieprüfungen bestätigen keine Drucktoleranzen, Belastbarkeit oder universelle Eurorack-Kompatibilität. Physische Baugruppenprüfung und Veröffentlichung des eigenständigen Katalogs stehen noch aus.",
         "caption": "Foto eines laufenden 3D-Drucks aus der Entwicklung von Eurorack Parts.",
-        "period": "Stand vom 18. Oktober 2026",
+        "period": "Stand vom 25. Oktober 2026",
         "secondaryCaption": "CAD-Ansicht der M2.5-Demonstrationsrahmenteile · Bibliothek V1.0-RC1."
       }
     },
     "portrait": true,
     "secondaryImage": "/updates/2026-10/eurorack-cad.png",
-    "publishedAt": "2026-10-18"
-  },
-  {
-    "slug": "monitor-solar-esp32",
-    "name": "Monitor solar · ESP32-S3",
-    "stack": [
-      "ESP32-S3",
-      "INA226 / INA228",
-      "I²C",
-      "Wi-Fi",
-      "PlatformIO"
-    ],
-    "image": "/updates/2026-10/solar-bench.jpeg",
-    "updatedAt": "2026-10-18",
-    "copy": {
-      "es": {
-        "title": "Del regulador solar a un panel de datos",
-        "summary": "Nueva línea de trabajo: reunir las medidas de batería y consumo en una pantalla táctil y una interfaz web local.",
-        "body": [
-          "El montaje de partida ya tiene regulador, baterías y una carga de iluminación. La fotografía documenta ese banco de trabajo. La siguiente etapa propone separar la medida de batería de la medida de consumo con sensores INA228 e INA226 conectados por I²C.",
-          "El 18 de octubre se inicia la preparación del firmware para una Waveshare ESP32-S3 Touch LCD 7B de 1024 × 600, con dashboard táctil y servidor web Wi-Fi. El objetivo es consultar tensión, corriente y potencia sin confundir una lectura del regulador con una medida ya calibrada por los nuevos sensores."
-        ],
-        "status": "Proyecto en preparación. La integración de sensores, calibración, firmware y funcionamiento del dashboard aún no se dan por validados. La imagen es del montaje existente, no de una pantalla ESP32 funcionando.",
-        "caption": "Fotografía del montaje solar existente: regulador y banco de baterías.",
-        "period": "Revisión del 18 de octubre de 2026"
-      },
-      "ca": {
-        "title": "Del regulador solar a un panell de dades",
-        "summary": "Nova línia de treball: reunir les mesures de bateria i consum en una pantalla tàctil i una interfície web local.",
-        "body": [
-          "El muntatge inicial ja té regulador, bateries i il·luminació. La fotografia documenta aquest banc de treball. La fase següent proposa separar la mesura de bateria i consum amb sensors INA228 i INA226 connectats per I²C.",
-          "El 18 d’octubre s’inicia la preparació del firmware per a una Waveshare ESP32-S3 Touch LCD 7B de 1024 × 600, amb dashboard tàctil i servidor web Wi-Fi. L’objectiu és consultar tensió, corrent i potència diferenciant les lectures del regulador de les mesures calibrades dels nous sensors."
-        ],
-        "status": "Projecte en preparació. Sensors, calibratge, firmware i dashboard encara no es donen per validats. La imatge mostra el muntatge existent, no una pantalla ESP32 en funcionament.",
-        "caption": "Fotografia del muntatge solar existent: regulador i banc de bateries.",
-        "period": "Revisió del 18 d’octubre de 2026"
-      },
-      "en": {
-        "title": "From a solar controller to a data dashboard",
-        "summary": "A new workstream to bring battery and load measurements to a touchscreen and a local web interface.",
-        "body": [
-          "The starting setup already has a controller, batteries and a lighting load. The photograph documents this workbench. The next stage proposes separate battery and load measurement using INA228 and INA226 sensors over I²C.",
-          "Firmware preparation began on 18 October for a Waveshare ESP32-S3 Touch LCD 7B at 1024 × 600, with a touch dashboard and Wi-Fi web server. The aim is to inspect voltage, current and power while distinguishing existing controller readings from calibrated measurements by the new sensors."
-        ],
-        "status": "In preparation. Sensor integration, calibration, firmware and dashboard operation are not yet validated. The photograph shows the existing setup, not a working ESP32 dashboard.",
-        "caption": "Photograph of the existing solar setup: controller and battery bank.",
-        "period": "Reviewed on 18 October 2026"
-      },
-      "fr": {
-        "title": "Du régulateur solaire au tableau de données",
-        "summary": "Un nouveau chantier pour réunir les mesures de batterie et de consommation sur écran tactile et interface web locale.",
-        "body": [
-          "Le montage initial comporte un régulateur, des batteries et une charge d’éclairage. La photo documente ce banc de travail. La suite prévoit de séparer les mesures de batterie et de consommation avec des capteurs INA228 et INA226 sur I²C.",
-          "La préparation du firmware commence le 18 octobre pour une Waveshare ESP32-S3 Touch LCD 7B de 1024 × 600, avec tableau tactile et serveur web Wi-Fi. L’objectif est de suivre tension, courant et puissance en distinguant les lectures du régulateur des mesures calibrées des nouveaux capteurs."
-        ],
-        "status": "En préparation. Intégration des capteurs, étalonnage, firmware et tableau de bord ne sont pas encore validés. La photo montre le montage existant, pas un écran ESP32 fonctionnel.",
-        "caption": "Photographie du montage solaire existant : régulateur et batteries.",
-        "period": "Revue du 18 octobre 2026"
-      },
-      "de": {
-        "title": "Vom Solarregler zur Datenanzeige",
-        "summary": "Ein neues Projekt für Batterie- und Verbrauchsmessungen auf einem Touchscreen und in einer lokalen Weboberfläche.",
-        "body": [
-          "Der bestehende Aufbau enthält Regler, Batterien und Beleuchtung als Last. Das Foto dokumentiert diesen Arbeitsplatz. Als nächster Schritt sind getrennte Batterie- und Verbrauchsmessungen mit INA228 und INA226 über I²C vorgesehen.",
-          "Am 18. Oktober beginnt die Firmwarevorbereitung für ein Waveshare ESP32-S3 Touch LCD 7B mit 1024 × 600 Pixeln, Touch-Dashboard und WLAN-Webserver. Spannung, Strom und Leistung sollen sichtbar werden; Regleranzeigen werden dabei von kalibrierten Sensormessungen unterschieden."
-        ],
-        "status": "In Vorbereitung. Sensorintegration, Kalibrierung, Firmware und Dashboard sind noch nicht validiert. Das Foto zeigt den vorhandenen Aufbau, kein funktionierendes ESP32-Dashboard.",
-        "caption": "Foto des vorhandenen Solaraufbaus mit Regler und Batteriebank.",
-        "period": "Stand vom 18. Oktober 2026"
-      }
-    },
-    "portrait": true,
     "publishedAt": "2026-10-18"
   },
   {
