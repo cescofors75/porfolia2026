@@ -39,6 +39,7 @@ export function RotatingWords({ words }: { words: string[] }) {
   const [rotated, setRotated] = useState(false);
 
   useEffect(() => {
+    if (window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches) return;
     const interval = setInterval(() => {
       setRotated(true);
       setIndex((prev) => (prev + 1) % words.length);
@@ -61,11 +62,12 @@ export function RotatingWords({ words }: { words: string[] }) {
 /* ── Animated counter ───────────────────────────────────────── */
 export function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (window.matchMedia("(max-width: 767px), (prefers-reduced-motion: reduce)").matches) return;
 
     let frame = 0;
     const run = () => {
