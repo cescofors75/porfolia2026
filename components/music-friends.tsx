@@ -1,7 +1,7 @@
 import { ArrowUpRight, AudioLines, Disc3, Guitar, Headphones, Heart, Mic2, Music2, Network, Orbit, Radio, RadioTower, SlidersHorizontal, Sparkles, Users, Waves } from "lucide-react";
 import type { Language } from "@/lib/translations";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { EmbedFacade } from "@/components/embed-facade";
 import { musicArtists } from "@/lib/music-network";
 
@@ -136,10 +136,10 @@ const networkCopy = {
   fr: "Explorer la carte et la galaxie",
 } as const;
 
-function ArtistTags({ id }: { id: string }) {
+function ArtistTags({ id, language }: { id: string; language: Language }) {
   const artist = musicArtists.find((item) => item.id === id);
   if (!artist) return null;
-  return <div className="mt-4 flex flex-wrap gap-2">{artist.tags.slice(0, 5).map((tag) => <Link key={tag} href={`/music-friends/mapa?tag=${encodeURIComponent(tag)}`} className="rounded-full border border-white/10 bg-white/[.025] px-2.5 py-1 text-[10px] font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary">{tag}</Link>)}</div>;
+  return <div className="mt-4 flex flex-wrap gap-2">{artist.tags.slice(0, 5).map((tag) => <Link language={language} key={tag} href={`/music-friends/mapa?tag=${encodeURIComponent(tag)}`} className="rounded-full border border-white/10 bg-white/[.025] px-2.5 py-1 text-[10px] font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-primary">{tag}</Link>)}</div>;
 }
 
 const tilloCopy = {
@@ -297,7 +297,7 @@ export function MusicFriends({ language }: { language: Language }) {
           <p className="max-w-3xl text-lg md:text-2xl text-muted-foreground leading-relaxed">
             {t.intro}
           </p>
-          <Link href="/music-friends/mapa" className="mt-7 inline-flex items-center gap-3 rounded-full border border-violet-400/30 bg-violet-500/10 px-5 py-3 text-sm font-bold text-violet-300 transition-all hover:border-violet-300/60 hover:bg-violet-500/20">
+          <Link language={language} href="/music-friends/mapa" className="mt-7 inline-flex items-center gap-3 rounded-full border border-violet-400/30 bg-violet-500/10 px-5 py-3 text-sm font-bold text-violet-300 transition-all hover:border-violet-300/60 hover:bg-violet-500/20">
             <Network size={17} /> {networkCopy[language]} <ArrowUpRight size={15} />
           </Link>
         </header>
@@ -319,7 +319,7 @@ export function MusicFriends({ language }: { language: Language }) {
                   SoundCloud
                 </p>
                 <h2 className="font-display text-3xl font-bold">Noeron</h2>
-                <ArtistTags id="noeron" />
+                <ArtistTags language={language} id="noeron" />
                 <p className="text-sm text-muted-foreground mt-2">{t.noeron}</p>
               </div>
               <Radio className="text-orange-400" />
@@ -359,7 +359,7 @@ export function MusicFriends({ language }: { language: Language }) {
                 <p className="text-sm font-medium text-emerald-400/80 mt-1">
                   Javi Lara
                 </p>
-                <ArtistTags id="limabeatz" />
+                <ArtistTags language={language} id="limabeatz" />
                 <p className="text-sm text-muted-foreground mt-2">{t.lima}</p>
               </div>
               <Headphones className="text-emerald-400" />
@@ -415,7 +415,7 @@ export function MusicFriends({ language }: { language: Language }) {
                 <h3 className="flex items-center gap-3 font-display text-3xl font-bold">
                   <Users className="shrink-0 text-rose-400" size={26} /> Frenetik
                 </h3>
-                <ArtistTags id="francesc" />
+                <ArtistTags language={language} id="francesc" />
                 <p className="mt-4 text-muted-foreground leading-relaxed">
                   {t.francesc}
                 </p>
@@ -444,7 +444,7 @@ export function MusicFriends({ language }: { language: Language }) {
                   BlueCube Records · Techno
                 </p>
                 <h3 className="flex items-center gap-3 font-display text-3xl font-bold"><RadioTower className="shrink-0 text-rose-400" size={26} /> Núria Ghia</h3>
-                <ArtistTags id="nuria" />
+                <ArtistTags language={language} id="nuria" />
                 <p className="mt-4 text-muted-foreground leading-relaxed">
                   {t.nuria}
                 </p>
@@ -497,7 +497,7 @@ export function MusicFriends({ language }: { language: Language }) {
               <h2 className="mt-2 flex items-center gap-3 font-display text-3xl font-bold">
                 <SlidersHorizontal className="shrink-0 text-sky-400" size={27} /> Manel Alsina
               </h2>
-              <ArtistTags id="manel" />
+              <ArtistTags language={language} id="manel" />
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 {t.manel}
               </p>
@@ -539,7 +539,7 @@ export function MusicFriends({ language }: { language: Language }) {
               <h2 className="flex items-center gap-4 font-display text-4xl font-bold md:text-5xl">
                 <Guitar className="shrink-0 text-orange-400" size={34} /> Oriol Vilella
               </h2>
-              <ArtistTags id="oriol" />
+              <ArtistTags language={language} id="oriol" />
               <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
                 {oriolCopy[language]}
               </p>
@@ -568,7 +568,7 @@ export function MusicFriends({ language }: { language: Language }) {
               <h2 className="flex items-center gap-4 font-display text-4xl font-bold md:text-6xl">
                 <AudioLines className="shrink-0 text-cyan-400" size={38} /> Nico Cabañas
               </h2>
-              <ArtistTags id="nico" />
+              <ArtistTags language={language} id="nico" />
               <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed">
                 {nicoCopy[language]}
               </p>
@@ -626,7 +626,7 @@ export function MusicFriends({ language }: { language: Language }) {
                 ElectroniKa · Lloret de Mar
               </p>
               <h2 className="flex items-center gap-3 font-display text-4xl font-bold"><Waves className="shrink-0 text-fuchsia-400" size={31} /> None</h2>
-              <ArtistTags id="none" />
+              <ArtistTags language={language} id="none" />
               <div className="mt-4 flex flex-wrap gap-2">
                 <span className="rounded-full border border-fuchsia-500/25 bg-fuchsia-500/[.06] px-3 py-1 text-xs font-semibold tracking-wide text-fuchsia-300">
                   ANDROPUNK RECORDS
@@ -680,7 +680,7 @@ export function MusicFriends({ language }: { language: Language }) {
               <h2 className="flex items-center gap-3 font-display text-4xl font-bold">
                 <Orbit className="shrink-0 text-violet-400" size={32} /> Replicante Norman
               </h2>
-              <ArtistTags id="replicante" />
+              <ArtistTags language={language} id="replicante" />
               <p className="text-muted-foreground mt-5 leading-relaxed">
                 {replicanteCopy[language]}
               </p>
@@ -765,7 +765,7 @@ export function MusicFriends({ language }: { language: Language }) {
                 Turntablism · Skratch Comando
               </p>
               <h2 className="flex items-center gap-3 font-display text-4xl font-bold"><Disc3 className="shrink-0 text-amber-400" size={32} /> DJ Tillo</h2>
-              <ArtistTags id="tillo" />
+              <ArtistTags language={language} id="tillo" />
               <p className="text-muted-foreground mt-5 leading-relaxed">
                 {tilloCopy[language]}
               </p>
@@ -818,7 +818,7 @@ export function MusicFriends({ language }: { language: Language }) {
               <h2 className="flex items-center gap-4 font-display text-4xl font-bold md:text-5xl">
                 <Mic2 className="shrink-0 text-lime-400" size={34} /> DJ Panda
               </h2>
-              <ArtistTags id="panda" />
+              <ArtistTags language={language} id="panda" />
               <p className="text-muted-foreground mt-6 leading-relaxed">
                 {pandaCopy[language]}
               </p>
@@ -866,7 +866,7 @@ export function MusicFriends({ language }: { language: Language }) {
                 <h3 className="mt-3 flex items-center gap-3 font-display text-4xl font-bold">
                   <Sparkles className="shrink-0 text-emerald-400" size={29} /> Víctor Garnier
                 </h3>
-                <ArtistTags id="victor" />
+                <ArtistTags language={language} id="victor" />
                 <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
                   {victorCopy[language]}
                 </p>
@@ -899,7 +899,7 @@ export function MusicFriends({ language }: { language: Language }) {
                   <h3 className="mt-2 flex items-center gap-3 font-display text-5xl font-bold tracking-tight">
                     <Radio className="shrink-0 text-cyan-400" size={34} /> Alex Klar
                   </h3>
-                  <ArtistTags id="alex" />
+                  <ArtistTags language={language} id="alex" />
                 </div>
               </div>
               <div className="flex flex-1 flex-col border-t border-white/10 p-7">
@@ -949,7 +949,7 @@ export function MusicFriends({ language }: { language: Language }) {
                 <h3 className="mt-3 flex items-center gap-3 font-display text-4xl font-bold">
                   <AudioLines className="shrink-0 text-pink-400" size={30} /> <span>Mae <span className="text-pink-400">&</span> Cítrico</span>
                 </h3>
-                <ArtistTags id="mae-citrico" />
+                <ArtistTags language={language} id="mae-citrico" />
                 <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
                   {maeCitricoCopy[language]}
                 </p>
@@ -1057,7 +1057,7 @@ export function MusicFriends({ language }: { language: Language }) {
                 <h3 className="flex items-center gap-3 font-display text-3xl font-bold">
                   <Heart className="shrink-0 text-white/45" size={24} /> {artist.name}
                 </h3>
-                <ArtistTags id={artist.id} />
+                <ArtistTags language={language} id={artist.id} />
                 <p className="mt-2 text-[11px] uppercase tracking-[.18em] text-white/45">
                   {artist.style}
                 </p>

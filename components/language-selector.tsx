@@ -1,5 +1,6 @@
 'use client';
 
+import { localizedHref } from "@/lib/seo";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Languages, Check } from "lucide-react";
@@ -55,7 +56,7 @@ export function LanguageSelector({ language }: { language: Language }) {
             <div className="space-y-2">
               {languages.map((lang) => (
                 <a
-                  href={`${pathname}?lang=${lang.code}`}
+                  href={localizedHref(pathname, lang.code)}
                   hrefLang={lang.code}
                   lang={lang.code}
                   key={lang.code}

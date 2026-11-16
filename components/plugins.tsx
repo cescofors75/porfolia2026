@@ -2,7 +2,7 @@ import { detailUI } from "@/lib/project-specs";
 import { pluginQuestions } from "@/lib/plugin-questions";
 import { languageUrl } from "@/lib/seo";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { ArrowDownToLine, ArrowUpRight } from "lucide-react";
 import type { Language } from "@/lib/translations";
 import { pluginCopy, pluginDownload, pluginMacDownload, pluginImage, pluginSha256, pluginMacSha256 } from "@/lib/plugins";
@@ -14,9 +14,9 @@ export function PluginCard({ language, blog = false }: { language: Language; blo
     <p className="text-xs uppercase tracking-[.2em] text-primary mb-4">Plugins · Windows + macOS · Tang Control</p>
     <h2 id="plugins-title" className="font-display text-3xl md:text-5xl font-bold mb-6">CELESTE Parallel</h2>
     <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center rounded-3xl border border-primary/20 bg-card/30 p-5 md:p-8">
-      <Link href={detailHref}><Image src={pluginImage} alt={t.imageAlt} width={1181} height={789} sizes="(max-width: 1024px) 100vw, 650px" className="rounded-xl w-full h-auto" /></Link>
+      <Link language={language} href={detailHref}><Image src={pluginImage} alt={t.imageAlt} width={1181} height={789} sizes="(max-width: 1024px) 100vw, 650px" className="rounded-xl w-full h-auto" /></Link>
       <div><h3 className="font-display text-2xl md:text-3xl font-bold mb-4">{t.title}</h3><p className="text-muted-foreground leading-relaxed mb-6">{t.summary}</p>
-        <div className="flex flex-wrap gap-4"><a href={pluginDownload} download className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 font-semibold"><ArrowDownToLine size={18} />{t.download}</a><a href={pluginMacDownload} download className="inline-flex items-center gap-2 rounded-full border border-primary text-primary px-5 py-3 font-semibold"><ArrowDownToLine size={18} />macOS · VST3 / AU</a><Link href={detailHref} className="inline-flex items-center gap-2 text-primary hover:underline">{t.explore}<ArrowUpRight size={18} /></Link></div>
+        <div className="flex flex-wrap gap-4"><a href={pluginDownload} download className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-5 py-3 font-semibold"><ArrowDownToLine size={18} />{t.download}</a><a href={pluginMacDownload} download className="inline-flex items-center gap-2 rounded-full border border-primary text-primary px-5 py-3 font-semibold"><ArrowDownToLine size={18} />macOS · VST3 / AU</a><Link language={language} href={detailHref} className="inline-flex items-center gap-2 text-primary hover:underline">{t.explore}<ArrowUpRight size={18} /></Link></div>
         <p className="text-xs text-muted-foreground mt-4">{t.size}</p>
       </div>
     </div>
@@ -31,15 +31,15 @@ export function PluginArticle({ language, blog = false }: { language: Language; 
     <Image src={pluginImage} alt={t.imageAlt} width={1181} height={789} sizes="(max-width: 896px) 100vw, 896px" className="rounded-xl w-full h-auto" />
     <div className="space-y-6 text-lg leading-relaxed text-muted-foreground mt-10">{t.story.map(p => <p key={p}>{p}</p>)}</div>
     <section className="my-10"><h2 className="text-2xl font-bold mb-4">{t.demo}</h2><p className="text-muted-foreground mb-4">{t.demoText}</p><audio controls preload="none" aria-label={t.demo} className="w-full"><source src="/plugins/celeste-parallel/demo.mp3" type="audio/mpeg" /></audio></section>
-    <nav className="flex flex-wrap gap-5"><Link href={languageUrl("/plugins/celeste-parallel", language)} className="rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold">{detailUI[language].documentation} · Windows / macOS</Link><Link href={languageUrl("/proyectos/celeste-parallel", language)} className="text-primary py-3 hover:underline">{t.hardware}</Link></nav>
+    <nav className="flex flex-wrap gap-5"><Link language={language} href={languageUrl("/plugins/celeste-parallel", language)} className="rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold">{detailUI[language].documentation} · Windows / macOS</Link><Link language={language} href={languageUrl("/proyectos/celeste-parallel", language)} className="text-primary py-3 hover:underline">{t.hardware}</Link></nav>
   </article>;
   return <article className="max-w-6xl mx-auto px-4 pt-32 pb-16">
-    <Link href="/plugins" className="text-sm text-primary hover:underline">← {t.back}</Link>
+    <Link language={language} href="/plugins" className="text-sm text-primary hover:underline">← {t.back}</Link>
     <header className="mt-8 mb-8"><p className="text-xs uppercase tracking-[.2em] text-primary mb-5">Native audio + Tang Control · VST3 / AU</p><h1 className="font-display text-4xl md:text-7xl font-bold mb-5">CELESTE Parallel</h1><p className="text-2xl md:text-3xl mb-5">{t.title}</p><p className="text-lg text-muted-foreground leading-relaxed max-w-3xl">{t.summary}</p>
       <div className="flex flex-wrap gap-4 items-center mt-7"><a href={pluginDownload} download className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 font-semibold"><ArrowDownToLine size={18} />{t.download}</a><a href={pluginMacDownload} download className="inline-flex items-center gap-2 rounded-full border border-primary text-primary px-5 py-3 font-semibold"><ArrowDownToLine size={18} />macOS · VST3 / AU</a><a href="#installation" className="text-primary hover:underline">{t.install}</a></div><p className="text-xs text-muted-foreground mt-4">{t.size}</p>
     </header>
     <Image src={pluginImage} alt={t.imageAlt} width={1181} height={789} loading="lazy" sizes="(max-width: 1152px) 100vw, 1152px" className="w-full h-auto rounded-2xl border border-border/60" />
-    <p className="mt-8"><Link href={languageUrl("/blog/celeste-parallel-vst3", language)} className="text-primary hover:underline">{t.storyTitle} →</Link></p>
+    <p className="mt-8"><Link language={language} href={languageUrl("/blog/celeste-parallel-vst3", language)} className="text-primary hover:underline">{t.storyTitle} →</Link></p>
     <section className="mt-10 max-w-4xl"><h2 className="text-3xl font-bold mb-6">{help.title}</h2><div className="space-y-6">{help.questions.map(([question, answer]) => <div key={question}><h3 className="text-xl font-semibold mb-2">{question}</h3><p className="text-muted-foreground leading-relaxed">{answer}</p></div>)}</div><a href="#demo" className="inline-block mt-5 text-primary hover:underline">{t.demo} ↓</a></section>
     <section id="demo" className="scroll-mt-28 mt-10 rounded-2xl bg-primary/5 border border-primary/20 p-6 md:p-8" aria-labelledby="plugin-demo"><h2 id="plugin-demo" className="text-2xl font-bold mb-3">{t.demo}</h2><p className="text-muted-foreground mb-5">{t.demoText}</p><audio controls preload="none" aria-label={t.demo} className="w-full"><source src="/plugins/celeste-parallel/demo.mp3" type="audio/mpeg" /><a href="/plugins/celeste-parallel/demo.mp3">{t.demo}</a></audio></section>
     <div className="grid lg:grid-cols-2 gap-10 mt-12">

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { ArrowRight, ArrowUpRight, BrainCircuit, CloudOff, Layers3 } from "lucide-react";
 import type { Language } from "@/lib/translations";
 
@@ -14,10 +14,10 @@ export function OpenStemsProject({ language }: { language: Language }) {
   const t = copy[language];
   const cards = [{ icon: CloudOff, title: t.local, text: t.localText }, { icon: BrainCircuit, title: t.model, text: t.modelText }, { icon: Layers3, title: t.workflow, text: t.workflowText }];
   return <article className="py-24 lg:py-32 px-4 pt-32 relative overflow-hidden"><div className="max-w-5xl mx-auto">
-    <Link href="/#portfolio" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8"><ArrowRight size={14} className="rotate-180" /> {t.back}</Link>
+    <Link language={language} href="/#portfolio" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground mb-8"><ArrowRight size={14} className="rotate-180" /> {t.back}</Link>
     <header className="mb-12"><span className="inline-flex px-4 py-2 rounded-full border border-emerald-400/20 bg-emerald-400/5 text-emerald-400 text-xs font-semibold tracking-widest uppercase mb-6">{t.badge}</span><h1 className="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-6 gradient-text-animated">openStems</h1><p className="text-lg md:text-xl text-muted-foreground max-w-3xl leading-relaxed">{t.intro}</p></header>
     <section className="mb-16"><div className="relative aspect-video overflow-hidden rounded-3xl border border-border/50 bg-black elevation-3"><iframe className="absolute inset-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/_5ZUFD1iu-g" title={t.demo} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div><div className="flex flex-col md:flex-row gap-5 justify-between mt-5"><div><h2 className="font-display text-2xl font-bold mb-2">{t.demo}</h2><p className="text-muted-foreground max-w-2xl leading-relaxed">{t.demoText}</p></div><a href="https://www.youtube.com/watch?v=_5ZUFD1iu-g" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-primary whitespace-nowrap">{t.youtube} <ArrowUpRight size={16} /></a></div></section>
     <section className="grid md:grid-cols-3 gap-5 mb-16">{cards.map(({ icon: Icon, title, text }) => <div key={title} className="p-7 rounded-2xl border border-border/50 bg-card/30"><Icon className="text-emerald-400 mb-5" /><h2 className="font-display text-xl font-bold mb-3">{title}</h2><p className="text-sm text-muted-foreground leading-relaxed">{text}</p></div>)}</section>
-    <Link href="/#portfolio" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold">{t.next} <ArrowRight size={17} /></Link>
+    <Link language={language} href="/#portfolio" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-primary text-primary-foreground font-semibold">{t.next} <ArrowRight size={17} /></Link>
   </div></article>;
 }

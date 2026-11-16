@@ -1,5 +1,6 @@
+import { getLanguage } from "@/lib/language-server";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { notFound } from "next/navigation";
 import { caseStudies } from "@/lib/case-studies";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -42,6 +43,7 @@ export default async function CasoDeExitoPage({
   const cs = caseStudies.find((c) => c.slug === slug);
   if (!cs) notFound();
 
+  const language = await getLanguage();
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -63,7 +65,7 @@ export default async function CasoDeExitoPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="max-w-3xl mx-auto">
-        <Link
+        <Link language={language}
           href="/casos-de-exito"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
         >

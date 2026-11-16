@@ -4,9 +4,17 @@ export const SITE_URL = "https://www.cesco.dev";
 export const SEO_LANGUAGES = ["es", "ca", "en", "fr", "de"] as const;
 export const ogLocale = { es: "es_ES", ca: "ca_ES", en: "en_GB", fr: "fr_FR", de: "de_DE" };
 
-// Explicit query URLs work without cookies and preserve existing route links.
+// Spanish uses the established clean URL; other languages have explicit URLs.
 export function languageUrl(path: string, language: Language) {
-  return `${SITE_URL}${path === "/" ? "/" : path}?lang=${language}`;
+  return `${SITE_URL}${localizedHref(path, language)}`;
+}
+
+export function localizedHref(href: string, language: Language) {
+  if (!href.startsWith("/") || href.startsWith("//")) return href;
+  const url = new URL(href, SITE_URL);
+  if (language === "es") url.searchParams.delete("lang");
+  else url.searchParams.set("lang", language);
+  return `${url.pathname}${url.search}${url.hash}`;
 }
 
 export function languageAlternates(path: string, language: Language) {

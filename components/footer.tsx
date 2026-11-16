@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import { translations, type Language } from "@/lib/translations";
@@ -47,7 +47,7 @@ export function Footer({ language }: { language: Language }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 reveal-scroll">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="inline-flex items-center gap-2 mb-4">
+            <Link language={language} href="/" className="inline-flex items-center gap-2 mb-4">
               <div className="relative w-10 h-8 shrink-0">
                 <Image
                   src="/cesco-logo-mark.png"
@@ -74,7 +74,7 @@ export function Footer({ language }: { language: Language }) {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <Link language={language}
                     href={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
                   >

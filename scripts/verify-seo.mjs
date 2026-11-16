@@ -16,14 +16,15 @@ for (const location of locations) {
   assert.equal(response.status, 200, location);
   const html = decode(await response.text());
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/);
-  assert.equal(canonical?.[1], location, `Canonical mismatch: ${location}`);
+  assert.equal(canonical?.[1] && new URL(canonical[1]).href, new URL(location).href, `Canonical mismatch: ${location}`);
   assert.ok(html.match(/<title>[^<]+<\/title>/), location);
   assert.ok(html.match(/<meta name="description" content="[^"]+"/), location);
-  const language = url.searchParams.get('lang');
+  const language = url.searchParams.get('lang') ?? (html.includes('<link rel="alternate" hrefLang=') ? 'es' : null);
   if (language) {
     assert.ok(html.includes(`lang="${language}"`), `URL must override cookie: ${location}`);
     for (const lang of ['es', 'ca', 'en', 'fr', 'de']) {
-      assert.ok(html.includes(`hrefLang="${lang}" href="${origin}${url.pathname}?lang=${lang}"`), `Missing alternate: ${location} ${lang}`);
+      const alternate = html.match(new RegExp(`hrefLang="${lang}" href="([^"]+)"`));
+      assert.equal(alternate?.[1] && new URL(alternate[1]).href, `${origin}${url.pathname}${lang === "es" ? "" : `?lang=${lang}`}`, `Missing alternate: ${location} ${lang}`);
     }
   }
   if (url.pathname === '/blog/k8-buggy' || url.pathname === '/proyectos/k8-buggy') {
@@ -42,3 +43,19 @@ const missing = await fetch(`${base}/proyectos/not-a-real-project?lang=en`);
 assert.equal(missing.status, 404);
 assert.ok((await missing.text()).includes('noindex'));
 console.log(`PASS: ${checked} sitemap destinations, canonical URLs, descriptions, language precedence, hreflang, article schemas, robots and noindex 404`);
+
+// Spanish aliases converge permanently; unrelated filters survive normalization.
+for (const path of ['/', '/blog/celeste-pocket', '/proyectos/monitor-solar-esp32']) {
+  const response = await fetch(`${base}${path}?lang=es&source=test`, {redirect:'manual'});
+  assert.equal(response.status, 308);
+  const target = new URL(response.headers.get('location'), base);
+  assert.equal(target.pathname, path);
+  assert.equal(target.search, '?source=test');
+}
+const english = await (await fetch(`${base}/?lang=en`)).text();
+assert.ok(english.includes('href="/blog?lang=en"'), 'Navigation must preserve English');
+assert.ok(english.includes('href="/proyectos/celeste-parallel?lang=en"'), 'Project cards must preserve English');
+assert.ok(english.includes('href="/?lang=en#portfolio"'), 'Anchor must follow the query');
+const spanish = await (await fetch(base + '/', {headers:{Cookie:'portfolio-language=de', 'Accept-Language':'fr'}})).text();
+assert.ok(spanish.includes('<html lang="es"'), 'Clean URLs must always render Spanish');
+console.log('PASS: permanent Spanish redirects, stable default language and localized navigation');

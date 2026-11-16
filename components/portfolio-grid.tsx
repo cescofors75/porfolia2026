@@ -1,7 +1,7 @@
 import { DeferredVideo } from "@/components/deferred-video";
 import { detailUI } from "@/lib/project-specs";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { TiltCard } from "@/components/tilt-card";
 import { ExternalLink, BookOpen, Lock, Sparkles, ArrowUpRight, Github, Braces, ChartNoAxesCombined, ChefHat, CloudSun, Wine } from "lucide-react";
 import { translations, type Language } from "@/lib/translations";
@@ -232,7 +232,7 @@ export function PortfolioGrid({ language }: { language: Language }) {
                     />
 
                     {/* Image banner */}
-                    <Link
+                    <Link language={language}
                       href={project.link as string}
                       className="relative block aspect-[16/9] overflow-hidden border-b border-border/30"
                     >
@@ -264,7 +264,7 @@ export function PortfolioGrid({ language }: { language: Language }) {
                       </p>
 
                       <div className="flex flex-wrap items-center gap-5">
-                        <Link
+                        <Link language={language}
                           href={project.link as string}
                           className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:gap-3 transition-all duration-300"
                           style={{ color: accentColors[project.accent] || undefined }}
@@ -360,7 +360,7 @@ export function PortfolioGrid({ language }: { language: Language }) {
                     {"noLink" in project && project.noLink && !project.link ? null : project.link ? (
                       <>
                         {project.link.startsWith("/") ? (
-                          <Link
+                          <Link language={language}
                             href={project.link}
                             className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-3 transition-all duration-300"
                             style={{

@@ -1,6 +1,6 @@
 'use client';
 
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
@@ -76,7 +76,7 @@ export function Navbar({ language }: { language: Language }) {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link language={language} href="/" className="flex items-center gap-3 group">
               <div className="relative w-12 h-10 shrink-0 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/cesco-logo-mark.png"
@@ -95,7 +95,7 @@ export function Navbar({ language }: { language: Language }) {
             {/* Desktop Menu */}
             <div className="hidden xl:flex items-center gap-1">
               {menuItems.map((item) => (
-                <Link
+                <Link language={language}
                   key={item.href}
                   href={item.href}
                   className="relative px-2 2xl:px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 group"
@@ -141,7 +141,7 @@ export function Navbar({ language }: { language: Language }) {
             <div className="mobile-menu-inner">
               <div className="py-4 space-y-1 border-t border-border/50">
                   {menuItems.map((item) => (
-                    <Link
+                    <Link language={language}
                       key={item.href}
                       href={item.href}
                       className="block px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-muted/50 rounded-lg transition-colors"

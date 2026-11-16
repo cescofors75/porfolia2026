@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { ArrowRight, Images } from "lucide-react";
 import type { Language } from "@/lib/translations";
 
@@ -12,5 +12,5 @@ const copy = {
 
 export function GalleryHeader({ language }: { language: Language }) {
   const t = copy[language];
-  return <header className="mb-14 md:mb-20"><span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-[.24em] mb-5"><Images size={15} /> {t.eyebrow}</span><h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-7">{t.line1}<br /><span className="gradient-text-animated">{t.line2}</span></h1><div className="flex flex-col md:flex-row md:items-end justify-between gap-6"><p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">{t.body}</p><Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-primary">{t.link} <ArrowRight size={16} /></Link></div></header>;
+  return <header className="mb-14 md:mb-20"><span className="inline-flex items-center gap-2 text-xs font-semibold text-primary uppercase tracking-[.24em] mb-5"><Images size={15} /> {t.eyebrow}</span><h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-7">{t.line1}<br /><span className="gradient-text-animated">{t.line2}</span></h1><div className="flex flex-col md:flex-row md:items-end justify-between gap-6"><p className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">{t.body}</p><Link language={language} href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-primary">{t.link} <ArrowRight size={16} /></Link></div></header>;
 }

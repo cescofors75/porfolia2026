@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { ArrowLeft, Crosshair, Network, Orbit, RotateCcw, Sparkles } from "lucide-react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
@@ -179,7 +179,7 @@ export function MusicRelationshipExplorer({ language, initialTag = null }: { lan
     <div className="pointer-events-none absolute inset-x-0 top-0 h-[760px] bg-[radial-gradient(circle_at_10%_8%,rgba(100,76,255,.2),transparent_34%),radial-gradient(circle_at_84%_22%,rgba(0,174,255,.12),transparent_32%)]" />
     <div className="pointer-events-none absolute left-1/2 top-40 h-px w-[82vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-violet-400/30 to-transparent" />
     <div className="relative mx-auto max-w-[1480px]">
-      <Link href="/music-friends" className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:-translate-x-1"><ArrowLeft size={16} />{t.back}</Link>
+      <Link language={language} href="/music-friends" className="mb-10 inline-flex items-center gap-2 text-sm font-semibold text-primary transition hover:-translate-x-1"><ArrowLeft size={16} />{t.back}</Link>
       <header className="mb-10 grid gap-8 lg:grid-cols-[1fr_360px] lg:items-end"><div><p className="mb-4 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.28em] text-violet-300"><Sparkles size={15} />{t.eyebrow}</p><h1 className="gradient-text-animated font-display text-5xl font-bold tracking-[-.055em] md:text-7xl lg:text-[6.4rem] lg:leading-[.9]">{t.title}</h1></div><p className="max-w-xl border-l border-violet-300/30 pl-5 text-base leading-relaxed text-muted-foreground md:text-lg">{t.intro}</p></header>
       <section className="mb-6 rounded-[1.6rem] border border-white/10 bg-white/[.025] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,.04)] backdrop-blur-xl md:flex md:items-center md:justify-between">
         <div className="flex gap-2"><button onClick={() => setMode("map")} aria-pressed={mode === "map"} className={`inline-flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold transition md:flex-none ${mode === "map" ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white shadow-[0_8px_30px_rgba(111,76,255,.35)]" : "text-muted-foreground hover:bg-white/5 hover:text-white"}`}><Network size={16} />{t.map}</button><button onClick={() => setMode("galaxy")} aria-pressed={mode === "galaxy"} className={`inline-flex flex-1 items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-bold transition md:flex-none ${mode === "galaxy" ? "bg-gradient-to-r from-violet-500 to-fuchsia-500 text-white shadow-[0_8px_30px_rgba(182,70,255,.3)]" : "text-muted-foreground hover:bg-white/5 hover:text-white"}`}><Orbit size={16} />{t.galaxy}</button></div>

@@ -5,38 +5,17 @@ const SUPPORTED = ["ca", "es", "en", "de", "fr"];
 const DEFAULT = "es";
 const ONE_YEAR = 60 * 60 * 24 * 365;
 
-/**
- * Fija la cookie de idioma en la primera visita a partir de Accept-Language.
- *
- * Es el equivalente en servidor de lo que antes hacía navigator.language en el
- * cliente: así el HTML ya sale en el idioma correcto y no hace falta que se
- * hidrate nada para saber en qué idioma renderizar.
- */
-function pickLanguage(header: string | null): string {
-  if (!header) return DEFAULT;
-  const candidates = header
-    .split(",")
-    .map((part) => {
-      const [tag, q] = part.trim().split(";q=");
-      return { tag: tag.trim().toLowerCase(), q: q ? parseFloat(q) : 1 };
-    })
-    .sort((a, b) => b.q - a.q);
-
-  for (const { tag } of candidates) {
-    const base = tag.split("-")[0];
-    if (SUPPORTED.includes(base)) return base;
-  }
-  return DEFAULT;
-}
-
 export function proxy(request: NextRequest) {
   // Static discovery files and media do not require language negotiation.
   if (/\.(xml|txt|mp4|zip|json|md)$/i.test(request.nextUrl.pathname)) return NextResponse.next();
-  const existing = request.cookies.get(LANGUAGE_COOKIE)?.value;
   const explicit = request.nextUrl.searchParams.get("lang");
-  if (!SUPPORTED.includes(explicit ?? "") && existing && SUPPORTED.includes(existing)) return NextResponse.next();
-
-  const language = explicit && SUPPORTED.includes(explicit) ? explicit : existing && SUPPORTED.includes(existing) ? existing : pickLanguage(request.headers.get("accept-language"));
+  if (explicit === "es") {
+    const target = request.nextUrl.clone();
+    target.searchParams.delete("lang");
+    return NextResponse.redirect(target, 308);
+  }
+  // URL determines content, regardless of browser preferences or stale cookies.
+  const language = explicit && SUPPORTED.includes(explicit) ? explicit : DEFAULT;
 
   // La cookie se refleja también en la petición actual para que este mismo
   // render ya use el idioma detectado, no sólo el siguiente.

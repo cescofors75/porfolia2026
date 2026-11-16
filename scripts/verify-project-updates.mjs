@@ -14,7 +14,7 @@ for (const language of Object.keys(updateUI)) {
     assert.ok(project.copy[language].body.length >= 2);
     for (const section of ['proyectos', 'blog']) {
       const path = `/${section}/${project.slug}`;
-      const response = await fetch(base + path, { headers: { Cookie: `portfolio-language=${language}` } });
+      const response = await fetch(base + path + (language === "es" ? "" : `?lang=${language}`), { headers: { Cookie: `portfolio-language=${language}` } });
       assert.equal(response.status, 200, `${language} ${path}`);
       const html = decode(await response.text());
       assert.ok(html.includes(project.copy[language].summary), `Missing translated summary: ${language} ${path}`);

@@ -1,5 +1,6 @@
+import { getLanguage } from "@/lib/language-server";
 import type { Metadata } from "next";
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { caseStudies } from "@/lib/case-studies";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 
@@ -18,12 +19,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CasosDeExitoPage() {
+export default async function CasosDeExitoPage() {
+  const language = await getLanguage();
   return (
     <section className="py-24 lg:py-32 px-4 pt-32">
       <div className="max-w-5xl mx-auto">
         <div className="mb-16 md:mb-20">
-          <Link
+          <Link language={language}
             href="/"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
           >
@@ -49,7 +51,7 @@ export default function CasosDeExitoPage() {
 
         <div className="space-y-5">
           {caseStudies.map((cs) => (
-            <Link
+            <Link language={language}
               key={cs.slug}
               href={`/casos-de-exito/${cs.slug}`}
               className="group block p-6 md:p-8 rounded-2xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:bg-card/60 hover:-translate-y-1 elevation-1 hover:elevation-2"

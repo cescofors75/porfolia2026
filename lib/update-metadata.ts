@@ -8,7 +8,7 @@ export function updateMetadata(project: ProjectUpdate, language: Language, blog 
   const path = `/${blog ? "blog" : "proyectos"}/${project.slug}`;
   const url = languageUrl(path, language);
   return {
-    title: `${blog ? copy.title : project.name} | Cesco.dev`, description: copy.summary,
+    title: `${blog ? copy.title : `${project.name} · ${project.stack.slice(0, 2).join(" / ")}`} | Cesco.dev`, description: copy.summary,
     alternates: languageAlternates(path, language),
     twitter: { card: project.image ? "summary_large_image" : "summary", title: copy.title, description: copy.summary, images: project.image ? [project.image] : [] },
     openGraph: { title: copy.title, description: copy.summary, url, type: "article", publishedTime: project.publishedAt ?? reviewDate, modifiedTime: project.updatedAt ?? reviewDate, locale: ogLocale[language], ...(project.image ? { images: [{ url: project.image, alt: copy.caption ?? project.name }] } : {}) },

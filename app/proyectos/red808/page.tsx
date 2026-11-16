@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { ArrowRight, ArrowUpRight, Github, Quote } from "lucide-react";
 import { getLanguage } from "@/lib/language-server";
 import { updateUI } from "@/lib/project-updates";
@@ -44,8 +44,8 @@ export default async function Red808Page() {
   return (
     <article className="py-24 lg:py-32 px-4 pt-32 relative overflow-hidden">
       <div className="max-w-5xl mx-auto">
-        <Link href="/proyectos/red808-v2" className="block mb-8 p-5 rounded-xl border border-primary/30 bg-primary/10 text-primary">{updateUI[language].archive} →</Link>
-        <Link
+        <Link language={language} href="/proyectos/red808-v2" className="block mb-8 p-5 rounded-xl border border-primary/30 bg-primary/10 text-primary">{updateUI[language].archive} →</Link>
+        <Link language={language}
           href="/#portfolio"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
         >
@@ -310,7 +310,7 @@ export default async function Red808Page() {
               className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
             />
           </a>
-          <Link
+          <Link language={language}
             href="/#portfolio"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 border border-border bg-card/50 text-foreground rounded-full font-semibold hover:bg-card hover:border-primary/30 transition-all duration-300"
           >

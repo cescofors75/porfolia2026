@@ -2,7 +2,7 @@ import { languageAlternates, languageUrl, ogLocale } from "@/lib/seo";
 import { PluginCard } from "@/components/plugins";
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/localized-link";
 import { ArrowRight, CalendarDays, CircuitBoard, Cpu, Radio, Waves } from "lucide-react";
 import { BlogLocaleSync } from "@/components/blog-locale-sync";
 import { getLanguage } from "@/lib/language-server";
@@ -291,7 +291,7 @@ export default async function BlogPage() {
 
             <section id="celestial-field" className="scroll-mt-28 relative p-8 md:p-14 lg:p-16 rounded-[2rem] border border-primary/20 bg-card/40 overflow-hidden">
               <div className="absolute -right-20 -top-24 w-96 h-96 rounded-full bg-primary/15 blur-3xl" />
-              <div className="relative"><div className="flex gap-3 mb-7 text-primary"><CircuitBoard /><Cpu /><Radio /><Waves /></div><p className="text-xs uppercase tracking-[.22em] text-primary font-semibold mb-4">{updateUI[language].latest}</p><h2 className="font-display text-4xl md:text-6xl font-bold mb-7">CELESTE · Parallel Fabric</h2><p className="text-xl leading-relaxed max-w-3xl mb-8">{celeste.summary}</p><Link href="/proyectos/celeste-parallel" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold">{updateUI[language].project}<ArrowRight size={17} /></Link></div>
+              <div className="relative"><div className="flex gap-3 mb-7 text-primary"><CircuitBoard /><Cpu /><Radio /><Waves /></div><p className="text-xs uppercase tracking-[.22em] text-primary font-semibold mb-4">{updateUI[language].latest}</p><h2 className="font-display text-4xl md:text-6xl font-bold mb-7">CELESTE · Parallel Fabric</h2><p className="text-xl leading-relaxed max-w-3xl mb-8">{celeste.summary}</p><Link language={language} href="/proyectos/celeste-parallel" className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold">{updateUI[language].project}<ArrowRight size={17} /></Link></div>
             </section>
           </div>
         </div>
