@@ -57,5 +57,5 @@ assert.ok(english.includes('href="/blog?lang=en"'), 'Navigation must preserve En
 assert.ok(english.includes('href="/proyectos/celeste-parallel?lang=en"'), 'Project cards must preserve English');
 assert.ok(english.includes('href="/?lang=en#portfolio"'), 'Anchor must follow the query');
 const spanish = await (await fetch(base + '/', {headers:{Cookie:'portfolio-language=de', 'Accept-Language':'fr'}})).text();
-assert.ok(spanish.includes('<html lang="es"'), 'Clean URLs must always render Spanish');
+assert.ok( /<html\b[^>]*\blang="es"/.test(spanish), 'Clean URLs must always render Spanish');
 console.log('PASS: permanent Spanish redirects, stable default language and localized navigation');
